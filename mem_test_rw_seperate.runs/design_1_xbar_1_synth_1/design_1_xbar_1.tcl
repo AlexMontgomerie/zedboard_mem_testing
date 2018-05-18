@@ -17,6 +17,7 @@ proc create_report { reportName command } {
   }
 }
 set_param xicom.use_bs_reader 1
+set_param tcl.collectionResultDisplayLimit 0
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 create_project -in_memory -part xc7z020clg484-1
@@ -30,11 +31,15 @@ set_property parent.project_path /home/juju/mem_test_rw_seperate/mem_test_rw_sep
 set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property board_part em.avnet.com:zed:part0:1.3 [current_project]
-set_property ip_repo_paths /home/juju/vivado_test/stream_test_ip [current_project]
+set_property board_part xilinx.com:zc702:part0:1.3 [current_project]
+set_property ip_repo_paths {
+  /home/juju/vivado_test/stream_test_ip
+  /home/juju/mem_test_rw_seperate/ip
+} [current_project]
 set_property ip_output_repo /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_ip -quiet /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_xbar_1/design_1_xbar_1.xci
+set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_xbar_1/design_1_xbar_1_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -44,6 +49,8 @@ read_ip -quiet /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc dont_touch.xdc
+set_property used_in_implementation false [get_files dont_touch.xdc]
 
 set cached_ip [config_ip_cache -export -no_bom -use_project_ipc -dir /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.runs/design_1_xbar_1_synth_1 -new_name design_1_xbar_1 -ip [get_ips design_1_xbar_1]]
 

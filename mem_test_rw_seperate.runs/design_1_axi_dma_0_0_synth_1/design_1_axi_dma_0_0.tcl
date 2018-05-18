@@ -31,8 +31,11 @@ set_property parent.project_path /home/juju/mem_test_rw_seperate/mem_test_rw_sep
 set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property board_part em.avnet.com:zed:part0:1.3 [current_project]
-set_property ip_repo_paths /home/juju/vivado_test/stream_test_ip [current_project]
+set_property board_part xilinx.com:zc702:part0:1.3 [current_project]
+set_property ip_repo_paths {
+  /home/juju/vivado_test/stream_test_ip
+  /home/juju/mem_test_rw_seperate/ip
+} [current_project]
 set_property ip_output_repo /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_ip -quiet /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_axi_dma_0_0/design_1_axi_dma_0_0.xci

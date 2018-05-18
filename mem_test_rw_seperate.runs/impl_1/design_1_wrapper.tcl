@@ -66,13 +66,17 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param xicom.use_bs_reader 1
+  set_param tcl.collectionResultDisplayLimit 0
   create_project -in_memory -part xc7z020clg484-1
-  set_property board_part em.avnet.com:zed:part0:1.3 [current_project]
+  set_property board_part xilinx.com:zc702:part0:1.3 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
   set_property webtalk.parent_dir /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.cache/wt [current_project]
   set_property parent.project_path /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.xpr [current_project]
-  set_property ip_repo_paths /home/juju/vivado_test/stream_test_ip [current_project]
+  set_property ip_repo_paths {
+  /home/juju/vivado_test/stream_test_ip
+  /home/juju/mem_test_rw_seperate/ip
+} [current_project]
   set_property ip_output_repo /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]

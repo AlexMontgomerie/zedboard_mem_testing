@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Wed May 16 17:47:22 2018
+# Process ID: 21890
+# Current directory: /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/sim/verilog
+# Command line: wbtcv -mode batch -source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/sim/verilog/xsim.dir/mem_hw/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/sim/verilog/webtalk.log
+# Journal file: /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/sim/verilog/webtalk.jou
+#-----------------------------------------------------------
+source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/sim/verilog/xsim.dir/mem_hw/webtalk/xsim_webtalk.tcl -notrace

@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Mon May  7 16:51:52 2018
+// Date        : Fri May 11 16:50:57 2018
 // Host        : alex-HP-Compaq-Elite-8300-CMT running 64-bit Ubuntu 16.04.4 LTS
 // Command     : write_verilog -force -mode synth_stub -rename_top design_1_auto_pc_1 -prefix
 //               design_1_auto_pc_1_ design_1_auto_pc_1_stub.v
