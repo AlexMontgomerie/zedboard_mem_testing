@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:BoundaryCRC="0x4988067392A56E88" bd:bdsource="SBD" bd:device="xc7z020clg484-1" bd:isScoped="true" bd:isValidated="true" bd:synthFlowMode="None" bd:tool_version="2017.4" bd:top="bd_36cd" bd:version="1.00.a">
+<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:BoundaryCRC="0xE42CE5DDFE1C9C4A" bd:bdsource="SBD" bd:device="xc7z020clg484-1" bd:isScoped="true" bd:isValidated="true" bd:synthFlowMode="None" bd:tool_version="2017.4" bd:top="bd_36cd" bd:version="1.00.a">
 
   <spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
     <spirit:vendor>xilinx.com</spirit:vendor>
@@ -228,7 +228,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>MAX_BURST_LENGTH</spirit:name>
-            <spirit:value>256</spirit:value>
+            <spirit:value>32</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
                 <bd:configElementInfo bd:valueSource="default"/>
@@ -299,7 +299,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>TDATA_NUM_BYTES</spirit:name>
-            <spirit:value>8</spirit:value>
+            <spirit:value>4</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
                 <bd:configElementInfo bd:valueSource="default"/>
@@ -398,7 +398,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>LAYERED_METADATA</spirit:name>
-            <spirit:value>xilinx.com:interface:datatypes:1.0 {CLK {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 64} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 64 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 4} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TUSER_WIDTH 1}</spirit:value>
+            <spirit:value>xilinx.com:interface:datatypes:1.0 {CLK {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 32 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TUSER_WIDTH 1}</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
                 <bd:configElementInfo bd:valueSource="default"/>
@@ -415,7 +415,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>TDATA_NUM_BYTES</spirit:name>
-            <spirit:value>8</spirit:value>
+            <spirit:value>4</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
                 <bd:configElementInfo bd:valueSource="default"/>
@@ -697,17 +697,17 @@
           <spirit:configurableElementValue spirit:referenceId="C_PROBE39_WIDTH">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE38_WIDTH">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE37_WIDTH">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE36_WIDTH">8</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE35_WIDTH">64</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE36_WIDTH">4</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE35_WIDTH">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE34_WIDTH">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE33_WIDTH">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE32_WIDTH">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE31_WIDTH">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE30_WIDTH">8</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE29_WIDTH">8</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE30_WIDTH">4</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE29_WIDTH">4</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE28_WIDTH">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE27_WIDTH">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE26_WIDTH">64</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE26_WIDTH">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE25_WIDTH">3</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE24_WIDTH">2</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE23_WIDTH">2</spirit:configurableElementValue>
@@ -783,12 +783,12 @@
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_2_AXIS_TUSER_WIDTH">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_2_AXIS_TDEST_WIDTH">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_2_AXIS_TID_WIDTH">0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_SLOT_2_AXIS_TDATA_WIDTH">64</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_SLOT_2_AXIS_TDATA_WIDTH">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_2_AXI_PROTOCOL">AXI4S</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_1_AXIS_TUSER_WIDTH">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_1_AXIS_TDEST_WIDTH">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_1_AXIS_TID_WIDTH">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_SLOT_1_AXIS_TDATA_WIDTH">64</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_SLOT_1_AXIS_TDATA_WIDTH">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_1_AXI_PROTOCOL">AXI4S</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_0_AXI_PROTOCOL">AXI4</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_0_AXI_ID_WIDTH">1</spirit:configurableElementValue>

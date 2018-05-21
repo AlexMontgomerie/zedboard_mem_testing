@@ -82,21 +82,21 @@ module `AUTOTB_TOP;
 
 parameter AUTOTB_TRANSACTION_NUM = 2;
 parameter PROGRESS_TIMEOUT = 10000000;
-parameter LATENCY_ESTIMATION = 262147;
-parameter LENGTH_out_V_data_V = 262144;
-parameter LENGTH_out_V_keep_V = 262144;
-parameter LENGTH_out_V_strb_V = 262144;
-parameter LENGTH_out_V_user_V = 262144;
-parameter LENGTH_out_V_last_V = 262144;
-parameter LENGTH_out_V_id_V = 262144;
-parameter LENGTH_out_V_dest_V = 262144;
-parameter LENGTH_in_V_data_V = 262144;
-parameter LENGTH_in_V_keep_V = 262144;
-parameter LENGTH_in_V_strb_V = 262144;
-parameter LENGTH_in_V_user_V = 262144;
-parameter LENGTH_in_V_last_V = 262144;
-parameter LENGTH_in_V_id_V = 262144;
-parameter LENGTH_in_V_dest_V = 262144;
+parameter LATENCY_ESTIMATION = 8388099;
+parameter LENGTH_out_V_data_V = 8388096;
+parameter LENGTH_out_V_keep_V = 8388096;
+parameter LENGTH_out_V_strb_V = 8388096;
+parameter LENGTH_out_V_user_V = 8388096;
+parameter LENGTH_out_V_last_V = 8388096;
+parameter LENGTH_out_V_id_V = 8388096;
+parameter LENGTH_out_V_dest_V = 8388096;
+parameter LENGTH_in_V_data_V = 8388096;
+parameter LENGTH_in_V_keep_V = 8388096;
+parameter LENGTH_in_V_strb_V = 8388096;
+parameter LENGTH_in_V_user_V = 8388096;
+parameter LENGTH_in_V_last_V = 8388096;
+parameter LENGTH_in_V_id_V = 8388096;
+parameter LENGTH_in_V_dest_V = 8388096;
 parameter LENGTH_test_init_arr_V = 512;
 
 task read_token;
@@ -127,14 +127,14 @@ reg AESL_done_delay2 = 0;
 reg AESL_ready_delay = 0;
 wire ready;
 wire ready_wire;
-wire [12 : 0] CONTROL_BUS_AWADDR;
+wire [11 : 0] CONTROL_BUS_AWADDR;
 wire  CONTROL_BUS_AWVALID;
 wire  CONTROL_BUS_AWREADY;
 wire  CONTROL_BUS_WVALID;
 wire  CONTROL_BUS_WREADY;
 wire [31 : 0] CONTROL_BUS_WDATA;
 wire [3 : 0] CONTROL_BUS_WSTRB;
-wire [12 : 0] CONTROL_BUS_ARADDR;
+wire [11 : 0] CONTROL_BUS_ARADDR;
 wire  CONTROL_BUS_ARVALID;
 wire  CONTROL_BUS_ARREADY;
 wire  CONTROL_BUS_RVALID;
@@ -145,16 +145,16 @@ wire  CONTROL_BUS_BVALID;
 wire  CONTROL_BUS_BREADY;
 wire [1 : 0] CONTROL_BUS_BRESP;
 wire  CONTROL_BUS_INTERRUPT;
-wire [63 : 0] out_r_TDATA;
-wire [7 : 0] out_r_TKEEP;
-wire [7 : 0] out_r_TSTRB;
+wire [31 : 0] out_r_TDATA;
+wire [3 : 0] out_r_TKEEP;
+wire [3 : 0] out_r_TSTRB;
 wire [0 : 0] out_r_TUSER;
 wire [0 : 0] out_r_TLAST;
 wire [0 : 0] out_r_TID;
 wire [0 : 0] out_r_TDEST;
-wire [63 : 0] in_r_TDATA;
-wire [7 : 0] in_r_TKEEP;
-wire [7 : 0] in_r_TSTRB;
+wire [31 : 0] in_r_TDATA;
+wire [3 : 0] in_r_TKEEP;
+wire [3 : 0] in_r_TSTRB;
 wire [0 : 0] in_r_TUSER;
 wire [0 : 0] in_r_TLAST;
 wire [0 : 0] in_r_TID;
@@ -376,7 +376,7 @@ AESL_axi_s_in_r AESL_AXI_S_in_r(
     .done(in_r_done),
     .transaction(in_r_transaction));
 
-assign in_r_ready = in_r_ready_reg | ready_initial;
+assign in_r_ready = ready;
 assign in_r_done = 0;
 
 assign in_r_TVALID = axi_s_in_r_TVALID;
@@ -476,6 +476,68 @@ initial begin
     forever #`AUTOTB_CLOCK_PERIOD_DIV2 AESL_clock = ~AESL_clock;
 end
 
+initial begin : gen_com_proc
+    integer fp;
+    reg [127  : 0] token;
+    reg [127  : 0] token_transaction_idx;
+    integer get_com_int;
+    integer i;
+    integer n_wrapc;
+    integer n_wrapc_pc;
+    integer ret;
+
+    n_wrapc = 0;
+    n_wrapc_pc = 0;
+    while(1) begin
+        @(posedge AESL_clock)
+        if(AESL_done_delay2 === 1 && n_wrapc_pc < AUTOTB_TRANSACTION_NUM) begin
+            fp =$fopen("../wrapc_pc/com_wrapc_pc.tcl","w");
+            while(fp == 0) begin
+                $fclose(fp);
+                fp =$fopen("../wrapc_pc/com_wrapc_pc.tcl","w");
+            end
+            $fdisplay(fp,"set trans_num_wrapc_pc %0d\n", n_wrapc_pc);
+            $fclose(fp);
+            n_wrapc_pc = n_wrapc_pc + 1;
+        end
+        if(ready_wire === 1 && n_wrapc < AUTOTB_TRANSACTION_NUM ) begin
+            fp =$fopen("../wrapc_tv/com_rtl_ready.tcl","w");
+            while(fp == 0) begin
+                $fclose(fp);
+                fp =$fopen("../wrapc_tv/com_rtl_ready.tcl","w");
+            end
+            $fdisplay(fp,"set trans_num_rtl %0d\n", n_wrapc);
+            $fclose(fp);
+            n_wrapc = n_wrapc + 1;
+        end
+        # 0.19;
+        if(ready_wire === 1 && n_wrapc < AUTOTB_TRANSACTION_NUM ) begin
+            fp =$fopen("../wrapc_tv/com_wrapc.tcl","r");
+            while(fp == 0) begin
+                $fclose(fp);
+                fp =$fopen("../wrapc_tv/com_wrapc.tcl","r");
+            end
+               read_token(fp, token);
+               read_token(fp, token);
+               read_token(fp, token_transaction_idx);
+            ret = $sscanf(token_transaction_idx, "%d", get_com_int);
+              while (token != "trans_num_wrapc" || ret != 1 || get_com_int < n_wrapc) begin
+                $fclose(fp);
+                fp =$fopen("../wrapc_tv/com_wrapc.tcl","r");
+                while(fp == 0) begin
+                    $fclose(fp);
+                    fp =$fopen("../wrapc_tv/com_wrapc.tcl","r");
+                end
+                   read_token(fp, token);
+                   read_token(fp, token);
+                   read_token(fp, token_transaction_idx);
+                ret = $sscanf(token_transaction_idx, "%d", get_com_int);
+            end
+            $fclose(fp);
+        end
+
+    end
+end
 
 reg end_out_V_data_V;
 reg [31:0] size_out_V_data_V;
@@ -622,314 +684,6 @@ begin
           interface_done = 0;
   end
 end
-    
-    initial begin : proc_gen_axis_internal_ready_in_r
-        in_r_ready_reg = 0;
-        @ (posedge ready_initial);
-        forever begin
-            @ (ap_c_n_tvin_trans_num_in_V_data_V or in_r_transaction);
-            if (ap_c_n_tvin_trans_num_in_V_data_V > in_r_transaction) begin
-                in_r_ready_reg = 1;
-            end else begin
-                in_r_ready_reg = 0;
-            end
-        end
-    end
-    
-    `define STREAM_SIZE_IN_in_V_data_V "../tv/stream_size/stream_size_in_in_V_data_V.dat"
-    
-    initial begin : gen_ap_c_n_tvin_trans_num_in_V_data_V
-        integer fp_in_V_data_V;
-        reg [127:0] token_in_V_data_V;
-        integer ret;
-        
-        ap_c_n_tvin_trans_num_in_V_data_V = 0;
-        end_in_V_data_V = 0;
-        wait (AESL_reset === 1);
-        
-        fp_in_V_data_V = $fopen(`STREAM_SIZE_IN_in_V_data_V, "r");
-        if(fp_in_V_data_V == 0) begin
-            $display("Failed to open file \"%s\"!", `STREAM_SIZE_IN_in_V_data_V);
-            $finish;
-        end
-        read_token(fp_in_V_data_V, token_in_V_data_V); // should be [[[runtime]]]
-        if (token_in_V_data_V != "[[[runtime]]]") begin
-            $display("ERROR: token_in_V_data_V != \"[[[runtime]]]\"");
-            $finish;
-        end
-        size_in_V_data_V = 0;
-        size_in_V_data_V_backup = 0;
-        while (size_in_V_data_V == 0 && end_in_V_data_V == 0) begin
-            ap_c_n_tvin_trans_num_in_V_data_V = ap_c_n_tvin_trans_num_in_V_data_V + 1;
-            read_token(fp_in_V_data_V, token_in_V_data_V); // should be [[transaction]] or [[[/runtime]]]
-            if (token_in_V_data_V == "[[transaction]]") begin
-                read_token(fp_in_V_data_V, token_in_V_data_V); // should be transaction number
-                read_token(fp_in_V_data_V, token_in_V_data_V); // should be size for hls::stream
-                ret = $sscanf(token_in_V_data_V, "%d", size_in_V_data_V);
-                if (size_in_V_data_V > 0) begin
-                    size_in_V_data_V_backup = size_in_V_data_V;
-                end
-                read_token(fp_in_V_data_V, token_in_V_data_V); // should be [[/transaction]]
-            end else if (token_in_V_data_V == "[[[/runtime]]]") begin
-                $fclose(fp_in_V_data_V);
-                end_in_V_data_V = 1;
-            end else begin
-                $display("ERROR: unknown token_in_V_data_V");
-                $finish;
-            end
-        end
-        forever begin
-            @ (posedge AESL_clock);
-            if (end_in_V_data_V == 0) begin
-                if (in_r_TREADY == 1) begin
-                    if (size_in_V_data_V > 0) begin
-                        size_in_V_data_V = size_in_V_data_V - 1;
-                        while (size_in_V_data_V == 0 && end_in_V_data_V == 0) begin
-                            ap_c_n_tvin_trans_num_in_V_data_V = ap_c_n_tvin_trans_num_in_V_data_V + 1;
-                            read_token(fp_in_V_data_V, token_in_V_data_V); // should be [[transaction]] or [[[/runtime]]]
-                            if (token_in_V_data_V == "[[transaction]]") begin
-                                read_token(fp_in_V_data_V, token_in_V_data_V); // should be transaction number
-                                read_token(fp_in_V_data_V, token_in_V_data_V); // should be size for hls::stream
-                                ret = $sscanf(token_in_V_data_V, "%d", size_in_V_data_V);
-                                if (size_in_V_data_V > 0) begin
-                                    size_in_V_data_V_backup = size_in_V_data_V;
-                                end
-                                read_token(fp_in_V_data_V, token_in_V_data_V); // should be [[/transaction]]
-                            end else if (token_in_V_data_V == "[[[/runtime]]]") begin
-                                size_in_V_data_V = size_in_V_data_V_backup;
-                                $fclose(fp_in_V_data_V);
-                                end_in_V_data_V = 1;
-                            end else begin
-                                $display("ERROR: unknown token_in_V_data_V");
-                                $finish;
-                            end
-                        end
-                    end
-                end
-            end else begin
-                if (in_r_TREADY == 1) begin
-                    if (size_in_V_data_V > 0) begin
-                        size_in_V_data_V = size_in_V_data_V - 1;
-                        if (size_in_V_data_V == 0) begin
-                            ap_c_n_tvin_trans_num_in_V_data_V = ap_c_n_tvin_trans_num_in_V_data_V + 1;
-                            size_in_V_data_V = size_in_V_data_V_backup;
-                        end
-                    end
-                end
-            end
-        end
-    end
-    
-
-reg dump_tvout_finish_out_V_data_V;
-
-initial begin : dump_tvout_runtime_sign_out_V_data_V
-    integer fp;
-    dump_tvout_finish_out_V_data_V = 0;
-    fp = $fopen(`AUTOTB_TVOUT_out_V_data_V_out_wrapc, "w");
-    if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_out_V_data_V_out_wrapc);
-        $display("ERROR: Simulation using HLS TB failed.");
-        $finish;
-    end
-    $fdisplay(fp,"[[[runtime]]]");
-    $fclose(fp);
-    wait (done_cnt == AUTOTB_TRANSACTION_NUM);
-    // last transaction is saved at negedge right after last done
-    @ (posedge AESL_clock);
-    @ (posedge AESL_clock);
-    @ (posedge AESL_clock);
-    fp = $fopen(`AUTOTB_TVOUT_out_V_data_V_out_wrapc, "a");
-    if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_out_V_data_V_out_wrapc);
-        $display("ERROR: Simulation using HLS TB failed.");
-        $finish;
-    end
-    $fdisplay(fp,"[[[/runtime]]]");
-    $fclose(fp);
-    dump_tvout_finish_out_V_data_V = 1;
-end
-
-
-reg dump_tvout_finish_out_V_keep_V;
-
-initial begin : dump_tvout_runtime_sign_out_V_keep_V
-    integer fp;
-    dump_tvout_finish_out_V_keep_V = 0;
-    fp = $fopen(`AUTOTB_TVOUT_out_V_keep_V_out_wrapc, "w");
-    if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_out_V_keep_V_out_wrapc);
-        $display("ERROR: Simulation using HLS TB failed.");
-        $finish;
-    end
-    $fdisplay(fp,"[[[runtime]]]");
-    $fclose(fp);
-    wait (done_cnt == AUTOTB_TRANSACTION_NUM);
-    // last transaction is saved at negedge right after last done
-    @ (posedge AESL_clock);
-    @ (posedge AESL_clock);
-    @ (posedge AESL_clock);
-    fp = $fopen(`AUTOTB_TVOUT_out_V_keep_V_out_wrapc, "a");
-    if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_out_V_keep_V_out_wrapc);
-        $display("ERROR: Simulation using HLS TB failed.");
-        $finish;
-    end
-    $fdisplay(fp,"[[[/runtime]]]");
-    $fclose(fp);
-    dump_tvout_finish_out_V_keep_V = 1;
-end
-
-
-reg dump_tvout_finish_out_V_strb_V;
-
-initial begin : dump_tvout_runtime_sign_out_V_strb_V
-    integer fp;
-    dump_tvout_finish_out_V_strb_V = 0;
-    fp = $fopen(`AUTOTB_TVOUT_out_V_strb_V_out_wrapc, "w");
-    if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_out_V_strb_V_out_wrapc);
-        $display("ERROR: Simulation using HLS TB failed.");
-        $finish;
-    end
-    $fdisplay(fp,"[[[runtime]]]");
-    $fclose(fp);
-    wait (done_cnt == AUTOTB_TRANSACTION_NUM);
-    // last transaction is saved at negedge right after last done
-    @ (posedge AESL_clock);
-    @ (posedge AESL_clock);
-    @ (posedge AESL_clock);
-    fp = $fopen(`AUTOTB_TVOUT_out_V_strb_V_out_wrapc, "a");
-    if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_out_V_strb_V_out_wrapc);
-        $display("ERROR: Simulation using HLS TB failed.");
-        $finish;
-    end
-    $fdisplay(fp,"[[[/runtime]]]");
-    $fclose(fp);
-    dump_tvout_finish_out_V_strb_V = 1;
-end
-
-
-reg dump_tvout_finish_out_V_user_V;
-
-initial begin : dump_tvout_runtime_sign_out_V_user_V
-    integer fp;
-    dump_tvout_finish_out_V_user_V = 0;
-    fp = $fopen(`AUTOTB_TVOUT_out_V_user_V_out_wrapc, "w");
-    if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_out_V_user_V_out_wrapc);
-        $display("ERROR: Simulation using HLS TB failed.");
-        $finish;
-    end
-    $fdisplay(fp,"[[[runtime]]]");
-    $fclose(fp);
-    wait (done_cnt == AUTOTB_TRANSACTION_NUM);
-    // last transaction is saved at negedge right after last done
-    @ (posedge AESL_clock);
-    @ (posedge AESL_clock);
-    @ (posedge AESL_clock);
-    fp = $fopen(`AUTOTB_TVOUT_out_V_user_V_out_wrapc, "a");
-    if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_out_V_user_V_out_wrapc);
-        $display("ERROR: Simulation using HLS TB failed.");
-        $finish;
-    end
-    $fdisplay(fp,"[[[/runtime]]]");
-    $fclose(fp);
-    dump_tvout_finish_out_V_user_V = 1;
-end
-
-
-reg dump_tvout_finish_out_V_last_V;
-
-initial begin : dump_tvout_runtime_sign_out_V_last_V
-    integer fp;
-    dump_tvout_finish_out_V_last_V = 0;
-    fp = $fopen(`AUTOTB_TVOUT_out_V_last_V_out_wrapc, "w");
-    if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_out_V_last_V_out_wrapc);
-        $display("ERROR: Simulation using HLS TB failed.");
-        $finish;
-    end
-    $fdisplay(fp,"[[[runtime]]]");
-    $fclose(fp);
-    wait (done_cnt == AUTOTB_TRANSACTION_NUM);
-    // last transaction is saved at negedge right after last done
-    @ (posedge AESL_clock);
-    @ (posedge AESL_clock);
-    @ (posedge AESL_clock);
-    fp = $fopen(`AUTOTB_TVOUT_out_V_last_V_out_wrapc, "a");
-    if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_out_V_last_V_out_wrapc);
-        $display("ERROR: Simulation using HLS TB failed.");
-        $finish;
-    end
-    $fdisplay(fp,"[[[/runtime]]]");
-    $fclose(fp);
-    dump_tvout_finish_out_V_last_V = 1;
-end
-
-
-reg dump_tvout_finish_out_V_id_V;
-
-initial begin : dump_tvout_runtime_sign_out_V_id_V
-    integer fp;
-    dump_tvout_finish_out_V_id_V = 0;
-    fp = $fopen(`AUTOTB_TVOUT_out_V_id_V_out_wrapc, "w");
-    if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_out_V_id_V_out_wrapc);
-        $display("ERROR: Simulation using HLS TB failed.");
-        $finish;
-    end
-    $fdisplay(fp,"[[[runtime]]]");
-    $fclose(fp);
-    wait (done_cnt == AUTOTB_TRANSACTION_NUM);
-    // last transaction is saved at negedge right after last done
-    @ (posedge AESL_clock);
-    @ (posedge AESL_clock);
-    @ (posedge AESL_clock);
-    fp = $fopen(`AUTOTB_TVOUT_out_V_id_V_out_wrapc, "a");
-    if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_out_V_id_V_out_wrapc);
-        $display("ERROR: Simulation using HLS TB failed.");
-        $finish;
-    end
-    $fdisplay(fp,"[[[/runtime]]]");
-    $fclose(fp);
-    dump_tvout_finish_out_V_id_V = 1;
-end
-
-
-reg dump_tvout_finish_out_V_dest_V;
-
-initial begin : dump_tvout_runtime_sign_out_V_dest_V
-    integer fp;
-    dump_tvout_finish_out_V_dest_V = 0;
-    fp = $fopen(`AUTOTB_TVOUT_out_V_dest_V_out_wrapc, "w");
-    if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_out_V_dest_V_out_wrapc);
-        $display("ERROR: Simulation using HLS TB failed.");
-        $finish;
-    end
-    $fdisplay(fp,"[[[runtime]]]");
-    $fclose(fp);
-    wait (done_cnt == AUTOTB_TRANSACTION_NUM);
-    // last transaction is saved at negedge right after last done
-    @ (posedge AESL_clock);
-    @ (posedge AESL_clock);
-    @ (posedge AESL_clock);
-    fp = $fopen(`AUTOTB_TVOUT_out_V_dest_V_out_wrapc, "a");
-    if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_out_V_dest_V_out_wrapc);
-        $display("ERROR: Simulation using HLS TB failed.");
-        $finish;
-    end
-    $fdisplay(fp,"[[[/runtime]]]");
-    $fclose(fp);
-    dump_tvout_finish_out_V_dest_V = 1;
-end
-
 
 ////////////////////////////////////////////
 // progress and performance

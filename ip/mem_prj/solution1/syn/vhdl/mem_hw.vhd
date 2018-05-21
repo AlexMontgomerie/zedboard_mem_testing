@@ -11,7 +11,7 @@ use IEEE.numeric_std.all;
 
 entity mem_hw is
 generic (
-    C_S_AXI_CONTROL_BUS_ADDR_WIDTH : INTEGER := 13;
+    C_S_AXI_CONTROL_BUS_ADDR_WIDTH : INTEGER := 12;
     C_S_AXI_CONTROL_BUS_DATA_WIDTH : INTEGER := 32 );
 port (
     s_axi_CONTROL_BUS_AWVALID : IN STD_LOGIC;
@@ -34,16 +34,16 @@ port (
     ap_clk : IN STD_LOGIC;
     ap_rst_n : IN STD_LOGIC;
     interrupt : OUT STD_LOGIC;
-    out_r_TDATA : OUT STD_LOGIC_VECTOR (63 downto 0);
-    out_r_TKEEP : OUT STD_LOGIC_VECTOR (7 downto 0);
-    out_r_TSTRB : OUT STD_LOGIC_VECTOR (7 downto 0);
+    out_r_TDATA : OUT STD_LOGIC_VECTOR (31 downto 0);
+    out_r_TKEEP : OUT STD_LOGIC_VECTOR (3 downto 0);
+    out_r_TSTRB : OUT STD_LOGIC_VECTOR (3 downto 0);
     out_r_TUSER : OUT STD_LOGIC_VECTOR (0 downto 0);
     out_r_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
     out_r_TID : OUT STD_LOGIC_VECTOR (0 downto 0);
     out_r_TDEST : OUT STD_LOGIC_VECTOR (0 downto 0);
-    in_r_TDATA : IN STD_LOGIC_VECTOR (63 downto 0);
-    in_r_TKEEP : IN STD_LOGIC_VECTOR (7 downto 0);
-    in_r_TSTRB : IN STD_LOGIC_VECTOR (7 downto 0);
+    in_r_TDATA : IN STD_LOGIC_VECTOR (31 downto 0);
+    in_r_TKEEP : IN STD_LOGIC_VECTOR (3 downto 0);
+    in_r_TSTRB : IN STD_LOGIC_VECTOR (3 downto 0);
     in_r_TUSER : IN STD_LOGIC_VECTOR (0 downto 0);
     in_r_TLAST : IN STD_LOGIC_VECTOR (0 downto 0);
     in_r_TID : IN STD_LOGIC_VECTOR (0 downto 0);
@@ -58,13 +58,13 @@ end;
 architecture behav of mem_hw is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "mem_hw,hls_ip_2017_4,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7z020clg484-1,HLS_INPUT_CLOCK=800.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.896375,HLS_SYN_LAT=262147,HLS_SYN_TPT=262148,HLS_SYN_MEM=4,HLS_SYN_DSP=0,HLS_SYN_FF=460,HLS_SYN_LUT=1047}";
+    "mem_hw,hls_ip_2017_4,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7z020clg484-1,HLS_INPUT_CLOCK=800.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=8.139563,HLS_SYN_LAT=8388099,HLS_SYN_TPT=8388100,HLS_SYN_MEM=2,HLS_SYN_DSP=0,HLS_SYN_FF=408,HLS_SYN_LUT=1064}";
     constant C_S_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
     constant C_S_AXI_WSTRB_WIDTH : INTEGER range 63 downto 0 := 4;
     constant C_S_AXI_ADDR_WIDTH : INTEGER range 63 downto 0 := 20;
     constant ap_const_logic_1 : STD_LOGIC := '1';
-    constant ap_const_lv64_0 : STD_LOGIC_VECTOR (63 downto 0) := "0000000000000000000000000000000000000000000000000000000000000000";
-    constant ap_const_lv8_0 : STD_LOGIC_VECTOR (7 downto 0) := "00000000";
+    constant ap_const_lv32_0 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
+    constant ap_const_lv4_0 : STD_LOGIC_VECTOR (3 downto 0) := "0000";
     constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
     constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_const_lv2_0 : STD_LOGIC_VECTOR (1 downto 0) := "00";
@@ -78,7 +78,7 @@ architecture behav of mem_hw is
     signal ap_idle : STD_LOGIC;
     signal rw : STD_LOGIC_VECTOR (31 downto 0);
     signal mask : STD_LOGIC_VECTOR (63 downto 0);
-    signal test_init_arr_V_q0 : STD_LOGIC_VECTOR (63 downto 0);
+    signal test_init_arr_V_q0 : STD_LOGIC_VECTOR (31 downto 0);
     signal mem_read_U0_ap_start : STD_LOGIC;
     signal mem_read_U0_ap_done : STD_LOGIC;
     signal mem_read_U0_ap_continue : STD_LOGIC;
@@ -90,10 +90,10 @@ architecture behav of mem_hw is
     signal mem_write_U0_ap_continue : STD_LOGIC;
     signal mem_write_U0_ap_idle : STD_LOGIC;
     signal mem_write_U0_ap_ready : STD_LOGIC;
-    signal mem_write_U0_out_r_TDATA : STD_LOGIC_VECTOR (63 downto 0);
+    signal mem_write_U0_out_r_TDATA : STD_LOGIC_VECTOR (31 downto 0);
     signal mem_write_U0_out_r_TVALID : STD_LOGIC;
-    signal mem_write_U0_out_r_TKEEP : STD_LOGIC_VECTOR (7 downto 0);
-    signal mem_write_U0_out_r_TSTRB : STD_LOGIC_VECTOR (7 downto 0);
+    signal mem_write_U0_out_r_TKEEP : STD_LOGIC_VECTOR (3 downto 0);
+    signal mem_write_U0_out_r_TSTRB : STD_LOGIC_VECTOR (3 downto 0);
     signal mem_write_U0_out_r_TUSER : STD_LOGIC_VECTOR (0 downto 0);
     signal mem_write_U0_out_r_TLAST : STD_LOGIC_VECTOR (0 downto 0);
     signal mem_write_U0_out_r_TID : STD_LOGIC_VECTOR (0 downto 0);
@@ -123,11 +123,11 @@ architecture behav of mem_hw is
         ap_continue : IN STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
-        in_r_TDATA : IN STD_LOGIC_VECTOR (63 downto 0);
+        in_r_TDATA : IN STD_LOGIC_VECTOR (31 downto 0);
         in_r_TVALID : IN STD_LOGIC;
         in_r_TREADY : OUT STD_LOGIC;
-        in_r_TKEEP : IN STD_LOGIC_VECTOR (7 downto 0);
-        in_r_TSTRB : IN STD_LOGIC_VECTOR (7 downto 0);
+        in_r_TKEEP : IN STD_LOGIC_VECTOR (3 downto 0);
+        in_r_TSTRB : IN STD_LOGIC_VECTOR (3 downto 0);
         in_r_TUSER : IN STD_LOGIC_VECTOR (0 downto 0);
         in_r_TLAST : IN STD_LOGIC_VECTOR (0 downto 0);
         in_r_TID : IN STD_LOGIC_VECTOR (0 downto 0);
@@ -144,18 +144,18 @@ architecture behav of mem_hw is
         ap_continue : IN STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
-        out_r_TDATA : OUT STD_LOGIC_VECTOR (63 downto 0);
+        out_r_TDATA : OUT STD_LOGIC_VECTOR (31 downto 0);
         out_r_TVALID : OUT STD_LOGIC;
         out_r_TREADY : IN STD_LOGIC;
-        out_r_TKEEP : OUT STD_LOGIC_VECTOR (7 downto 0);
-        out_r_TSTRB : OUT STD_LOGIC_VECTOR (7 downto 0);
+        out_r_TKEEP : OUT STD_LOGIC_VECTOR (3 downto 0);
+        out_r_TSTRB : OUT STD_LOGIC_VECTOR (3 downto 0);
         out_r_TUSER : OUT STD_LOGIC_VECTOR (0 downto 0);
         out_r_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
         out_r_TID : OUT STD_LOGIC_VECTOR (0 downto 0);
         out_r_TDEST : OUT STD_LOGIC_VECTOR (0 downto 0);
         test_init_arr_V_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
         test_init_arr_V_ce0 : OUT STD_LOGIC;
-        test_init_arr_V_q0 : IN STD_LOGIC_VECTOR (63 downto 0) );
+        test_init_arr_V_q0 : IN STD_LOGIC_VECTOR (31 downto 0) );
     end component;
 
 
@@ -193,7 +193,7 @@ architecture behav of mem_hw is
         mask : OUT STD_LOGIC_VECTOR (63 downto 0);
         test_init_arr_V_address0 : IN STD_LOGIC_VECTOR (8 downto 0);
         test_init_arr_V_ce0 : IN STD_LOGIC;
-        test_init_arr_V_q0 : OUT STD_LOGIC_VECTOR (63 downto 0) );
+        test_init_arr_V_q0 : OUT STD_LOGIC_VECTOR (31 downto 0) );
     end component;
 
 

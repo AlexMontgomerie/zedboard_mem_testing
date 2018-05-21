@@ -21,9 +21,9 @@
 module AESL_axi_s_out_r (
     input clk,
     input reset,
-    input [64 - 1:0] TRAN_out_r_TDATA,
-    input [8 - 1:0] TRAN_out_r_TKEEP,
-    input [8 - 1:0] TRAN_out_r_TSTRB,
+    input [32 - 1:0] TRAN_out_r_TDATA,
+    input [4 - 1:0] TRAN_out_r_TKEEP,
+    input [4 - 1:0] TRAN_out_r_TSTRB,
     input TRAN_out_r_TUSER,
     input TRAN_out_r_TLAST,
     input TRAN_out_r_TID,
@@ -38,11 +38,11 @@ module AESL_axi_s_out_r (
     wire out_r_TDATA_full;
     wire out_r_TDATA_empty;
     reg out_r_TDATA_write_en;
-    reg [64 - 1:0] out_r_TDATA_write_data;
+    reg [32 - 1:0] out_r_TDATA_write_data;
     reg out_r_TDATA_read_en;
-    wire [64 - 1:0] out_r_TDATA_read_data;
+    wire [32 - 1:0] out_r_TDATA_read_data;
     
-    fifo #(262144, 64) fifo_out_r_TDATA (
+    fifo #(8388096, 32) fifo_out_r_TDATA (
         .reset(1'b0),
         .write_clock(clk),
         .write_en(out_r_TDATA_write_en),
@@ -61,11 +61,11 @@ module AESL_axi_s_out_r (
     wire out_r_TKEEP_full;
     wire out_r_TKEEP_empty;
     reg out_r_TKEEP_write_en;
-    reg [8 - 1:0] out_r_TKEEP_write_data;
+    reg [4 - 1:0] out_r_TKEEP_write_data;
     reg out_r_TKEEP_read_en;
-    wire [8 - 1:0] out_r_TKEEP_read_data;
+    wire [4 - 1:0] out_r_TKEEP_read_data;
     
-    fifo #(262144, 8) fifo_out_r_TKEEP (
+    fifo #(8388096, 4) fifo_out_r_TKEEP (
         .reset(1'b0),
         .write_clock(clk),
         .write_en(out_r_TKEEP_write_en),
@@ -84,11 +84,11 @@ module AESL_axi_s_out_r (
     wire out_r_TSTRB_full;
     wire out_r_TSTRB_empty;
     reg out_r_TSTRB_write_en;
-    reg [8 - 1:0] out_r_TSTRB_write_data;
+    reg [4 - 1:0] out_r_TSTRB_write_data;
     reg out_r_TSTRB_read_en;
-    wire [8 - 1:0] out_r_TSTRB_read_data;
+    wire [4 - 1:0] out_r_TSTRB_read_data;
     
-    fifo #(262144, 8) fifo_out_r_TSTRB (
+    fifo #(8388096, 4) fifo_out_r_TSTRB (
         .reset(1'b0),
         .write_clock(clk),
         .write_en(out_r_TSTRB_write_en),
@@ -111,7 +111,7 @@ module AESL_axi_s_out_r (
     reg out_r_TUSER_read_en;
     wire [1 - 1:0] out_r_TUSER_read_data;
     
-    fifo #(262144, 1) fifo_out_r_TUSER (
+    fifo #(8388096, 1) fifo_out_r_TUSER (
         .reset(1'b0),
         .write_clock(clk),
         .write_en(out_r_TUSER_write_en),
@@ -134,7 +134,7 @@ module AESL_axi_s_out_r (
     reg out_r_TLAST_read_en;
     wire [1 - 1:0] out_r_TLAST_read_data;
     
-    fifo #(262144, 1) fifo_out_r_TLAST (
+    fifo #(8388096, 1) fifo_out_r_TLAST (
         .reset(1'b0),
         .write_clock(clk),
         .write_en(out_r_TLAST_write_en),
@@ -157,7 +157,7 @@ module AESL_axi_s_out_r (
     reg out_r_TID_read_en;
     wire [1 - 1:0] out_r_TID_read_data;
     
-    fifo #(262144, 1) fifo_out_r_TID (
+    fifo #(8388096, 1) fifo_out_r_TID (
         .reset(1'b0),
         .write_clock(clk),
         .write_en(out_r_TID_write_en),
@@ -180,7 +180,7 @@ module AESL_axi_s_out_r (
     reg out_r_TDEST_read_en;
     wire [1 - 1:0] out_r_TDEST_read_data;
     
-    fifo #(262144, 1) fifo_out_r_TDEST (
+    fifo #(8388096, 1) fifo_out_r_TDEST (
         .reset(1'b0),
         .write_clock(clk),
         .write_en(out_r_TDEST_write_en),
@@ -247,7 +247,7 @@ module AESL_axi_s_out_r (
     
     initial begin : AXI_stream_receiver_out_r_TDATA
         integer fp;
-        reg [64 - 1:0] data;
+        reg [32 - 1:0] data;
         reg [8 * 5:1] str;
         
         transaction_save_out_r_TDATA = 0;
@@ -256,9 +256,10 @@ module AESL_axi_s_out_r (
         forever begin
             @ (negedge clk);
             if (done_1 == 1) begin
-                fp = $fopen(`TV_OUT_out_r_TDATA, "a");
+                $sformat(str, "%0d", transaction_save_out_r_TDATA);
+                fp = $fopen({`TV_OUT_out_r_TDATA, "_", str}, "w");
                 if (fp == 0) begin // Failed to open file
-                    $display("ERROR: Failed to open file \"%s\"!", `TV_OUT_out_r_TDATA);
+                    $display("ERROR: Failed to open file \"%s\"!", {`TV_OUT_out_r_TDATA, "_", str});
                     $finish;
                 end
                 $fdisplay(fp, "[[transaction]] %d", transaction_save_out_r_TDATA);
@@ -278,7 +279,7 @@ module AESL_axi_s_out_r (
     
     initial begin : AXI_stream_receiver_out_r_TKEEP
         integer fp;
-        reg [8 - 1:0] data;
+        reg [4 - 1:0] data;
         reg [8 * 5:1] str;
         
         transaction_save_out_r_TKEEP = 0;
@@ -287,9 +288,10 @@ module AESL_axi_s_out_r (
         forever begin
             @ (negedge clk);
             if (done_1 == 1) begin
-                fp = $fopen(`TV_OUT_out_r_TKEEP, "a");
+                $sformat(str, "%0d", transaction_save_out_r_TKEEP);
+                fp = $fopen({`TV_OUT_out_r_TKEEP, "_", str}, "w");
                 if (fp == 0) begin // Failed to open file
-                    $display("ERROR: Failed to open file \"%s\"!", `TV_OUT_out_r_TKEEP);
+                    $display("ERROR: Failed to open file \"%s\"!", {`TV_OUT_out_r_TKEEP, "_", str});
                     $finish;
                 end
                 $fdisplay(fp, "[[transaction]] %d", transaction_save_out_r_TKEEP);
@@ -309,7 +311,7 @@ module AESL_axi_s_out_r (
     
     initial begin : AXI_stream_receiver_out_r_TSTRB
         integer fp;
-        reg [8 - 1:0] data;
+        reg [4 - 1:0] data;
         reg [8 * 5:1] str;
         
         transaction_save_out_r_TSTRB = 0;
@@ -318,9 +320,10 @@ module AESL_axi_s_out_r (
         forever begin
             @ (negedge clk);
             if (done_1 == 1) begin
-                fp = $fopen(`TV_OUT_out_r_TSTRB, "a");
+                $sformat(str, "%0d", transaction_save_out_r_TSTRB);
+                fp = $fopen({`TV_OUT_out_r_TSTRB, "_", str}, "w");
                 if (fp == 0) begin // Failed to open file
-                    $display("ERROR: Failed to open file \"%s\"!", `TV_OUT_out_r_TSTRB);
+                    $display("ERROR: Failed to open file \"%s\"!", {`TV_OUT_out_r_TSTRB, "_", str});
                     $finish;
                 end
                 $fdisplay(fp, "[[transaction]] %d", transaction_save_out_r_TSTRB);
@@ -349,9 +352,10 @@ module AESL_axi_s_out_r (
         forever begin
             @ (negedge clk);
             if (done_1 == 1) begin
-                fp = $fopen(`TV_OUT_out_r_TUSER, "a");
+                $sformat(str, "%0d", transaction_save_out_r_TUSER);
+                fp = $fopen({`TV_OUT_out_r_TUSER, "_", str}, "w");
                 if (fp == 0) begin // Failed to open file
-                    $display("ERROR: Failed to open file \"%s\"!", `TV_OUT_out_r_TUSER);
+                    $display("ERROR: Failed to open file \"%s\"!", {`TV_OUT_out_r_TUSER, "_", str});
                     $finish;
                 end
                 $fdisplay(fp, "[[transaction]] %d", transaction_save_out_r_TUSER);
@@ -380,9 +384,10 @@ module AESL_axi_s_out_r (
         forever begin
             @ (negedge clk);
             if (done_1 == 1) begin
-                fp = $fopen(`TV_OUT_out_r_TLAST, "a");
+                $sformat(str, "%0d", transaction_save_out_r_TLAST);
+                fp = $fopen({`TV_OUT_out_r_TLAST, "_", str}, "w");
                 if (fp == 0) begin // Failed to open file
-                    $display("ERROR: Failed to open file \"%s\"!", `TV_OUT_out_r_TLAST);
+                    $display("ERROR: Failed to open file \"%s\"!", {`TV_OUT_out_r_TLAST, "_", str});
                     $finish;
                 end
                 $fdisplay(fp, "[[transaction]] %d", transaction_save_out_r_TLAST);
@@ -411,9 +416,10 @@ module AESL_axi_s_out_r (
         forever begin
             @ (negedge clk);
             if (done_1 == 1) begin
-                fp = $fopen(`TV_OUT_out_r_TID, "a");
+                $sformat(str, "%0d", transaction_save_out_r_TID);
+                fp = $fopen({`TV_OUT_out_r_TID, "_", str}, "w");
                 if (fp == 0) begin // Failed to open file
-                    $display("ERROR: Failed to open file \"%s\"!", `TV_OUT_out_r_TID);
+                    $display("ERROR: Failed to open file \"%s\"!", {`TV_OUT_out_r_TID, "_", str});
                     $finish;
                 end
                 $fdisplay(fp, "[[transaction]] %d", transaction_save_out_r_TID);
@@ -442,9 +448,10 @@ module AESL_axi_s_out_r (
         forever begin
             @ (negedge clk);
             if (done_1 == 1) begin
-                fp = $fopen(`TV_OUT_out_r_TDEST, "a");
+                $sformat(str, "%0d", transaction_save_out_r_TDEST);
+                fp = $fopen({`TV_OUT_out_r_TDEST, "_", str}, "w");
                 if (fp == 0) begin // Failed to open file
-                    $display("ERROR: Failed to open file \"%s\"!", `TV_OUT_out_r_TDEST);
+                    $display("ERROR: Failed to open file \"%s\"!", {`TV_OUT_out_r_TDEST, "_", str});
                     $finish;
                 end
                 $fdisplay(fp, "[[transaction]] %d", transaction_save_out_r_TDEST);

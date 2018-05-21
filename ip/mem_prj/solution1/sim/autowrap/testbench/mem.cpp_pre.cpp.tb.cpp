@@ -68221,9 +68221,9 @@ void FindStereoCorrespondenceBM(
 }
 #70 "/opt/Xilinx_tools/Vivado/2017.4/include/hls_video.h" 2
 #9 "/home/juju/mem_test_rw_seperate/ip/mem.h" 2
-#26 "/home/juju/mem_test_rw_seperate/ip/mem.h"
-typedef ap_uint<64> data_t;
-typedef ap_axiu<64,1,1,1> AXI_VAL;
+#27 "/home/juju/mem_test_rw_seperate/ip/mem.h"
+typedef ap_uint<32> data_t;
+typedef ap_axiu<32,1,1,1> AXI_VAL;
 typedef hls::stream<AXI_VAL> AXI_STREAM;
 
 template<typename T>
@@ -68245,7 +68245,7 @@ T pseudo_random(bool load = false) {
 
 template<typename T, int U, int TI, int TD>
 inline T pop_stream(ap_axiu<sizeof(T) * 8, U, TI, TD> const &e) {
-  ((sizeof(T) == sizeof(long)) ? static_cast<void> (0) : __assert_fail ("sizeof(T) == sizeof(long)", "/home/juju/mem_test_rw_seperate/ip/mem.h", 49, __PRETTY_FUNCTION__));
+  ((sizeof(T) == sizeof(long)) ? static_cast<void> (0) : __assert_fail ("sizeof(T) == sizeof(long)", "/home/juju/mem_test_rw_seperate/ip/mem.h", 50, __PRETTY_FUNCTION__));
 
 
 
@@ -68266,8 +68266,8 @@ inline T pop_stream(ap_axiu<sizeof(T) * 8, U, TI, TD> const &e) {
 template<typename T, int U, int TI, int TD>
 inline ap_axiu<sizeof(T) * 8, U, TI, TD> push_stream(T const v, bool last = false) {
   ap_axiu<sizeof(T) * 8, U, TI, TD> e;
-  ((sizeof(T) == sizeof(long)) ? static_cast<void> (0) : __assert_fail ("sizeof(T) == sizeof(long)", "/home/juju/mem_test_rw_seperate/ip/mem.h", 70, __PRETTY_FUNCTION__));
-#79 "/home/juju/mem_test_rw_seperate/ip/mem.h"
+  ((sizeof(T) == sizeof(long)) ? static_cast<void> (0) : __assert_fail ("sizeof(T) == sizeof(long)", "/home/juju/mem_test_rw_seperate/ip/mem.h", 71, __PRETTY_FUNCTION__));
+#80 "/home/juju/mem_test_rw_seperate/ip/mem.h"
   e.data = (long) v;
 
   e.strb = -1;
@@ -68307,7 +68307,7 @@ void mem_write(AXI_STREAM& out_stream, int mask, data_t test_init_arr[512])
  int sof = 1;
  int eol = 0;
 
- main_loop: for(int i=0;i<((int) (262144/512));i++)
+ main_loop: for(int i=0;i<((int) (8388096/512));i++)
  {
   data_loop: for(int j=0;j<512;j++)
   {
@@ -68320,7 +68320,7 @@ void mem_write(AXI_STREAM& out_stream, int mask, data_t test_init_arr[512])
    } else {
     axi.user = 0;
    }
-   if ((i*512 +j) == (262144 -1)) {
+   if ((i*512 +j) == (8388096 -1)) {
     axi.last = 1;
    } else {
     axi.last = 0;
@@ -68335,6 +68335,8 @@ void mem_write(AXI_STREAM& out_stream, int mask, data_t test_init_arr[512])
 
 void mem_hw(AXI_STREAM& out, AXI_STREAM& in, int rw, unsigned long mask, data_t test_init_arr[512])
 {
+
+
 #pragma HLS DATAFLOW
 #pragma HLS INTERFACE s_axilite port=return bundle=CONTROL_BUS
 #pragma HLS INTERFACE s_axilite port=mask bundle=CONTROL_BUS
@@ -68342,7 +68344,7 @@ void mem_hw(AXI_STREAM& out, AXI_STREAM& in, int rw, unsigned long mask, data_t 
 #pragma HLS INTERFACE s_axilite port=test_init_arr bundle=CONTROL_BUS
 #pragma HLS INTERFACE axis port=out
 #pragma HLS INTERFACE axis port=in
-#69 "/home/juju/mem_test_rw_seperate/ip/mem.cpp"
+#71 "/home/juju/mem_test_rw_seperate/ip/mem.cpp"
  mem_read(in);
  mem_write(out,mask,test_init_arr);
 }

@@ -11,7 +11,7 @@ use IEEE.NUMERIC_STD.all;
 
 entity mem_hw_CONTROL_BUS_s_axi is
 generic (
-    C_S_AXI_ADDR_WIDTH    : INTEGER := 13;
+    C_S_AXI_ADDR_WIDTH    : INTEGER := 12;
     C_S_AXI_DATA_WIDTH    : INTEGER := 32);
 port (
     -- axi4 lite slave signals
@@ -45,41 +45,40 @@ port (
     mask                  :out  STD_LOGIC_VECTOR(63 downto 0);
     test_init_arr_V_address0 :in   STD_LOGIC_VECTOR(8 downto 0);
     test_init_arr_V_ce0   :in   STD_LOGIC;
-    test_init_arr_V_q0    :out  STD_LOGIC_VECTOR(63 downto 0)
+    test_init_arr_V_q0    :out  STD_LOGIC_VECTOR(31 downto 0)
 );
 end entity mem_hw_CONTROL_BUS_s_axi;
 
 -- ------------------------Address Info-------------------
--- 0x0000 : Control signals
---          bit 0  - ap_start (Read/Write/COH)
---          bit 1  - ap_done (Read/COR)
---          bit 2  - ap_idle (Read)
---          bit 3  - ap_ready (Read)
---          bit 7  - auto_restart (Read/Write)
---          others - reserved
--- 0x0004 : Global Interrupt Enable Register
---          bit 0  - Global Interrupt Enable (Read/Write)
---          others - reserved
--- 0x0008 : IP Interrupt Enable Register (Read/Write)
---          bit 0  - Channel 0 (ap_done)
---          bit 1  - Channel 1 (ap_ready)
---          others - reserved
--- 0x000c : IP Interrupt Status Register (Read/TOW)
---          bit 0  - Channel 0 (ap_done)
---          bit 1  - Channel 1 (ap_ready)
---          others - reserved
--- 0x0010 : Data signal of rw
---          bit 31~0 - rw[31:0] (Read/Write)
--- 0x0014 : reserved
--- 0x0018 : Data signal of mask
---          bit 31~0 - mask[31:0] (Read/Write)
--- 0x001c : Data signal of mask
---          bit 31~0 - mask[63:32] (Read/Write)
--- 0x0020 : reserved
--- 0x1000 ~
--- 0x1fff : Memory 'test_init_arr_V' (512 * 64b)
---          Word 2n   : bit [31:0] - test_init_arr_V[n][31: 0]
---          Word 2n+1 : bit [31:0] - test_init_arr_V[n][63:32]
+-- 0x000 : Control signals
+--         bit 0  - ap_start (Read/Write/COH)
+--         bit 1  - ap_done (Read/COR)
+--         bit 2  - ap_idle (Read)
+--         bit 3  - ap_ready (Read)
+--         bit 7  - auto_restart (Read/Write)
+--         others - reserved
+-- 0x004 : Global Interrupt Enable Register
+--         bit 0  - Global Interrupt Enable (Read/Write)
+--         others - reserved
+-- 0x008 : IP Interrupt Enable Register (Read/Write)
+--         bit 0  - Channel 0 (ap_done)
+--         bit 1  - Channel 1 (ap_ready)
+--         others - reserved
+-- 0x00c : IP Interrupt Status Register (Read/TOW)
+--         bit 0  - Channel 0 (ap_done)
+--         bit 1  - Channel 1 (ap_ready)
+--         others - reserved
+-- 0x010 : Data signal of rw
+--         bit 31~0 - rw[31:0] (Read/Write)
+-- 0x014 : reserved
+-- 0x018 : Data signal of mask
+--         bit 31~0 - mask[31:0] (Read/Write)
+-- 0x01c : Data signal of mask
+--         bit 31~0 - mask[63:32] (Read/Write)
+-- 0x020 : reserved
+-- 0x800 ~
+-- 0xfff : Memory 'test_init_arr_V' (512 * 32b)
+--         Word n : bit [31:0] - test_init_arr_V[n]
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 architecture behave of mem_hw_CONTROL_BUS_s_axi is
@@ -87,18 +86,18 @@ architecture behave of mem_hw_CONTROL_BUS_s_axi is
     signal wstate  : states := wrreset;
     signal rstate  : states := rdreset;
     signal wnext, rnext: states;
-    constant ADDR_AP_CTRL              : INTEGER := 16#0000#;
-    constant ADDR_GIE                  : INTEGER := 16#0004#;
-    constant ADDR_IER                  : INTEGER := 16#0008#;
-    constant ADDR_ISR                  : INTEGER := 16#000c#;
-    constant ADDR_RW_DATA_0            : INTEGER := 16#0010#;
-    constant ADDR_RW_CTRL              : INTEGER := 16#0014#;
-    constant ADDR_MASK_DATA_0          : INTEGER := 16#0018#;
-    constant ADDR_MASK_DATA_1          : INTEGER := 16#001c#;
-    constant ADDR_MASK_CTRL            : INTEGER := 16#0020#;
-    constant ADDR_TEST_INIT_ARR_V_BASE : INTEGER := 16#1000#;
-    constant ADDR_TEST_INIT_ARR_V_HIGH : INTEGER := 16#1fff#;
-    constant ADDR_BITS         : INTEGER := 13;
+    constant ADDR_AP_CTRL              : INTEGER := 16#000#;
+    constant ADDR_GIE                  : INTEGER := 16#004#;
+    constant ADDR_IER                  : INTEGER := 16#008#;
+    constant ADDR_ISR                  : INTEGER := 16#00c#;
+    constant ADDR_RW_DATA_0            : INTEGER := 16#010#;
+    constant ADDR_RW_CTRL              : INTEGER := 16#014#;
+    constant ADDR_MASK_DATA_0          : INTEGER := 16#018#;
+    constant ADDR_MASK_DATA_1          : INTEGER := 16#01c#;
+    constant ADDR_MASK_CTRL            : INTEGER := 16#020#;
+    constant ADDR_TEST_INIT_ARR_V_BASE : INTEGER := 16#800#;
+    constant ADDR_TEST_INIT_ARR_V_HIGH : INTEGER := 16#fff#;
+    constant ADDR_BITS         : INTEGER := 12;
 
     signal waddr               : UNSIGNED(ADDR_BITS-1 downto 0);
     signal wmask               : UNSIGNED(31 downto 0);
@@ -126,18 +125,17 @@ architecture behave of mem_hw_CONTROL_BUS_s_axi is
     signal int_test_init_arr_V_address0 : UNSIGNED(8 downto 0);
     signal int_test_init_arr_V_ce0 : STD_LOGIC;
     signal int_test_init_arr_V_we0 : STD_LOGIC;
-    signal int_test_init_arr_V_be0 : UNSIGNED(7 downto 0);
-    signal int_test_init_arr_V_d0 : UNSIGNED(63 downto 0);
-    signal int_test_init_arr_V_q0 : UNSIGNED(63 downto 0);
+    signal int_test_init_arr_V_be0 : UNSIGNED(3 downto 0);
+    signal int_test_init_arr_V_d0 : UNSIGNED(31 downto 0);
+    signal int_test_init_arr_V_q0 : UNSIGNED(31 downto 0);
     signal int_test_init_arr_V_address1 : UNSIGNED(8 downto 0);
     signal int_test_init_arr_V_ce1 : STD_LOGIC;
     signal int_test_init_arr_V_we1 : STD_LOGIC;
-    signal int_test_init_arr_V_be1 : UNSIGNED(7 downto 0);
-    signal int_test_init_arr_V_d1 : UNSIGNED(63 downto 0);
-    signal int_test_init_arr_V_q1 : UNSIGNED(63 downto 0);
+    signal int_test_init_arr_V_be1 : UNSIGNED(3 downto 0);
+    signal int_test_init_arr_V_d1 : UNSIGNED(31 downto 0);
+    signal int_test_init_arr_V_q1 : UNSIGNED(31 downto 0);
     signal int_test_init_arr_V_read : STD_LOGIC;
     signal int_test_init_arr_V_write : STD_LOGIC;
-    signal int_test_init_arr_V_shift : UNSIGNED(0 downto 0);
 
     component mem_hw_CONTROL_BUS_s_axi_ram is
         generic (
@@ -178,7 +176,7 @@ begin
 -- int_test_init_arr_V
 int_test_init_arr_V : mem_hw_CONTROL_BUS_s_axi_ram
 generic map (
-     BYTES    => 8,
+     BYTES    => 4,
      DEPTH    => 512,
      AWIDTH   => log2(512))
 port map (
@@ -323,7 +321,7 @@ port map (
                         rdata_data <= (others => '0');
                     end case;
                 elsif (int_test_init_arr_V_read = '1') then
-                    rdata_data <= RESIZE(SHIFT_RIGHT(int_test_init_arr_V_q1, TO_INTEGER(int_test_init_arr_V_shift)*32), 32);
+                    rdata_data <= int_test_init_arr_V_q1;
                 end if;
             end if;
         end if;
@@ -501,12 +499,12 @@ port map (
     int_test_init_arr_V_we0 <= '0';
     int_test_init_arr_V_be0 <= (others => '0');
     int_test_init_arr_V_d0 <= (others => '0');
-    test_init_arr_V_q0   <= STD_LOGIC_VECTOR(RESIZE(int_test_init_arr_V_q0, 64));
-    int_test_init_arr_V_address1 <= raddr(11 downto 3) when ar_hs = '1' else waddr(11 downto 3);
+    test_init_arr_V_q0   <= STD_LOGIC_VECTOR(RESIZE(int_test_init_arr_V_q0, 32));
+    int_test_init_arr_V_address1 <= raddr(10 downto 2) when ar_hs = '1' else waddr(10 downto 2);
     int_test_init_arr_V_ce1 <= '1' when ar_hs = '1' or (int_test_init_arr_V_write = '1' and WVALID  = '1') else '0';
     int_test_init_arr_V_we1 <= '1' when int_test_init_arr_V_write = '1' and WVALID = '1' else '0';
-    int_test_init_arr_V_be1 <= SHIFT_LEFT(RESIZE(UNSIGNED(WSTRB), 8), TO_INTEGER(waddr(2 downto 2)) * 4);
-    int_test_init_arr_V_d1 <= RESIZE(UNSIGNED(WDATA) & UNSIGNED(WDATA), 64);
+    int_test_init_arr_V_be1 <= UNSIGNED(WSTRB);
+    int_test_init_arr_V_d1 <= UNSIGNED(WDATA);
 
     process (ACLK)
     begin
@@ -533,17 +531,6 @@ port map (
                     int_test_init_arr_V_write <= '1';
                 elsif (WVALID = '1') then
                     int_test_init_arr_V_write <= '0';
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (ar_hs = '1') then
-                    int_test_init_arr_V_shift <= raddr(2 downto 2);
                 end if;
             end if;
         end if;

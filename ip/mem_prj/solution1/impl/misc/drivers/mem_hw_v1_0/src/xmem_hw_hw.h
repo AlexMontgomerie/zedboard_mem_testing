@@ -6,48 +6,47 @@
 // ==============================================================
 
 // CONTROL_BUS
-// 0x0000 : Control signals
-//          bit 0  - ap_start (Read/Write/COH)
-//          bit 1  - ap_done (Read/COR)
-//          bit 2  - ap_idle (Read)
-//          bit 3  - ap_ready (Read)
-//          bit 7  - auto_restart (Read/Write)
-//          others - reserved
-// 0x0004 : Global Interrupt Enable Register
-//          bit 0  - Global Interrupt Enable (Read/Write)
-//          others - reserved
-// 0x0008 : IP Interrupt Enable Register (Read/Write)
-//          bit 0  - Channel 0 (ap_done)
-//          bit 1  - Channel 1 (ap_ready)
-//          others - reserved
-// 0x000c : IP Interrupt Status Register (Read/TOW)
-//          bit 0  - Channel 0 (ap_done)
-//          bit 1  - Channel 1 (ap_ready)
-//          others - reserved
-// 0x0010 : Data signal of rw
-//          bit 31~0 - rw[31:0] (Read/Write)
-// 0x0014 : reserved
-// 0x0018 : Data signal of mask
-//          bit 31~0 - mask[31:0] (Read/Write)
-// 0x001c : Data signal of mask
-//          bit 31~0 - mask[63:32] (Read/Write)
-// 0x0020 : reserved
-// 0x1000 ~
-// 0x1fff : Memory 'test_init_arr_V' (512 * 64b)
-//          Word 2n   : bit [31:0] - test_init_arr_V[n][31: 0]
-//          Word 2n+1 : bit [31:0] - test_init_arr_V[n][63:32]
+// 0x000 : Control signals
+//         bit 0  - ap_start (Read/Write/COH)
+//         bit 1  - ap_done (Read/COR)
+//         bit 2  - ap_idle (Read)
+//         bit 3  - ap_ready (Read)
+//         bit 7  - auto_restart (Read/Write)
+//         others - reserved
+// 0x004 : Global Interrupt Enable Register
+//         bit 0  - Global Interrupt Enable (Read/Write)
+//         others - reserved
+// 0x008 : IP Interrupt Enable Register (Read/Write)
+//         bit 0  - Channel 0 (ap_done)
+//         bit 1  - Channel 1 (ap_ready)
+//         others - reserved
+// 0x00c : IP Interrupt Status Register (Read/TOW)
+//         bit 0  - Channel 0 (ap_done)
+//         bit 1  - Channel 1 (ap_ready)
+//         others - reserved
+// 0x010 : Data signal of rw
+//         bit 31~0 - rw[31:0] (Read/Write)
+// 0x014 : reserved
+// 0x018 : Data signal of mask
+//         bit 31~0 - mask[31:0] (Read/Write)
+// 0x01c : Data signal of mask
+//         bit 31~0 - mask[63:32] (Read/Write)
+// 0x020 : reserved
+// 0x800 ~
+// 0xfff : Memory 'test_init_arr_V' (512 * 32b)
+//         Word n : bit [31:0] - test_init_arr_V[n]
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
-#define XMEM_HW_CONTROL_BUS_ADDR_AP_CTRL              0x0000
-#define XMEM_HW_CONTROL_BUS_ADDR_GIE                  0x0004
-#define XMEM_HW_CONTROL_BUS_ADDR_IER                  0x0008
-#define XMEM_HW_CONTROL_BUS_ADDR_ISR                  0x000c
-#define XMEM_HW_CONTROL_BUS_ADDR_RW_DATA              0x0010
+#define XMEM_HW_CONTROL_BUS_ADDR_AP_CTRL              0x000
+#define XMEM_HW_CONTROL_BUS_ADDR_GIE                  0x004
+#define XMEM_HW_CONTROL_BUS_ADDR_IER                  0x008
+#define XMEM_HW_CONTROL_BUS_ADDR_ISR                  0x00c
+#define XMEM_HW_CONTROL_BUS_ADDR_RW_DATA              0x010
 #define XMEM_HW_CONTROL_BUS_BITS_RW_DATA              32
-#define XMEM_HW_CONTROL_BUS_ADDR_MASK_DATA            0x0018
+#define XMEM_HW_CONTROL_BUS_ADDR_MASK_DATA            0x018
 #define XMEM_HW_CONTROL_BUS_BITS_MASK_DATA            64
-#define XMEM_HW_CONTROL_BUS_ADDR_TEST_INIT_ARR_V_BASE 0x1000
-#define XMEM_HW_CONTROL_BUS_ADDR_TEST_INIT_ARR_V_HIGH 0x1fff
-#define XMEM_HW_CONTROL_BUS_WIDTH_TEST_INIT_ARR_V     64
+#define XMEM_HW_CONTROL_BUS_ADDR_TEST_INIT_ARR_V_BASE 0x800
+#define XMEM_HW_CONTROL_BUS_ADDR_TEST_INIT_ARR_V_HIGH 0xfff
+#define XMEM_HW_CONTROL_BUS_WIDTH_TEST_INIT_ARR_V     32
 #define XMEM_HW_CONTROL_BUS_DEPTH_TEST_INIT_ARR_V     512
 

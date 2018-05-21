@@ -8,7 +8,7 @@
 `timescale 1ns/1ps
 module mem_hw_CONTROL_BUS_s_axi
 #(parameter
-    C_S_AXI_ADDR_WIDTH = 13,
+    C_S_AXI_ADDR_WIDTH = 12,
     C_S_AXI_DATA_WIDTH = 32
 )(
     // axi4 lite slave signals
@@ -42,54 +42,53 @@ module mem_hw_CONTROL_BUS_s_axi
     output wire [63:0]                   mask,
     input  wire [8:0]                    test_init_arr_V_address0,
     input  wire                          test_init_arr_V_ce0,
-    output wire [63:0]                   test_init_arr_V_q0
+    output wire [31:0]                   test_init_arr_V_q0
 );
 //------------------------Address Info-------------------
-// 0x0000 : Control signals
-//          bit 0  - ap_start (Read/Write/COH)
-//          bit 1  - ap_done (Read/COR)
-//          bit 2  - ap_idle (Read)
-//          bit 3  - ap_ready (Read)
-//          bit 7  - auto_restart (Read/Write)
-//          others - reserved
-// 0x0004 : Global Interrupt Enable Register
-//          bit 0  - Global Interrupt Enable (Read/Write)
-//          others - reserved
-// 0x0008 : IP Interrupt Enable Register (Read/Write)
-//          bit 0  - Channel 0 (ap_done)
-//          bit 1  - Channel 1 (ap_ready)
-//          others - reserved
-// 0x000c : IP Interrupt Status Register (Read/TOW)
-//          bit 0  - Channel 0 (ap_done)
-//          bit 1  - Channel 1 (ap_ready)
-//          others - reserved
-// 0x0010 : Data signal of rw
-//          bit 31~0 - rw[31:0] (Read/Write)
-// 0x0014 : reserved
-// 0x0018 : Data signal of mask
-//          bit 31~0 - mask[31:0] (Read/Write)
-// 0x001c : Data signal of mask
-//          bit 31~0 - mask[63:32] (Read/Write)
-// 0x0020 : reserved
-// 0x1000 ~
-// 0x1fff : Memory 'test_init_arr_V' (512 * 64b)
-//          Word 2n   : bit [31:0] - test_init_arr_V[n][31: 0]
-//          Word 2n+1 : bit [31:0] - test_init_arr_V[n][63:32]
+// 0x000 : Control signals
+//         bit 0  - ap_start (Read/Write/COH)
+//         bit 1  - ap_done (Read/COR)
+//         bit 2  - ap_idle (Read)
+//         bit 3  - ap_ready (Read)
+//         bit 7  - auto_restart (Read/Write)
+//         others - reserved
+// 0x004 : Global Interrupt Enable Register
+//         bit 0  - Global Interrupt Enable (Read/Write)
+//         others - reserved
+// 0x008 : IP Interrupt Enable Register (Read/Write)
+//         bit 0  - Channel 0 (ap_done)
+//         bit 1  - Channel 1 (ap_ready)
+//         others - reserved
+// 0x00c : IP Interrupt Status Register (Read/TOW)
+//         bit 0  - Channel 0 (ap_done)
+//         bit 1  - Channel 1 (ap_ready)
+//         others - reserved
+// 0x010 : Data signal of rw
+//         bit 31~0 - rw[31:0] (Read/Write)
+// 0x014 : reserved
+// 0x018 : Data signal of mask
+//         bit 31~0 - mask[31:0] (Read/Write)
+// 0x01c : Data signal of mask
+//         bit 31~0 - mask[63:32] (Read/Write)
+// 0x020 : reserved
+// 0x800 ~
+// 0xfff : Memory 'test_init_arr_V' (512 * 32b)
+//         Word n : bit [31:0] - test_init_arr_V[n]
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
 localparam
-    ADDR_AP_CTRL              = 13'h0000,
-    ADDR_GIE                  = 13'h0004,
-    ADDR_IER                  = 13'h0008,
-    ADDR_ISR                  = 13'h000c,
-    ADDR_RW_DATA_0            = 13'h0010,
-    ADDR_RW_CTRL              = 13'h0014,
-    ADDR_MASK_DATA_0          = 13'h0018,
-    ADDR_MASK_DATA_1          = 13'h001c,
-    ADDR_MASK_CTRL            = 13'h0020,
-    ADDR_TEST_INIT_ARR_V_BASE = 13'h1000,
-    ADDR_TEST_INIT_ARR_V_HIGH = 13'h1fff,
+    ADDR_AP_CTRL              = 12'h000,
+    ADDR_GIE                  = 12'h004,
+    ADDR_IER                  = 12'h008,
+    ADDR_ISR                  = 12'h00c,
+    ADDR_RW_DATA_0            = 12'h010,
+    ADDR_RW_CTRL              = 12'h014,
+    ADDR_MASK_DATA_0          = 12'h018,
+    ADDR_MASK_DATA_1          = 12'h01c,
+    ADDR_MASK_CTRL            = 12'h020,
+    ADDR_TEST_INIT_ARR_V_BASE = 12'h800,
+    ADDR_TEST_INIT_ARR_V_HIGH = 12'hfff,
     WRIDLE                    = 2'd0,
     WRDATA                    = 2'd1,
     WRRESP                    = 2'd2,
@@ -97,7 +96,7 @@ localparam
     RDIDLE                    = 2'd0,
     RDDATA                    = 2'd1,
     RDRESET                   = 2'd2,
-    ADDR_BITS         = 13;
+    ADDR_BITS         = 12;
 
 //------------------------Local signal-------------------
     reg  [1:0]                    wstate = WRRESET;
@@ -126,23 +125,22 @@ localparam
     wire [8:0]                    int_test_init_arr_V_address0;
     wire                          int_test_init_arr_V_ce0;
     wire                          int_test_init_arr_V_we0;
-    wire [7:0]                    int_test_init_arr_V_be0;
-    wire [63:0]                   int_test_init_arr_V_d0;
-    wire [63:0]                   int_test_init_arr_V_q0;
+    wire [3:0]                    int_test_init_arr_V_be0;
+    wire [31:0]                   int_test_init_arr_V_d0;
+    wire [31:0]                   int_test_init_arr_V_q0;
     wire [8:0]                    int_test_init_arr_V_address1;
     wire                          int_test_init_arr_V_ce1;
     wire                          int_test_init_arr_V_we1;
-    wire [7:0]                    int_test_init_arr_V_be1;
-    wire [63:0]                   int_test_init_arr_V_d1;
-    wire [63:0]                   int_test_init_arr_V_q1;
+    wire [3:0]                    int_test_init_arr_V_be1;
+    wire [31:0]                   int_test_init_arr_V_d1;
+    wire [31:0]                   int_test_init_arr_V_q1;
     reg                           int_test_init_arr_V_read;
     reg                           int_test_init_arr_V_write;
-    reg  [0:0]                    int_test_init_arr_V_shift;
 
 //------------------------Instantiation------------------
 // int_test_init_arr_V
 mem_hw_CONTROL_BUS_s_axi_ram #(
-    .BYTES    ( 8 ),
+    .BYTES    ( 4 ),
     .DEPTH    ( 512 )
 ) int_test_init_arr_V (
     .clk0     ( ACLK ),
@@ -277,7 +275,7 @@ always @(posedge ACLK) begin
             endcase
         end
         else if (int_test_init_arr_V_read) begin
-            rdata <= int_test_init_arr_V_q1 >> (int_test_init_arr_V_shift * 32);
+            rdata <= int_test_init_arr_V_q1;
         end
     end
 end
@@ -423,11 +421,11 @@ assign int_test_init_arr_V_we0      = 1'b0;
 assign int_test_init_arr_V_be0      = 1'b0;
 assign int_test_init_arr_V_d0       = 1'b0;
 assign test_init_arr_V_q0           = int_test_init_arr_V_q0;
-assign int_test_init_arr_V_address1 = ar_hs? raddr[11:3] : waddr[11:3];
+assign int_test_init_arr_V_address1 = ar_hs? raddr[10:2] : waddr[10:2];
 assign int_test_init_arr_V_ce1      = ar_hs | (int_test_init_arr_V_write & WVALID);
 assign int_test_init_arr_V_we1      = int_test_init_arr_V_write & WVALID;
-assign int_test_init_arr_V_be1      = WSTRB << (waddr[2:2] * 4);
-assign int_test_init_arr_V_d1       = {2{WDATA}};
+assign int_test_init_arr_V_be1      = WSTRB;
+assign int_test_init_arr_V_d1       = WDATA;
 // int_test_init_arr_V_read
 always @(posedge ACLK) begin
     if (ARESET)
@@ -449,14 +447,6 @@ always @(posedge ACLK) begin
             int_test_init_arr_V_write <= 1'b1;
         else if (WVALID)
             int_test_init_arr_V_write <= 1'b0;
-    end
-end
-
-// int_test_init_arr_V_shift
-always @(posedge ACLK) begin
-    if (ACLK_EN) begin
-        if (ar_hs)
-            int_test_init_arr_V_shift <= raddr[2:2];
     end
 end
 

@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="mem_hw,hls_ip_2017_4,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7z020clg484-1,HLS_INPUT_CLOCK=800.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.896375,HLS_SYN_LAT=262147,HLS_SYN_TPT=262148,HLS_SYN_MEM=4,HLS_SYN_DSP=0,HLS_SYN_FF=460,HLS_SYN_LUT=1047}" *)
+(* CORE_GENERATION_INFO="mem_hw,hls_ip_2017_4,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7z020clg484-1,HLS_INPUT_CLOCK=800.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=8.139563,HLS_SYN_LAT=8388099,HLS_SYN_TPT=8388100,HLS_SYN_MEM=2,HLS_SYN_DSP=0,HLS_SYN_FF=408,HLS_SYN_LUT=1064}" *)
 
 module mem_hw (
         s_axi_CONTROL_BUS_AWVALID,
@@ -51,7 +51,7 @@ module mem_hw (
 );
 
 parameter    C_S_AXI_CONTROL_BUS_DATA_WIDTH = 32;
-parameter    C_S_AXI_CONTROL_BUS_ADDR_WIDTH = 13;
+parameter    C_S_AXI_CONTROL_BUS_ADDR_WIDTH = 12;
 parameter    C_S_AXI_DATA_WIDTH = 32;
 parameter    C_S_AXI_ADDR_WIDTH = 32;
 
@@ -78,16 +78,16 @@ output  [1:0] s_axi_CONTROL_BUS_BRESP;
 input   ap_clk;
 input   ap_rst_n;
 output   interrupt;
-output  [63:0] out_r_TDATA;
-output  [7:0] out_r_TKEEP;
-output  [7:0] out_r_TSTRB;
+output  [31:0] out_r_TDATA;
+output  [3:0] out_r_TKEEP;
+output  [3:0] out_r_TSTRB;
 output  [0:0] out_r_TUSER;
 output  [0:0] out_r_TLAST;
 output  [0:0] out_r_TID;
 output  [0:0] out_r_TDEST;
-input  [63:0] in_r_TDATA;
-input  [7:0] in_r_TKEEP;
-input  [7:0] in_r_TSTRB;
+input  [31:0] in_r_TDATA;
+input  [3:0] in_r_TKEEP;
+input  [3:0] in_r_TSTRB;
 input  [0:0] in_r_TUSER;
 input  [0:0] in_r_TLAST;
 input  [0:0] in_r_TID;
@@ -104,7 +104,7 @@ wire    ap_done;
 wire    ap_idle;
 wire   [31:0] rw;
 wire   [63:0] mask;
-wire   [63:0] test_init_arr_V_q0;
+wire   [31:0] test_init_arr_V_q0;
 wire    mem_read_U0_ap_start;
 wire    mem_read_U0_ap_done;
 wire    mem_read_U0_ap_continue;
@@ -116,10 +116,10 @@ wire    mem_write_U0_ap_done;
 wire    mem_write_U0_ap_continue;
 wire    mem_write_U0_ap_idle;
 wire    mem_write_U0_ap_ready;
-wire   [63:0] mem_write_U0_out_r_TDATA;
+wire   [31:0] mem_write_U0_out_r_TDATA;
 wire    mem_write_U0_out_r_TVALID;
-wire   [7:0] mem_write_U0_out_r_TKEEP;
-wire   [7:0] mem_write_U0_out_r_TSTRB;
+wire   [3:0] mem_write_U0_out_r_TKEEP;
+wire   [3:0] mem_write_U0_out_r_TSTRB;
 wire   [0:0] mem_write_U0_out_r_TUSER;
 wire   [0:0] mem_write_U0_out_r_TLAST;
 wire   [0:0] mem_write_U0_out_r_TID;

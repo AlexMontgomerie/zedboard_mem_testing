@@ -68214,9 +68214,9 @@ void FindStereoCorrespondenceBM(
 }
 #pragma line 70 "/opt/Xilinx_tools/Vivado/2017.4/include/hls_video.h" 2
 #pragma line 9 "/home/juju/mem_test_rw_seperate/ip/mem.h" 2
-#pragma line 26 "/home/juju/mem_test_rw_seperate/ip/mem.h"
-typedef ap_uint<64> data_t;
-typedef ap_axiu<64,1,1,1> AXI_VAL;
+#pragma line 27 "/home/juju/mem_test_rw_seperate/ip/mem.h"
+typedef ap_uint<32> data_t;
+typedef ap_axiu<32,1,1,1> AXI_VAL;
 typedef hls::stream<AXI_VAL> AXI_STREAM;
 #pragma empty_line
 template<typename T>
@@ -68238,7 +68238,7 @@ T pseudo_random(bool load = false) {
 #pragma empty_line
 template<typename T, int U, int TI, int TD>
 inline T pop_stream(ap_axiu<sizeof(T) * 8, U, TI, TD> const &e) {
-  ((sizeof(T) == sizeof(long)) ? static_cast<void> (0) : __assert_fail ("sizeof(T) == sizeof(long)", "/home/juju/mem_test_rw_seperate/ip/mem.h", 49, __PRETTY_FUNCTION__));
+  ((sizeof(T) == sizeof(long)) ? static_cast<void> (0) : __assert_fail ("sizeof(T) == sizeof(long)", "/home/juju/mem_test_rw_seperate/ip/mem.h", 50, __PRETTY_FUNCTION__));
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
@@ -68259,8 +68259,8 @@ inline T pop_stream(ap_axiu<sizeof(T) * 8, U, TI, TD> const &e) {
 template<typename T, int U, int TI, int TD>
 inline ap_axiu<sizeof(T) * 8, U, TI, TD> push_stream(T const v, bool last = false) {
   ap_axiu<sizeof(T) * 8, U, TI, TD> e;
-  ((sizeof(T) == sizeof(long)) ? static_cast<void> (0) : __assert_fail ("sizeof(T) == sizeof(long)", "/home/juju/mem_test_rw_seperate/ip/mem.h", 70, __PRETTY_FUNCTION__));
-#pragma line 79 "/home/juju/mem_test_rw_seperate/ip/mem.h"
+  ((sizeof(T) == sizeof(long)) ? static_cast<void> (0) : __assert_fail ("sizeof(T) == sizeof(long)", "/home/juju/mem_test_rw_seperate/ip/mem.h", 71, __PRETTY_FUNCTION__));
+#pragma line 80 "/home/juju/mem_test_rw_seperate/ip/mem.h"
   e.data = (long) v;
 #pragma empty_line
   e.strb = -1;
@@ -68278,49 +68278,37 @@ void mem_write(AXI_STREAM& out_stream, int mask, data_t test_init_arr[512]);
 #pragma empty_line
 void mem_hw(AXI_STREAM& out, AXI_STREAM& in, int rw, unsigned long mask, data_t test_init_arr[512]);
 #pragma line 2 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp" 2
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
+#pragma line 10 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
 void init_stream(AXI_STREAM& stream)
 {
  AXI_VAL axi;
- for(int i=0;i<262144;i++)
+ for(int i=0;i<8388096;i++)
  {
   axi.data = (data_t) i;
   axi.user = (i==0) ? 1 : 0;
-  axi.last = (i==(262144 -1)) ? 1 : 0;
+  axi.last = (i==(8388096 -1)) ? 1 : 0;
   axi.id = 0;
   axi.dest = 0;
 #pragma empty_line
   stream << axi;
  }
 }
-#pragma empty_line
-int check_stream(AXI_STREAM& stream, data_t data[262144])
+#pragma line 51 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
+int check_stream(AXI_STREAM& stream, data_t data[8388096])
 {
  int err = 0;
  AXI_VAL axi;
 #pragma empty_line
- for(int i=0;i<262144;i++)
+ for(int i=0;i<8388096;i++)
  {
   stream >> axi;
-  err += (
-    !(axi.data==(data_t) data[i]) ||
-    !(axi.user==(i==0) ? 1 : 0) ||
-    !(axi.last==(i==(262144 -1)) ? 1 : 0) ||
-    !(axi.dest==0) ||
-    !(axi.id ==0 )
-    );
-  if(err)
-   printf("error: %d\n",err);
 #pragma empty_line
 #pragma empty_line
  }
 #pragma empty_line
  return err;
 }
+#pragma empty_line
 #pragma empty_line
 int main() {
 #pragma empty_line
@@ -68332,6 +68320,8 @@ int main() {
 #pragma empty_line
  int status = 0;
 #pragma empty_line
+ printf("%d,%d,%d\n",8388096,512,8388096/512);
+#pragma empty_line
 #pragma empty_line
  AXI_STREAM test_in, test_out;
 #pragma empty_line
@@ -68341,10 +68331,12 @@ int main() {
  for(int i=0;i<512;i++)
   test_arr[i] = (data_t) i;
 #pragma empty_line
- data_t res_arr[262144];
- for(int i=0;i<((int) (262144/512));i++)
-  for(int j=0;j<512;j++)
-   res_arr[i*512 +j] = (data_t) j;
+#pragma empty_line
+ data_t * res_arr;
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
@@ -68375,7 +68367,7 @@ int main() {
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
- printf("size: %d\n",((int) (262144/512)));
+ printf("size: %d\n",((int) (8388096/512)));
 #pragma empty_line
  return err;
 }

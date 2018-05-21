@@ -28,7 +28,7 @@
               <rtlName/>
               <coreName/>
             </Obj>
-            <bitwidth>64</bitwidth>
+            <bitwidth>32</bitwidth>
           </Value>
           <direction>0</direction>
           <if_type>0</if_type>
@@ -56,7 +56,7 @@
               <rtlName/>
               <coreName/>
             </Obj>
-            <bitwidth>8</bitwidth>
+            <bitwidth>4</bitwidth>
           </Value>
           <direction>0</direction>
           <if_type>0</if_type>
@@ -84,7 +84,7 @@
               <rtlName/>
               <coreName/>
             </Obj>
-            <bitwidth>8</bitwidth>
+            <bitwidth>4</bitwidth>
           </Value>
           <direction>0</direction>
           <if_type>0</if_type>
@@ -270,7 +270,7 @@
               <rtlName/>
               <coreName/>
             </Obj>
-            <bitwidth>84</bitwidth>
+            <bitwidth>44</bitwidth>
           </Value>
           <oprand_edges>
             <count>8</count>

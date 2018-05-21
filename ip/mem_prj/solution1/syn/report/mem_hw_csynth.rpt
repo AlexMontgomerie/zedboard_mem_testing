@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'mem_hw'
 ================================================================
-* Date:           Thu May 17 12:38:33 2018
+* Date:           Mon May 21 14:47:58 2018
 
 * Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
 * Project:        mem_prj
@@ -20,27 +20,27 @@
     +--------+--------+----------+------------+
     |  Clock | Target | Estimated| Uncertainty|
     +--------+--------+----------+------------+
-    |ap_clk  |  800.00|      7.90|      100.00|
+    |ap_clk  |  800.00|      8.14|      100.00|
     +--------+--------+----------+------------+
 
 + Latency (clock cycles): 
     * Summary: 
-    +--------+--------+--------+--------+----------+
-    |     Latency     |     Interval    | Pipeline |
-    |   min  |   max  |   min  |   max  |   Type   |
-    +--------+--------+--------+--------+----------+
-    |  262147|  262147|  262148|  262148| dataflow |
-    +--------+--------+--------+--------+----------+
+    +---------+---------+---------+---------+----------+
+    |      Latency      |      Interval     | Pipeline |
+    |   min   |   max   |   min   |   max   |   Type   |
+    +---------+---------+---------+---------+----------+
+    |  8388099|  8388099|  8388100|  8388100| dataflow |
+    +---------+---------+---------+---------+----------+
 
     + Detail: 
         * Instance: 
-        +--------------+-----------+--------+--------+--------+--------+---------+
-        |              |           |     Latency     |     Interval    | Pipeline|
-        |   Instance   |   Module  |   min  |   max  |   min  |   max  |   Type  |
-        +--------------+-----------+--------+--------+--------+--------+---------+
-        |mem_write_U0  |mem_write  |  262147|  262147|  262147|  262147|   none  |
-        |mem_read_U0   |mem_read   |       2|       2|       2|       2|   none  |
-        +--------------+-----------+--------+--------+--------+--------+---------+
+        +--------------+-----------+---------+---------+---------+---------+---------+
+        |              |           |      Latency      |      Interval     | Pipeline|
+        |   Instance   |   Module  |   min   |   max   |   min   |   max   |   Type  |
+        +--------------+-----------+---------+---------+---------+---------+---------+
+        |mem_write_U0  |mem_write  |  8388099|  8388099|  8388099|  8388099|   none  |
+        |mem_read_U0   |mem_read   |        2|        2|        2|        2|   none  |
+        +--------------+-----------+---------+---------+---------+---------+---------+
 
         * Loop: 
         N/A
@@ -57,16 +57,16 @@
 |DSP              |        -|      -|       -|      -|
 |Expression       |        -|      -|       0|     68|
 |FIFO             |        -|      -|       -|      -|
-|Instance         |        4|      -|     454|    943|
+|Instance         |        2|      -|     402|    960|
 |Memory           |        -|      -|       -|      -|
 |Multiplexer      |        -|      -|       -|     36|
 |Register         |        -|      -|       6|      -|
 +-----------------+---------+-------+--------+-------+
-|Total            |        4|      0|     460|   1047|
+|Total            |        2|      0|     408|   1064|
 +-----------------+---------+-------+--------+-------+
 |Available        |      280|    220|  106400|  53200|
 +-----------------+---------+-------+--------+-------+
-|Utilization (%)  |        1|      0|   ~0   |      1|
+|Utilization (%)  |    ~0   |      0|   ~0   |      2|
 +-----------------+---------+-------+--------+-------+
 
 + Detail: 
@@ -74,11 +74,11 @@
     +----------------------------+--------------------------+---------+-------+-----+-----+
     |          Instance          |          Module          | BRAM_18K| DSP48E|  FF | LUT |
     +----------------------------+--------------------------+---------+-------+-----+-----+
-    |mem_hw_CONTROL_BUS_s_axi_U  |mem_hw_CONTROL_BUS_s_axi  |        4|      0|  224|  302|
+    |mem_hw_CONTROL_BUS_s_axi_U  |mem_hw_CONTROL_BUS_s_axi  |        2|      0|  224|  302|
     |mem_read_U0                 |mem_read                  |        0|      0|   14|  125|
-    |mem_write_U0                |mem_write                 |        0|      0|  216|  516|
+    |mem_write_U0                |mem_write                 |        0|      0|  164|  533|
     +----------------------------+--------------------------+---------+-------+-----+-----+
-    |Total                       |                          |        4|      0|  454|  943|
+    |Total                       |                          |        2|      0|  402|  960|
     +----------------------------+--------------------------+---------+-------+-----+-----+
 
     * DSP48: 
@@ -141,14 +141,14 @@
 +---------------------------+-----+-----+------------+--------------+--------------+
 |s_axi_CONTROL_BUS_AWVALID  |  in |    1|    s_axi   |  CONTROL_BUS |     array    |
 |s_axi_CONTROL_BUS_AWREADY  | out |    1|    s_axi   |  CONTROL_BUS |     array    |
-|s_axi_CONTROL_BUS_AWADDR   |  in |   13|    s_axi   |  CONTROL_BUS |     array    |
+|s_axi_CONTROL_BUS_AWADDR   |  in |   12|    s_axi   |  CONTROL_BUS |     array    |
 |s_axi_CONTROL_BUS_WVALID   |  in |    1|    s_axi   |  CONTROL_BUS |     array    |
 |s_axi_CONTROL_BUS_WREADY   | out |    1|    s_axi   |  CONTROL_BUS |     array    |
 |s_axi_CONTROL_BUS_WDATA    |  in |   32|    s_axi   |  CONTROL_BUS |     array    |
 |s_axi_CONTROL_BUS_WSTRB    |  in |    4|    s_axi   |  CONTROL_BUS |     array    |
 |s_axi_CONTROL_BUS_ARVALID  |  in |    1|    s_axi   |  CONTROL_BUS |     array    |
 |s_axi_CONTROL_BUS_ARREADY  | out |    1|    s_axi   |  CONTROL_BUS |     array    |
-|s_axi_CONTROL_BUS_ARADDR   |  in |   13|    s_axi   |  CONTROL_BUS |     array    |
+|s_axi_CONTROL_BUS_ARADDR   |  in |   12|    s_axi   |  CONTROL_BUS |     array    |
 |s_axi_CONTROL_BUS_RVALID   | out |    1|    s_axi   |  CONTROL_BUS |     array    |
 |s_axi_CONTROL_BUS_RREADY   |  in |    1|    s_axi   |  CONTROL_BUS |     array    |
 |s_axi_CONTROL_BUS_RDATA    | out |   32|    s_axi   |  CONTROL_BUS |     array    |
@@ -159,18 +159,18 @@
 |ap_clk                     |  in |    1| ap_ctrl_hs |    mem_hw    | return value |
 |ap_rst_n                   |  in |    1| ap_ctrl_hs |    mem_hw    | return value |
 |interrupt                  | out |    1| ap_ctrl_hs |    mem_hw    | return value |
-|out_r_TDATA                | out |   64|    axis    | out_V_data_V |    pointer   |
-|out_r_TKEEP                | out |    8|    axis    | out_V_keep_V |    pointer   |
-|out_r_TSTRB                | out |    8|    axis    | out_V_strb_V |    pointer   |
+|out_r_TDATA                | out |   32|    axis    | out_V_data_V |    pointer   |
+|out_r_TKEEP                | out |    4|    axis    | out_V_keep_V |    pointer   |
+|out_r_TSTRB                | out |    4|    axis    | out_V_strb_V |    pointer   |
 |out_r_TUSER                | out |    1|    axis    | out_V_user_V |    pointer   |
 |out_r_TLAST                | out |    1|    axis    | out_V_last_V |    pointer   |
 |out_r_TID                  | out |    1|    axis    |  out_V_id_V  |    pointer   |
 |out_r_TDEST                | out |    1|    axis    | out_V_dest_V |    pointer   |
 |out_r_TVALID               | out |    1|    axis    | out_V_dest_V |    pointer   |
 |out_r_TREADY               |  in |    1|    axis    | out_V_dest_V |    pointer   |
-|in_r_TDATA                 |  in |   64|    axis    |  in_V_data_V |    pointer   |
-|in_r_TKEEP                 |  in |    8|    axis    |  in_V_keep_V |    pointer   |
-|in_r_TSTRB                 |  in |    8|    axis    |  in_V_strb_V |    pointer   |
+|in_r_TDATA                 |  in |   32|    axis    |  in_V_data_V |    pointer   |
+|in_r_TKEEP                 |  in |    4|    axis    |  in_V_keep_V |    pointer   |
+|in_r_TSTRB                 |  in |    4|    axis    |  in_V_strb_V |    pointer   |
 |in_r_TUSER                 |  in |    1|    axis    |  in_V_user_V |    pointer   |
 |in_r_TLAST                 |  in |    1|    axis    |  in_V_last_V |    pointer   |
 |in_r_TID                   |  in |    1|    axis    |   in_V_id_V  |    pointer   |

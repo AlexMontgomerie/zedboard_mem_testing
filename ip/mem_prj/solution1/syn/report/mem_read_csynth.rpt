@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'mem_read'
 ================================================================
-* Date:           Thu May 17 12:38:32 2018
+* Date:           Mon May 21 14:47:57 2018
 
 * Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
 * Project:        mem_prj
@@ -141,12 +141,12 @@
 |ap_continue  |  in |    1| ap_ctrl_hs |      mem_read      | return value |
 |ap_idle      | out |    1| ap_ctrl_hs |      mem_read      | return value |
 |ap_ready     | out |    1| ap_ctrl_hs |      mem_read      | return value |
-|in_r_TDATA   |  in |   64|    axis    | in_stream_V_data_V |    pointer   |
+|in_r_TDATA   |  in |   32|    axis    | in_stream_V_data_V |    pointer   |
 |in_r_TVALID  |  in |    1|    axis    | in_stream_V_dest_V |    pointer   |
 |in_r_TREADY  | out |    1|    axis    | in_stream_V_dest_V |    pointer   |
 |in_r_TDEST   |  in |    1|    axis    | in_stream_V_dest_V |    pointer   |
-|in_r_TKEEP   |  in |    8|    axis    | in_stream_V_keep_V |    pointer   |
-|in_r_TSTRB   |  in |    8|    axis    | in_stream_V_strb_V |    pointer   |
+|in_r_TKEEP   |  in |    4|    axis    | in_stream_V_keep_V |    pointer   |
+|in_r_TSTRB   |  in |    4|    axis    | in_stream_V_strb_V |    pointer   |
 |in_r_TUSER   |  in |    1|    axis    | in_stream_V_user_V |    pointer   |
 |in_r_TLAST   |  in |    1|    axis    | in_stream_V_last_V |    pointer   |
 |in_r_TID     |  in |    1|    axis    |  in_stream_V_id_V  |    pointer   |

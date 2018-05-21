@@ -13,5 +13,5 @@ create_clock -period 800 -name default
 #source "./mem_prj/solution1/directives.tcl"
 csim_design -compiler gcc
 csynth_design
-cosim_design -compiler gcc
+cosim_design -reduce_diskspace -compiler gcc
 export_design -rtl verilog -format ip_catalog

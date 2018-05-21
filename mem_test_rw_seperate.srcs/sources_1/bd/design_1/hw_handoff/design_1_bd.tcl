@@ -164,13 +164,14 @@ proc create_root_design { parentCell } {
   # Create instance: axi_dma_0, and set properties
   set axi_dma_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_dma:7.1 axi_dma_0 ]
   set_property -dict [ list \
-   CONFIG.c_include_mm2s_dre {0} \
-   CONFIG.c_include_s2mm_dre {0} \
+   CONFIG.c_include_mm2s_dre {1} \
+   CONFIG.c_include_s2mm {1} \
+   CONFIG.c_include_s2mm_dre {1} \
    CONFIG.c_include_sg {0} \
-   CONFIG.c_m_axi_mm2s_data_width {64} \
-   CONFIG.c_m_axis_mm2s_tdata_width {64} \
-   CONFIG.c_mm2s_burst_size {256} \
-   CONFIG.c_s2mm_burst_size {256} \
+   CONFIG.c_m_axi_mm2s_data_width {32} \
+   CONFIG.c_m_axis_mm2s_tdata_width {32} \
+   CONFIG.c_mm2s_burst_size {64} \
+   CONFIG.c_s2mm_burst_size {64} \
    CONFIG.c_sg_include_stscntrl_strm {0} \
    CONFIG.c_sg_length_width {23} \
  ] $axi_dma_0
@@ -811,7 +812,7 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_S_AXI_ACP_ID_WIDTH {3} \
    CONFIG.PCW_S_AXI_GP0_ID_WIDTH {6} \
    CONFIG.PCW_S_AXI_GP1_ID_WIDTH {6} \
-   CONFIG.PCW_S_AXI_HP0_DATA_WIDTH {64} \
+   CONFIG.PCW_S_AXI_HP0_DATA_WIDTH {32} \
    CONFIG.PCW_S_AXI_HP0_ID_WIDTH {6} \
    CONFIG.PCW_S_AXI_HP1_DATA_WIDTH {64} \
    CONFIG.PCW_S_AXI_HP1_ID_WIDTH {6} \
@@ -1047,9 +1048,6 @@ HDL_ATTRIBUTE.DEBUG {true} \
   connect_bd_intf_net -intf_net axi_dma_0_M_AXI_MM2S [get_bd_intf_pins axi_dma_0/M_AXI_MM2S] [get_bd_intf_pins axi_interconnect_0/S00_AXI]
   connect_bd_intf_net -intf_net axi_dma_0_M_AXI_S2MM [get_bd_intf_pins axi_dma_0/M_AXI_S2MM] [get_bd_intf_pins axi_interconnect_0/S01_AXI]
 connect_bd_intf_net -intf_net axi_interconnect_0_M00_AXI [get_bd_intf_pins axi_interconnect_0/M00_AXI] [get_bd_intf_pins system_ila_0/SLOT_0_AXI]
-  set_property -dict [ list \
-HDL_ATTRIBUTE.DEBUG {true} \
- ] [get_bd_intf_nets axi_interconnect_0_M00_AXI]
   connect_bd_intf_net -intf_net axi_interconnect_0_M01_AXI [get_bd_intf_pins axi_interconnect_0/M01_AXI] [get_bd_intf_pins processing_system7_0/S_AXI_HP0]
   connect_bd_intf_net -intf_net axi_interconnect_1_M00_AXI [get_bd_intf_pins axi_interconnect_1/M00_AXI] [get_bd_intf_pins mem_hw_0/s_axi_CONTROL_BUS]
   connect_bd_intf_net -intf_net axi_interconnect_1_M01_AXI [get_bd_intf_pins axi_dma_0/S_AXI_LITE] [get_bd_intf_pins axi_interconnect_1/M01_AXI]

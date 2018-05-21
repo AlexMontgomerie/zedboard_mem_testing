@@ -3,16 +3,49 @@
   <errorLogs>
     <logs>
       <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
     </logs>
   </errorLogs>
   <warningLogs>
     <logs>
       <synLog>
-        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'first_order_fixed_16::sin_cos_K1' can not be recognized(UNKNOWN VARIABLE) in 'sin_or_cos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-17T12:38:28.034+0100" type="Warning"/>
-        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'second_order_float::sin_K2' can not be recognized(UNKNOWN VARIABLE) in 'sincos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-17T12:38:28.033+0100" type="Warning"/>
-        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'fourth_order_double::sin_K0' can not be recognized(UNKNOWN VARIABLE) in 'sincos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-17T12:38:28.031+0100" type="Warning"/>
-        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'fourth_order_double::cos_K1' can not be recognized(UNKNOWN VARIABLE) in 'sincos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-17T12:38:28.025+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'first_order_fixed_16::sin_cos_K1' can not be recognized(UNKNOWN VARIABLE) in 'sin_or_cos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.666+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'second_order_float::sin_K2' can not be recognized(UNKNOWN VARIABLE) in 'sincos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.663+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'fourth_order_double::sin_K0' can not be recognized(UNKNOWN VARIABLE) in 'sincos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.660+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'fourth_order_double::cos_K1' can not be recognized(UNKNOWN VARIABLE) in 'sincos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.658+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'first_order_fixed_16::sin_cos_K0' can not be recognized(UNKNOWN VARIABLE) in 'sin_or_cos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.655+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'fourth_order_double::sin_cos_K0' can not be recognized(UNKNOWN VARIABLE) in 'sin_or_cos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.653+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'second_order_float::sin_K0' can not be recognized(UNKNOWN VARIABLE) in 'sincos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.651+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'fourth_order_double::sin_cos_K1' can not be recognized(UNKNOWN VARIABLE) in 'sin_or_cos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.649+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'second_order_float::cos_K1' can not be recognized(UNKNOWN VARIABLE) in 'sincos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.646+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'fourth_order_double::sin_cos_K4' can not be recognized(UNKNOWN VARIABLE) in 'sin_or_cos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.644+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'second_order_float::cos_K0' can not be recognized(UNKNOWN VARIABLE) in 'sincos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.642+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'second_order_float::sin_cos_K1' can not be recognized(UNKNOWN VARIABLE) in 'sin_or_cos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.641+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'fourth_order_double::cos_K0' can not be recognized(UNKNOWN VARIABLE) in 'sincos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.639+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'second_order_float::cos_K2' can not be recognized(UNKNOWN VARIABLE) in 'sincos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.637+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'fourth_order_double::sin_K1' can not be recognized(UNKNOWN VARIABLE) in 'sincos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.635+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'second_order_float::sin_K1' can not be recognized(UNKNOWN VARIABLE) in 'sincos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.633+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'fourth_order_double::sin_K2' can not be recognized(UNKNOWN VARIABLE) in 'sincos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.632+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'fourth_order_double::sin_K3' can not be recognized(UNKNOWN VARIABLE) in 'sincos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.630+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'second_order_float::sin_cos_K2' can not be recognized(UNKNOWN VARIABLE) in 'sin_or_cos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.628+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'fourth_order_double::sin_K4' can not be recognized(UNKNOWN VARIABLE) in 'sincos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.627+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'fourth_order_double::cos_K4' can not be recognized(UNKNOWN VARIABLE) in 'sincos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.625+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'fourth_order_double::cos_K2' can not be recognized(UNKNOWN VARIABLE) in 'sincos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.624+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'fourth_order_double::cos_K3' can not be recognized(UNKNOWN VARIABLE) in 'sincos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.622+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'fourth_order_double::sin_cos_K2' can not be recognized(UNKNOWN VARIABLE) in 'sin_or_cos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.621+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'fourth_order_double::sin_cos_K3' can not be recognized(UNKNOWN VARIABLE) in 'sin_or_cos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.620+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'RESOURCE' for core 'ROM_1P_LUTRAM' cannot be applied: Variable 'second_order_float::sin_cos_K0' can not be recognized(UNKNOWN VARIABLE) in 'sin_or_cos_approximation'." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:47:53.617+0100" type="Warning"/>
       </synLog>
+      <simLog>
+        <logs message="WARNING: [COSIM 212-376] This design mixes AXI slave interface and pipeline mode, which could potentially result in simulation dead-lock and/or get mismatching results." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:55:14.402+0100" type="Warning"/>
+        <logs message="WARNING: [COSIM 212-376] This design mixes AXI slave interface and pipeline mode, which could potentially result in simulation dead-lock and/or get mismatching results." projectName="mem_prj" solutionName="solution1" date="2018-05-21T14:55:14.334+0100" type="Warning"/>
+      </simLog>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
     </logs>
   </warningLogs>
 </vivadoHLSLog:LogRoot>

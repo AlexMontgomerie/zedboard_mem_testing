@@ -16,8 +16,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param xicom.use_bs_reader 1
-set_param tcl.collectionResultDisplayLimit 0
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 create_project -in_memory -part xc7z020clg484-1
@@ -39,12 +37,12 @@ set_property ip_repo_paths {
 set_property ip_output_repo /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_ip -quiet /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_system_ila_0_1/design_1_system_ila_0_1.xci
-set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_system_ila_0_1/design_1_system_ila_0_1_ooc.xdc]
 set_property used_in_synthesis false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_system_ila_0_1/bd_0/ip/ip_0/ila_v6_2/constraints/ila_impl.xdc]
 set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_system_ila_0_1/bd_0/ip/ip_0/ila_v6_2/constraints/ila_impl.xdc]
 set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_system_ila_0_1/bd_0/ip/ip_0/ila_v6_2/constraints/ila.xdc]
 set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_system_ila_0_1/bd_0/ip/ip_0/bd_36cd_ila_lib_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_system_ila_0_1/bd_0/bd_36cd_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_system_ila_0_1/design_1_system_ila_0_1_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

@@ -21,9 +21,9 @@
 module AESL_axi_s_in_r (
     input clk,
     input reset,
-    output [64 - 1:0] TRAN_in_r_TDATA,
-    output [8 - 1:0] TRAN_in_r_TKEEP,
-    output [8 - 1:0] TRAN_in_r_TSTRB,
+    output [32 - 1:0] TRAN_in_r_TDATA,
+    output [4 - 1:0] TRAN_in_r_TKEEP,
+    output [4 - 1:0] TRAN_in_r_TSTRB,
     output TRAN_in_r_TUSER,
     output TRAN_in_r_TLAST,
     output TRAN_in_r_TID,
@@ -38,11 +38,11 @@ module AESL_axi_s_in_r (
     wire in_r_TDATA_full;
     wire in_r_TDATA_empty;
     reg in_r_TDATA_write_en;
-    reg [64 - 1:0] in_r_TDATA_write_data;
+    reg [32 - 1:0] in_r_TDATA_write_data;
     reg in_r_TDATA_read_en;
-    wire [64 - 1:0] in_r_TDATA_read_data;
+    wire [32 - 1:0] in_r_TDATA_read_data;
     
-    fifo #(262144, 64) fifo_in_r_TDATA (
+    fifo #(8388096, 32) fifo_in_r_TDATA (
         .reset(1'b0),
         .write_clock(clk),
         .write_en(in_r_TDATA_write_en),
@@ -62,11 +62,11 @@ module AESL_axi_s_in_r (
     wire in_r_TKEEP_full;
     wire in_r_TKEEP_empty;
     reg in_r_TKEEP_write_en;
-    reg [8 - 1:0] in_r_TKEEP_write_data;
+    reg [4 - 1:0] in_r_TKEEP_write_data;
     reg in_r_TKEEP_read_en;
-    wire [8 - 1:0] in_r_TKEEP_read_data;
+    wire [4 - 1:0] in_r_TKEEP_read_data;
     
-    fifo #(262144, 8) fifo_in_r_TKEEP (
+    fifo #(8388096, 4) fifo_in_r_TKEEP (
         .reset(1'b0),
         .write_clock(clk),
         .write_en(in_r_TKEEP_write_en),
@@ -86,11 +86,11 @@ module AESL_axi_s_in_r (
     wire in_r_TSTRB_full;
     wire in_r_TSTRB_empty;
     reg in_r_TSTRB_write_en;
-    reg [8 - 1:0] in_r_TSTRB_write_data;
+    reg [4 - 1:0] in_r_TSTRB_write_data;
     reg in_r_TSTRB_read_en;
-    wire [8 - 1:0] in_r_TSTRB_read_data;
+    wire [4 - 1:0] in_r_TSTRB_read_data;
     
-    fifo #(262144, 8) fifo_in_r_TSTRB (
+    fifo #(8388096, 4) fifo_in_r_TSTRB (
         .reset(1'b0),
         .write_clock(clk),
         .write_en(in_r_TSTRB_write_en),
@@ -114,7 +114,7 @@ module AESL_axi_s_in_r (
     reg in_r_TUSER_read_en;
     wire [1 - 1:0] in_r_TUSER_read_data;
     
-    fifo #(262144, 1) fifo_in_r_TUSER (
+    fifo #(8388096, 1) fifo_in_r_TUSER (
         .reset(1'b0),
         .write_clock(clk),
         .write_en(in_r_TUSER_write_en),
@@ -138,7 +138,7 @@ module AESL_axi_s_in_r (
     reg in_r_TLAST_read_en;
     wire [1 - 1:0] in_r_TLAST_read_data;
     
-    fifo #(262144, 1) fifo_in_r_TLAST (
+    fifo #(8388096, 1) fifo_in_r_TLAST (
         .reset(1'b0),
         .write_clock(clk),
         .write_en(in_r_TLAST_write_en),
@@ -162,7 +162,7 @@ module AESL_axi_s_in_r (
     reg in_r_TID_read_en;
     wire [1 - 1:0] in_r_TID_read_data;
     
-    fifo #(262144, 1) fifo_in_r_TID (
+    fifo #(8388096, 1) fifo_in_r_TID (
         .reset(1'b0),
         .write_clock(clk),
         .write_en(in_r_TID_write_en),
@@ -186,7 +186,7 @@ module AESL_axi_s_in_r (
     reg in_r_TDEST_read_en;
     wire [1 - 1:0] in_r_TDEST_read_data;
     
-    fifo #(262144, 1) fifo_in_r_TDEST (
+    fifo #(8388096, 1) fifo_in_r_TDEST (
         .reset(1'b0),
         .write_clock(clk),
         .write_en(in_r_TDEST_write_en),
@@ -245,7 +245,7 @@ module AESL_axi_s_in_r (
     initial begin : AXI_stream_driver_in_r_TDATA
         integer fp;
         reg [223:0] token;
-        reg [64 - 1:0] data;
+        reg [32 - 1:0] data;
         reg [223:0] data_integer;
         reg [8 * 5:1] str;
         integer ret;
@@ -253,21 +253,17 @@ module AESL_axi_s_in_r (
         transaction_load_in_r_TDATA = 0;
         fifo_in_r_TDATA.clear();
         wait (reset === 1);
-        fp = $fopen(`TV_IN_in_r_TDATA, "r");
-        if (fp == 0) begin
-            $display("ERROR: Failed to open file \"%s\"!", `TV_IN_in_r_TDATA);
-            $finish;
-        end
-        token = read_token(fp);
-        if (token != "[[[runtime]]]") begin
-            $display("ERROR: token %s != [[[runtime]]]", token);
-            $finish;
-        end
-        token = read_token(fp); // read 1st "[[transaction]]"
         forever begin
             @ (negedge clk);
             if (ready == 1) begin
-                if (token != "[[[/runtime]]]") begin
+                if (transaction_load_in_r_TDATA < `AUTOTB_TRANSACTION_NUM) begin
+                    $sformat(str, "%0d", transaction_load_in_r_TDATA);
+                    fp = $fopen({`TV_IN_in_r_TDATA, "_", str}, "r");
+                    if (fp == 0) begin // Failed to open file
+                        $display("ERROR: Failed to open file \"%s\"!", `TV_IN_in_r_TDATA);
+                        $finish;
+                    end
+                    token = read_token(fp);
                     if (token != "[[transaction]]") begin
                         $display("ERROR: token %s != [[[transaction]]]", token);
                         $finish;
@@ -285,14 +281,7 @@ module AESL_axi_s_in_r (
                         fifo_in_r_TDATA.push(data);
                         token = read_token(fp);
                     end
-                    token = read_token(fp);
-                    fifo_in_r_TDATA.snapshot();
-                end else begin
-                    fifo_in_r_TDATA.restore();
-                    if (fp != 0) begin
-                        $fclose(fp);
-                        fp = 0;
-                    end
+                    $fclose(fp);
                 end
                 transaction_load_in_r_TDATA = transaction_load_in_r_TDATA + 1;
             end
@@ -304,7 +293,7 @@ module AESL_axi_s_in_r (
     initial begin : AXI_stream_driver_in_r_TKEEP
         integer fp;
         reg [223:0] token;
-        reg [8 - 1:0] data;
+        reg [4 - 1:0] data;
         reg [223:0] data_integer;
         reg [8 * 5:1] str;
         integer ret;
@@ -312,21 +301,17 @@ module AESL_axi_s_in_r (
         transaction_load_in_r_TKEEP = 0;
         fifo_in_r_TKEEP.clear();
         wait (reset === 1);
-        fp = $fopen(`TV_IN_in_r_TKEEP, "r");
-        if (fp == 0) begin
-            $display("ERROR: Failed to open file \"%s\"!", `TV_IN_in_r_TKEEP);
-            $finish;
-        end
-        token = read_token(fp);
-        if (token != "[[[runtime]]]") begin
-            $display("ERROR: token %s != [[[runtime]]]", token);
-            $finish;
-        end
-        token = read_token(fp); // read 1st "[[transaction]]"
         forever begin
             @ (negedge clk);
             if (ready == 1) begin
-                if (token != "[[[/runtime]]]") begin
+                if (transaction_load_in_r_TKEEP < `AUTOTB_TRANSACTION_NUM) begin
+                    $sformat(str, "%0d", transaction_load_in_r_TKEEP);
+                    fp = $fopen({`TV_IN_in_r_TKEEP, "_", str}, "r");
+                    if (fp == 0) begin // Failed to open file
+                        $display("ERROR: Failed to open file \"%s\"!", `TV_IN_in_r_TKEEP);
+                        $finish;
+                    end
+                    token = read_token(fp);
                     if (token != "[[transaction]]") begin
                         $display("ERROR: token %s != [[[transaction]]]", token);
                         $finish;
@@ -344,14 +329,7 @@ module AESL_axi_s_in_r (
                         fifo_in_r_TKEEP.push(data);
                         token = read_token(fp);
                     end
-                    token = read_token(fp);
-                    fifo_in_r_TKEEP.snapshot();
-                end else begin
-                    fifo_in_r_TKEEP.restore();
-                    if (fp != 0) begin
-                        $fclose(fp);
-                        fp = 0;
-                    end
+                    $fclose(fp);
                 end
                 transaction_load_in_r_TKEEP = transaction_load_in_r_TKEEP + 1;
             end
@@ -363,7 +341,7 @@ module AESL_axi_s_in_r (
     initial begin : AXI_stream_driver_in_r_TSTRB
         integer fp;
         reg [223:0] token;
-        reg [8 - 1:0] data;
+        reg [4 - 1:0] data;
         reg [223:0] data_integer;
         reg [8 * 5:1] str;
         integer ret;
@@ -371,21 +349,17 @@ module AESL_axi_s_in_r (
         transaction_load_in_r_TSTRB = 0;
         fifo_in_r_TSTRB.clear();
         wait (reset === 1);
-        fp = $fopen(`TV_IN_in_r_TSTRB, "r");
-        if (fp == 0) begin
-            $display("ERROR: Failed to open file \"%s\"!", `TV_IN_in_r_TSTRB);
-            $finish;
-        end
-        token = read_token(fp);
-        if (token != "[[[runtime]]]") begin
-            $display("ERROR: token %s != [[[runtime]]]", token);
-            $finish;
-        end
-        token = read_token(fp); // read 1st "[[transaction]]"
         forever begin
             @ (negedge clk);
             if (ready == 1) begin
-                if (token != "[[[/runtime]]]") begin
+                if (transaction_load_in_r_TSTRB < `AUTOTB_TRANSACTION_NUM) begin
+                    $sformat(str, "%0d", transaction_load_in_r_TSTRB);
+                    fp = $fopen({`TV_IN_in_r_TSTRB, "_", str}, "r");
+                    if (fp == 0) begin // Failed to open file
+                        $display("ERROR: Failed to open file \"%s\"!", `TV_IN_in_r_TSTRB);
+                        $finish;
+                    end
+                    token = read_token(fp);
                     if (token != "[[transaction]]") begin
                         $display("ERROR: token %s != [[[transaction]]]", token);
                         $finish;
@@ -403,14 +377,7 @@ module AESL_axi_s_in_r (
                         fifo_in_r_TSTRB.push(data);
                         token = read_token(fp);
                     end
-                    token = read_token(fp);
-                    fifo_in_r_TSTRB.snapshot();
-                end else begin
-                    fifo_in_r_TSTRB.restore();
-                    if (fp != 0) begin
-                        $fclose(fp);
-                        fp = 0;
-                    end
+                    $fclose(fp);
                 end
                 transaction_load_in_r_TSTRB = transaction_load_in_r_TSTRB + 1;
             end
@@ -430,21 +397,17 @@ module AESL_axi_s_in_r (
         transaction_load_in_r_TUSER = 0;
         fifo_in_r_TUSER.clear();
         wait (reset === 1);
-        fp = $fopen(`TV_IN_in_r_TUSER, "r");
-        if (fp == 0) begin
-            $display("ERROR: Failed to open file \"%s\"!", `TV_IN_in_r_TUSER);
-            $finish;
-        end
-        token = read_token(fp);
-        if (token != "[[[runtime]]]") begin
-            $display("ERROR: token %s != [[[runtime]]]", token);
-            $finish;
-        end
-        token = read_token(fp); // read 1st "[[transaction]]"
         forever begin
             @ (negedge clk);
             if (ready == 1) begin
-                if (token != "[[[/runtime]]]") begin
+                if (transaction_load_in_r_TUSER < `AUTOTB_TRANSACTION_NUM) begin
+                    $sformat(str, "%0d", transaction_load_in_r_TUSER);
+                    fp = $fopen({`TV_IN_in_r_TUSER, "_", str}, "r");
+                    if (fp == 0) begin // Failed to open file
+                        $display("ERROR: Failed to open file \"%s\"!", `TV_IN_in_r_TUSER);
+                        $finish;
+                    end
+                    token = read_token(fp);
                     if (token != "[[transaction]]") begin
                         $display("ERROR: token %s != [[[transaction]]]", token);
                         $finish;
@@ -462,14 +425,7 @@ module AESL_axi_s_in_r (
                         fifo_in_r_TUSER.push(data);
                         token = read_token(fp);
                     end
-                    token = read_token(fp);
-                    fifo_in_r_TUSER.snapshot();
-                end else begin
-                    fifo_in_r_TUSER.restore();
-                    if (fp != 0) begin
-                        $fclose(fp);
-                        fp = 0;
-                    end
+                    $fclose(fp);
                 end
                 transaction_load_in_r_TUSER = transaction_load_in_r_TUSER + 1;
             end
@@ -489,21 +445,17 @@ module AESL_axi_s_in_r (
         transaction_load_in_r_TLAST = 0;
         fifo_in_r_TLAST.clear();
         wait (reset === 1);
-        fp = $fopen(`TV_IN_in_r_TLAST, "r");
-        if (fp == 0) begin
-            $display("ERROR: Failed to open file \"%s\"!", `TV_IN_in_r_TLAST);
-            $finish;
-        end
-        token = read_token(fp);
-        if (token != "[[[runtime]]]") begin
-            $display("ERROR: token %s != [[[runtime]]]", token);
-            $finish;
-        end
-        token = read_token(fp); // read 1st "[[transaction]]"
         forever begin
             @ (negedge clk);
             if (ready == 1) begin
-                if (token != "[[[/runtime]]]") begin
+                if (transaction_load_in_r_TLAST < `AUTOTB_TRANSACTION_NUM) begin
+                    $sformat(str, "%0d", transaction_load_in_r_TLAST);
+                    fp = $fopen({`TV_IN_in_r_TLAST, "_", str}, "r");
+                    if (fp == 0) begin // Failed to open file
+                        $display("ERROR: Failed to open file \"%s\"!", `TV_IN_in_r_TLAST);
+                        $finish;
+                    end
+                    token = read_token(fp);
                     if (token != "[[transaction]]") begin
                         $display("ERROR: token %s != [[[transaction]]]", token);
                         $finish;
@@ -521,14 +473,7 @@ module AESL_axi_s_in_r (
                         fifo_in_r_TLAST.push(data);
                         token = read_token(fp);
                     end
-                    token = read_token(fp);
-                    fifo_in_r_TLAST.snapshot();
-                end else begin
-                    fifo_in_r_TLAST.restore();
-                    if (fp != 0) begin
-                        $fclose(fp);
-                        fp = 0;
-                    end
+                    $fclose(fp);
                 end
                 transaction_load_in_r_TLAST = transaction_load_in_r_TLAST + 1;
             end
@@ -548,21 +493,17 @@ module AESL_axi_s_in_r (
         transaction_load_in_r_TID = 0;
         fifo_in_r_TID.clear();
         wait (reset === 1);
-        fp = $fopen(`TV_IN_in_r_TID, "r");
-        if (fp == 0) begin
-            $display("ERROR: Failed to open file \"%s\"!", `TV_IN_in_r_TID);
-            $finish;
-        end
-        token = read_token(fp);
-        if (token != "[[[runtime]]]") begin
-            $display("ERROR: token %s != [[[runtime]]]", token);
-            $finish;
-        end
-        token = read_token(fp); // read 1st "[[transaction]]"
         forever begin
             @ (negedge clk);
             if (ready == 1) begin
-                if (token != "[[[/runtime]]]") begin
+                if (transaction_load_in_r_TID < `AUTOTB_TRANSACTION_NUM) begin
+                    $sformat(str, "%0d", transaction_load_in_r_TID);
+                    fp = $fopen({`TV_IN_in_r_TID, "_", str}, "r");
+                    if (fp == 0) begin // Failed to open file
+                        $display("ERROR: Failed to open file \"%s\"!", `TV_IN_in_r_TID);
+                        $finish;
+                    end
+                    token = read_token(fp);
                     if (token != "[[transaction]]") begin
                         $display("ERROR: token %s != [[[transaction]]]", token);
                         $finish;
@@ -580,14 +521,7 @@ module AESL_axi_s_in_r (
                         fifo_in_r_TID.push(data);
                         token = read_token(fp);
                     end
-                    token = read_token(fp);
-                    fifo_in_r_TID.snapshot();
-                end else begin
-                    fifo_in_r_TID.restore();
-                    if (fp != 0) begin
-                        $fclose(fp);
-                        fp = 0;
-                    end
+                    $fclose(fp);
                 end
                 transaction_load_in_r_TID = transaction_load_in_r_TID + 1;
             end
@@ -607,21 +541,17 @@ module AESL_axi_s_in_r (
         transaction_load_in_r_TDEST = 0;
         fifo_in_r_TDEST.clear();
         wait (reset === 1);
-        fp = $fopen(`TV_IN_in_r_TDEST, "r");
-        if (fp == 0) begin
-            $display("ERROR: Failed to open file \"%s\"!", `TV_IN_in_r_TDEST);
-            $finish;
-        end
-        token = read_token(fp);
-        if (token != "[[[runtime]]]") begin
-            $display("ERROR: token %s != [[[runtime]]]", token);
-            $finish;
-        end
-        token = read_token(fp); // read 1st "[[transaction]]"
         forever begin
             @ (negedge clk);
             if (ready == 1) begin
-                if (token != "[[[/runtime]]]") begin
+                if (transaction_load_in_r_TDEST < `AUTOTB_TRANSACTION_NUM) begin
+                    $sformat(str, "%0d", transaction_load_in_r_TDEST);
+                    fp = $fopen({`TV_IN_in_r_TDEST, "_", str}, "r");
+                    if (fp == 0) begin // Failed to open file
+                        $display("ERROR: Failed to open file \"%s\"!", `TV_IN_in_r_TDEST);
+                        $finish;
+                    end
+                    token = read_token(fp);
                     if (token != "[[transaction]]") begin
                         $display("ERROR: token %s != [[[transaction]]]", token);
                         $finish;
@@ -639,14 +569,7 @@ module AESL_axi_s_in_r (
                         fifo_in_r_TDEST.push(data);
                         token = read_token(fp);
                     end
-                    token = read_token(fp);
-                    fifo_in_r_TDEST.snapshot();
-                end else begin
-                    fifo_in_r_TDEST.restore();
-                    if (fp != 0) begin
-                        $fclose(fp);
-                        fp = 0;
-                    end
+                    $fclose(fp);
                 end
                 transaction_load_in_r_TDEST = transaction_load_in_r_TDEST + 1;
             end

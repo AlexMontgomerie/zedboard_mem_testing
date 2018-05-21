@@ -1,8 +1,8 @@
 [[[runtime]]]
 [[transaction]] 0
-262144
+8388096
 [[/transaction]] 
 [[transaction]] 1
-262144
+8388096
 [[/transaction]] 
 [[[/runtime]]]

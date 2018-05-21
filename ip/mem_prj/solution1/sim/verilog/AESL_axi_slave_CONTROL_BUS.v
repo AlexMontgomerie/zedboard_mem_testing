@@ -42,17 +42,17 @@ module AESL_axi_slave_CONTROL_BUS (
 
 //------------------------Parameter----------------------
 `define TV_IN_test_init_arr_V "../tv/cdatafile/c.mem_hw.autotvin_test_init_arr_V.dat"
-parameter ADDR_WIDTH = 13;
+parameter ADDR_WIDTH = 12;
 parameter DATA_WIDTH = 32;
 parameter test_init_arr_V_DEPTH = 512;
 reg [31 : 0] test_init_arr_V_OPERATE_DEPTH = 0;
-parameter test_init_arr_V_c_bitwidth = 64;
+parameter test_init_arr_V_c_bitwidth = 32;
 parameter START_ADDR = 0;
 parameter mem_hw_continue_addr = 0;
 parameter mem_hw_auto_start_addr = 0;
 parameter rw_data_in_addr = 16;
 parameter mask_data_in_addr = 24;
-parameter test_init_arr_V_data_in_addr = 4096;
+parameter test_init_arr_V_data_in_addr = 2048;
 parameter STATUS_ADDR = 0;
 
 output [ADDR_WIDTH - 1 : 0] TRAN_s_axi_CONTROL_BUS_AWADDR;
@@ -95,7 +95,7 @@ reg  ARVALID_reg = 0;
 reg  RREADY_reg = 0;
 reg [DATA_WIDTH - 1 : 0] RDATA_reg = 0;
 reg  BREADY_reg = 0;
-reg [test_init_arr_V_c_bitwidth - 1 : 0] mem_test_init_arr_V [test_init_arr_V_DEPTH - 1 : 0];
+reg [DATA_WIDTH - 1 : 0] mem_test_init_arr_V [test_init_arr_V_DEPTH - 1 : 0];
 reg test_init_arr_V_write_data_finish;
 reg AESL_ready_out_index_reg = 0;
 reg AESL_write_start_finish = 0;
@@ -440,7 +440,7 @@ end
 //------------------------Task and function-------------- 
 task read_token; 
     input integer fp; 
-    output reg [151 : 0] token;
+    output reg [127 : 0] token;
     integer ret;
     begin
         token = "";
@@ -456,8 +456,8 @@ initial begin : read_test_init_arr_V_file_process
   integer fp; 
   integer ret; 
   integer factor; 
-  reg [151 : 0] token; 
-  reg [151 : 0] token_tmp; 
+  reg [127 : 0] token; 
+  reg [127 : 0] token_tmp; 
   //reg [test_init_arr_V_c_bitwidth - 1 : 0] token_tmp; 
   reg [DATA_WIDTH - 1 : 0] mem_tmp; 
   reg [ 8*5 : 1] str;
@@ -466,29 +466,25 @@ initial begin : read_test_init_arr_V_file_process
   transaction_idx = 0; 
   mem_tmp [DATA_WIDTH - 1 : 0] = 0;
   count_seperate_factor_by_bitwidth (test_init_arr_V_c_bitwidth , factor);
-  fp = $fopen(`TV_IN_test_init_arr_V ,"r"); 
-  if(fp == 0) begin                               // Failed to open file 
-      $display("Failed to open file \"%s\"!", `TV_IN_test_init_arr_V); 
-      $finish; 
-  end 
-  read_token(fp, token); 
-  if (token != "[[[runtime]]]") begin             // Illegal format 
-      $display("ERROR: Simulation using HLS TB failed.");
-      $finish; 
-  end 
-  read_token(fp, token); 
-  while (token != "[[[/runtime]]]") begin 
+  while(transaction_idx < 2) begin
+      @(posedge clk);
+      # 0.2;
+      while(AESL_ready_reg !== 1) begin
+          @(posedge clk);
+          # 0.2;
+      end
+      $sformat(str, "%0d", transaction_idx);
+      fp = $fopen({`TV_IN_test_init_arr_V ,"_",str},"r");
+      if(fp == 0) begin       // Failed to open file
+          $display("Failed to open file \"%s\"!",`TV_IN_test_init_arr_V);
+          $finish;
+      end
+      read_token(fp, token);
       if (token != "[[transaction]]") begin 
           $display("ERROR: Simulation using HLS TB failed.");
           $finish; 
       end 
       read_token(fp, token);                        // skip transaction number 
-      @(posedge clk);
-      # 0.2;
-      while(AESL_ready_reg !== 1) begin
-          @(posedge clk); 
-          # 0.2;
-      end
       for(i = 0; i < test_init_arr_V_DEPTH; i = i + 1) begin 
           read_token(fp, token); 
           ret = $sscanf(token, "0x%x", token_tmp); 
@@ -539,8 +535,8 @@ initial begin : read_test_init_arr_V_file_process
       end 
       read_token(fp, token); 
       transaction_idx = transaction_idx + 1; 
+      $fclose(fp); 
   end 
-  $fclose(fp); 
 end 
  
 endmodule

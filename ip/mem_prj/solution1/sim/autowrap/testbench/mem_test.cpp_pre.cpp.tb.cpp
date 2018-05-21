@@ -68221,9 +68221,9 @@ void FindStereoCorrespondenceBM(
 }
 #70 "/opt/Xilinx_tools/Vivado/2017.4/include/hls_video.h" 2
 #9 "/home/juju/mem_test_rw_seperate/ip/mem.h" 2
-#26 "/home/juju/mem_test_rw_seperate/ip/mem.h"
-typedef ap_uint<64> data_t;
-typedef ap_axiu<64,1,1,1> AXI_VAL;
+#27 "/home/juju/mem_test_rw_seperate/ip/mem.h"
+typedef ap_uint<32> data_t;
+typedef ap_axiu<32,1,1,1> AXI_VAL;
 typedef hls::stream<AXI_VAL> AXI_STREAM;
 
 template<typename T>
@@ -68245,7 +68245,7 @@ T pseudo_random(bool load = false) {
 
 template<typename T, int U, int TI, int TD>
 inline T pop_stream(ap_axiu<sizeof(T) * 8, U, TI, TD> const &e) {
-  ((sizeof(T) == sizeof(long)) ? static_cast<void> (0) : __assert_fail ("sizeof(T) == sizeof(long)", "/home/juju/mem_test_rw_seperate/ip/mem.h", 49, __PRETTY_FUNCTION__));
+  ((sizeof(T) == sizeof(long)) ? static_cast<void> (0) : __assert_fail ("sizeof(T) == sizeof(long)", "/home/juju/mem_test_rw_seperate/ip/mem.h", 50, __PRETTY_FUNCTION__));
 
 
 
@@ -68266,8 +68266,8 @@ inline T pop_stream(ap_axiu<sizeof(T) * 8, U, TI, TD> const &e) {
 template<typename T, int U, int TI, int TD>
 inline ap_axiu<sizeof(T) * 8, U, TI, TD> push_stream(T const v, bool last = false) {
   ap_axiu<sizeof(T) * 8, U, TI, TD> e;
-  ((sizeof(T) == sizeof(long)) ? static_cast<void> (0) : __assert_fail ("sizeof(T) == sizeof(long)", "/home/juju/mem_test_rw_seperate/ip/mem.h", 70, __PRETTY_FUNCTION__));
-#79 "/home/juju/mem_test_rw_seperate/ip/mem.h"
+  ((sizeof(T) == sizeof(long)) ? static_cast<void> (0) : __assert_fail ("sizeof(T) == sizeof(long)", "/home/juju/mem_test_rw_seperate/ip/mem.h", 71, __PRETTY_FUNCTION__));
+#80 "/home/juju/mem_test_rw_seperate/ip/mem.h"
   e.data = (long) v;
 
   e.strb = -1;
@@ -68285,43 +68285,30 @@ void mem_write(AXI_STREAM& out_stream, int mask, data_t test_init_arr[512]);
 
 void mem_hw(AXI_STREAM& out, AXI_STREAM& in, int rw, unsigned long mask, data_t test_init_arr[512]);
 #2 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp" 2
-
-
-
-
-
+#10 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
 void init_stream(AXI_STREAM& stream)
 {
  AXI_VAL axi;
- for(int i=0;i<262144;i++)
+ for(int i=0;i<8388096;i++)
  {
   axi.data = (data_t) i;
   axi.user = (i==0) ? 1 : 0;
-  axi.last = (i==(262144 -1)) ? 1 : 0;
+  axi.last = (i==(8388096 -1)) ? 1 : 0;
   axi.id = 0;
   axi.dest = 0;
 
   stream << axi;
  }
 }
-
-int check_stream(AXI_STREAM& stream, data_t data[262144])
+#51 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
+int check_stream(AXI_STREAM& stream, data_t data[8388096])
 {
  int err = 0;
  AXI_VAL axi;
 
- for(int i=0;i<262144;i++)
+ for(int i=0;i<8388096;i++)
  {
   stream >> axi;
-  err += (
-    !(axi.data==(data_t) data[i]) ||
-    !(axi.user==(i==0) ? 1 : 0) ||
-    !(axi.last==(i==(262144 -1)) ? 1 : 0) ||
-    !(axi.dest==0) ||
-    !(axi.id ==0 )
-    );
-  if(err)
-   printf("error: %d\n",err);
 
 
  }
@@ -68330,14 +68317,15 @@ int check_stream(AXI_STREAM& stream, data_t data[262144])
 }
 
 
+
 #ifndef HLS_FASTSIM
-#46 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
+#67 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
 
 #ifndef HLS_FASTSIM
 #include "apatb_mem_hw.h"
 #endif
 
-#46 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
+#67 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
 int main() {
 
  srand(1);
@@ -68348,6 +68336,8 @@ int main() {
 
  int status = 0;
 
+ printf("%d,%d,%d\n",8388096,512,8388096/512);
+
 
  AXI_STREAM test_in, test_out;
 
@@ -68357,10 +68347,12 @@ int main() {
  for(int i=0;i<512;i++)
   test_arr[i] = (data_t) i;
 
- data_t res_arr[262144];
- for(int i=0;i<((int) (262144/512));i++)
-  for(int j=0;j<512;j++)
-   res_arr[i*512 +j] = (data_t) j;
+
+ data_t * res_arr;
+
+
+
+
 
 
 
@@ -68371,19 +68363,19 @@ int main() {
 #define mem_hw AESL_WRAP_mem_hw
 #endif
 
-#74 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
+#99 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
 
 #ifndef HLS_FASTSIM
 #define mem_hw AESL_WRAP_mem_hw
 #endif
 
-#74 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
+#99 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
 mem_hw
 #undef mem_hw
-#74 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
+#99 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
 
 #undef mem_hw
-#74 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
+#99 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
 (test_out,test_in,(1|2),0xFFFFFFFFFFFFFFFF,test_arr);
 
  err = check_stream(test_out,res_arr);
@@ -68403,19 +68395,19 @@ mem_hw
 #define mem_hw AESL_WRAP_mem_hw
 #endif
 
-#88 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
+#113 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
 
 #ifndef HLS_FASTSIM
 #define mem_hw AESL_WRAP_mem_hw
 #endif
 
-#88 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
+#113 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
 mem_hw
 #undef mem_hw
-#88 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
+#113 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
 
 #undef mem_hw
-#88 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
+#113 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
 (test_out,test_in,2,0xFFFFFFFFFFFFFFFF,test_arr);
 
  err = check_stream(test_out,res_arr);
@@ -68427,9 +68419,9 @@ mem_hw
 
 
 
- printf("size: %d\n",((int) (262144/512)));
+ printf("size: %d\n",((int) (8388096/512)));
 
  return err;
 }
 #endif
-#102 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"
+#127 "/home/juju/mem_test_rw_seperate/ip/mem_test.cpp"

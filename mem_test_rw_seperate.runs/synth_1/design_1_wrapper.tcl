@@ -16,8 +16,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param xicom.use_bs_reader 1
-set_param tcl.collectionResultDisplayLimit 0
 create_project -in_memory -part xc7z020clg484-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -48,16 +46,23 @@ set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw
 set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_xbar_2/design_1_xbar_2_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_xbar_1/design_1_xbar_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_mem_hw_0_0/constraints/mem_hw_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_system_ila_0_1/design_1_system_ila_0_1_ooc.xdc]
 set_property used_in_synthesis false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_system_ila_0_1/bd_0/ip/ip_0/ila_v6_2/constraints/ila_impl.xdc]
 set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_system_ila_0_1/bd_0/ip/ip_0/ila_v6_2/constraints/ila_impl.xdc]
 set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_system_ila_0_1/bd_0/ip/ip_0/ila_v6_2/constraints/ila.xdc]
 set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_system_ila_0_1/bd_0/ip/ip_0/bd_36cd_ila_lib_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_system_ila_0_1/bd_0/bd_36cd_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_system_ila_0_1/design_1_system_ila_0_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1_ooc.xdc]
+set_property used_in_synthesis false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_auto_ds_0/design_1_auto_ds_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_auto_ds_0/design_1_auto_ds_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_auto_ds_0/design_1_auto_ds_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_s01_data_fifo_0/design_1_s01_data_fifo_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_s00_data_fifo_0/design_1_s00_data_fifo_0_ooc.xdc]
+set_property used_in_synthesis false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_auto_us_df_1/design_1_auto_us_df_1_clocks.xdc]
+set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_auto_us_df_1/design_1_auto_us_df_1_clocks.xdc]
+set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_auto_us_df_1/design_1_auto_us_df_1_ooc.xdc]
+set_property used_in_synthesis false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_auto_us_df_0/design_1_auto_us_df_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_auto_us_df_0/design_1_auto_us_df_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_auto_us_df_0/design_1_auto_us_df_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/design_1_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being

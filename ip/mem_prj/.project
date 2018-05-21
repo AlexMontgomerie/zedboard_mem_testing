@@ -37,11 +37,6 @@
 			<location>/home/juju/mem_test_rw_seperate/ip/mem_prj/.apc/.tb</location>
 		</link>
 		<link>
-			<name>.reference/ap_axi_sdata.h</name>
-			<type>1</type>
-			<location>/opt/Xilinx_tools/Vivado/2017.4/include/ap_axi_sdata.h</location>
-		</link>
-		<link>
 			<name>.reference/mem.h</name>
 			<type>1</type>
 			<location>/home/juju/mem_test_rw_seperate/ip/mem.h</location>

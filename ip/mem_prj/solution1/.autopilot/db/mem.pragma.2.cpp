@@ -47867,9 +47867,9 @@ _ssdm_op_SpecDataflowPipeline(-1, "");
 }
 # 70 "/opt/Xilinx_tools/Vivado/2017.4/common/technology/autopilot/hls_video.h" 2
 # 9 "./mem.h" 2
-# 26 "./mem.h"
-typedef ap_uint<64> data_t;
-typedef ap_axiu<64,1,1,1> AXI_VAL;
+# 27 "./mem.h"
+typedef ap_uint<32> data_t;
+typedef ap_axiu<32,1,1,1> AXI_VAL;
 typedef hls::stream<AXI_VAL> AXI_STREAM;
 
 template<typename T>
@@ -47891,7 +47891,7 @@ _ssdm_InlineSelf(2, "");
 
 template<typename T, int U, int TI, int TD>
 inline T pop_stream(ap_axiu<sizeof(T) * 8, U, TI, TD> const &e) {
-  ((sizeof(T) == sizeof(long)) ? static_cast<void> (0) : __assert_fail ("sizeof(T) == sizeof(long)", "./mem.h", 49, __PRETTY_FUNCTION__));
+  ((sizeof(T) == sizeof(long)) ? static_cast<void> (0) : __assert_fail ("sizeof(T) == sizeof(long)", "./mem.h", 50, __PRETTY_FUNCTION__));
 
 
 
@@ -47912,8 +47912,8 @@ inline T pop_stream(ap_axiu<sizeof(T) * 8, U, TI, TD> const &e) {
 template<typename T, int U, int TI, int TD>
 inline ap_axiu<sizeof(T) * 8, U, TI, TD> push_stream(T const v, bool last = false) {
   ap_axiu<sizeof(T) * 8, U, TI, TD> e;
-  ((sizeof(T) == sizeof(long)) ? static_cast<void> (0) : __assert_fail ("sizeof(T) == sizeof(long)", "./mem.h", 70, __PRETTY_FUNCTION__));
-# 79 "./mem.h"
+  ((sizeof(T) == sizeof(long)) ? static_cast<void> (0) : __assert_fail ("sizeof(T) == sizeof(long)", "./mem.h", 71, __PRETTY_FUNCTION__));
+# 80 "./mem.h"
  e.data = (long) v;
 
   e.strb = -1;
@@ -47953,7 +47953,7 @@ void mem_write(AXI_STREAM& out_stream, int mask, data_t test_init_arr[512])
  int sof = 1;
  int eol = 0;
 
- main_loop: for(int i=0;i<((int) (262144/512));i++)
+ main_loop: for(int i=0;i<((int) (8388096/512));i++)
  {
   data_loop: for(int j=0;j<512;j++)
   {
@@ -47966,7 +47966,7 @@ _ssdm_op_SpecPipeline(1, 1, 1, 0, "");
    } else {
     axi.user = 0;
    }
-   if ((i*512 +j) == (262144 -1)) {
+   if ((i*512 +j) == (8388096 -1)) {
     axi.last = 1;
    } else {
     axi.last = 0;

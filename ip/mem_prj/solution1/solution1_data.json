@@ -20,7 +20,7 @@
     "ClockPeriod": "800",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "262147",
+    "Latency": "8388099",
     "Uncertainty": "100"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 800.000 [get_ports ap_clk]"]},
@@ -84,15 +84,15 @@
       "ctype": {
         "TDATA": {
           "Type": "integer unsigned",
-          "Width": "64"
+          "Width": "32"
         },
         "TKEEP": {
           "Type": "integer unsigned",
-          "Width": "8"
+          "Width": "4"
         },
         "TSTRB": {
           "Type": "integer unsigned",
-          "Width": "8"
+          "Width": "4"
         },
         "TUSER": {
           "Type": "integer unsigned",
@@ -114,12 +114,12 @@
         "TREADY": {"Type": "bool"}
       },
       "port_width": {
-        "TDATA": "64",
+        "TDATA": "32",
         "TDEST": "1",
         "TID": "1",
-        "TKEEP": "8",
+        "TKEEP": "4",
         "TLAST": "1",
-        "TSTRB": "8",
+        "TSTRB": "4",
         "TUSER": "1"
       }
     },
@@ -135,15 +135,15 @@
       "ctype": {
         "TDATA": {
           "Type": "integer unsigned",
-          "Width": "64"
+          "Width": "32"
         },
         "TKEEP": {
           "Type": "integer unsigned",
-          "Width": "8"
+          "Width": "4"
         },
         "TSTRB": {
           "Type": "integer unsigned",
-          "Width": "8"
+          "Width": "4"
         },
         "TUSER": {
           "Type": "integer unsigned",
@@ -165,12 +165,12 @@
         "TREADY": {"Type": "bool"}
       },
       "port_width": {
-        "TDATA": "64",
+        "TDATA": "32",
         "TDEST": "1",
         "TID": "1",
-        "TKEEP": "8",
+        "TKEEP": "4",
         "TLAST": "1",
-        "TSTRB": "8",
+        "TSTRB": "4",
         "TUSER": "1"
       }
     },
@@ -180,7 +180,7 @@
       "mode": "slave",
       "port_prefix": "s_axi_CONTROL_BUS",
       "param_prefix": "C_S_AXI_CONTROL_BUS",
-      "addr_bits": "13",
+      "addr_bits": "12",
       "registers": [
         {
           "offset": "0x00",
@@ -384,7 +384,7 @@
             }]
         }
       ],
-      "memories": "test_init_arr_V {base_address 4096 range 4096}",
+      "memories": "test_init_arr_V {base_address 2048 range 2048}",
       "ctype": {
         "AWVALID": {"Type": "bool"},
         "AWREADY": {"Type": "bool"},
@@ -406,11 +406,11 @@
         },
         "AWADDR": {
           "Type": "integer unsigned",
-          "Width": "13"
+          "Width": "12"
         },
         "WDATA": {
           "Type": "integer unsigned",
-          "Width": "64"
+          "Width": "32"
         },
         "WSTRB": {
           "Type": "integer unsigned",
@@ -418,17 +418,17 @@
         },
         "ARADDR": {
           "Type": "integer unsigned",
-          "Width": "13"
+          "Width": "12"
         },
         "RDATA": {
           "Type": "integer unsigned",
-          "Width": "64"
+          "Width": "32"
         }
       },
       "data_width": "32",
       "port_width": {
-        "ARADDR": "13",
-        "AWADDR": "13",
+        "ARADDR": "12",
+        "AWADDR": "12",
         "RDATA": "32",
         "WDATA": "32",
         "WSTRB": "4"
@@ -446,7 +446,7 @@
     },
     "s_axi_CONTROL_BUS_AWADDR": {
       "dir": "in",
-      "width": "13"
+      "width": "12"
     },
     "s_axi_CONTROL_BUS_WVALID": {
       "dir": "in",
@@ -474,7 +474,7 @@
     },
     "s_axi_CONTROL_BUS_ARADDR": {
       "dir": "in",
-      "width": "13"
+      "width": "12"
     },
     "s_axi_CONTROL_BUS_RVALID": {
       "dir": "out",
@@ -519,15 +519,15 @@
     },
     "out_r_TDATA": {
       "dir": "out",
-      "width": "64"
+      "width": "32"
     },
     "out_r_TKEEP": {
       "dir": "out",
-      "width": "8"
+      "width": "4"
     },
     "out_r_TSTRB": {
       "dir": "out",
-      "width": "8"
+      "width": "4"
     },
     "out_r_TUSER": {
       "dir": "out",
@@ -559,15 +559,15 @@
     },
     "in_r_TDATA": {
       "dir": "in",
-      "width": "64"
+      "width": "32"
     },
     "in_r_TKEEP": {
       "dir": "in",
-      "width": "8"
+      "width": "4"
     },
     "in_r_TSTRB": {
       "dir": "in",
-      "width": "8"
+      "width": "4"
     },
     "in_r_TUSER": {
       "dir": "in",
@@ -618,7 +618,7 @@
     "test_init_arr_V": {
       "interfaceRef": "s_axi_CONTROL_BUS",
       "dir": "in",
-      "offset": "4096",
+      "offset": "2048",
       "statusOffset": "NA",
       "Object": "CONTROL_BUS"
     },
@@ -736,50 +736,50 @@
       },
       "mem_write": {
         "Latency": {
-          "LatencyBest": "262147",
-          "LatencyAvg": "262147",
-          "LatencyWorst": "262147",
-          "PipelineII": "262147",
+          "LatencyBest": "8388099",
+          "LatencyAvg": "8388099",
+          "LatencyWorst": "8388099",
+          "PipelineII": "8388099",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "800.00",
           "Uncertainty": "100.00",
-          "Estimate": "7.90"
+          "Estimate": "8.14"
         },
         "Loops": [{
             "Name": "main_loop_data_loop",
-            "TripCount": "262144",
-            "Latency": "262145",
+            "TripCount": "8388096",
+            "Latency": "8388097",
             "PipelineII": "1",
             "PipelineDepth": "3"
           }],
         "Area": {
-          "FF": "216",
-          "LUT": "516",
+          "FF": "164",
+          "LUT": "533",
           "BRAM_18K": "0",
           "DSP48E": "0"
         }
       },
       "mem_hw": {
         "Latency": {
-          "LatencyBest": "262147",
-          "LatencyAvg": "262147",
-          "LatencyWorst": "262147",
-          "PipelineII": "262148",
+          "LatencyBest": "8388099",
+          "LatencyAvg": "8388099",
+          "LatencyWorst": "8388099",
+          "PipelineII": "8388100",
           "PipelineDepth": "",
           "PipelineType": "dataflow"
         },
         "Timing": {
           "Target": "800.00",
           "Uncertainty": "100.00",
-          "Estimate": "7.90"
+          "Estimate": "8.14"
         },
         "Area": {
-          "BRAM_18K": "4",
-          "FF": "460",
-          "LUT": "1047",
+          "BRAM_18K": "2",
+          "FF": "408",
+          "LUT": "1064",
           "DSP48E": "0"
         }
       }
@@ -787,7 +787,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2018-05-17 12:38:33 BST",
+    "Time": "2018-05-21 14:47:58 BST",
     "ToolName": "vivado_hls",
     "ToolVersion": "2017.4"
   }

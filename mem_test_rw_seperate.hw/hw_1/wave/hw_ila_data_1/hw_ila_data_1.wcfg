@@ -10,12 +10,12 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1024001fs"></ZoomEndTime>
-      <Cursor1Time time="58000fs"></Cursor1Time>
+      <ZoomEndTime time="1024000fs"></ZoomEndTime>
+      <Cursor1Time time="255000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="285"></NameColumnWidth>
-      <ValueColumnWidth column_width="145"></ValueColumnWidth>
+      <ValueColumnWidth column_width="141"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="2" />
    <wave_markers>
@@ -39,7 +39,6 @@
          <obj_property name="CustomSignalColor">Purple</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
          <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
-         <obj_property name="isExpanded"></obj_property>
          <wvobject type="logic" fp_name="design_1_i/system_ila_0/inst/net_slot_2_axis_tvalid">
             <obj_property name="DisplayName">label</obj_property>
             <obj_property name="ElementShortName">design_1_i/system_ila_0/inst/net_slot_2_axis_tvalid</obj_property>

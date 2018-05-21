@@ -4,6 +4,9 @@
 #define ID   0
 #define DEST 0
 
+//#undef SIZE
+//#define SIZE 1024
+
 void init_stream(AXI_STREAM& stream)
 {
 	AXI_VAL axi;
@@ -19,6 +22,7 @@ void init_stream(AXI_STREAM& stream)
 	}
 }
 
+/*
 int check_stream(AXI_STREAM& stream, data_t data[SIZE])
 {
 	int err = 0;
@@ -42,6 +46,23 @@ int check_stream(AXI_STREAM& stream, data_t data[SIZE])
 
 	return err;
 }
+*/
+
+int check_stream(AXI_STREAM& stream, data_t data[SIZE])
+{
+	int err = 0;
+	AXI_VAL axi;
+
+	for(int i=0;i<SIZE;i++)
+	{
+		stream >> axi;
+		//printf("data[%d] = %ld\n",i,axi.data.to_long());
+
+	}
+
+	return err;
+}
+
 
 int main() {
 
@@ -53,6 +74,8 @@ int main() {
 
 	int status = 0;
 
+	printf("%d,%d,%d\n",SIZE,TEST_ARR_SIZE,SIZE/TEST_ARR_SIZE);
+
 	//test arrays
 	AXI_STREAM test_in, test_out;
 
@@ -62,11 +85,13 @@ int main() {
 	for(int i=0;i<TEST_ARR_SIZE;i++)
 		test_arr[i] = (data_t) i;
 
-	data_t res_arr[SIZE];
+	//data_t res_arr[SIZE];
+	data_t * res_arr;
+	/*
 	for(int i=0;i<((int) (SIZE/TEST_ARR_SIZE));i++)
 		for(int j=0;j<TEST_ARR_SIZE;j++)
 			res_arr[i*TEST_ARR_SIZE+j] = (data_t) j;
-
+	*/
 	//############################################
 	//test full run
 	init_stream(test_in);

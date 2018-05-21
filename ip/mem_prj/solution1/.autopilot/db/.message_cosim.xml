@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Messages>
+	<Message prefix="[COSIM 212-47]" severity="INFO" keynum="COSIM_TCL_47_1115" content="Using XSIM for RTL simulation." tag=""/>
+	<Message prefix="[COSIM 212-14]" severity="INFO" keynum="COSIM_TCL_14_1084" content="Instrumenting C test bench ..." tag=""/>
+	<Message prefix="[COSIM 212-302]" severity="INFO" keynum="COSIM_TCL_302_1177" content="Starting C TB testing ... " tag=""/>
+	<Message prefix="[COSIM 212-333]" severity="INFO" keynum="COSIM_TCL_333_1204" content="Generating C post check test bench ..." tag=""/>
+	<Message prefix="[COSIM 212-12]" severity="INFO" keynum="COSIM_TCL_12_1082" content="Generating RTL test bench ..." tag=""/>
+	<Message prefix="[COSIM 212-376]" severity="WARNING" keynum="COSIM_TCL_376_1247" content="This design mixes AXI slave interface and pipeline mode, which could potentially result in simulation dead-lock and/or get mismatching results." tag=""/>
+	<Message prefix="[COSIM 212-376]" severity="WARNING" keynum="COSIM_TCL_376_1247" content="This design mixes AXI slave interface and pipeline mode, which could potentially result in simulation dead-lock and/or get mismatching results." tag=""/>
+	<Message prefix="[COSIM 212-323]" severity="INFO" keynum="COSIM_TCL_323_1195" content="Starting verilog simulation. " tag=""/>
+	<Message prefix="[COSIM 212-316]" severity="INFO" keynum="COSIM_316_1054" content="Starting C post checking ..." tag=""/>
+</Messages>
