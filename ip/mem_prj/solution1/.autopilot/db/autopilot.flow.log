@@ -1,4 +1,4 @@
-INFO: [HLS 200-0] Workspace /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1 opened at Mon May 21 15:19:52 BST 2018
+INFO: [HLS 200-0] Workspace /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1 opened at Mon May 21 16:44:08 BST 2018
 Execute     config_clock -quiet -name default -period 800 -default=false 
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 800ns.
 Command     config_clock returned 0; 0 sec.
@@ -26,7 +26,7 @@ Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/
 Command         ap_source returned 0; 0 sec.
 Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/xfft.lib 
 Command         ap_source returned 0; 0 sec.
-Command       ap_source returned 0; 0 sec.
+Command       ap_source returned 0; 0.01 sec.
 Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/xilinx_old.lib 
 Command       ap_source returned 0; 0 sec.
 Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/xilinx_vivado.lib 
@@ -53,7 +53,7 @@ Execute       config_chip_info -quiet -speed medium
 Command       config_chip_info returned 0; 0 sec.
 Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/xilinx.hlp 
 Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/target_info.tcl 
-Command         ap_source returned 0; 0.01 sec.
+Command         ap_source returned 0; 0 sec.
 Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/xilinx_interface.hlp 
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/maxi.hlp 
 Command           ap_source returned 0; 0 sec.
@@ -62,13 +62,13 @@ Command           ap_source returned 0; 0 sec.
 Command         ap_source returned 0; 0 sec.
 Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/dsp48.hlp 
 Command         ap_source returned 0; 0 sec.
-Command       ap_source returned 0; 0.01 sec.
+Command       ap_source returned 0; 0 sec.
 Command     import_lib returned 0; 0.01 sec.
 Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/zynq/zynq.gen 
 Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/virtex.gen 
 Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/xilinx.gen 
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/plb46.gen 
-Command           ap_source returned 0; 0 sec.
+Command           ap_source returned 0; 0.01 sec.
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/fsl.gen 
 Command           ap_source returned 0; 0 sec.
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/axi4.gen 
@@ -91,18 +91,18 @@ Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilin
 Command           ap_source returned 0; 0 sec.
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/dds_compiler.gen 
 Command           ap_source returned 0; 0 sec.
-Command         ap_source returned 0; 0.09 sec.
+Command         ap_source returned 0; 0.1 sec.
 Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/dsp48.gen 
 Command         ap_source returned 0; 0 sec.
-Command       ap_source returned 0; 0.09 sec.
-Command     ap_source returned 0; 0.09 sec.
+Command       ap_source returned 0; 0.1 sec.
+Command     ap_source returned 0; 0.1 sec.
 Execute     open_platform DefaultPlatform 
 Command     open_platform returned 0; 0 sec.
 Execute     import_lib /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/zynq/zynq_fpv6 
 Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/xilinx_fpv7.lib 
 Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/xilinx_hp.lib 
 Command         ap_source returned 0; 0 sec.
-Command       ap_source returned 0; 0.01 sec.
+Command       ap_source returned 0; 0 sec.
 Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/xilinx_fpv.hlp 
 Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/xilinx.hlp 
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/target_info.tcl 
@@ -115,8 +115,8 @@ Command             ap_source returned 0; 0 sec.
 Command           ap_source returned 0; 0 sec.
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/dsp48.hlp 
 Command           ap_source returned 0; 0 sec.
-Command         ap_source returned 0; 0.01 sec.
-Command       ap_source returned 0; 0.01 sec.
+Command         ap_source returned 0; 0 sec.
+Command       ap_source returned 0; 0 sec.
 Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/zynq/zynq_hp.hlp 
 Command       ap_source returned 0; 0 sec.
 Command     import_lib returned 0; 0.02 sec.
@@ -151,7 +151,7 @@ Execute     config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {F
 Command     config_chip_info returned 0; 0 sec.
 Execute     config_chip_info -quiet -speed slow 
 Command     config_chip_info returned 0; 0 sec.
-Command   open_solution returned 0; 0.17 sec.
+Command   open_solution returned 0; 0.18 sec.
 Execute   export_design -rtl verilog -format ip_catalog 
 Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
 Command     ap_source returned 0; 0 sec.
@@ -180,10 +180,10 @@ Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilin
 Execute             source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/saxilite.gen 
 Command             ap_source returned 0; 0 sec.
 Execute             source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/maxi.gen 
-Command             ap_source returned 0; 0 sec.
-Command           ap_source returned 0; 0 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Command             ap_source returned 0; 0.01 sec.
 Command           ap_source returned 0; 0.01 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Command           ap_source returned 0; 0 sec.
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/XilEDKCoreGen.gen 
 Command           ap_source returned 0; 0.01 sec.
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/xfir.gen 
@@ -233,210 +233,6 @@ Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilin
 Command           ap_source returned 0; 0 sec.
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/nativeAXI4.gen 
 Execute             source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/saxilite.gen 
-Command             ap_source returned 0; 0.01 sec.
-Execute             source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/maxi.gen 
-Command             ap_source returned 0; 0 sec.
-Command           ap_source returned 0; 0.01 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/scripts/xilinxcoregen.gen 
-Command           ap_source returned 0; 0.01 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/XilEDKCoreGen.gen 
-Command           ap_source returned 0; 0 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/xfir.gen 
-Command           ap_source returned 0; 0 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/xfft.gen 
-Command           ap_source returned 0; 0.08 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/util.gen 
-Command           ap_source returned 0; 0 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/dds_compiler.gen 
-Command           ap_source returned 0; 0 sec.
-Command         ap_source returned 0; 0.1 sec.
-Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/dsp48.gen 
-Command         ap_source returned 0; 0 sec.
-Command       ap_source returned 0; 0.1 sec.
-Command     ap_source returned 0; 0.1 sec.
-Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/zynq/zynq_fpv6.gen 
-Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/xilinx_fpv6.gen 
-Command       ap_source returned 0; 0 sec.
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.rtl_wrap.cfg.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.rtl_wrap.cfg.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.rtl_wrap.cfg.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_read.compgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_write.compgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.compgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_read.compgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_write.compgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.compgen.tcl 
-Command     ap_source returned 0; 0.01 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_read.compgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_write.compgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.compgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.constraint.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.rtl_wrap.cfg.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.rtl_wrap.cfg.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.rtl_wrap.cfg.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.rtl_wrap.cfg.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.rtl_wrap.cfg.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.rtl_wrap.cfg.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.constraint.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.constraint.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.constraint.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/common.gen 
-Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/APCoreGen.gen 
-Command       ap_source returned 0; 0 sec.
-Command     ap_source returned 0; 0 sec.
-Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/op.gen 
-Command     ap_source returned 0; 0 sec.
-Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/op_simcore.gen 
-Command     ap_source returned 0; 0 sec.
-Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/interface.gen 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/zynq/zynq.gen 
-Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/virtex.gen 
-Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/xilinx.gen 
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/plb46.gen 
-Command           ap_source returned 0; 0 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/fsl.gen 
-Command           ap_source returned 0; 0 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/axi4.gen 
-Command           ap_source returned 0; 0 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/nativeAXI4.gen 
-Execute             source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/saxilite.gen 
-Command             ap_source returned 0; 0.01 sec.
-Execute             source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/maxi.gen 
-Command             ap_source returned 0; 0 sec.
-Command           ap_source returned 0; 0.01 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/scripts/xilinxcoregen.gen 
-Command           ap_source returned 0; 0.01 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/XilEDKCoreGen.gen 
-Command           ap_source returned 0; 0 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/xfir.gen 
-Command           ap_source returned 0; 0 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/xfft.gen 
-Command           ap_source returned 0; 0.08 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/util.gen 
-Command           ap_source returned 0; 0 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/dds_compiler.gen 
-Command           ap_source returned 0; 0 sec.
-Command         ap_source returned 0; 0.1 sec.
-Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/dsp48.gen 
-Command         ap_source returned 0; 0 sec.
-Command       ap_source returned 0; 0.1 sec.
-Command     ap_source returned 0; 0.1 sec.
-Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/zynq/zynq_fpv6.gen 
-Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/xilinx_fpv6.gen 
-Command       ap_source returned 0; 0 sec.
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/common.gen 
-Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/APCoreGen.gen 
-Command       ap_source returned 0; 0 sec.
-Command     ap_source returned 0; 0 sec.
-Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/op.gen 
-Command     ap_source returned 0; 0 sec.
-Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/op_simcore.gen 
-Command     ap_source returned 0; 0 sec.
-Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/interface.gen 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/zynq/zynq.gen 
-Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/virtex.gen 
-Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/xilinx.gen 
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/plb46.gen 
-Command           ap_source returned 0; 0 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/fsl.gen 
-Command           ap_source returned 0; 0.01 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/axi4.gen 
-Command           ap_source returned 0; 0 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/nativeAXI4.gen 
-Execute             source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/saxilite.gen 
 Command             ap_source returned 0; 0 sec.
 Execute             source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/maxi.gen 
 Command             ap_source returned 0; 0 sec.
@@ -453,18 +249,118 @@ Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilin
 Command           ap_source returned 0; 0 sec.
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/dds_compiler.gen 
 Command           ap_source returned 0; 0 sec.
-Command         ap_source returned 0; 0.1 sec.
+Command         ap_source returned 0; 0.09 sec.
 Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/dsp48.gen 
 Command         ap_source returned 0; 0 sec.
-Command       ap_source returned 0; 0.11 sec.
-Command     ap_source returned 0; 0.11 sec.
+Command       ap_source returned 0; 0.09 sec.
+Command     ap_source returned 0; 0.09 sec.
 Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/zynq/zynq_fpv6.gen 
 Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/xilinx_fpv6.gen 
-Command       ap_source returned 0; 0 sec.
+Command       ap_source returned 0; 0.01 sec.
+Command     ap_source returned 0; 0.01 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.rtl_wrap.cfg.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.rtl_wrap.cfg.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.rtl_wrap.cfg.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_read.compgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_write.compgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.compgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_read.compgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_write.compgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.compgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_read.compgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_write.compgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.compgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.constraint.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
+Command     ap_source returned 0; 0.01 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
 Command     ap_source returned 0; 0 sec.
 Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
 Command     ap_source returned 0; 0 sec.
 Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.rtl_wrap.cfg.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.rtl_wrap.cfg.tcl 
+Command     ap_source returned 0; 0.01 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.rtl_wrap.cfg.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.rtl_wrap.cfg.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.rtl_wrap.cfg.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.rtl_wrap.cfg.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.constraint.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.constraint.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.constraint.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
 Command     ap_source returned 0; 0 sec.
 Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
 Command     ap_source returned 0; 0 sec.
@@ -502,6 +398,56 @@ Command           ap_source returned 0; 0 sec.
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/xfir.gen 
 Command           ap_source returned 0; 0 sec.
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source returned 0; 0.07 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/util.gen 
+Command           ap_source returned 0; 0 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/dds_compiler.gen 
+Command           ap_source returned 0; 0.01 sec.
+Command         ap_source returned 0; 0.1 sec.
+Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/dsp48.gen 
+Command         ap_source returned 0; 0 sec.
+Command       ap_source returned 0; 0.1 sec.
+Command     ap_source returned 0; 0.1 sec.
+Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/xilinx_fpv6.gen 
+Command       ap_source returned 0; 0 sec.
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/common.gen 
+Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/APCoreGen.gen 
+Command       ap_source returned 0; 0 sec.
+Command     ap_source returned 0; 0 sec.
+Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/op.gen 
+Command     ap_source returned 0; 0 sec.
+Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/op_simcore.gen 
+Command     ap_source returned 0; 0.01 sec.
+Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/interface.gen 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/zynq/zynq.gen 
+Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/virtex.gen 
+Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/xilinx.gen 
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/plb46.gen 
+Command           ap_source returned 0; 0 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/fsl.gen 
+Command           ap_source returned 0; 0 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/axi4.gen 
+Command           ap_source returned 0; 0 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/saxilite.gen 
+Command             ap_source returned 0; 0 sec.
+Execute             source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/maxi.gen 
+Command             ap_source returned 0; 0.01 sec.
+Command           ap_source returned 0; 0.01 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Command           ap_source returned 0; 0.01 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Command           ap_source returned 0; 0 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/xfir.gen 
+Command           ap_source returned 0; 0 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/xfft.gen 
 Command           ap_source returned 0; 0.08 sec.
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/util.gen 
 Command           ap_source returned 0; 0 sec.
@@ -518,17 +464,7 @@ Command       ap_source returned 0; 0 sec.
 Command     ap_source returned 0; 0 sec.
 Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
 Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_read.compgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_write.compgen.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.compgen.tcl 
-Command     ap_source returned 0; 0 sec.
 Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.constraint.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
 Command     ap_source returned 0; 0 sec.
 Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
 Command     ap_source returned 0; 0 sec.
@@ -555,9 +491,9 @@ Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilin
 Command           ap_source returned 0; 0 sec.
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/nativeAXI4.gen 
 Execute             source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/saxilite.gen 
-Command             ap_source returned 0; 0.01 sec.
-Execute             source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/maxi.gen 
 Command             ap_source returned 0; 0 sec.
+Execute             source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/maxi.gen 
+Command             ap_source returned 0; 0.01 sec.
 Command           ap_source returned 0; 0.01 sec.
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/scripts/xilinxcoregen.gen 
 Command           ap_source returned 0; 0 sec.
@@ -574,67 +510,25 @@ Command           ap_source returned 0; 0 sec.
 Command         ap_source returned 0; 0.09 sec.
 Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/dsp48.gen 
 Command         ap_source returned 0; 0 sec.
-Command       ap_source returned 0; 0.1 sec.
+Command       ap_source returned 0; 0.09 sec.
 Command     ap_source returned 0; 0.1 sec.
 Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/zynq/zynq_fpv6.gen 
 Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/xilinx_fpv6.gen 
-Command       ap_source returned 0; 0 sec.
+Command       ap_source returned 0; 0.01 sec.
+Command     ap_source returned 0; 0.01 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_read.compgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_write.compgen.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.compgen.tcl 
 Command     ap_source returned 0; 0 sec.
 Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
 Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.constraint.tcl 
 Command     ap_source returned 0; 0 sec.
-Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/common.gen 
-Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/APCoreGen.gen 
-Command       ap_source returned 0; 0 sec.
-Command     ap_source returned 0; 0 sec.
-Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/op.gen 
-Command     ap_source returned 0; 0 sec.
-Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/op_simcore.gen 
-Command     ap_source returned 0; 0 sec.
-Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/interface.gen 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/zynq/zynq.gen 
-Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/virtex.gen 
-Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/xilinx.gen 
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/plb46.gen 
-Command           ap_source returned 0; 0.01 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/fsl.gen 
-Command           ap_source returned 0; 0 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/axi4.gen 
-Command           ap_source returned 0; 0 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/nativeAXI4.gen 
-Execute             source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/saxilite.gen 
-Command             ap_source returned 0; 0 sec.
-Execute             source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/maxi.gen 
-Command             ap_source returned 0; 0 sec.
-Command           ap_source returned 0; 0 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/scripts/xilinxcoregen.gen 
-Command           ap_source returned 0; 0.02 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/XilEDKCoreGen.gen 
-Command           ap_source returned 0; 0 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/xfir.gen 
-Command           ap_source returned 0; 0 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/xfft.gen 
-Command           ap_source returned 0; 0.08 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/util.gen 
-Command           ap_source returned 0; 0 sec.
-Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/dds_compiler.gen 
-Command           ap_source returned 0; 0 sec.
-Command         ap_source returned 0; 0.11 sec.
-Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/dsp48.gen 
-Command         ap_source returned 0; 0 sec.
-Command       ap_source returned 0; 0.11 sec.
-Command     ap_source returned 0; 0.11 sec.
-Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/zynq/zynq_fpv6.gen 
-Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/xilinx_fpv6.gen 
-Command       ap_source returned 0; 0 sec.
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
-Command     ap_source returned 0; 0 sec.
-Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
 Command     ap_source returned 0; 0 sec.
 Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
 Command     ap_source returned 0; 0 sec.
@@ -645,7 +539,7 @@ Command     ap_source returned 0; 0 sec.
 Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/op.gen 
 Command     ap_source returned 0; 0 sec.
 Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/op_simcore.gen 
-Command     ap_source returned 0; 0 sec.
+Command     ap_source returned 0; 0.01 sec.
 Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/interface.gen 
 Command     ap_source returned 0; 0 sec.
 Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
@@ -658,7 +552,7 @@ Command           ap_source returned 0; 0 sec.
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/fsl.gen 
 Command           ap_source returned 0; 0 sec.
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/axi4.gen 
-Command           ap_source returned 0; 0.01 sec.
+Command           ap_source returned 0; 0 sec.
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/nativeAXI4.gen 
 Execute             source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/saxilite.gen 
 Command             ap_source returned 0; 0 sec.
@@ -677,15 +571,121 @@ Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilin
 Command           ap_source returned 0; 0 sec.
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/dds_compiler.gen 
 Command           ap_source returned 0; 0 sec.
-Command         ap_source returned 0; 0.11 sec.
+Command         ap_source returned 0; 0.09 sec.
 Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/dsp48.gen 
 Command         ap_source returned 0; 0 sec.
-Command       ap_source returned 0; 0.11 sec.
-Command     ap_source returned 0; 0.11 sec.
+Command       ap_source returned 0; 0.09 sec.
+Command     ap_source returned 0; 0.09 sec.
+Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/xilinx_fpv6.gen 
+Command       ap_source returned 0; 0.01 sec.
+Command     ap_source returned 0; 0.01 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/common.gen 
+Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/APCoreGen.gen 
+Command       ap_source returned 0; 0 sec.
+Command     ap_source returned 0; 0 sec.
+Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/op.gen 
+Command     ap_source returned 0; 0 sec.
+Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/op_simcore.gen 
+Command     ap_source returned 0; 0 sec.
+Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/interface.gen 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/zynq/zynq.gen 
+Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/virtex.gen 
+Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/xilinx.gen 
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/plb46.gen 
+Command           ap_source returned 0; 0 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/fsl.gen 
+Command           ap_source returned 0; 0 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/axi4.gen 
+Command           ap_source returned 0; 0 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/saxilite.gen 
+Command             ap_source returned 0; 0.01 sec.
+Execute             source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/maxi.gen 
+Command             ap_source returned 0; 0 sec.
+Command           ap_source returned 0; 0.01 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Command           ap_source returned 0; 0.01 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Command           ap_source returned 0; 0 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/xfir.gen 
+Command           ap_source returned 0; 0 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source returned 0; 0.08 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/util.gen 
+Command           ap_source returned 0; 0 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/dds_compiler.gen 
+Command           ap_source returned 0; 0 sec.
+Command         ap_source returned 0; 0.1 sec.
+Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/dsp48.gen 
+Command         ap_source returned 0; 0 sec.
+Command       ap_source returned 0; 0.1 sec.
+Command     ap_source returned 0; 0.1 sec.
 Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/zynq/zynq_fpv6.gen 
 Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/xilinx_fpv6.gen 
 Command       ap_source returned 0; 0 sec.
 Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/common.gen 
+Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/APCoreGen.gen 
+Command       ap_source returned 0; 0 sec.
+Command     ap_source returned 0; 0 sec.
+Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/op.gen 
+Command     ap_source returned 0; 0 sec.
+Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/op_simcore.gen 
+Command     ap_source returned 0; 0.01 sec.
+Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/generic/autopilot/interface.gen 
+Command     ap_source returned 0; 0 sec.
+Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
+Command     ap_source returned 0; 0 sec.
+Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/zynq/zynq.gen 
+Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/virtex.gen 
+Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/xilinx.gen 
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/plb46.gen 
+Command           ap_source returned 0; 0 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/fsl.gen 
+Command           ap_source returned 0; 0 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/axi4.gen 
+Command           ap_source returned 0; 0 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/saxilite.gen 
+Command             ap_source returned 0; 0 sec.
+Execute             source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/maxi.gen 
+Command             ap_source returned 0; 0.01 sec.
+Command           ap_source returned 0; 0.01 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Command           ap_source returned 0; 0 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Command           ap_source returned 0; 0.01 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/xfir.gen 
+Command           ap_source returned 0; 0 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source returned 0; 0.07 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/util.gen 
+Command           ap_source returned 0; 0 sec.
+Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/dds_compiler.gen 
+Command           ap_source returned 0; 0 sec.
+Command         ap_source returned 0; 0.09 sec.
+Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/dsp48.gen 
+Command         ap_source returned 0; 0 sec.
+Command       ap_source returned 0; 0.09 sec.
+Command     ap_source returned 0; 0.09 sec.
+Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/xilinx_fpv6.gen 
+Command       ap_source returned 0; 0.01 sec.
+Command     ap_source returned 0; 0.01 sec.
 Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
 Command     ap_source returned 0; 0 sec.
 Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_read.compgen.tcl 
@@ -695,7 +695,7 @@ Command     ap_source returned 0; 0 sec.
 Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.compgen.tcl 
 Command     ap_source returned 0; 0 sec.
 Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
-Command     ap_source returned 0; 0.01 sec.
+Command     ap_source returned 0; 0 sec.
 Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.constraint.tcl 
 Command     ap_source returned 0; 0 sec.
 Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/mem_hw.tbgen.tcl 
@@ -720,7 +720,7 @@ Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/plb46.gen 
 Command           ap_source returned 0; 0 sec.
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/fsl.gen 
-Command           ap_source returned 0; 0.01 sec.
+Command           ap_source returned 0; 0 sec.
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/axi4.gen 
 Command           ap_source returned 0; 0 sec.
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/interface/nativeAXI4.gen 
@@ -736,23 +736,23 @@ Command           ap_source returned 0; 0.01 sec.
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/xfir.gen 
 Command           ap_source returned 0; 0 sec.
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/xfft.gen 
-Command           ap_source returned 0; 0.08 sec.
+Command           ap_source returned 0; 0.07 sec.
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/util.gen 
 Command           ap_source returned 0; 0 sec.
 Execute           source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/ip/dds_compiler.gen 
 Command           ap_source returned 0; 0 sec.
-Command         ap_source returned 0; 0.11 sec.
+Command         ap_source returned 0; 0.09 sec.
 Execute         source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/dsp48.gen 
 Command         ap_source returned 0; 0 sec.
-Command       ap_source returned 0; 0.11 sec.
-Command     ap_source returned 0; 0.11 sec.
+Command       ap_source returned 0; 0.09 sec.
+Command     ap_source returned 0; 0.09 sec.
 Execute     source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/zynq/zynq_fpv6.gen 
 Execute       source /opt/Xilinx_tools/Vivado/2017.4/common/technology/xilinx/common/xilinx_fpv6.gen 
 Command       ap_source returned 0; 0 sec.
 Command     ap_source returned 0; 0 sec.
 Execute     source /home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/.autopilot/db/global.setting.tcl 
 Command     ap_source returned 0; 0 sec.
-Command   export_design returned 0; 34.3 sec.
-Command ap_source returned 0; 34.47 sec.
+Command   export_design returned 0; 33.1 sec.
+Command ap_source returned 0; 33.28 sec.
 Execute cleanup_all 
 Command cleanup_all returned 0; 0 sec.

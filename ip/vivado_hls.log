@@ -1,5 +1,5 @@
 INFO: [HLS 200-10] Running '/opt/Xilinx_tools/Vivado/2017.4/bin/unwrapped/lnx64.o/vivado_hls'
-INFO: [HLS 200-10] For user 'juju' on host 'alex-HP-Compaq-Elite-8300-CMT' (Linux_x86_64 version 4.13.0-41-generic) on Mon May 21 15:19:52 BST 2018
+INFO: [HLS 200-10] For user 'juju' on host 'alex-HP-Compaq-Elite-8300-CMT' (Linux_x86_64 version 4.13.0-41-generic) on Mon May 21 16:44:08 BST 2018
 INFO: [HLS 200-10] On os Ubuntu 16.04.4 LTS
 INFO: [HLS 200-10] In directory '/home/juju/mem_test_rw_seperate/ip'
 INFO: [HLS 200-10] Opening project '/home/juju/mem_test_rw_seperate/ip/mem_prj'.
@@ -17,4 +17,4 @@ source run_ippack.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx_tools/Vivado/2017.4/data/ip'.
-INFO: [Common 17-206] Exiting Vivado at Mon May 21 15:20:04 2018...
+INFO: [Common 17-206] Exiting Vivado at Mon May 21 16:44:20 2018...

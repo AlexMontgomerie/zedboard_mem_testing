@@ -10,7 +10,7 @@
 #define TYPE 0
 
 //#define SIZE 262144
-#define SIZE 8388096
+#define SIZE 2096640
 #define TEST_ARR_SIZE 512
 
 #define READ		1

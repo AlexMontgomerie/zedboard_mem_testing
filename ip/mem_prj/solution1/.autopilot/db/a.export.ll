@@ -22,28 +22,28 @@ define internal fastcc void @mem_write(i32* %out_stream_V_data_V, i4* %out_strea
   br label %1
 
 ; <label>:1                                       ; preds = %0, %.reset
-  %indvar_flatten = phi i23 [ 0, %0 ], [ %indvar_flatten_next, %.reset ]
-  %i = phi i14 [ 0, %0 ], [ %tmp_mid2_v_v, %.reset ]
+  %indvar_flatten = phi i21 [ 0, %0 ], [ %indvar_flatten_next, %.reset ]
+  %i = phi i12 [ 0, %0 ], [ %tmp_mid2_v_v, %.reset ]
   %tmp_user_V = phi i1 [ true, %0 ], [ false, %.reset ]
   %j = phi i10 [ 0, %0 ], [ %j_1, %.reset ]
-  %exitcond_flatten = icmp eq i23 %indvar_flatten, -512
-  %indvar_flatten_next = add i23 %indvar_flatten, 1
+  %exitcond_flatten = icmp eq i21 %indvar_flatten, -512
+  %indvar_flatten_next = add i21 %indvar_flatten, 1
   br i1 %exitcond_flatten, label %2, label %.reset
 
 .reset:                                           ; preds = %1
   call void (...)* @_ssdm_op_SpecLoopName([20 x i8]* @main_loop_data_loop_s)
-  call void (...)* @_ssdm_op_SpecLoopTripCount(i64 8388096, i64 8388096, i64 8388096)
+  call void (...)* @_ssdm_op_SpecLoopTripCount(i64 2096640, i64 2096640, i64 2096640)
   %exitcond6 = icmp eq i10 %j, -512
   %j_mid2 = select i1 %exitcond6, i10 0, i10 %j
-  %i_s = add i14 %i, 1
-  %tmp_mid2_v_v = select i1 %exitcond6, i14 %i_s, i14 %i
-  %tmp_mid2 = call i23 @_ssdm_op_BitConcatenate.i23.i14.i9(i14 %tmp_mid2_v_v, i9 0)
-  %j_cast3 = zext i10 %j_mid2 to i23
+  %i_s = add i12 %i, 1
+  %tmp_mid2_v_v = select i1 %exitcond6, i12 %i_s, i12 %i
+  %tmp_mid2 = call i21 @_ssdm_op_BitConcatenate.i21.i12.i9(i12 %tmp_mid2_v_v, i9 0)
+  %j_cast3 = zext i10 %j_mid2 to i21
   call void (...)* @_ssdm_op_SpecLoopName([10 x i8]* @p_str4) nounwind
   %tmp_5 = call i32 (...)* @_ssdm_op_SpecRegionBegin([10 x i8]* @p_str4)
   call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str2) nounwind
-  %tmp_2 = add i23 %j_cast3, %tmp_mid2
-  %tmp_last_V = icmp eq i23 %tmp_2, -513
+  %tmp_2 = add i21 %j_cast3, %tmp_mid2
+  %tmp_last_V = icmp eq i21 %tmp_2, -513
   %tmp_4 = zext i10 %j_mid2 to i64
   %test_init_arr_V_addr = getelementptr [512 x i32]* %test_init_arr_V, i64 0, i64 %tmp_4
   %axi_data_V = load i32* %test_init_arr_V_addr, align 4
@@ -190,13 +190,13 @@ entry:
   ret { i32, i4, i4, i1, i1, i1, i1 } %mrv6
 }
 
-define weak i23 @_ssdm_op_BitConcatenate.i23.i14.i9(i14, i9) nounwind readnone {
+define weak i21 @_ssdm_op_BitConcatenate.i21.i12.i9(i12, i9) nounwind readnone {
 entry:
-  %empty = zext i14 %0 to i23
-  %empty_10 = zext i9 %1 to i23
-  %empty_11 = shl i23 %empty, 9
-  %empty_12 = or i23 %empty_11, %empty_10
-  ret i23 %empty_12
+  %empty = zext i12 %0 to i21
+  %empty_10 = zext i9 %1 to i21
+  %empty_11 = shl i21 %empty, 9
+  %empty_12 = or i21 %empty_11, %empty_10
+  ret i21 %empty_12
 }
 
 !opencl.kernels = !{!0, !7, !13, !19, !22, !24, !24, !27, !27, !33, !36, !38, !41, !43, !24, !24, !27, !27, !45, !27, !27, !27, !27, !27, !27, !27, !27, !27, !27, !27, !27, !27, !27, !27, !27, !27}

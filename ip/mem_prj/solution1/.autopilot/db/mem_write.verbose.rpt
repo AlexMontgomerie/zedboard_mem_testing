@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'mem_write'
 ================================================================
-* Date:           Mon May 21 14:47:57 2018
+* Date:           Mon May 21 16:43:33 2018
 
 * Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
 * Project:        mem_prj
@@ -20,7 +20,7 @@
     +--------+--------+----------+------------+
     |  Clock | Target | Estimated| Uncertainty|
     +--------+--------+----------+------------+
-    |ap_clk  |  800.00|      8.14|      100.00|
+    |ap_clk  |  800.00|      8.03|      100.00|
     +--------+--------+----------+------------+
 
 + Latency (clock cycles): 
@@ -29,7 +29,7 @@
     |      Latency      |      Interval     | Pipeline|
     |   min   |   max   |   min   |   max   |   Type  |
     +---------+---------+---------+---------+---------+
-    |  8388099|  8388099|  8388099|  8388099|   none  |
+    |  2096643|  2096643|  2096643|  2096643|   none  |
     +---------+---------+---------+---------+---------+
 
     + Detail: 
@@ -41,7 +41,7 @@
         |                       |      Latency      | Iteration|  Initiation Interval  |   Trip  |          |
         |       Loop Name       |   min   |   max   |  Latency |  achieved |   target  |  Count  | Pipelined|
         +-----------------------+---------+---------+----------+-----------+-----------+---------+----------+
-        |- main_loop_data_loop  |  8388097|  8388097|         3|          1|          1|  8388096|    yes   |
+        |- main_loop_data_loop  |  2096641|  2096641|         3|          1|          1|  2096640|    yes   |
         +-----------------------+---------+---------+----------+-----------+-----------+---------+----------+
 
 
@@ -54,18 +54,18 @@
 |       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
 +-----------------+---------+-------+--------+-------+
 |DSP              |        -|      -|       -|      -|
-|Expression       |        -|      -|       0|    299|
+|Expression       |        -|      -|       0|    291|
 |FIFO             |        -|      -|       -|      -|
 |Instance         |        -|      -|       -|      -|
 |Memory           |        -|      -|       -|      -|
 |Multiplexer      |        -|      -|       -|    234|
-|Register         |        -|      -|     164|      -|
+|Register         |        -|      -|     158|      -|
 +-----------------+---------+-------+--------+-------+
-|Total            |        0|      0|     164|    533|
+|Total            |        0|      0|     158|    525|
 +-----------------+---------+-------+--------+-------+
 |Available        |      280|    220|  106400|  53200|
 +-----------------+---------+-------+--------+-------+
-|Utilization (%)  |        0|      0|   ~0   |      1|
+|Utilization (%)  |        0|      0|   ~0   |   ~0  |
 +-----------------+---------+-------+--------+-------+
 
 + Detail: 
@@ -85,10 +85,10 @@
     +--------------------------------------+----------+-------+---+----+------------+------------+
     |             Variable Name            | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
     +--------------------------------------+----------+-------+---+----+------------+------------+
-    |i_s_fu_204_p2                         |     +    |      0|  0|  21|          14|           1|
-    |indvar_flatten_next_fu_184_p2         |     +    |      0|  0|  30|          23|           1|
+    |i_s_fu_204_p2                         |     +    |      0|  0|  19|          12|           1|
+    |indvar_flatten_next_fu_184_p2         |     +    |      0|  0|  28|          21|           1|
     |j_1_fu_247_p2                         |     +    |      0|  0|  17|          10|           1|
-    |tmp_2_fu_230_p2                       |     +    |      0|  0|  30|          23|          23|
+    |tmp_2_fu_230_p2                       |     +    |      0|  0|  28|          21|          21|
     |ap_block_state3_io                    |    and   |      0|  0|   8|           1|           1|
     |ap_block_state4_io                    |    and   |      0|  0|   8|           1|           1|
     |out_stream_V_data_V_1_load_A          |    and   |      0|  0|   8|           1|           1|
@@ -98,20 +98,20 @@
     |out_stream_V_user_V_1_load_A          |    and   |      0|  0|   8|           1|           1|
     |out_stream_V_user_V_1_load_B          |    and   |      0|  0|   8|           1|           1|
     |exitcond6_fu_190_p2                   |   icmp   |      0|  0|  13|          10|          11|
-    |exitcond_flatten_fu_178_p2            |   icmp   |      0|  0|  18|          23|          11|
+    |exitcond_flatten_fu_178_p2            |   icmp   |      0|  0|  18|          21|          11|
     |out_stream_V_data_V_1_state_cmp_full  |   icmp   |      0|  0|   8|           2|           1|
     |out_stream_V_last_V_1_state_cmp_full  |   icmp   |      0|  0|   8|           2|           1|
     |out_stream_V_user_V_1_state_cmp_full  |   icmp   |      0|  0|   8|           2|           1|
-    |tmp_last_V_fu_236_p2                  |   icmp   |      0|  0|  18|          23|          11|
+    |tmp_last_V_fu_236_p2                  |   icmp   |      0|  0|  18|          21|          11|
     |ap_block_pp0_stage0_11001             |    or    |      0|  0|   8|           1|           1|
     |ap_block_state1                       |    or    |      0|  0|   8|           1|           1|
     |ap_block_state5                       |    or    |      0|  0|   8|           1|           1|
     |j_mid2_fu_196_p3                      |  select  |      0|  0|  10|           1|           1|
-    |tmp_mid2_v_v_fu_210_p3                |  select  |      0|  0|  14|           1|          14|
+    |tmp_mid2_v_v_fu_210_p3                |  select  |      0|  0|  12|           1|          12|
     |ap_enable_pp0                         |    xor   |      0|  0|   8|           1|           2|
     |ap_enable_reg_pp0_iter1               |    xor   |      0|  0|   8|           2|           1|
     +--------------------------------------+----------+-------+---+----+------------+------------+
-    |Total                                 |          |      0|  0| 299|         148|          91|
+    |Total                                 |          |      0|  0| 291|         138|          87|
     +--------------------------------------+----------+-------+---+----+------------+------------+
 
     * Multiplexer: 
@@ -122,10 +122,10 @@
     |ap_done                              |   9|          2|    1|          2|
     |ap_enable_reg_pp0_iter1              |   9|          2|    1|          2|
     |ap_enable_reg_pp0_iter2              |   9|          2|    1|          2|
-    |ap_phi_mux_i_phi_fu_145_p4           |   9|          2|   14|         28|
+    |ap_phi_mux_i_phi_fu_145_p4           |   9|          2|   12|         24|
     |ap_phi_mux_tmp_user_V_phi_fu_158_p4  |   9|          2|    1|          2|
-    |i_reg_141                            |   9|          2|   14|         28|
-    |indvar_flatten_reg_130               |   9|          2|   23|         46|
+    |i_reg_141                            |   9|          2|   12|         24|
+    |indvar_flatten_reg_130               |   9|          2|   21|         42|
     |j_reg_167                            |   9|          2|   10|         20|
     |out_r_TDATA_blk_n                    |   9|          2|    1|          2|
     |out_stream_V_data_V_1_data_out       |   9|          2|   32|         64|
@@ -139,7 +139,7 @@
     |out_stream_V_user_V_1_data_out       |   9|          2|    1|          2|
     |out_stream_V_user_V_1_state          |  15|          3|    2|          6|
     +-------------------------------------+----+-----------+-----+-----------+
-    |Total                                | 234|         49|  115|        246|
+    |Total                                | 234|         49|  109|        234|
     +-------------------------------------+----+-----------+-----+-----------+
 
     * Register: 
@@ -153,8 +153,8 @@
     |ap_enable_reg_pp0_iter2                    |   1|   0|    1|          0|
     |ap_reg_pp0_iter1_exitcond_flatten_reg_253  |   1|   0|    1|          0|
     |exitcond_flatten_reg_253                   |   1|   0|    1|          0|
-    |i_reg_141                                  |  14|   0|   14|          0|
-    |indvar_flatten_reg_130                     |  23|   0|   23|          0|
+    |i_reg_141                                  |  12|   0|   12|          0|
+    |indvar_flatten_reg_130                     |  21|   0|   21|          0|
     |j_reg_167                                  |  10|   0|   10|          0|
     |out_stream_V_data_V_1_payload_A            |  32|   0|   32|          0|
     |out_stream_V_data_V_1_payload_B            |  32|   0|   32|          0|
@@ -180,10 +180,10 @@
     |out_stream_V_user_V_1_sel_wr               |   1|   0|    1|          0|
     |out_stream_V_user_V_1_state                |   2|   0|    2|          0|
     |tmp_last_V_reg_267                         |   1|   0|    1|          0|
-    |tmp_mid2_v_v_reg_262                       |  14|   0|   14|          0|
+    |tmp_mid2_v_v_reg_262                       |  12|   0|   12|          0|
     |tmp_user_V_reg_152                         |   1|   0|    1|          0|
     +-------------------------------------------+----+----+-----+-----------+
-    |Total                                      | 164|   0|  164|          0|
+    |Total                                      | 158|   0|  158|          0|
     +-------------------------------------------+----+----+-----+-----------+
 
 
@@ -269,26 +269,26 @@ ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_S
 ST_1 : Operation 7 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %out_stream_V_data_V, i4* %out_stream_V_keep_V, i4* %out_stream_V_strb_V, i1* %out_stream_V_user_V, i1* %out_stream_V_last_V, i1* %out_stream_V_id_V, i1* %out_stream_V_dest_V, [5 x i8]* @p_str7, i32 1, i32 1, [5 x i8]* @p_str8, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind"
 ST_1 : Operation 8 [1/1] (1.76ns)   --->   "br label %1" [mem.cpp:24]
 
- <State 2> : 8.14ns
-ST_2 : Operation 9 [1/1] (0.00ns)   --->   "%indvar_flatten = phi i23 [ 0, %0 ], [ %indvar_flatten_next, %.reset ]"
-ST_2 : Operation 10 [1/1] (0.00ns)   --->   "%i = phi i14 [ 0, %0 ], [ %tmp_mid2_v_v, %.reset ]" [mem.cpp:37]
+ <State 2> : 8.03ns
+ST_2 : Operation 9 [1/1] (0.00ns)   --->   "%indvar_flatten = phi i21 [ 0, %0 ], [ %indvar_flatten_next, %.reset ]"
+ST_2 : Operation 10 [1/1] (0.00ns)   --->   "%i = phi i12 [ 0, %0 ], [ %tmp_mid2_v_v, %.reset ]" [mem.cpp:37]
 ST_2 : Operation 11 [1/1] (0.00ns)   --->   "%tmp_user_V = phi i1 [ true, %0 ], [ false, %.reset ]"
 ST_2 : Operation 12 [1/1] (0.00ns)   --->   "%j = phi i10 [ 0, %0 ], [ %j_1, %.reset ]"
-ST_2 : Operation 13 [1/1] (2.44ns)   --->   "%exitcond_flatten = icmp eq i23 %indvar_flatten, -512"   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.44> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 14 [1/1] (2.28ns)   --->   "%indvar_flatten_next = add i23 %indvar_flatten, 1"   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.28> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 13 [1/1] (2.44ns)   --->   "%exitcond_flatten = icmp eq i21 %indvar_flatten, -512"   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.44> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 14 [1/1] (2.22ns)   --->   "%indvar_flatten_next = add i21 %indvar_flatten, 1"   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.22> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 ST_2 : Operation 15 [1/1] (0.00ns)   --->   "br i1 %exitcond_flatten, label %2, label %.reset"
 ST_2 : Operation 16 [1/1] (1.77ns)   --->   "%exitcond6 = icmp eq i10 %j, -512" [mem.cpp:26]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.44> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
 ST_2 : Operation 17 [1/1] (1.37ns)   --->   "%j_mid2 = select i1 %exitcond6, i10 0, i10 %j" [mem.cpp:26]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_2 : Operation 18 [1/1] (2.03ns)   --->   "%i_s = add i14 %i, 1" [mem.cpp:24]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.28> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 19 [1/1] (1.37ns)   --->   "%tmp_mid2_v_v = select i1 %exitcond6, i14 %i_s, i14 %i" [mem.cpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%tmp_mid2 = call i23 @_ssdm_op_BitConcatenate.i23.i14.i9(i14 %tmp_mid2_v_v, i9 0)" [mem.cpp:37]
-ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%j_cast3 = zext i10 %j_mid2 to i23" [mem.cpp:26]
-ST_2 : Operation 22 [1/1] (2.28ns)   --->   "%tmp_2 = add i23 %j_cast3, %tmp_mid2" [mem.cpp:37]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.28> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 23 [1/1] (2.44ns)   --->   "%tmp_last_V = icmp eq i23 %tmp_2, -513" [mem.cpp:37]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.44> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 18 [1/1] (1.99ns)   --->   "%i_s = add i12 %i, 1" [mem.cpp:24]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.22> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 19 [1/1] (1.37ns)   --->   "%tmp_mid2_v_v = select i1 %exitcond6, i12 %i_s, i12 %i" [mem.cpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%tmp_mid2 = call i21 @_ssdm_op_BitConcatenate.i21.i12.i9(i12 %tmp_mid2_v_v, i9 0)" [mem.cpp:37]
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%j_cast3 = zext i10 %j_mid2 to i21" [mem.cpp:26]
+ST_2 : Operation 22 [1/1] (2.22ns)   --->   "%tmp_2 = add i21 %j_cast3, %tmp_mid2" [mem.cpp:37]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.22> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 23 [1/1] (2.44ns)   --->   "%tmp_last_V = icmp eq i21 %tmp_2, -513" [mem.cpp:37]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.44> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
 ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%tmp_4 = zext i10 %j_mid2 to i64" [mem.cpp:43]
 ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%test_init_arr_V_addr = getelementptr [512 x i32]* %test_init_arr_V, i64 0, i64 %tmp_4" [mem.cpp:43]
 ST_2 : Operation 26 [2/2] (2.56ns)   --->   "%axi_data_V = load i32* %test_init_arr_V_addr, align 4" [mem.cpp:43]   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.56> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 512> <RAM>
-ST_2 : Operation 27 [1/1] (1.95ns)   --->   "%j_1 = add i10 %j_mid2, 1" [mem.cpp:26]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.28> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 27 [1/1] (1.95ns)   --->   "%j_1 = add i10 %j_mid2, 1" [mem.cpp:26]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.22> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 
  <State 3> : 2.57ns
 ST_3 : Operation 28 [1/2] (2.56ns)   --->   "%axi_data_V = load i32* %test_init_arr_V_addr, align 4" [mem.cpp:43]   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.56> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 512> <RAM>
@@ -297,7 +297,7 @@ ST_3 : Operation 30 [1/1] (0.00ns)   --->   "br label %1"
 
  <State 4> : 0.00ns
 ST_4 : Operation 31 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([20 x i8]* @main_loop_data_loop_s)"
-ST_4 : Operation 32 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 8388096, i64 8388096, i64 8388096)"
+ST_4 : Operation 32 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 2096640, i64 2096640, i64 2096640)"
 ST_4 : Operation 33 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([10 x i8]* @p_str4) nounwind" [mem.cpp:27]
 ST_4 : Operation 34 [1/1] (0.00ns)   --->   "%tmp_5 = call i32 (...)* @_ssdm_op_SpecRegionBegin([10 x i8]* @p_str4)" [mem.cpp:27]
 ST_4 : Operation 35 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str2) nounwind" [mem.cpp:29]
@@ -618,7 +618,7 @@ StgValue_38          (ret              ) [ 000000]
 <pin id="55" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_BitConcatenate.i23.i14.i9"/></StgValue>
+<StgValue><ssdm name="_ssdm_op_BitConcatenate.i21.i12.i9"/></StgValue>
 </bind>
 </comp>
 
@@ -818,8 +818,8 @@ StgValue_38          (ret              ) [ 000000]
 
 <comp id="130" class="1005" name="indvar_flatten_reg_130">
 <pin_list>
-<pin id="131" dir="0" index="0" bw="23" slack="1"/>
-<pin id="132" dir="1" index="1" bw="23" slack="1"/>
+<pin id="131" dir="0" index="0" bw="21" slack="1"/>
+<pin id="132" dir="1" index="1" bw="21" slack="1"/>
 </pin_list>
 <bind>
 <opset="indvar_flatten (phireg) "/>
@@ -830,9 +830,9 @@ StgValue_38          (ret              ) [ 000000]
 <pin_list>
 <pin id="135" dir="0" index="0" bw="1" slack="1"/>
 <pin id="136" dir="0" index="1" bw="0" slack="2147483647"/>
-<pin id="137" dir="0" index="2" bw="23" slack="0"/>
+<pin id="137" dir="0" index="2" bw="21" slack="0"/>
 <pin id="138" dir="0" index="3" bw="0" slack="2147483647"/>
-<pin id="139" dir="1" index="4" bw="23" slack="0"/>
+<pin id="139" dir="1" index="4" bw="21" slack="0"/>
 </pin_list>
 <bind>
 <opcode="phi(47) " fcode="phi"/>
@@ -842,8 +842,8 @@ StgValue_38          (ret              ) [ 000000]
 
 <comp id="141" class="1005" name="i_reg_141">
 <pin_list>
-<pin id="142" dir="0" index="0" bw="14" slack="1"/>
-<pin id="143" dir="1" index="1" bw="14" slack="1"/>
+<pin id="142" dir="0" index="0" bw="12" slack="1"/>
+<pin id="143" dir="1" index="1" bw="12" slack="1"/>
 </pin_list>
 <bind>
 <opset="i (phireg) "/>
@@ -854,9 +854,9 @@ StgValue_38          (ret              ) [ 000000]
 <pin_list>
 <pin id="146" dir="0" index="0" bw="1" slack="1"/>
 <pin id="147" dir="0" index="1" bw="0" slack="2147483647"/>
-<pin id="148" dir="0" index="2" bw="14" slack="0"/>
+<pin id="148" dir="0" index="2" bw="12" slack="0"/>
 <pin id="149" dir="0" index="3" bw="0" slack="2147483647"/>
-<pin id="150" dir="1" index="4" bw="14" slack="0"/>
+<pin id="150" dir="1" index="4" bw="12" slack="0"/>
 </pin_list>
 <bind>
 <opcode="phi(47) " fcode="phi"/>
@@ -914,8 +914,8 @@ StgValue_38          (ret              ) [ 000000]
 
 <comp id="178" class="1004" name="exitcond_flatten_fu_178">
 <pin_list>
-<pin id="179" dir="0" index="0" bw="23" slack="0"/>
-<pin id="180" dir="0" index="1" bw="23" slack="0"/>
+<pin id="179" dir="0" index="0" bw="21" slack="0"/>
+<pin id="180" dir="0" index="1" bw="21" slack="0"/>
 <pin id="181" dir="1" index="2" bw="1" slack="1"/>
 </pin_list>
 <bind>
@@ -926,9 +926,9 @@ StgValue_38          (ret              ) [ 000000]
 
 <comp id="184" class="1004" name="indvar_flatten_next_fu_184">
 <pin_list>
-<pin id="185" dir="0" index="0" bw="23" slack="0"/>
+<pin id="185" dir="0" index="0" bw="21" slack="0"/>
 <pin id="186" dir="0" index="1" bw="1" slack="0"/>
-<pin id="187" dir="1" index="2" bw="23" slack="0"/>
+<pin id="187" dir="1" index="2" bw="21" slack="0"/>
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
@@ -963,9 +963,9 @@ StgValue_38          (ret              ) [ 000000]
 
 <comp id="204" class="1004" name="i_s_fu_204">
 <pin_list>
-<pin id="205" dir="0" index="0" bw="14" slack="0"/>
+<pin id="205" dir="0" index="0" bw="12" slack="0"/>
 <pin id="206" dir="0" index="1" bw="1" slack="0"/>
-<pin id="207" dir="1" index="2" bw="14" slack="0"/>
+<pin id="207" dir="1" index="2" bw="12" slack="0"/>
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
@@ -976,9 +976,9 @@ StgValue_38          (ret              ) [ 000000]
 <comp id="210" class="1004" name="tmp_mid2_v_v_fu_210">
 <pin_list>
 <pin id="211" dir="0" index="0" bw="1" slack="0"/>
-<pin id="212" dir="0" index="1" bw="14" slack="0"/>
-<pin id="213" dir="0" index="2" bw="14" slack="0"/>
-<pin id="214" dir="1" index="3" bw="14" slack="0"/>
+<pin id="212" dir="0" index="1" bw="12" slack="0"/>
+<pin id="213" dir="0" index="2" bw="12" slack="0"/>
+<pin id="214" dir="1" index="3" bw="12" slack="0"/>
 </pin_list>
 <bind>
 <opcode="select(49) " fcode="select"/>
@@ -988,10 +988,10 @@ StgValue_38          (ret              ) [ 000000]
 
 <comp id="218" class="1004" name="tmp_mid2_fu_218">
 <pin_list>
-<pin id="219" dir="0" index="0" bw="23" slack="0"/>
-<pin id="220" dir="0" index="1" bw="14" slack="0"/>
+<pin id="219" dir="0" index="0" bw="21" slack="0"/>
+<pin id="220" dir="0" index="1" bw="12" slack="0"/>
 <pin id="221" dir="0" index="2" bw="1" slack="0"/>
-<pin id="222" dir="1" index="3" bw="23" slack="0"/>
+<pin id="222" dir="1" index="3" bw="21" slack="0"/>
 </pin_list>
 <bind>
 <opcode="bitconcatenate(1004) " fcode="bitconcatenate"/>
@@ -1002,7 +1002,7 @@ StgValue_38          (ret              ) [ 000000]
 <comp id="226" class="1004" name="j_cast3_fu_226">
 <pin_list>
 <pin id="227" dir="0" index="0" bw="10" slack="0"/>
-<pin id="228" dir="1" index="1" bw="23" slack="0"/>
+<pin id="228" dir="1" index="1" bw="21" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
@@ -1013,8 +1013,8 @@ StgValue_38          (ret              ) [ 000000]
 <comp id="230" class="1004" name="tmp_2_fu_230">
 <pin_list>
 <pin id="231" dir="0" index="0" bw="10" slack="0"/>
-<pin id="232" dir="0" index="1" bw="23" slack="0"/>
-<pin id="233" dir="1" index="2" bw="23" slack="0"/>
+<pin id="232" dir="0" index="1" bw="21" slack="0"/>
+<pin id="233" dir="1" index="2" bw="21" slack="0"/>
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
@@ -1024,8 +1024,8 @@ StgValue_38          (ret              ) [ 000000]
 
 <comp id="236" class="1004" name="tmp_last_V_fu_236">
 <pin_list>
-<pin id="237" dir="0" index="0" bw="23" slack="0"/>
-<pin id="238" dir="0" index="1" bw="23" slack="0"/>
+<pin id="237" dir="0" index="0" bw="21" slack="0"/>
+<pin id="238" dir="0" index="1" bw="21" slack="0"/>
 <pin id="239" dir="1" index="2" bw="1" slack="1"/>
 </pin_list>
 <bind>
@@ -1069,8 +1069,8 @@ StgValue_38          (ret              ) [ 000000]
 
 <comp id="257" class="1005" name="indvar_flatten_next_reg_257">
 <pin_list>
-<pin id="258" dir="0" index="0" bw="23" slack="0"/>
-<pin id="259" dir="1" index="1" bw="23" slack="0"/>
+<pin id="258" dir="0" index="0" bw="21" slack="0"/>
+<pin id="259" dir="1" index="1" bw="21" slack="0"/>
 </pin_list>
 <bind>
 <opset="indvar_flatten_next "/>
@@ -1079,8 +1079,8 @@ StgValue_38          (ret              ) [ 000000]
 
 <comp id="262" class="1005" name="tmp_mid2_v_v_reg_262">
 <pin_list>
-<pin id="263" dir="0" index="0" bw="14" slack="0"/>
-<pin id="264" dir="1" index="1" bw="14" slack="0"/>
+<pin id="263" dir="0" index="0" bw="12" slack="0"/>
+<pin id="264" dir="1" index="1" bw="12" slack="0"/>
 </pin_list>
 <bind>
 <opset="tmp_mid2_v_v "/>
@@ -1321,9 +1321,9 @@ StgValue_38          (ret              ) [ 000000]
 |----------|----------------------------|---------|---------|
 | Operation|       Functional Unit      |    FF   |   LUT   |
 |----------|----------------------------|---------|---------|
-|          | indvar_flatten_next_fu_184 |    0    |    30   |
-|    add   |         i_s_fu_204         |    0    |    21   |
-|          |        tmp_2_fu_230        |    0    |    30   |
+|          | indvar_flatten_next_fu_184 |    0    |    28   |
+|    add   |         i_s_fu_204         |    0    |    19   |
+|          |        tmp_2_fu_230        |    0    |    28   |
 |          |         j_1_fu_247         |    0    |    17   |
 |----------|----------------------------|---------|---------|
 |          |   exitcond_flatten_fu_178  |    0    |    18   |
@@ -1331,7 +1331,7 @@ StgValue_38          (ret              ) [ 000000]
 |          |      tmp_last_V_fu_236     |    0    |    18   |
 |----------|----------------------------|---------|---------|
 |  select  |        j_mid2_fu_196       |    0    |    10   |
-|          |     tmp_mid2_v_v_fu_210    |    0    |    14   |
+|          |     tmp_mid2_v_v_fu_210    |    0    |    12   |
 |----------|----------------------------|---------|---------|
 |   write  |       grp_write_fu_88      |    0    |    0    |
 |----------|----------------------------|---------|---------|
@@ -1340,7 +1340,7 @@ StgValue_38          (ret              ) [ 000000]
 |   zext   |       j_cast3_fu_226       |    0    |    0    |
 |          |        tmp_4_fu_242        |    0    |    0    |
 |----------|----------------------------|---------|---------|
-|   Total  |                            |    0    |   171   |
+|   Total  |                            |    0    |   163   |
 |----------|----------------------------|---------|---------|
 
 Memories:
@@ -1352,17 +1352,17 @@ N/A
 +----------------------------+--------+
 |     axi_data_V_reg_282     |   32   |
 |  exitcond_flatten_reg_253  |    1   |
-|          i_reg_141         |   14   |
-| indvar_flatten_next_reg_257|   23   |
-|   indvar_flatten_reg_130   |   23   |
+|          i_reg_141         |   12   |
+| indvar_flatten_next_reg_257|   21   |
+|   indvar_flatten_reg_130   |   21   |
 |         j_1_reg_277        |   10   |
 |          j_reg_167         |   10   |
 |test_init_arr_V_addr_reg_272|    9   |
 |     tmp_last_V_reg_267     |    1   |
-|    tmp_mid2_v_v_reg_262    |   14   |
+|    tmp_mid2_v_v_reg_262    |   12   |
 |     tmp_user_V_reg_152     |    1   |
 +----------------------------+--------+
-|            Total           |   138  |
+|            Total           |   130  |
 +----------------------------+--------+
 
 * Multiplexer (MUX) list: 
@@ -1382,10 +1382,10 @@ N/A
 +-----------+--------+--------+--------+
 |           |  Delay |   FF   |   LUT  |
 +-----------+--------+--------+--------+
-|  Function |    -   |    0   |   171  |
+|  Function |    -   |    0   |   163  |
 |   Memory  |    -   |    -   |    -   |
 |Multiplexer|    5   |    -   |   27   |
-|  Register |    -   |   138  |    -   |
+|  Register |    -   |   130  |    -   |
 +-----------+--------+--------+--------+
-|   Total   |    5   |   138  |   198  |
+|   Total   |    5   |   130  |   190  |
 +-----------+--------+--------+--------+

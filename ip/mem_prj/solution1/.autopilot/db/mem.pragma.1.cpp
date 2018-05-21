@@ -47819,7 +47819,7 @@ void mem_write(AXI_STREAM& out_stream, int mask, data_t test_init_arr[512])
  int sof = 1;
  int eol = 0;
 
- main_loop: for(int i=0;i<((int) (8388096/512));i++)
+ main_loop: for(int i=0;i<((int) (2096640/512));i++)
  {
   data_loop: for(int j=0;j<512;j++)
   {
@@ -47832,7 +47832,7 @@ _ssdm_op_SpecPipeline(1, 1, 1, 0, "");
    } else {
     axi.user = 0;
    }
-   if ((i*512 +j) == (8388096 -1)) {
+   if ((i*512 +j) == (2096640 -1)) {
     axi.last = 1;
    } else {
     axi.last = 0;

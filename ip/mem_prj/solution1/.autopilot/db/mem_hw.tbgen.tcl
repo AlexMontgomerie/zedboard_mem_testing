@@ -3,10 +3,10 @@ set C_TypeInfoList {{
 "0": [ "AXI_STREAM", {"typedef": [[[],"2"],""]}], 
 "2": [ "stream<ap_axiu<32, 1, 1, 1> >", {"hls_type": {"stream": [[[[],"3"]],"4"]}}], 
 "3": [ "ap_axiu<32, 1, 1, 1>", {"struct": [[],[{"D":[[], {"scalar": { "int": 32}}]},{"U":[[], {"scalar": { "int": 1}}]},{"TI":[[], {"scalar": { "int": 1}}]},{"TD":[[], {"scalar": { "int": 1}}]}],[{ "data": [[], "5"]},{ "keep": [[], "6"]},{ "strb": [[], "6"]},{ "user": [[], "7"]},{ "last": [[], "7"]},{ "id": [[], "7"]},{ "dest": [[], "7"]}],""]}], 
-"5": [ "ap_uint<32>", {"hls_type": {"ap_uint": [[[[], {"scalar": { "int": 32}}]],""]}}], 
-"1": [ "data_t", {"typedef": [[[],"5"],""]}], 
 "7": [ "ap_uint<1>", {"hls_type": {"ap_uint": [[[[], {"scalar": { "int": 1}}]],""]}}], 
-"6": [ "ap_uint<4>", {"hls_type": {"ap_uint": [[[[], {"scalar": { "int": 4}}]],""]}}],
+"1": [ "data_t", {"typedef": [[[],"5"],""]}], 
+"6": [ "ap_uint<4>", {"hls_type": {"ap_uint": [[[[], {"scalar": { "int": 4}}]],""]}}], 
+"5": [ "ap_uint<32>", {"hls_type": {"ap_uint": [[[[], {"scalar": { "int": 32}}]],""]}}],
 "4": ["hls", ""]
 }}
 set moduleName mem_hw
@@ -281,8 +281,8 @@ set ArgLastReadFirstWriteLatency {
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "8388099", "Max" : "8388099"}
-	, {"Name" : "Interval", "Min" : "8388100", "Max" : "8388100"}
+	{"Name" : "Latency", "Min" : "2096643", "Max" : "2096643"}
+	, {"Name" : "Interval", "Min" : "2096644", "Max" : "2096644"}
 ]}
 
 set PipelineEnableSignalInfo {[

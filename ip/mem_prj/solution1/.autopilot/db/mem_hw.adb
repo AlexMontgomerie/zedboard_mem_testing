@@ -837,7 +837,7 @@
         <mDepth>-1</mDepth>
         <mMinTripCount>-1</mMinTripCount>
         <mMaxTripCount>-1</mMaxTripCount>
-        <mMinLatency>8388099</mMinLatency>
+        <mMinLatency>2096643</mMinLatency>
         <mMaxLatency>-1</mMaxLatency>
         <mIsDfPipe>1</mIsDfPipe>
         <mDfPipe class_id="23" tracking_level="1" version="0" object_id="_42">
@@ -1289,11 +1289,11 @@
             <item_version>0</item_version>
             <item>
               <first>FF</first>
-              <second>164</second>
+              <second>158</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>533</second>
+              <second>525</second>
             </item>
           </second>
         </item>

@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'mem_write'
 ================================================================
-* Date:           Mon May 21 14:47:57 2018
+* Date:           Mon May 21 16:43:33 2018
 
 * Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
 * Project:        mem_prj
@@ -20,7 +20,7 @@
     +--------+--------+----------+------------+
     |  Clock | Target | Estimated| Uncertainty|
     +--------+--------+----------+------------+
-    |ap_clk  |  800.00|      8.14|      100.00|
+    |ap_clk  |  800.00|      8.03|      100.00|
     +--------+--------+----------+------------+
 
 + Latency (clock cycles): 
@@ -29,7 +29,7 @@
     |      Latency      |      Interval     | Pipeline|
     |   min   |   max   |   min   |   max   |   Type  |
     +---------+---------+---------+---------+---------+
-    |  8388099|  8388099|  8388099|  8388099|   none  |
+    |  2096643|  2096643|  2096643|  2096643|   none  |
     +---------+---------+---------+---------+---------+
 
     + Detail: 
@@ -41,7 +41,7 @@
         |                       |      Latency      | Iteration|  Initiation Interval  |   Trip  |          |
         |       Loop Name       |   min   |   max   |  Latency |  achieved |   target  |  Count  | Pipelined|
         +-----------------------+---------+---------+----------+-----------+-----------+---------+----------+
-        |- main_loop_data_loop  |  8388097|  8388097|         3|          1|          1|  8388096|    yes   |
+        |- main_loop_data_loop  |  2096641|  2096641|         3|          1|          1|  2096640|    yes   |
         +-----------------------+---------+---------+----------+-----------+-----------+---------+----------+
 
 ============================================================
@@ -97,22 +97,22 @@ ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_S
 ST_1 : Operation 7 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %out_stream_V_data_V, i4* %out_stream_V_keep_V, i4* %out_stream_V_strb_V, i1* %out_stream_V_user_V, i1* %out_stream_V_last_V, i1* %out_stream_V_id_V, i1* %out_stream_V_dest_V, [5 x i8]* @p_str7, i32 1, i32 1, [5 x i8]* @p_str8, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind"
 ST_1 : Operation 8 [1/1] (1.76ns)   --->   "br label %1" [mem.cpp:24]
 
- <State 2> : 8.14ns
-ST_2 : Operation 9 [1/1] (0.00ns)   --->   "%indvar_flatten = phi i23 [ 0, %0 ], [ %indvar_flatten_next, %.reset ]"
-ST_2 : Operation 10 [1/1] (0.00ns)   --->   "%i = phi i14 [ 0, %0 ], [ %tmp_mid2_v_v, %.reset ]" [mem.cpp:37]
+ <State 2> : 8.03ns
+ST_2 : Operation 9 [1/1] (0.00ns)   --->   "%indvar_flatten = phi i21 [ 0, %0 ], [ %indvar_flatten_next, %.reset ]"
+ST_2 : Operation 10 [1/1] (0.00ns)   --->   "%i = phi i12 [ 0, %0 ], [ %tmp_mid2_v_v, %.reset ]" [mem.cpp:37]
 ST_2 : Operation 11 [1/1] (0.00ns)   --->   "%tmp_user_V = phi i1 [ true, %0 ], [ false, %.reset ]"
 ST_2 : Operation 12 [1/1] (0.00ns)   --->   "%j = phi i10 [ 0, %0 ], [ %j_1, %.reset ]"
-ST_2 : Operation 13 [1/1] (2.44ns)   --->   "%exitcond_flatten = icmp eq i23 %indvar_flatten, -512"   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.44> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 14 [1/1] (2.28ns)   --->   "%indvar_flatten_next = add i23 %indvar_flatten, 1"   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.95> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 13 [1/1] (2.44ns)   --->   "%exitcond_flatten = icmp eq i21 %indvar_flatten, -512"   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.44> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 14 [1/1] (2.22ns)   --->   "%indvar_flatten_next = add i21 %indvar_flatten, 1"   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.95> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 ST_2 : Operation 15 [1/1] (0.00ns)   --->   "br i1 %exitcond_flatten, label %2, label %.reset"
 ST_2 : Operation 16 [1/1] (1.77ns)   --->   "%exitcond6 = icmp eq i10 %j, -512" [mem.cpp:26]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.44> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
 ST_2 : Operation 17 [1/1] (1.37ns)   --->   "%j_mid2 = select i1 %exitcond6, i10 0, i10 %j" [mem.cpp:26]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_2 : Operation 18 [1/1] (2.03ns)   --->   "%i_s = add i14 %i, 1" [mem.cpp:24]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.95> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 19 [1/1] (1.37ns)   --->   "%tmp_mid2_v_v = select i1 %exitcond6, i14 %i_s, i14 %i" [mem.cpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%tmp_mid2 = call i23 @_ssdm_op_BitConcatenate.i23.i14.i9(i14 %tmp_mid2_v_v, i9 0)" [mem.cpp:37]
-ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%j_cast3 = zext i10 %j_mid2 to i23" [mem.cpp:26]
-ST_2 : Operation 22 [1/1] (2.28ns)   --->   "%tmp_2 = add i23 %j_cast3, %tmp_mid2" [mem.cpp:37]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.95> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 23 [1/1] (2.44ns)   --->   "%tmp_last_V = icmp eq i23 %tmp_2, -513" [mem.cpp:37]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.44> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 18 [1/1] (1.99ns)   --->   "%i_s = add i12 %i, 1" [mem.cpp:24]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.95> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 19 [1/1] (1.37ns)   --->   "%tmp_mid2_v_v = select i1 %exitcond6, i12 %i_s, i12 %i" [mem.cpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%tmp_mid2 = call i21 @_ssdm_op_BitConcatenate.i21.i12.i9(i12 %tmp_mid2_v_v, i9 0)" [mem.cpp:37]
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%j_cast3 = zext i10 %j_mid2 to i21" [mem.cpp:26]
+ST_2 : Operation 22 [1/1] (2.22ns)   --->   "%tmp_2 = add i21 %j_cast3, %tmp_mid2" [mem.cpp:37]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.95> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 23 [1/1] (2.44ns)   --->   "%tmp_last_V = icmp eq i21 %tmp_2, -513" [mem.cpp:37]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.44> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
 ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%tmp_4 = zext i10 %j_mid2 to i64" [mem.cpp:43]
 ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%test_init_arr_V_addr = getelementptr [512 x i32]* %test_init_arr_V, i64 0, i64 %tmp_4" [mem.cpp:43]
 ST_2 : Operation 26 [2/2] (2.56ns)   --->   "%axi_data_V = load i32* %test_init_arr_V_addr, align 4" [mem.cpp:43]   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.56> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 512> <RAM>
@@ -125,7 +125,7 @@ ST_3 : Operation 30 [1/1] (0.00ns)   --->   "br label %1"
 
  <State 4> : 0.00ns
 ST_4 : Operation 31 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([20 x i8]* @main_loop_data_loop_s)"
-ST_4 : Operation 32 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 8388096, i64 8388096, i64 8388096)"
+ST_4 : Operation 32 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 2096640, i64 2096640, i64 2096640)"
 ST_4 : Operation 33 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([10 x i8]* @p_str4) nounwind" [mem.cpp:27]
 ST_4 : Operation 34 [1/1] (0.00ns)   --->   "%tmp_5 = call i32 (...)* @_ssdm_op_SpecRegionBegin([10 x i8]* @p_str4)" [mem.cpp:27]
 ST_4 : Operation 35 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str2) nounwind" [mem.cpp:29]
@@ -145,13 +145,13 @@ Target clock period: 800ns, clock uncertainty: 100ns.
 The critical path consists of the following:
 	multiplexor before 'phi' operation ('indvar_flatten') with incoming values : ('indvar_flatten_next') [13]  (1.77 ns)
 
- <State 2>: 8.14ns
+ <State 2>: 8.03ns
 The critical path consists of the following:
 	'phi' operation ('i', mem.cpp:37) with incoming values : ('tmp_mid2_v_v', mem.cpp:37) [14]  (0 ns)
-	'add' operation ('i_s', mem.cpp:24) [25]  (2.04 ns)
+	'add' operation ('i_s', mem.cpp:24) [25]  (2 ns)
 	'select' operation ('tmp_mid2_v_v', mem.cpp:37) [26]  (1.37 ns)
-	'add' operation ('tmp_2', mem.cpp:37) [32]  (2.28 ns)
-	'icmp' operation ('tmp.last.V', mem.cpp:37) [33]  (2.45 ns)
+	'add' operation ('tmp_2', mem.cpp:37) [32]  (2.23 ns)
+	'icmp' operation ('tmp.last.V', mem.cpp:37) [33]  (2.44 ns)
 
  <State 3>: 2.57ns
 The critical path consists of the following:

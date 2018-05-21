@@ -97,9 +97,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="13" bw="23" op_0_bw="23" op_1_bw="0">
+<Node id="13" bw="21" op_0_bw="21" op_1_bw="0">
 <![CDATA[
-:0  %indvar_flatten = phi i23 [ 0, %0 ], [ %indvar_flatten_next, %.reset ]
+:0  %indvar_flatten = phi i21 [ 0, %0 ], [ %indvar_flatten_next, %.reset ]
 
 ]]></Node>
 <StgValue><ssdm name="indvar_flatten"/></StgValue>
@@ -112,9 +112,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="14" bw="14" op_0_bw="14" op_1_bw="0">
+<Node id="14" bw="12" op_0_bw="12" op_1_bw="0">
 <![CDATA[
-:1  %i = phi i14 [ 0, %0 ], [ %tmp_mid2_v_v, %.reset ]
+:1  %i = phi i12 [ 0, %0 ], [ %tmp_mid2_v_v, %.reset ]
 
 ]]></Node>
 <StgValue><ssdm name="i"/></StgValue>
@@ -157,9 +157,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="17" bw="1" op_0_bw="23" op_1_bw="23">
+<Node id="17" bw="1" op_0_bw="21" op_1_bw="21">
 <![CDATA[
-:4  %exitcond_flatten = icmp eq i23 %indvar_flatten, -512
+:4  %exitcond_flatten = icmp eq i21 %indvar_flatten, -512
 
 ]]></Node>
 <StgValue><ssdm name="exitcond_flatten"/></StgValue>
@@ -172,9 +172,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="18" bw="23" op_0_bw="23" op_1_bw="23">
+<Node id="18" bw="21" op_0_bw="21" op_1_bw="21">
 <![CDATA[
-:5  %indvar_flatten_next = add i23 %indvar_flatten, 1
+:5  %indvar_flatten_next = add i21 %indvar_flatten, 1
 
 ]]></Node>
 <StgValue><ssdm name="indvar_flatten_next"/></StgValue>
@@ -235,9 +235,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="25" bw="14" op_0_bw="14" op_1_bw="14">
+<Node id="25" bw="12" op_0_bw="12" op_1_bw="12">
 <![CDATA[
-.reset:4  %i_s = add i14 %i, 1
+.reset:4  %i_s = add i12 %i, 1
 
 ]]></Node>
 <StgValue><ssdm name="i_s"/></StgValue>
@@ -251,9 +251,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="26" bw="14" op_0_bw="1" op_1_bw="14" op_2_bw="14">
+<Node id="26" bw="12" op_0_bw="1" op_1_bw="12" op_2_bw="12">
 <![CDATA[
-.reset:5  %tmp_mid2_v_v = select i1 %exitcond6, i14 %i_s, i14 %i
+.reset:5  %tmp_mid2_v_v = select i1 %exitcond6, i12 %i_s, i12 %i
 
 ]]></Node>
 <StgValue><ssdm name="tmp_mid2_v_v"/></StgValue>
@@ -267,9 +267,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="27" bw="23" op_0_bw="23" op_1_bw="14" op_2_bw="9">
+<Node id="27" bw="21" op_0_bw="21" op_1_bw="12" op_2_bw="9">
 <![CDATA[
-.reset:6  %tmp_mid2 = call i23 @_ssdm_op_BitConcatenate.i23.i14.i9(i14 %tmp_mid2_v_v, i9 0)
+.reset:6  %tmp_mid2 = call i21 @_ssdm_op_BitConcatenate.i21.i12.i9(i12 %tmp_mid2_v_v, i9 0)
 
 ]]></Node>
 <StgValue><ssdm name="tmp_mid2"/></StgValue>
@@ -283,9 +283,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="28" bw="23" op_0_bw="10">
+<Node id="28" bw="21" op_0_bw="10">
 <![CDATA[
-.reset:7  %j_cast3 = zext i10 %j_mid2 to i23
+.reset:7  %j_cast3 = zext i10 %j_mid2 to i21
 
 ]]></Node>
 <StgValue><ssdm name="j_cast3"/></StgValue>
@@ -299,9 +299,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="32" bw="23" op_0_bw="23" op_1_bw="23">
+<Node id="32" bw="21" op_0_bw="21" op_1_bw="21">
 <![CDATA[
-.reset:11  %tmp_2 = add i23 %j_cast3, %tmp_mid2
+.reset:11  %tmp_2 = add i21 %j_cast3, %tmp_mid2
 
 ]]></Node>
 <StgValue><ssdm name="tmp_2"/></StgValue>
@@ -315,9 +315,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="33" bw="1" op_0_bw="23" op_1_bw="23">
+<Node id="33" bw="1" op_0_bw="21" op_1_bw="21">
 <![CDATA[
-.reset:12  %tmp_last_V = icmp eq i23 %tmp_2, -513
+.reset:12  %tmp_last_V = icmp eq i21 %tmp_2, -513
 
 ]]></Node>
 <StgValue><ssdm name="tmp_last_V"/></StgValue>
@@ -467,7 +467,7 @@
 
 <Node id="22" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
-.reset:1  call void (...)* @_ssdm_op_SpecLoopTripCount(i64 8388096, i64 8388096, i64 8388096)
+.reset:1  call void (...)* @_ssdm_op_SpecLoopTripCount(i64 2096640, i64 2096640, i64 2096640)
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -769,7 +769,7 @@
 </dataflow>
 <dataflow id="141" from="i" to="tmp_mid2_v_v" fromId="10" toId="19">
 </dataflow>
-<dataflow id="143" from="_ssdm_op_BitConcatenate.i23.i14.i9" to="tmp_mid2" fromId="142" toId="20">
+<dataflow id="143" from="_ssdm_op_BitConcatenate.i21.i12.i9" to="tmp_mid2" fromId="142" toId="20">
 </dataflow>
 <dataflow id="144" from="tmp_mid2_v_v" to="tmp_mid2" fromId="19" toId="20">
 </dataflow>

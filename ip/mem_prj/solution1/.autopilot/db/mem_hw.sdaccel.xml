@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'mem_hw'" level="0">
-<item name = "Date">Mon May 21 14:47:58 2018
+<item name = "Date">Mon May 21 16:43:33 2018
 </item>
 <item name = "Version">2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)</item>
 <item name = "Project">mem_prj</item>
@@ -15,21 +15,21 @@
 <section name = "" level="1">
 <item name = "Target clock period (ns)">800.00</item>
 <item name = "Clock uncertainty (ns)">100.00</item>
-<item name = "Estimated clock period (ns)">8.14</item>
+<item name = "Estimated clock period (ns)">8.03</item>
 </section>
 </item>
 <item name = "Latency (clock cycles)">
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">8388099, 8388099, 8388100, 8388100, dataflow</column>
+<column name="">2096643, 2096643, 2096644, 2096644, dataflow</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="mem_write_U0">mem_write, 8388099, 8388099, 8388099, 8388099, none</column>
+<column name="mem_write_U0">mem_write, 2096643, 2096643, 2096643, 2096643, none</column>
 <column name="mem_read_U0">mem_read, 2, 2, 2, 2, none</column>
 </table>
 </item>
@@ -49,12 +49,12 @@
 <column name="DSP">-, -, -, -</column>
 <column name="Expression">-, -, 0, 68</column>
 <column name="FIFO">-, -, -, -</column>
-<column name="Instance">2, -, 402, 960</column>
+<column name="Instance">2, -, 396, 952</column>
 <column name="Memory">-, -, -, -</column>
 <column name="Multiplexer">-, -, -, 36</column>
 <column name="Register">-, -, 6, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
-<specialColumn name="Utilization (%)">~0, 0, ~0, 2</specialColumn>
+<specialColumn name="Utilization (%)">~0, 0, ~0, 1</specialColumn>
 </table>
 </item>
 <item name = "Detail">
@@ -63,7 +63,7 @@
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
 <column name="mem_hw_CONTROL_BUS_s_axi_U">mem_hw_CONTROL_BUS_s_axi, 2, 0, 224, 302</column>
 <column name="mem_read_U0">mem_read, 0, 0, 14, 125</column>
-<column name="mem_write_U0">mem_write, 0, 0, 164, 533</column>
+<column name="mem_write_U0">mem_write, 0, 0, 158, 525</column>
 </table>
 </item>
 <item name = "DSP48"><table name="" hasTotal="0">

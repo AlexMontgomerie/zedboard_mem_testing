@@ -20,7 +20,7 @@
     "ClockPeriod": "800",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "8388099",
+    "Latency": "2096643",
     "Uncertainty": "100"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 800.000 [get_ports ap_clk]"]},
@@ -736,50 +736,50 @@
       },
       "mem_write": {
         "Latency": {
-          "LatencyBest": "8388099",
-          "LatencyAvg": "8388099",
-          "LatencyWorst": "8388099",
-          "PipelineII": "8388099",
+          "LatencyBest": "2096643",
+          "LatencyAvg": "2096643",
+          "LatencyWorst": "2096643",
+          "PipelineII": "2096643",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "800.00",
           "Uncertainty": "100.00",
-          "Estimate": "8.14"
+          "Estimate": "8.03"
         },
         "Loops": [{
             "Name": "main_loop_data_loop",
-            "TripCount": "8388096",
-            "Latency": "8388097",
+            "TripCount": "2096640",
+            "Latency": "2096641",
             "PipelineII": "1",
             "PipelineDepth": "3"
           }],
         "Area": {
-          "FF": "164",
-          "LUT": "533",
+          "FF": "158",
+          "LUT": "525",
           "BRAM_18K": "0",
           "DSP48E": "0"
         }
       },
       "mem_hw": {
         "Latency": {
-          "LatencyBest": "8388099",
-          "LatencyAvg": "8388099",
-          "LatencyWorst": "8388099",
-          "PipelineII": "8388100",
+          "LatencyBest": "2096643",
+          "LatencyAvg": "2096643",
+          "LatencyWorst": "2096643",
+          "PipelineII": "2096644",
           "PipelineDepth": "",
           "PipelineType": "dataflow"
         },
         "Timing": {
           "Target": "800.00",
           "Uncertainty": "100.00",
-          "Estimate": "8.14"
+          "Estimate": "8.03"
         },
         "Area": {
           "BRAM_18K": "2",
-          "FF": "408",
-          "LUT": "1064",
+          "FF": "402",
+          "LUT": "1056",
           "DSP48E": "0"
         }
       }
@@ -787,7 +787,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2018-05-21 14:47:58 BST",
+    "Time": "2018-05-21 16:43:34 BST",
     "ToolName": "vivado_hls",
     "ToolVersion": "2017.4"
   }
