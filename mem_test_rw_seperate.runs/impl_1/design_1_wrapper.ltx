@@ -869,7 +869,7 @@
         <Option Id="PROBE_PORT_BIT_COUNT" value="1"/>
       </probeOptions>
       <nets>
-        <net name="design_1_i/system_ila_0/inst/net_slot_2_axis_tvalid"/>
+        <net name="design_1_i/system_ila_0/inst/net_slot_2_axis_tuser"/>
       </nets>
     </probe>
     <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
@@ -884,7 +884,7 @@
         <Option Id="PROBE_PORT_BIT_COUNT" value="1"/>
       </probeOptions>
       <nets>
-        <net name="design_1_i/system_ila_0/inst/net_slot_2_axis_tready"/>
+        <net name="design_1_i/system_ila_0/inst/net_slot_2_axis_tvalid"/>
       </nets>
     </probe>
     <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
@@ -895,6 +895,21 @@
         <Option Id="HUB_CLK_INPUT_FREQ_HZ" value="50000000"/>
         <Option Id="HW_ILA" value="design_1_i/system_ila_0/inst/ila_lib"/>
         <Option Id="PROBE_PORT" value="39"/>
+        <Option Id="PROBE_PORT_BITS" value="0"/>
+        <Option Id="PROBE_PORT_BIT_COUNT" value="1"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/system_ila_0/inst/net_slot_2_axis_tready"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="BSCAN_SWITCH_INDEX" value="0"/>
+        <Option Id="CORE_LOCATION" value="1:0"/>
+        <Option Id="CORE_UUID" value="cd4c83c823a6596d99ad09be1335c6b0"/>
+        <Option Id="HUB_CLK_INPUT_FREQ_HZ" value="50000000"/>
+        <Option Id="HW_ILA" value="design_1_i/system_ila_0/inst/ila_lib"/>
+        <Option Id="PROBE_PORT" value="40"/>
         <Option Id="PROBE_PORT_BITS" value="0"/>
         <Option Id="PROBE_PORT_BIT_COUNT" value="1"/>
       </probeOptions>
@@ -1075,15 +1090,19 @@
           </port_map>
           <port_map>
             <logical_port>TLAST</logical_port>
-            <physical_port probe_port_index="39" probe_port_name="design_1_i/system_ila_0/inst/net_slot_2_axis_tlast" probe_port_core="design_1_i/system_ila_0/inst/ila_lib" probe_port_bits="0" probe_port_count="1"/>
+            <physical_port probe_port_index="40" probe_port_name="design_1_i/system_ila_0/inst/net_slot_2_axis_tlast" probe_port_core="design_1_i/system_ila_0/inst/ila_lib" probe_port_bits="0" probe_port_count="1"/>
           </port_map>
           <port_map>
             <logical_port>TREADY</logical_port>
-            <physical_port probe_port_index="38" probe_port_name="design_1_i/system_ila_0/inst/net_slot_2_axis_tready" probe_port_core="design_1_i/system_ila_0/inst/ila_lib" probe_port_bits="0" probe_port_count="1"/>
+            <physical_port probe_port_index="39" probe_port_name="design_1_i/system_ila_0/inst/net_slot_2_axis_tready" probe_port_core="design_1_i/system_ila_0/inst/ila_lib" probe_port_bits="0" probe_port_count="1"/>
+          </port_map>
+          <port_map>
+            <logical_port>TUSER</logical_port>
+            <physical_port probe_port_index="37" probe_port_name="design_1_i/system_ila_0/inst/net_slot_2_axis_tuser" probe_port_core="design_1_i/system_ila_0/inst/ila_lib" probe_port_bits="0" probe_port_count="1"/>
           </port_map>
           <port_map>
             <logical_port>TVALID</logical_port>
-            <physical_port probe_port_index="37" probe_port_name="design_1_i/system_ila_0/inst/net_slot_2_axis_tvalid" probe_port_core="design_1_i/system_ila_0/inst/ila_lib" probe_port_bits="0" probe_port_count="1"/>
+            <physical_port probe_port_index="38" probe_port_name="design_1_i/system_ila_0/inst/net_slot_2_axis_tvalid" probe_port_core="design_1_i/system_ila_0/inst/ila_lib" probe_port_bits="0" probe_port_count="1"/>
           </port_map>
         </port_maps>
       </bus_interface>

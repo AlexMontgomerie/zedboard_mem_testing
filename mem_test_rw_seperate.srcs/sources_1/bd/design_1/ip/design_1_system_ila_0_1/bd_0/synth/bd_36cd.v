@@ -50,10 +50,11 @@ module bd_36cd
     SLOT_2_AXIS_tkeep,
     SLOT_2_AXIS_tlast,
     SLOT_2_AXIS_tready,
+    SLOT_2_AXIS_tuser,
     SLOT_2_AXIS_tvalid,
     clk,
     resetn);
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_0_AXI ARADDR" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME SLOT_0_AXI, ADDR_WIDTH 32, ARUSER_WIDTH 0, AWUSER_WIDTH 0, BUSER_WIDTH 0, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, DATA_WIDTH 64, FREQ_HZ 50000000, HAS_BRESP 1, HAS_BURST 0, HAS_CACHE 0, HAS_LOCK 0, HAS_PROT 1, HAS_QOS 0, HAS_REGION 0, HAS_RRESP 1, HAS_WSTRB 1, ID_WIDTH 1, MAX_BURST_LENGTH 32, NUM_READ_OUTSTANDING 2, NUM_READ_THREADS 1, NUM_WRITE_OUTSTANDING 2, NUM_WRITE_THREADS 1, PHASE 0.000, PROTOCOL AXI4, READ_WRITE_MODE READ_WRITE, RUSER_BITS_PER_BYTE 0, RUSER_WIDTH 0, SUPPORTS_NARROW_BURST 0, WUSER_BITS_PER_BYTE 0, WUSER_WIDTH 0" *) input [31:0]SLOT_0_AXI_araddr;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_0_AXI ARADDR" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME SLOT_0_AXI, ADDR_WIDTH 32, ARUSER_WIDTH 0, AWUSER_WIDTH 0, BUSER_WIDTH 0, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, DATA_WIDTH 64, FREQ_HZ 50000000, HAS_BRESP 1, HAS_BURST 0, HAS_CACHE 0, HAS_LOCK 0, HAS_PROT 1, HAS_QOS 0, HAS_REGION 0, HAS_RRESP 1, HAS_WSTRB 1, ID_WIDTH 1, MAX_BURST_LENGTH 8, NUM_READ_OUTSTANDING 2, NUM_READ_THREADS 1, NUM_WRITE_OUTSTANDING 2, NUM_WRITE_THREADS 1, PHASE 0.000, PROTOCOL AXI4, READ_WRITE_MODE READ_WRITE, RUSER_BITS_PER_BYTE 0, RUSER_WIDTH 0, SUPPORTS_NARROW_BURST 0, WUSER_BITS_PER_BYTE 0, WUSER_WIDTH 0" *) input [31:0]SLOT_0_AXI_araddr;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_0_AXI ARID" *) input [0:0]SLOT_0_AXI_arid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_0_AXI ARLEN" *) input [7:0]SLOT_0_AXI_arlen;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_0_AXI ARPROT" *) input [2:0]SLOT_0_AXI_arprot;
@@ -91,10 +92,11 @@ module bd_36cd
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 SLOT_1_AXIS TSTRB" *) input [3:0]SLOT_1_AXIS_tstrb;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 SLOT_1_AXIS TUSER" *) input [0:0]SLOT_1_AXIS_tuser;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 SLOT_1_AXIS TVALID" *) input SLOT_1_AXIS_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 SLOT_2_AXIS TDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME SLOT_2_AXIS, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, FREQ_HZ 50000000, HAS_TKEEP 1, HAS_TLAST 1, HAS_TREADY 1, HAS_TSTRB 0, LAYERED_METADATA undef, PHASE 0.000, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0" *) input [31:0]SLOT_2_AXIS_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 SLOT_2_AXIS TDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME SLOT_2_AXIS, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, FREQ_HZ 50000000, HAS_TKEEP 1, HAS_TLAST 1, HAS_TREADY 1, HAS_TSTRB 0, LAYERED_METADATA undef, PHASE 0.000, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1" *) input [31:0]SLOT_2_AXIS_tdata;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 SLOT_2_AXIS TKEEP" *) input [3:0]SLOT_2_AXIS_tkeep;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 SLOT_2_AXIS TLAST" *) input SLOT_2_AXIS_tlast;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 SLOT_2_AXIS TREADY" *) input SLOT_2_AXIS_tready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 SLOT_2_AXIS TUSER" *) input [0:0]SLOT_2_AXIS_tuser;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 SLOT_2_AXIS TVALID" *) input SLOT_2_AXIS_tvalid;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK, ASSOCIATED_BUSIF SLOT_0_AXI:SLOT_1_AXIS:SLOT_2_AXIS, ASSOCIATED_RESET resetn, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, FREQ_HZ 50000000, PHASE 0.000" *) input clk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESETN RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESETN, POLARITY ACTIVE_LOW" *) input resetn;
@@ -112,6 +114,7 @@ module bd_36cd
   wire [3:0]Conn2_TKEEP;
   wire Conn2_TLAST;
   wire Conn2_TREADY;
+  wire [0:0]Conn2_TUSER;
   wire Conn2_TVALID;
   wire [31:0]Conn_ARADDR;
   wire [0:0]Conn_ARID;
@@ -194,6 +197,7 @@ module bd_36cd
   wire [3:0]net_slot_2_axis_tkeep;
   wire net_slot_2_axis_tlast;
   wire net_slot_2_axis_tready;
+  wire [0:0]net_slot_2_axis_tuser;
   wire net_slot_2_axis_tvalid;
   wire resetn_1;
 
@@ -210,6 +214,7 @@ module bd_36cd
   assign Conn2_TKEEP = SLOT_2_AXIS_tkeep[3:0];
   assign Conn2_TLAST = SLOT_2_AXIS_tlast;
   assign Conn2_TREADY = SLOT_2_AXIS_tready;
+  assign Conn2_TUSER = SLOT_2_AXIS_tuser[0];
   assign Conn2_TVALID = SLOT_2_AXIS_tvalid;
   assign Conn_ARADDR = SLOT_0_AXI_araddr[31:0];
   assign Conn_ARID = SLOT_0_AXI_arid[0];
@@ -291,6 +296,7 @@ module bd_36cd
         .m_slot_2_axis_tkeep(net_slot_2_axis_tkeep),
         .m_slot_2_axis_tlast(net_slot_2_axis_tlast),
         .m_slot_2_axis_tready(net_slot_2_axis_tready),
+        .m_slot_2_axis_tuser(net_slot_2_axis_tuser),
         .m_slot_2_axis_tvalid(net_slot_2_axis_tvalid),
         .slot_0_axi_araddr(Conn_ARADDR),
         .slot_0_axi_arid(Conn_ARID),
@@ -334,6 +340,7 @@ module bd_36cd
         .slot_2_axis_tkeep(Conn2_TKEEP),
         .slot_2_axis_tlast(Conn2_TLAST),
         .slot_2_axis_tready(Conn2_TREADY),
+        .slot_2_axis_tuser(Conn2_TUSER),
         .slot_2_axis_tvalid(Conn2_TVALID));
   bd_36cd_ila_lib_0 ila_lib
        (.clk(clk_1),
@@ -368,10 +375,11 @@ module bd_36cd
         .probe34(net_slot_1_axis_tlast),
         .probe35(net_slot_2_axis_tdata),
         .probe36(net_slot_2_axis_tkeep),
-        .probe37(net_slot_2_axis_tvalid),
-        .probe38(net_slot_2_axis_tready),
-        .probe39(net_slot_2_axis_tlast),
+        .probe37(net_slot_2_axis_tuser),
+        .probe38(net_slot_2_axis_tvalid),
+        .probe39(net_slot_2_axis_tready),
         .probe4(net_slot_0_axi_arprot),
+        .probe40(net_slot_2_axis_tlast),
         .probe5(net_slot_0_axi_arsize),
         .probe6(net_slot_0_axi_aw_cnt),
         .probe7(net_slot_0_axi_awaddr),

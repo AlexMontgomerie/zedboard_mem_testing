@@ -49,6 +49,7 @@ module bd_36cd_wrapper
     SLOT_2_AXIS_tkeep,
     SLOT_2_AXIS_tlast,
     SLOT_2_AXIS_tready,
+    SLOT_2_AXIS_tuser,
     SLOT_2_AXIS_tvalid,
     clk,
     resetn);
@@ -94,6 +95,7 @@ module bd_36cd_wrapper
   input [3:0]SLOT_2_AXIS_tkeep;
   input SLOT_2_AXIS_tlast;
   input SLOT_2_AXIS_tready;
+  input [0:0]SLOT_2_AXIS_tuser;
   input SLOT_2_AXIS_tvalid;
   input clk;
   input resetn;
@@ -140,6 +142,7 @@ module bd_36cd_wrapper
   wire [3:0]SLOT_2_AXIS_tkeep;
   wire SLOT_2_AXIS_tlast;
   wire SLOT_2_AXIS_tready;
+  wire [0:0]SLOT_2_AXIS_tuser;
   wire SLOT_2_AXIS_tvalid;
   wire clk;
   wire resetn;
@@ -187,6 +190,7 @@ module bd_36cd_wrapper
         .SLOT_2_AXIS_tkeep(SLOT_2_AXIS_tkeep),
         .SLOT_2_AXIS_tlast(SLOT_2_AXIS_tlast),
         .SLOT_2_AXIS_tready(SLOT_2_AXIS_tready),
+        .SLOT_2_AXIS_tuser(SLOT_2_AXIS_tuser),
         .SLOT_2_AXIS_tvalid(SLOT_2_AXIS_tvalid),
         .clk(clk),
         .resetn(resetn));
