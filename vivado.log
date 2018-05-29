@@ -2,8 +2,8 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Fri May 18 17:44:14 2018
-# Process ID: 2234
+# Start of session at: Tue May 29 15:40:02 2018
+# Process ID: 1554
 # Current directory: /home/juju/mem_test_rw_seperate
 # Command line: vivado
 # Log file: /home/juju/mem_test_rw_seperate/vivado.log
@@ -17,19 +17,33 @@ INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/juju/vivado_test/stream_test_ip'.
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/juju/mem_test_rw_seperate/ip'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx_tools/Vivado/2017.4/data/ip'.
-WARNING: [BD 41-1661] One or more IPs have been locked in the design 'design_1.bd'. Please run report_ip_status for more details and recommendations on how to fix this issue.
-List of locked IPs:
-design_1_mem_hw_0_0
-
-open_project: Time (s): cpu = 00:00:21 ; elapsed = 00:00:19 . Memory (MB): peak = 6260.832 ; gain = 189.613 ; free physical = 13156 ; free virtual = 30780
+open_project: Time (s): cpu = 00:00:24 ; elapsed = 00:00:14 . Memory (MB): peak = 6291.094 ; gain = 221.027 ; free physical = 2771 ; free virtual = 21548
 update_compile_order -fileset sources_1
 open_bd_design {/home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/design_1.bd}
 Adding cell -- xilinx.com:ip:axi_dma:7.1 - axi_dma_0
-Adding cell -- xilinx.com:ip:xlconcat:2.1 - xlconcat_0
-Adding cell -- xilinx.com:ip:system_ila:1.1 - system_ila_0
 Adding cell -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
 Adding cell -- xilinx.com:ip:proc_sys_reset:5.0 - rst_ps7_0_100M
+Adding cell -- xilinx.com:ip:axi_dma:7.1 - axi_dma_1
+Adding cell -- xilinx.com:ip:axi_dma:7.1 - axi_dma_2
+Adding cell -- xilinx.com:ip:axi_dma:7.1 - axi_dma_3
+Adding cell -- xilinx.com:ip:xlconcat:2.1 - xlconcat_0
 Adding cell -- xilinx.com:hls:mem_hw:1.0 - mem_hw_0
+Adding cell -- xilinx.com:hls:mem_hw:1.0 - mem_hw_1
+Adding cell -- xilinx.com:hls:mem_hw:1.0 - mem_hw_2
+Adding cell -- xilinx.com:hls:mem_hw:1.0 - mem_hw_3
+Adding cell -- xilinx.com:ip:system_ila:1.1 - system_ila_0
+Adding cell -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding cell -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding cell -- xilinx.com:ip:axi_data_fifo:2.1 - s01_data_fifo
+Adding cell -- xilinx.com:ip:axi_data_fifo:2.1 - s00_data_fifo
+Adding cell -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding cell -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding cell -- xilinx.com:ip:axi_data_fifo:2.1 - s01_data_fifo
+Adding cell -- xilinx.com:ip:axi_data_fifo:2.1 - s00_data_fifo
+Adding cell -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding cell -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding cell -- xilinx.com:ip:axi_data_fifo:2.1 - s01_data_fifo
+Adding cell -- xilinx.com:ip:axi_data_fifo:2.1 - s00_data_fifo
 Adding cell -- xilinx.com:ip:axi_crossbar:2.1 - xbar
 Adding cell -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
 Adding cell -- xilinx.com:ip:axi_crossbar:2.1 - xbar
@@ -37,44 +51,98 @@ Adding cell -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
 Adding cell -- xilinx.com:ip:axi_data_fifo:2.1 - s01_data_fifo
 Adding cell -- xilinx.com:ip:axi_data_fifo:2.1 - s00_data_fifo
 Successfully read diagram <design_1> from BD file </home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/design_1.bd>
-open_bd_design: Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 6357.562 ; gain = 62.535 ; free physical = 13025 ; free virtual = 30704
+open_bd_design: Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 6373.266 ; gain = 53.738 ; free physical = 2553 ; free virtual = 21417
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Tue May 29 16:00:21 2018] Launched synth_1...
+Run output will be captured here: /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.runs/synth_1/runme.log
+[Tue May 29 16:00:21 2018] Launched impl_1...
+Run output will be captured here: /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.runs/impl_1/runme.log
+open_run impl_1
+INFO: [Netlist 29-17] Analyzing 2456 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Parsing XDC File [/home/juju/mem_test_rw_seperate/.Xil/Vivado-1554-alex-HP-Compaq-Elite-8300-CMT/dcp30/design_1_wrapper_board.xdc]
+Finished Parsing XDC File [/home/juju/mem_test_rw_seperate/.Xil/Vivado-1554-alex-HP-Compaq-Elite-8300-CMT/dcp30/design_1_wrapper_board.xdc]
+Parsing XDC File [/home/juju/mem_test_rw_seperate/.Xil/Vivado-1554-alex-HP-Compaq-Elite-8300-CMT/dcp30/design_1_wrapper_early.xdc]
+Finished Parsing XDC File [/home/juju/mem_test_rw_seperate/.Xil/Vivado-1554-alex-HP-Compaq-Elite-8300-CMT/dcp30/design_1_wrapper_early.xdc]
+Parsing XDC File [/home/juju/mem_test_rw_seperate/.Xil/Vivado-1554-alex-HP-Compaq-Elite-8300-CMT/dcp30/design_1_wrapper.xdc]
+Finished Parsing XDC File [/home/juju/mem_test_rw_seperate/.Xil/Vivado-1554-alex-HP-Compaq-Elite-8300-CMT/dcp30/design_1_wrapper.xdc]
+Parsing XDC File [/home/juju/mem_test_rw_seperate/.Xil/Vivado-1554-alex-HP-Compaq-Elite-8300-CMT/dcp30/design_1_wrapper_late.xdc]
+Finished Parsing XDC File [/home/juju/mem_test_rw_seperate/.Xil/Vivado-1554-alex-HP-Compaq-Elite-8300-CMT/dcp30/design_1_wrapper_late.xdc]
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 7465.855 ; gain = 31.266 ; free physical = 1391 ; free virtual = 19982
+Restored from archive | CPU: 2.850000 secs | Memory: 51.054977 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 7465.855 ; gain = 31.266 ; free physical = 1391 ; free virtual = 19982
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 958 instances were transformed.
+  CFGLUT5 => CFGLUT5 (SRLC32E, SRL16E): 832 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 110 instances
+  RAM32X1D => RAM32X1D (RAMD32, RAMD32): 4 instances
+  SRLC32E => SRL16E: 12 instances
+
+open_run: Time (s): cpu = 00:01:04 ; elapsed = 00:01:13 . Memory (MB): peak = 7706.656 ; gain = 1308.293 ; free physical = 1337 ; free virtual = 19839
+open_report: Time (s): cpu = 00:00:09 ; elapsed = 00:00:05 . Memory (MB): peak = 7728.418 ; gain = 0.000 ; free physical = 1275 ; free virtual = 19778
+file copy -force /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.runs/impl_1/design_1_wrapper.sysdef /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.sdk/design_1_wrapper.hdf
+
 launch_sdk -workspace /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.sdk -hwspec /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.sdk/design_1_wrapper.hdf
 INFO: [Vivado 12-393] Launching SDK...
 INFO: [Vivado 12-417] Running xsdk -workspace /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.sdk -hwspec /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.sdk/design_1_wrapper.hdf
 INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
-open_project /home/juju/Downloads/Zynq7000AP_SoC_ZC702_pwr_monitor_design/zynq_pwr_dsgn/zynq_pwr_dsgn.xpr
-Scanning sources...
-Finished scanning sources
-INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1704] No user IP repositories specified
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx_tools/Vivado/2017.4/data/ip'.
-update_compile_order -fileset sources_1
-close_project
-open_project /home/juju/project_mem_test/project_mem_test.xpr
-Scanning sources...
-Finished scanning sources
-INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/juju/vivado_test/stream_test_ip'.
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx_tools/Vivado/2017.4/data/ip'.
-open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:12 . Memory (MB): peak = 6518.652 ; gain = 94.539 ; free physical = 11677 ; free virtual = 29921
-update_compile_order -fileset sources_1
-launch_sdk -workspace /home/juju/project_mem_test/project_mem_test.sdk -hwspec /home/juju/project_mem_test/project_mem_test.sdk/design_1_wrapper.hdf
-INFO: [Vivado 12-393] Launching SDK...
-INFO: [Vivado 12-417] Running xsdk -workspace /home/juju/project_mem_test/project_mem_test.sdk -hwspec /home/juju/project_mem_test/project_mem_test.sdk/design_1_wrapper.hdf
-INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
-launch_sdk -workspace /home/juju/project_mem_test/project_mem_test.sdk -hwspec /home/juju/project_mem_test/project_mem_test.sdk/design_1_wrapper.hdf
-INFO: [Vivado 12-393] Launching SDK...
-INFO: [Vivado 12-417] Running xsdk -workspace /home/juju/project_mem_test/project_mem_test.sdk -hwspec /home/juju/project_mem_test/project_mem_test.sdk/design_1_wrapper.hdf
-INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
-close_project
-launch_sdk -workspace /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.sdk -hwspec /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.sdk/design_1_wrapper.hdf
-INFO: [Vivado 12-393] Launching SDK...
-INFO: [Vivado 12-417] Running xsdk -workspace /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.sdk -hwspec /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.sdk/design_1_wrapper.hdf
-INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
-launch_sdk -workspace /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.sdk -hwspec /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.sdk/design_1_wrapper.hdf
-INFO: [Vivado 12-393] Launching SDK...
-INFO: [Vivado 12-417] Running xsdk -workspace /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.sdk -hwspec /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.sdk/design_1_wrapper.hdf
-INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210203346604A
+open_hw_target: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 8149.852 ; gain = 421.434 ; free physical = 148 ; free virtual = 17633
+set_property PROGRAM.FILE {/home/juju/mem_test_rw_seperate/mem_test_rw_seperate.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+set_property PROBES.FILE {/home/juju/mem_test_rw_seperate/mem_test_rw_seperate.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {/home/juju/mem_test_rw_seperate/mem_test_rw_seperate.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+INFO: [Labtools 27-2302] Device xc7z020 (JTAG device index = 1) is programmed with a design that has 1 ILA core(s).
+refresh_hw_device: Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 8203.484 ; gain = 45.629 ; free physical = 174 ; free virtual = 17620
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"design_1_i/system_ila_0/inst/ila_lib"}]]
+WARNING: Simulation object design_1_i/system_ila_0/inst/net_slot_2_axis_tvalid was not found in the design.
+WARNING: Simulation object design_1_i/system_ila_0/inst/net_slot_2_axis_tready was not found in the design.
+WARNING: Simulation object design_1_i/system_ila_0/inst/net_slot_2_axis_tlast was not found in the design.
+WARNING: Simulation object design_1_i/system_ila_0/inst/net_slot_2_axis_tdata was not found in the design.
+WARNING: Simulation object design_1_i/system_ila_0/inst/net_slot_2_axis_tkeep was not found in the design.
+WARNING: Simulation object design_1_i/system_ila_0/inst/net_slot_1_axis_tvalid was not found in the design.
+WARNING: Simulation object design_1_i/system_ila_0/inst/net_slot_1_axis_tready was not found in the design.
+WARNING: Simulation object design_1_i/system_ila_0/inst/net_slot_1_axis_tlast was not found in the design.
+WARNING: Simulation object design_1_i/system_ila_0/inst/net_slot_1_axis_tid was not found in the design.
+WARNING: Simulation object design_1_i/system_ila_0/inst/net_slot_1_axis_tdata was not found in the design.
+WARNING: Simulation object design_1_i/system_ila_0/inst/net_slot_1_axis_tkeep was not found in the design.
+WARNING: Simulation object design_1_i/system_ila_0/inst/net_slot_1_axis_tuser was not found in the design.
+Processing Interface axi_interconnect_0_M00_AXI_ila1_slot0
+Processing Interface axi_interconnect_3_M00_AXI_ila1_slot1
+Processing Interface axi_interconnect_2_M00_AXI_ila1_slot2
+Processing Interface axi_interconnect_4_M00_AXI_ila1_slot3
+INFO: [Labtools 27-3304] ILA Waveform data saved to file /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.hw/backup/hw_ila_data_1.ila. Use Tcl command 'import_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+set_property TRIGGER_COMPARE_VALUE eq1'bR [get_hw_probes design_1_i/system_ila_0/inst/net_slot_0_axi_rlast -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"design_1_i/system_ila_0/inst/ila_lib"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"design_1_i/system_ila_0/inst/ila_lib"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2018-May-29 17:38:57
+ERROR: [Xicom 50-38] xicom: Unable to connect to debug core(s) on the target device. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210203346604A
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210203346604A
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+INFO: [Labtools 27-1435] Device xc7z020 (JTAG device index = 1) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+WARNING: [Labtools 27-3403] Dropping logic core with cellname:'design_1_i/system_ila_0/inst/ila_lib' from probes file, since it cannot be found on the programmed device.
+close_hw
 open_hw
 connect_hw_server
 INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
@@ -85,19 +153,32 @@ set_property PROBES.FILE {/home/juju/mem_test_rw_seperate/mem_test_rw_seperate.r
 set_property FULL_PROBES.FILE {/home/juju/mem_test_rw_seperate/mem_test_rw_seperate.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
 current_hw_device [get_hw_devices xc7z020_1]
 refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
-INFO: [Labtools 27-2302] Device xc7z020 (JTAG device index = 1) is programmed with a design that has 1 ILA core(s).
-display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"design_1_i/system_ila_0/inst/ila_lib"}]]
-Processed interface mem_hw_0_out_r_ila1_slot1
-Processed interface axi_dma_0_M_AXIS_MM2S_ila1_slot2
-INFO: [Labtools 27-3304] ILA Waveform data saved to file /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.hw/backup/hw_ila_data_1.ila. Use Tcl command 'import_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
-run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"design_1_i/system_ila_0/inst/ila_lib"}]
-INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2018-May-18 18:10:56
-wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"design_1_i/system_ila_0/inst/ila_lib"}]
-display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"design_1_i/system_ila_0/inst/ila_lib"}]]
-INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2018-May-18 18:11:08
-Processed interface mem_hw_0_out_r_ila1_slot1
-Processed interface axi_dma_0_M_AXIS_MM2S_ila1_slot2
-INFO: [Labtools 27-3304] ILA Waveform data saved to file /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.hw/backup/hw_ila_data_1.ila. Use Tcl command 'import_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
-save_wave_config {/home/juju/mem_test_rw_seperate/mem_test_rw_seperate.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wcfg}
-exit
-INFO: [Common 17-206] Exiting Vivado at Fri May 18 18:53:54 2018...
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+WARNING: [Labtools 27-3403] Dropping logic core with cellname:'design_1_i/system_ila_0/inst/ila_lib' from probes file, since it cannot be found on the programmed device.
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+WARNING: [Labtools 27-3403] Dropping logic core with cellname:'design_1_i/system_ila_0/inst/ila_lib' from probes file, since it cannot be found on the programmed device.
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+WARNING: [Labtools 27-3403] Dropping logic core with cellname:'design_1_i/system_ila_0/inst/ila_lib' from probes file, since it cannot be found on the programmed device.
+open_bd_design {/home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/design_1.bd}
+regenerate_bd_layout
+save_bd_design
+Wrote  : </home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210203346604A
+close_hw
