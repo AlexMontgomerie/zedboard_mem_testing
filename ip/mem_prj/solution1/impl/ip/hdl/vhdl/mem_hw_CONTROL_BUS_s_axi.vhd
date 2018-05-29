@@ -43,9 +43,9 @@ port (
     ap_idle               :in   STD_LOGIC;
     rw                    :out  STD_LOGIC_VECTOR(31 downto 0);
     mask                  :out  STD_LOGIC_VECTOR(63 downto 0);
-    test_init_arr_V_address0 :in   STD_LOGIC_VECTOR(8 downto 0);
+    test_init_arr_V_address0 :in   STD_LOGIC_VECTOR(7 downto 0);
     test_init_arr_V_ce0   :in   STD_LOGIC;
-    test_init_arr_V_q0    :out  STD_LOGIC_VECTOR(31 downto 0)
+    test_init_arr_V_q0    :out  STD_LOGIC_VECTOR(63 downto 0)
 );
 end entity mem_hw_CONTROL_BUS_s_axi;
 
@@ -77,8 +77,9 @@ end entity mem_hw_CONTROL_BUS_s_axi;
 --         bit 31~0 - mask[63:32] (Read/Write)
 -- 0x020 : reserved
 -- 0x800 ~
--- 0xfff : Memory 'test_init_arr_V' (512 * 32b)
---         Word n : bit [31:0] - test_init_arr_V[n]
+-- 0xfff : Memory 'test_init_arr_V' (256 * 64b)
+--         Word 2n   : bit [31:0] - test_init_arr_V[n][31: 0]
+--         Word 2n+1 : bit [31:0] - test_init_arr_V[n][63:32]
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 architecture behave of mem_hw_CONTROL_BUS_s_axi is
@@ -122,20 +123,21 @@ architecture behave of mem_hw_CONTROL_BUS_s_axi is
     signal int_rw              : UNSIGNED(31 downto 0) := (others => '0');
     signal int_mask            : UNSIGNED(63 downto 0) := (others => '0');
     -- memory signals
-    signal int_test_init_arr_V_address0 : UNSIGNED(8 downto 0);
+    signal int_test_init_arr_V_address0 : UNSIGNED(7 downto 0);
     signal int_test_init_arr_V_ce0 : STD_LOGIC;
     signal int_test_init_arr_V_we0 : STD_LOGIC;
-    signal int_test_init_arr_V_be0 : UNSIGNED(3 downto 0);
-    signal int_test_init_arr_V_d0 : UNSIGNED(31 downto 0);
-    signal int_test_init_arr_V_q0 : UNSIGNED(31 downto 0);
-    signal int_test_init_arr_V_address1 : UNSIGNED(8 downto 0);
+    signal int_test_init_arr_V_be0 : UNSIGNED(7 downto 0);
+    signal int_test_init_arr_V_d0 : UNSIGNED(63 downto 0);
+    signal int_test_init_arr_V_q0 : UNSIGNED(63 downto 0);
+    signal int_test_init_arr_V_address1 : UNSIGNED(7 downto 0);
     signal int_test_init_arr_V_ce1 : STD_LOGIC;
     signal int_test_init_arr_V_we1 : STD_LOGIC;
-    signal int_test_init_arr_V_be1 : UNSIGNED(3 downto 0);
-    signal int_test_init_arr_V_d1 : UNSIGNED(31 downto 0);
-    signal int_test_init_arr_V_q1 : UNSIGNED(31 downto 0);
+    signal int_test_init_arr_V_be1 : UNSIGNED(7 downto 0);
+    signal int_test_init_arr_V_d1 : UNSIGNED(63 downto 0);
+    signal int_test_init_arr_V_q1 : UNSIGNED(63 downto 0);
     signal int_test_init_arr_V_read : STD_LOGIC;
     signal int_test_init_arr_V_write : STD_LOGIC;
+    signal int_test_init_arr_V_shift : UNSIGNED(0 downto 0);
 
     component mem_hw_CONTROL_BUS_s_axi_ram is
         generic (
@@ -176,9 +178,9 @@ begin
 -- int_test_init_arr_V
 int_test_init_arr_V : mem_hw_CONTROL_BUS_s_axi_ram
 generic map (
-     BYTES    => 4,
-     DEPTH    => 512,
-     AWIDTH   => log2(512))
+     BYTES    => 8,
+     DEPTH    => 256,
+     AWIDTH   => log2(256))
 port map (
      clk0     => ACLK,
      address0 => int_test_init_arr_V_address0,
@@ -321,7 +323,7 @@ port map (
                         rdata_data <= (others => '0');
                     end case;
                 elsif (int_test_init_arr_V_read = '1') then
-                    rdata_data <= int_test_init_arr_V_q1;
+                    rdata_data <= RESIZE(SHIFT_RIGHT(int_test_init_arr_V_q1, TO_INTEGER(int_test_init_arr_V_shift)*32), 32);
                 end if;
             end if;
         end if;
@@ -499,12 +501,12 @@ port map (
     int_test_init_arr_V_we0 <= '0';
     int_test_init_arr_V_be0 <= (others => '0');
     int_test_init_arr_V_d0 <= (others => '0');
-    test_init_arr_V_q0   <= STD_LOGIC_VECTOR(RESIZE(int_test_init_arr_V_q0, 32));
-    int_test_init_arr_V_address1 <= raddr(10 downto 2) when ar_hs = '1' else waddr(10 downto 2);
+    test_init_arr_V_q0   <= STD_LOGIC_VECTOR(RESIZE(int_test_init_arr_V_q0, 64));
+    int_test_init_arr_V_address1 <= raddr(10 downto 3) when ar_hs = '1' else waddr(10 downto 3);
     int_test_init_arr_V_ce1 <= '1' when ar_hs = '1' or (int_test_init_arr_V_write = '1' and WVALID  = '1') else '0';
     int_test_init_arr_V_we1 <= '1' when int_test_init_arr_V_write = '1' and WVALID = '1' else '0';
-    int_test_init_arr_V_be1 <= UNSIGNED(WSTRB);
-    int_test_init_arr_V_d1 <= UNSIGNED(WDATA);
+    int_test_init_arr_V_be1 <= SHIFT_LEFT(RESIZE(UNSIGNED(WSTRB), 8), TO_INTEGER(waddr(2 downto 2)) * 4);
+    int_test_init_arr_V_d1 <= RESIZE(UNSIGNED(WDATA) & UNSIGNED(WDATA), 64);
 
     process (ACLK)
     begin
@@ -531,6 +533,17 @@ port map (
                     int_test_init_arr_V_write <= '1';
                 elsif (WVALID = '1') then
                     int_test_init_arr_V_write <= '0';
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (ar_hs = '1') then
+                    int_test_init_arr_V_shift <= raddr(2 downto 2);
                 end if;
             end if;
         end if;

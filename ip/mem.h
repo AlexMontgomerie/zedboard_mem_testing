@@ -10,8 +10,8 @@
 #define TYPE 0
 
 //#define SIZE 262144
-#define SIZE 2096640
-#define TEST_ARR_SIZE 512
+#define SIZE 1048320
+#define TEST_ARR_SIZE 256
 
 #define READ		1
 #define WRITE		2
@@ -24,8 +24,8 @@
 
 #define LFSR_SEED 53893933692096485
 
-typedef ap_uint<32> 			data_t;
-typedef ap_axiu<32,1,1,1> 		AXI_VAL;
+typedef ap_uint<64> 			data_t;
+typedef ap_axiu<64,1,1,1> 		AXI_VAL;
 typedef hls::stream<AXI_VAL> 	AXI_STREAM;
 
 template<typename T>

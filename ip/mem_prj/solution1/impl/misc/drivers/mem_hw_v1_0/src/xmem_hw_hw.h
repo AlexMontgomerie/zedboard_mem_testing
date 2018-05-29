@@ -33,8 +33,9 @@
 //         bit 31~0 - mask[63:32] (Read/Write)
 // 0x020 : reserved
 // 0x800 ~
-// 0xfff : Memory 'test_init_arr_V' (512 * 32b)
-//         Word n : bit [31:0] - test_init_arr_V[n]
+// 0xfff : Memory 'test_init_arr_V' (256 * 64b)
+//         Word 2n   : bit [31:0] - test_init_arr_V[n][31: 0]
+//         Word 2n+1 : bit [31:0] - test_init_arr_V[n][63:32]
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 #define XMEM_HW_CONTROL_BUS_ADDR_AP_CTRL              0x000
@@ -47,6 +48,6 @@
 #define XMEM_HW_CONTROL_BUS_BITS_MASK_DATA            64
 #define XMEM_HW_CONTROL_BUS_ADDR_TEST_INIT_ARR_V_BASE 0x800
 #define XMEM_HW_CONTROL_BUS_ADDR_TEST_INIT_ARR_V_HIGH 0xfff
-#define XMEM_HW_CONTROL_BUS_WIDTH_TEST_INIT_ARR_V     32
-#define XMEM_HW_CONTROL_BUS_DEPTH_TEST_INIT_ARR_V     512
+#define XMEM_HW_CONTROL_BUS_WIDTH_TEST_INIT_ARR_V     64
+#define XMEM_HW_CONTROL_BUS_DEPTH_TEST_INIT_ARR_V     256
 

@@ -40,18 +40,18 @@ output   ap_done;
 input   ap_continue;
 output   ap_idle;
 output   ap_ready;
-output  [31:0] out_r_TDATA;
+output  [63:0] out_r_TDATA;
 output   out_r_TVALID;
 input   out_r_TREADY;
-output  [3:0] out_r_TKEEP;
-output  [3:0] out_r_TSTRB;
+output  [7:0] out_r_TKEEP;
+output  [7:0] out_r_TSTRB;
 output  [0:0] out_r_TUSER;
 output  [0:0] out_r_TLAST;
 output  [0:0] out_r_TID;
 output  [0:0] out_r_TDEST;
-output  [8:0] test_init_arr_V_address0;
+output  [7:0] test_init_arr_V_address0;
 output   test_init_arr_V_ce0;
-input  [31:0] test_init_arr_V_q0;
+input  [63:0] test_init_arr_V_q0;
 
 reg ap_done;
 reg ap_idle;
@@ -61,13 +61,13 @@ reg test_init_arr_V_ce0;
 reg    ap_done_reg;
 (* fsm_encoding = "none" *) reg   [2:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
-reg   [31:0] out_stream_V_data_V_1_data_out;
+reg   [63:0] out_stream_V_data_V_1_data_out;
 reg    out_stream_V_data_V_1_vld_in;
 wire    out_stream_V_data_V_1_vld_out;
 wire    out_stream_V_data_V_1_ack_in;
 wire    out_stream_V_data_V_1_ack_out;
-reg   [31:0] out_stream_V_data_V_1_payload_A;
-reg   [31:0] out_stream_V_data_V_1_payload_B;
+reg   [63:0] out_stream_V_data_V_1_payload_A;
+reg   [63:0] out_stream_V_data_V_1_payload_B;
 reg    out_stream_V_data_V_1_sel_rd;
 reg    out_stream_V_data_V_1_sel_wr;
 wire    out_stream_V_data_V_1_sel;
@@ -75,7 +75,7 @@ wire    out_stream_V_data_V_1_load_A;
 wire    out_stream_V_data_V_1_load_B;
 reg   [1:0] out_stream_V_data_V_1_state;
 wire    out_stream_V_data_V_1_state_cmp_full;
-wire   [3:0] out_stream_V_keep_V_1_data_out;
+wire   [7:0] out_stream_V_keep_V_1_data_out;
 reg    out_stream_V_keep_V_1_vld_in;
 wire    out_stream_V_keep_V_1_vld_out;
 wire    out_stream_V_keep_V_1_ack_in;
@@ -83,7 +83,7 @@ wire    out_stream_V_keep_V_1_ack_out;
 reg    out_stream_V_keep_V_1_sel_rd;
 wire    out_stream_V_keep_V_1_sel;
 reg   [1:0] out_stream_V_keep_V_1_state;
-wire   [3:0] out_stream_V_strb_V_1_data_out;
+wire   [7:0] out_stream_V_strb_V_1_data_out;
 reg    out_stream_V_strb_V_1_vld_in;
 wire    out_stream_V_strb_V_1_vld_out;
 wire    out_stream_V_strb_V_1_ack_in;
@@ -142,10 +142,10 @@ wire    ap_block_pp0_stage0;
 reg   [0:0] exitcond_flatten_reg_253;
 reg    ap_enable_reg_pp0_iter2;
 reg   [0:0] ap_reg_pp0_iter1_exitcond_flatten_reg_253;
-reg   [20:0] indvar_flatten_reg_130;
+reg   [19:0] indvar_flatten_reg_130;
 reg   [11:0] i_reg_141;
 reg   [0:0] tmp_user_V_reg_152;
-reg   [9:0] j_reg_167;
+reg   [8:0] j_reg_167;
 wire   [0:0] exitcond_flatten_fu_178_p2;
 wire    ap_block_state2_pp0_stage0_iter0;
 wire    ap_block_state3_pp0_stage0_iter1;
@@ -153,13 +153,13 @@ reg    ap_block_state3_io;
 wire    ap_block_state4_pp0_stage0_iter2;
 reg    ap_block_state4_io;
 reg    ap_block_pp0_stage0_11001;
-wire   [20:0] indvar_flatten_next_fu_184_p2;
+wire   [19:0] indvar_flatten_next_fu_184_p2;
 reg    ap_enable_reg_pp0_iter0;
 wire   [11:0] tmp_mid2_v_v_fu_210_p3;
 reg   [11:0] tmp_mid2_v_v_reg_262;
 wire   [0:0] tmp_last_V_fu_236_p2;
 reg   [0:0] tmp_last_V_reg_267;
-wire   [9:0] j_1_fu_247_p2;
+wire   [8:0] j_1_fu_247_p2;
 reg    ap_block_state1;
 reg    ap_block_pp0_stage0_subdone;
 reg    ap_condition_pp0_exit_iter0_state2;
@@ -169,10 +169,10 @@ wire   [63:0] tmp_4_fu_242_p1;
 wire    ap_block_pp0_stage0_01001;
 wire   [0:0] exitcond6_fu_190_p2;
 wire   [11:0] i_s_fu_204_p2;
-wire   [9:0] j_mid2_fu_196_p3;
-wire   [20:0] j_cast3_fu_226_p1;
-wire   [20:0] tmp_mid2_fu_218_p3;
-wire   [20:0] tmp_2_fu_230_p2;
+wire   [8:0] j_mid2_fu_196_p3;
+wire   [19:0] j_cast3_fu_226_p1;
+wire   [19:0] tmp_mid2_fu_218_p3;
+wire   [19:0] tmp_2_fu_230_p2;
 wire    ap_CS_fsm_state5;
 reg    ap_block_state5;
 reg   [2:0] ap_NS_fsm;
@@ -487,7 +487,7 @@ always @ (posedge ap_clk) begin
     if (((1'b0 == ap_block_pp0_stage0_11001) & (exitcond_flatten_fu_178_p2 == 1'd0) & (ap_enable_reg_pp0_iter0 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
         indvar_flatten_reg_130 <= indvar_flatten_next_fu_184_p2;
     end else if ((~((ap_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        indvar_flatten_reg_130 <= 21'd0;
+        indvar_flatten_reg_130 <= 20'd0;
     end
 end
 
@@ -495,7 +495,7 @@ always @ (posedge ap_clk) begin
     if (((1'b0 == ap_block_pp0_stage0_11001) & (exitcond_flatten_fu_178_p2 == 1'd0) & (ap_enable_reg_pp0_iter0 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
         j_reg_167 <= j_1_fu_247_p2;
     end else if ((~((ap_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        j_reg_167 <= 10'd0;
+        j_reg_167 <= 9'd0;
     end
 end
 
@@ -787,19 +787,19 @@ end
 
 assign ap_enable_pp0 = (ap_idle_pp0 ^ 1'b1);
 
-assign exitcond6_fu_190_p2 = ((j_reg_167 == 10'd512) ? 1'b1 : 1'b0);
+assign exitcond6_fu_190_p2 = ((j_reg_167 == 9'd256) ? 1'b1 : 1'b0);
 
-assign exitcond_flatten_fu_178_p2 = ((indvar_flatten_reg_130 == 21'd2096640) ? 1'b1 : 1'b0);
+assign exitcond_flatten_fu_178_p2 = ((indvar_flatten_reg_130 == 20'd1048320) ? 1'b1 : 1'b0);
 
 assign i_s_fu_204_p2 = (ap_phi_mux_i_phi_fu_145_p4 + 12'd1);
 
-assign indvar_flatten_next_fu_184_p2 = (indvar_flatten_reg_130 + 21'd1);
+assign indvar_flatten_next_fu_184_p2 = (indvar_flatten_reg_130 + 20'd1);
 
-assign j_1_fu_247_p2 = (j_mid2_fu_196_p3 + 10'd1);
+assign j_1_fu_247_p2 = (j_mid2_fu_196_p3 + 9'd1);
 
 assign j_cast3_fu_226_p1 = j_mid2_fu_196_p3;
 
-assign j_mid2_fu_196_p3 = ((exitcond6_fu_190_p2[0:0] === 1'b1) ? 10'd0 : j_reg_167);
+assign j_mid2_fu_196_p3 = ((exitcond6_fu_190_p2[0:0] === 1'b1) ? 9'd0 : j_reg_167);
 
 assign out_r_TDATA = out_stream_V_data_V_1_data_out;
 
@@ -855,7 +855,7 @@ assign out_stream_V_keep_V_1_ack_in = out_stream_V_keep_V_1_state[1'd1];
 
 assign out_stream_V_keep_V_1_ack_out = out_r_TREADY;
 
-assign out_stream_V_keep_V_1_data_out = 4'd15;
+assign out_stream_V_keep_V_1_data_out = 8'd255;
 
 assign out_stream_V_keep_V_1_sel = out_stream_V_keep_V_1_sel_rd;
 
@@ -879,7 +879,7 @@ assign out_stream_V_strb_V_1_ack_in = out_stream_V_strb_V_1_state[1'd1];
 
 assign out_stream_V_strb_V_1_ack_out = out_r_TREADY;
 
-assign out_stream_V_strb_V_1_data_out = 4'd0;
+assign out_stream_V_strb_V_1_data_out = 8'd0;
 
 assign out_stream_V_strb_V_1_sel = out_stream_V_strb_V_1_sel_rd;
 
@@ -905,9 +905,9 @@ assign tmp_2_fu_230_p2 = (j_cast3_fu_226_p1 + tmp_mid2_fu_218_p3);
 
 assign tmp_4_fu_242_p1 = j_mid2_fu_196_p3;
 
-assign tmp_last_V_fu_236_p2 = ((tmp_2_fu_230_p2 == 21'd2096639) ? 1'b1 : 1'b0);
+assign tmp_last_V_fu_236_p2 = ((tmp_2_fu_230_p2 == 20'd1048319) ? 1'b1 : 1'b0);
 
-assign tmp_mid2_fu_218_p3 = {{tmp_mid2_v_v_fu_210_p3}, {9'd0}};
+assign tmp_mid2_fu_218_p3 = {{tmp_mid2_v_v_fu_210_p3}, {8'd0}};
 
 assign tmp_mid2_v_v_fu_210_p3 = ((exitcond6_fu_190_p2[0:0] === 1'b1) ? i_s_fu_204_p2 : ap_phi_mux_i_phi_fu_145_p4);
 

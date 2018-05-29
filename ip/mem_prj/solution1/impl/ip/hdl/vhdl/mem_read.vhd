@@ -18,11 +18,11 @@ port (
     ap_continue : IN STD_LOGIC;
     ap_idle : OUT STD_LOGIC;
     ap_ready : OUT STD_LOGIC;
-    in_r_TDATA : IN STD_LOGIC_VECTOR (31 downto 0);
+    in_r_TDATA : IN STD_LOGIC_VECTOR (63 downto 0);
     in_r_TVALID : IN STD_LOGIC;
     in_r_TREADY : OUT STD_LOGIC;
-    in_r_TKEEP : IN STD_LOGIC_VECTOR (3 downto 0);
-    in_r_TSTRB : IN STD_LOGIC_VECTOR (3 downto 0);
+    in_r_TKEEP : IN STD_LOGIC_VECTOR (7 downto 0);
+    in_r_TSTRB : IN STD_LOGIC_VECTOR (7 downto 0);
     in_r_TUSER : IN STD_LOGIC_VECTOR (0 downto 0);
     in_r_TLAST : IN STD_LOGIC_VECTOR (0 downto 0);
     in_r_TID : IN STD_LOGIC_VECTOR (0 downto 0);

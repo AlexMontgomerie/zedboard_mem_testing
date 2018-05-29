@@ -28,7 +28,7 @@
               <rtlName/>
               <coreName/>
             </Obj>
-            <bitwidth>32</bitwidth>
+            <bitwidth>64</bitwidth>
           </Value>
           <direction>1</direction>
           <if_type>0</if_type>
@@ -56,7 +56,7 @@
               <rtlName/>
               <coreName/>
             </Obj>
-            <bitwidth>4</bitwidth>
+            <bitwidth>8</bitwidth>
           </Value>
           <direction>1</direction>
           <if_type>0</if_type>
@@ -84,7 +84,7 @@
               <rtlName/>
               <coreName/>
             </Obj>
-            <bitwidth>4</bitwidth>
+            <bitwidth>8</bitwidth>
           </Value>
           <direction>1</direction>
           <if_type>0</if_type>
@@ -224,7 +224,7 @@
               <rtlName/>
               <coreName/>
             </Obj>
-            <bitwidth>32</bitwidth>
+            <bitwidth>64</bitwidth>
           </Value>
           <direction>0</direction>
           <if_type>0</if_type>
@@ -252,7 +252,7 @@
               <rtlName/>
               <coreName/>
             </Obj>
-            <bitwidth>4</bitwidth>
+            <bitwidth>8</bitwidth>
           </Value>
           <direction>0</direction>
           <if_type>0</if_type>
@@ -280,7 +280,7 @@
               <rtlName/>
               <coreName/>
             </Obj>
-            <bitwidth>4</bitwidth>
+            <bitwidth>8</bitwidth>
           </Value>
           <direction>0</direction>
           <if_type>0</if_type>
@@ -476,11 +476,11 @@
               <rtlName/>
               <coreName>RAM_1P</coreName>
             </Obj>
-            <bitwidth>32</bitwidth>
+            <bitwidth>64</bitwidth>
           </Value>
           <direction>0</direction>
           <if_type>1</if_type>
-          <array_size>512</array_size>
+          <array_size>256</array_size>
           <bit_vecs>
             <count>0</count>
             <item_version>0</item_version>
@@ -837,7 +837,7 @@
         <mDepth>-1</mDepth>
         <mMinTripCount>-1</mMinTripCount>
         <mMaxTripCount>-1</mMaxTripCount>
-        <mMinLatency>2096643</mMinLatency>
+        <mMinLatency>1048323</mMinLatency>
         <mMaxLatency>-1</mMaxLatency>
         <mIsDfPipe>1</mIsDfPipe>
         <mDfPipe class_id="23" tracking_level="1" version="0" object_id="_42">
@@ -1255,7 +1255,7 @@
             <item_version>0</item_version>
             <item class_id="47" tracking_level="0" version="0">
               <first>BRAM</first>
-              <second>2</second>
+              <second>4</second>
             </item>
             <item>
               <first>FF</first>
@@ -1289,11 +1289,11 @@
             <item_version>0</item_version>
             <item>
               <first>FF</first>
-              <second>158</second>
+              <second>220</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>525</second>
+              <second>521</second>
             </item>
           </second>
         </item>

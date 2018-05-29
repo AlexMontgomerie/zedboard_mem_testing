@@ -23,11 +23,11 @@ struct mem_read : public sc_module {
     sc_in< sc_logic > ap_continue;
     sc_out< sc_logic > ap_idle;
     sc_out< sc_logic > ap_ready;
-    sc_in< sc_lv<32> > in_r_TDATA;
+    sc_in< sc_lv<64> > in_r_TDATA;
     sc_in< sc_logic > in_r_TVALID;
     sc_out< sc_logic > in_r_TREADY;
-    sc_in< sc_lv<4> > in_r_TKEEP;
-    sc_in< sc_lv<4> > in_r_TSTRB;
+    sc_in< sc_lv<8> > in_r_TKEEP;
+    sc_in< sc_lv<8> > in_r_TSTRB;
     sc_in< sc_lv<1> > in_r_TUSER;
     sc_in< sc_lv<1> > in_r_TLAST;
     sc_in< sc_lv<1> > in_r_TID;

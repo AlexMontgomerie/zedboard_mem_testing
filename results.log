@@ -1,0 +1,53 @@
+//max switching
+
+VccInt          : power= 89.458099 (mean), 663.512573 (var)      | voltage= 1.008405 (mean), 0.000002 (var)      | current= 0.088710 (mean), 0.000652 (var)
+VccPInt         : power= 367.242371 (mean), 440.032623 (var)     | voltage= 1.005670 (mean), 0.000001 (var)      | current= 0.365171 (mean), 0.000435 (var)
+VccAux          : power= 50.061886 (mean), 2501.573975 (var)     | voltage= 1.805462 (mean), 0.000009 (var)      | current= 0.027722 (mean), 0.000767 (var)
+VccPAux         : power= 158.869781 (mean), 2986.677246 (var)    | voltage= 1.804330 (mean), 0.000009 (var)      | current= 0.088046 (mean), 0.000917 (var)
+Vadj            : power= 63.017990 (mean), 2726.375732 (var)     | voltage= 2.500288 (mean), 0.000006 (var)      | current= 0.025202 (mean), 0.000436 (var)
+Vcc1V5_PS       : power= 706.477722 (mean), 1207.367432 (var)    | voltage= 1.508736 (mean), 0.000001 (var)      | current= 0.468262 (mean), 0.000534 (var)
+VccMIO_PS       : power= 5.802141 (mean), 229.823380 (var)       | voltage= 1.799337 (mean), 0.000007 (var)      | current= 0.003224 (mean), 0.000071 (var)
+VccBRAM         : power= 11.281545 (mean), 249.983047 (var)      | voltage= 1.004715 (mean), 0.000001 (var)      | current= 0.011230 (mean), 0.000248 (var)
+Vcc3V3          : power= 574.272095 (mean), 8297.633789 (var)    | voltage= 3.288693 (mean), 0.000007 (var)      | current= 0.174620 (mean), 0.000768 (var)
+Vcc2V5          : power= 15.198099 (mean), 943.173096 (var)      | voltage= 2.516613 (mean), 0.000006 (var)      | current= 0.006042 (mean), 0.000149 (var)
+
+//sending zeros
+
+VccInt          : power= 89.407631 (mean), 956.778625 (var)      | voltage= 1.006054 (mean), 0.000003 (var)      | current= 0.088867 (mean), 0.000945 (var)
+VccPInt         : power= 366.458984 (mean), 611.219543 (var)     | voltage= 1.005364 (mean), 0.000001 (var)      | current= 0.364502 (mean), 0.000603 (var)
+VccAux          : power= 44.287998 (mean), 2211.917480 (var)     | voltage= 1.803509 (mean), 0.000008 (var)      | current= 0.024554 (mean), 0.000680 (var)
+VccPAux         : power= 142.589020 (mean), 3020.032471 (var)    | voltage= 1.802018 (mean), 0.000011 (var)      | current= 0.079117 (mean), 0.000929 (var)
+Vadj            : power= 74.441208 (mean), 2894.802734 (var)     | voltage= 2.499132 (mean), 0.000006 (var)      | current= 0.029785 (mean), 0.000463 (var)
+Vcc1V5_PS       : power= 717.610168 (mean), 1138.511475 (var)    | voltage= 1.506986 (mean), 0.000001 (var)      | current= 0.476190 (mean), 0.000503 (var)
+VccMIO_PS       : power= 14.953935 (mean), 518.902222 (var)      | voltage= 1.801376 (mean), 0.000006 (var)      | current= 0.008301 (mean), 0.000160 (var)
+VccBRAM         : power= 2.990271 (mean), 61.507595 (var)        | voltage= 1.004707 (mean), 0.000001 (var)      | current= 0.002976 (mean), 0.000061 (var)
+Vcc3V3          : power= 564.715515 (mean), 5878.384277 (var)    | voltage= 3.289629 (mean), 0.000011 (var)      | current= 0.171667 (mean), 0.000544 (var)
+Vcc2V5          : power= 11.156199 (mean), 481.486755 (var)      | voltage= 2.516379 (mean), 0.000006 (var)      | current= 0.004434 (mean), 0.000076 (var)
+
+//Idle
+
+VccInt          : power= 66.271347 (mean), 935.674438 (var)      | voltage= 1.004984 (mean), 0.000002 (var)   | current= 0.064844 (mean), 0.000949 (var)
+VccPInt         : power= 359.466003 (mean), 851.153198 (var)     | voltage= 1.007279 (mean), 0.000002 (var)   | current= 0.356875 (mean), 0.000843 (var)
+VccAux          : power= 40.064194 (mean), 1721.807007 (var)     | voltage= 1.805391 (mean), 0.000012 (var)   | current= 0.022187 (mean), 0.000528 (var)
+VccPAux         : power= 149.774796 (mean), 3338.244141 (var)    | voltage= 1.801872 (mean), 0.000011 (var)   | current= 0.083125 (mean), 0.001030 (var)
+Vadj            : power= 54.675903 (mean), 2775.251221 (var)     | voltage= 2.499737 (mean), 0.000010 (var)   | current= 0.021875 (mean), 0.000444 (var)
+Vcc1V5_PS       : power= 633.395874 (mean), 1270.405518 (var)    | voltage= 1.506963 (mean), 0.000002 (var)   | current= 0.420312 (mean), 0.000559 (var)
+VccMIO_PS       : power= 7.325338 (mean), 279.763733 (var)       | voltage= 1.802482 (mean), 0.000008 (var)   | current= 0.004062 (mean), 0.000086 (var)
+VccBRAM         : power= 5.667929 (mean), 101.735847 (var)       | voltage= 1.007513 (mean), 0.000001 (var)   | current= 0.005625 (mean), 0.000100 (var)
+Vcc3V3          : power= 560.193298 (mean), 7311.018066 (var)    | voltage= 3.289239 (mean), 0.000009 (var)   | current= 0.170312 (mean), 0.000676 (var)
+Vcc2V5          : power= 11.795762 (mean), 603.060181 (var)      | voltage= 2.516834 (mean), 0.000005 (var)   | current= 0.004688 (mean), 0.000095 (var)
+
+//effective data width of 16 (data set to 0)
+
+VccInt          : power= 97.011383 (mean), 692.570190 (var)      | voltage= 1.005594 (mean), 0.000002 (var)   | current= 0.096478 (mean), 0.000686 (var)
+VccPInt         : power= 371.996338 (mean), 575.576233 (var)     | voltage= 1.003936 (mean), 0.000002 (var)   | current= 0.370536 (mean), 0.000569 (var)
+VccAux          : power= 37.072266 (mean), 1302.302002 (var)     | voltage= 1.800960 (mean), 0.000010 (var)   | current= 0.020585 (mean), 0.000402 (var)
+VccPAux         : power= 121.832565 (mean), 2685.989258 (var)    | voltage= 1.799361 (mean), 0.000011 (var)   | current= 0.067708 (mean), 0.000829 (var)
+Vadj            : power= 70.017532 (mean), 3103.797607 (var)     | voltage= 2.498502 (mean), 0.000006 (var)   | current= 0.028026 (mean), 0.000497 (var)
+Vcc1V5_PS       : power= 768.125610 (mean), 1472.332031 (var)    | voltage= 1.506810 (mean), 0.000001 (var)   | current= 0.509766 (mean), 0.000645 (var)
+VccMIO_PS       : power= 9.682917 (mean), 327.852112 (var)       | voltage= 1.802654 (mean), 0.000007 (var)   | current= 0.005371 (mean), 0.000101 (var)
+VccBRAM         : power= 4.498145 (mean), 105.647316 (var)       | voltage= 1.006981 (mean), 0.000001 (var)   | current= 0.004464 (mean), 0.000104 (var)
+Vcc3V3          : power= 596.878784 (mean), 7534.895996 (var)    | voltage= 3.287004 (mean), 0.000008 (var)   | current= 0.181588 (mean), 0.000697 (var)
+Vcc2V5          : power= 16.488289 (mean), 837.862061 (var)      | voltage= 2.518545 (mean), 0.000006 (var)   | current= 0.006546 (mean), 0.000132 (var)
+
+

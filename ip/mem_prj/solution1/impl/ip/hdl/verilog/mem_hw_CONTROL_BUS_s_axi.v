@@ -40,9 +40,9 @@ module mem_hw_CONTROL_BUS_s_axi
     input  wire                          ap_idle,
     output wire [31:0]                   rw,
     output wire [63:0]                   mask,
-    input  wire [8:0]                    test_init_arr_V_address0,
+    input  wire [7:0]                    test_init_arr_V_address0,
     input  wire                          test_init_arr_V_ce0,
-    output wire [31:0]                   test_init_arr_V_q0
+    output wire [63:0]                   test_init_arr_V_q0
 );
 //------------------------Address Info-------------------
 // 0x000 : Control signals
@@ -72,8 +72,9 @@ module mem_hw_CONTROL_BUS_s_axi
 //         bit 31~0 - mask[63:32] (Read/Write)
 // 0x020 : reserved
 // 0x800 ~
-// 0xfff : Memory 'test_init_arr_V' (512 * 32b)
-//         Word n : bit [31:0] - test_init_arr_V[n]
+// 0xfff : Memory 'test_init_arr_V' (256 * 64b)
+//         Word 2n   : bit [31:0] - test_init_arr_V[n][31: 0]
+//         Word 2n+1 : bit [31:0] - test_init_arr_V[n][63:32]
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
@@ -122,26 +123,27 @@ localparam
     reg  [31:0]                   int_rw = 'b0;
     reg  [63:0]                   int_mask = 'b0;
     // memory signals
-    wire [8:0]                    int_test_init_arr_V_address0;
+    wire [7:0]                    int_test_init_arr_V_address0;
     wire                          int_test_init_arr_V_ce0;
     wire                          int_test_init_arr_V_we0;
-    wire [3:0]                    int_test_init_arr_V_be0;
-    wire [31:0]                   int_test_init_arr_V_d0;
-    wire [31:0]                   int_test_init_arr_V_q0;
-    wire [8:0]                    int_test_init_arr_V_address1;
+    wire [7:0]                    int_test_init_arr_V_be0;
+    wire [63:0]                   int_test_init_arr_V_d0;
+    wire [63:0]                   int_test_init_arr_V_q0;
+    wire [7:0]                    int_test_init_arr_V_address1;
     wire                          int_test_init_arr_V_ce1;
     wire                          int_test_init_arr_V_we1;
-    wire [3:0]                    int_test_init_arr_V_be1;
-    wire [31:0]                   int_test_init_arr_V_d1;
-    wire [31:0]                   int_test_init_arr_V_q1;
+    wire [7:0]                    int_test_init_arr_V_be1;
+    wire [63:0]                   int_test_init_arr_V_d1;
+    wire [63:0]                   int_test_init_arr_V_q1;
     reg                           int_test_init_arr_V_read;
     reg                           int_test_init_arr_V_write;
+    reg  [0:0]                    int_test_init_arr_V_shift;
 
 //------------------------Instantiation------------------
 // int_test_init_arr_V
 mem_hw_CONTROL_BUS_s_axi_ram #(
-    .BYTES    ( 4 ),
-    .DEPTH    ( 512 )
+    .BYTES    ( 8 ),
+    .DEPTH    ( 256 )
 ) int_test_init_arr_V (
     .clk0     ( ACLK ),
     .address0 ( int_test_init_arr_V_address0 ),
@@ -275,7 +277,7 @@ always @(posedge ACLK) begin
             endcase
         end
         else if (int_test_init_arr_V_read) begin
-            rdata <= int_test_init_arr_V_q1;
+            rdata <= int_test_init_arr_V_q1 >> (int_test_init_arr_V_shift * 32);
         end
     end
 end
@@ -421,11 +423,11 @@ assign int_test_init_arr_V_we0      = 1'b0;
 assign int_test_init_arr_V_be0      = 1'b0;
 assign int_test_init_arr_V_d0       = 1'b0;
 assign test_init_arr_V_q0           = int_test_init_arr_V_q0;
-assign int_test_init_arr_V_address1 = ar_hs? raddr[10:2] : waddr[10:2];
+assign int_test_init_arr_V_address1 = ar_hs? raddr[10:3] : waddr[10:3];
 assign int_test_init_arr_V_ce1      = ar_hs | (int_test_init_arr_V_write & WVALID);
 assign int_test_init_arr_V_we1      = int_test_init_arr_V_write & WVALID;
-assign int_test_init_arr_V_be1      = WSTRB;
-assign int_test_init_arr_V_d1       = WDATA;
+assign int_test_init_arr_V_be1      = WSTRB << (waddr[2:2] * 4);
+assign int_test_init_arr_V_d1       = {2{WDATA}};
 // int_test_init_arr_V_read
 always @(posedge ACLK) begin
     if (ARESET)
@@ -447,6 +449,14 @@ always @(posedge ACLK) begin
             int_test_init_arr_V_write <= 1'b1;
         else if (WVALID)
             int_test_init_arr_V_write <= 1'b0;
+    end
+end
+
+// int_test_init_arr_V_shift
+always @(posedge ACLK) begin
+    if (ACLK_EN) begin
+        if (ar_hs)
+            int_test_init_arr_V_shift <= raddr[2:2];
     end
 end
 

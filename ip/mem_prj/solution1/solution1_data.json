@@ -20,7 +20,7 @@
     "ClockPeriod": "800",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "2096643",
+    "Latency": "1048323",
     "Uncertainty": "100"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 800.000 [get_ports ap_clk]"]},
@@ -84,15 +84,15 @@
       "ctype": {
         "TDATA": {
           "Type": "integer unsigned",
-          "Width": "32"
+          "Width": "64"
         },
         "TKEEP": {
           "Type": "integer unsigned",
-          "Width": "4"
+          "Width": "8"
         },
         "TSTRB": {
           "Type": "integer unsigned",
-          "Width": "4"
+          "Width": "8"
         },
         "TUSER": {
           "Type": "integer unsigned",
@@ -114,12 +114,12 @@
         "TREADY": {"Type": "bool"}
       },
       "port_width": {
-        "TDATA": "32",
+        "TDATA": "64",
         "TDEST": "1",
         "TID": "1",
-        "TKEEP": "4",
+        "TKEEP": "8",
         "TLAST": "1",
-        "TSTRB": "4",
+        "TSTRB": "8",
         "TUSER": "1"
       }
     },
@@ -135,15 +135,15 @@
       "ctype": {
         "TDATA": {
           "Type": "integer unsigned",
-          "Width": "32"
+          "Width": "64"
         },
         "TKEEP": {
           "Type": "integer unsigned",
-          "Width": "4"
+          "Width": "8"
         },
         "TSTRB": {
           "Type": "integer unsigned",
-          "Width": "4"
+          "Width": "8"
         },
         "TUSER": {
           "Type": "integer unsigned",
@@ -165,12 +165,12 @@
         "TREADY": {"Type": "bool"}
       },
       "port_width": {
-        "TDATA": "32",
+        "TDATA": "64",
         "TDEST": "1",
         "TID": "1",
-        "TKEEP": "4",
+        "TKEEP": "8",
         "TLAST": "1",
-        "TSTRB": "4",
+        "TSTRB": "8",
         "TUSER": "1"
       }
     },
@@ -410,7 +410,7 @@
         },
         "WDATA": {
           "Type": "integer unsigned",
-          "Width": "32"
+          "Width": "64"
         },
         "WSTRB": {
           "Type": "integer unsigned",
@@ -422,7 +422,7 @@
         },
         "RDATA": {
           "Type": "integer unsigned",
-          "Width": "32"
+          "Width": "64"
         }
       },
       "data_width": "32",
@@ -519,15 +519,15 @@
     },
     "out_r_TDATA": {
       "dir": "out",
-      "width": "32"
+      "width": "64"
     },
     "out_r_TKEEP": {
       "dir": "out",
-      "width": "4"
+      "width": "8"
     },
     "out_r_TSTRB": {
       "dir": "out",
-      "width": "4"
+      "width": "8"
     },
     "out_r_TUSER": {
       "dir": "out",
@@ -559,15 +559,15 @@
     },
     "in_r_TDATA": {
       "dir": "in",
-      "width": "32"
+      "width": "64"
     },
     "in_r_TKEEP": {
       "dir": "in",
-      "width": "4"
+      "width": "8"
     },
     "in_r_TSTRB": {
       "dir": "in",
-      "width": "4"
+      "width": "8"
     },
     "in_r_TUSER": {
       "dir": "in",
@@ -736,50 +736,50 @@
       },
       "mem_write": {
         "Latency": {
-          "LatencyBest": "2096643",
-          "LatencyAvg": "2096643",
-          "LatencyWorst": "2096643",
-          "PipelineII": "2096643",
+          "LatencyBest": "1048323",
+          "LatencyAvg": "1048323",
+          "LatencyWorst": "1048323",
+          "PipelineII": "1048323",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "800.00",
           "Uncertainty": "100.00",
-          "Estimate": "8.03"
+          "Estimate": "8.00"
         },
         "Loops": [{
             "Name": "main_loop_data_loop",
-            "TripCount": "2096640",
-            "Latency": "2096641",
+            "TripCount": "1048320",
+            "Latency": "1048321",
             "PipelineII": "1",
             "PipelineDepth": "3"
           }],
         "Area": {
-          "FF": "158",
-          "LUT": "525",
+          "FF": "220",
+          "LUT": "521",
           "BRAM_18K": "0",
           "DSP48E": "0"
         }
       },
       "mem_hw": {
         "Latency": {
-          "LatencyBest": "2096643",
-          "LatencyAvg": "2096643",
-          "LatencyWorst": "2096643",
-          "PipelineII": "2096644",
+          "LatencyBest": "1048323",
+          "LatencyAvg": "1048323",
+          "LatencyWorst": "1048323",
+          "PipelineII": "1048324",
           "PipelineDepth": "",
           "PipelineType": "dataflow"
         },
         "Timing": {
           "Target": "800.00",
           "Uncertainty": "100.00",
-          "Estimate": "8.03"
+          "Estimate": "8.00"
         },
         "Area": {
-          "BRAM_18K": "2",
-          "FF": "402",
-          "LUT": "1056",
+          "BRAM_18K": "4",
+          "FF": "464",
+          "LUT": "1052",
           "DSP48E": "0"
         }
       }
@@ -787,7 +787,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2018-05-21 16:43:34 BST",
+    "Time": "2018-05-25 15:18:25 BST",
     "ToolName": "vivado_hls",
     "ToolVersion": "2017.4"
   }

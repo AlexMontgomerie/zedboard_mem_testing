@@ -47734,8 +47734,8 @@ _ssdm_op_SpecDataflowPipeline(-1, "");
 #pragma line 70 "/opt/Xilinx_tools/Vivado/2017.4/common/technology/autopilot/hls_video.h" 2
 #pragma line 9 "./mem.h" 2
 #pragma line 27 "./mem.h"
-typedef ap_uint<32> data_t;
-typedef ap_axiu<32,1,1,1> AXI_VAL;
+typedef ap_uint<64> data_t;
+typedef ap_axiu<64,1,1,1> AXI_VAL;
 typedef hls::stream<AXI_VAL> AXI_STREAM;
 #pragma empty_line
 template<typename T>
@@ -47793,9 +47793,9 @@ inline ap_axiu<sizeof(T) * 8, U, TI, TD> push_stream(T const v, bool last = fals
 #pragma empty_line
 void mem_read(AXI_STREAM& in_stream);
 #pragma empty_line
-void mem_write(AXI_STREAM& out_stream, int mask, data_t test_init_arr[512]);
+void mem_write(AXI_STREAM& out_stream, int mask, data_t test_init_arr[256]);
 #pragma empty_line
-void mem_hw(AXI_STREAM& out, AXI_STREAM& in, int rw, unsigned long mask, data_t test_init_arr[512]);
+void mem_hw(AXI_STREAM& out, AXI_STREAM& in, int rw, unsigned long mask, data_t test_init_arr[256]);
 #pragma line 2 "mem.cpp" 2
 #pragma empty_line
 void mem_read(AXI_STREAM& in_stream)
@@ -47812,16 +47812,16 @@ void mem_read(AXI_STREAM& in_stream)
    }
 }
 #pragma empty_line
-void mem_write(AXI_STREAM& out_stream, int mask, data_t test_init_arr[512])
-{_ssdm_SpecArrayDimSize(test_init_arr,512);
+void mem_write(AXI_STREAM& out_stream, int mask, data_t test_init_arr[256])
+{_ssdm_SpecArrayDimSize(test_init_arr,256);
  AXI_VAL axi;
 #pragma empty_line
  int sof = 1;
  int eol = 0;
 #pragma empty_line
- main_loop: for(int i=0;i<((int) (2096640/512));i++)
+ main_loop: for(int i=0;i<((int) (1048320/256));i++)
  {
-  data_loop: for(int j=0;j<512;j++)
+  data_loop: for(int j=0;j<256;j++)
   {
 #pragma empty_line
 #pragma HLS pipeline II=1
@@ -47832,7 +47832,7 @@ void mem_write(AXI_STREAM& out_stream, int mask, data_t test_init_arr[512])
    } else {
     axi.user = 0;
    }
-   if ((i*512 +j) == (2096640 -1)) {
+   if ((i*256 +j) == (1048320 -1)) {
     axi.last = 1;
    } else {
     axi.last = 0;
@@ -47845,8 +47845,8 @@ void mem_write(AXI_STREAM& out_stream, int mask, data_t test_init_arr[512])
  }
 }
 #pragma empty_line
-void mem_hw(AXI_STREAM& out, AXI_STREAM& in, int rw, unsigned long mask, data_t test_init_arr[512])
-{_ssdm_SpecArrayDimSize(test_init_arr,512);
+void mem_hw(AXI_STREAM& out, AXI_STREAM& in, int rw, unsigned long mask, data_t test_init_arr[256])
+{_ssdm_SpecArrayDimSize(test_init_arr,256);
 #pragma empty_line
 #pragma empty_line
 #pragma HLS DATAFLOW

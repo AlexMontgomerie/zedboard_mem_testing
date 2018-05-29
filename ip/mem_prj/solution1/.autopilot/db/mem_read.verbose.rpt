@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'mem_read'
 ================================================================
-* Date:           Mon May 21 16:43:33 2018
+* Date:           Fri May 25 15:18:24 2018
 
 * Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
 * Project:        mem_prj
@@ -141,12 +141,12 @@
 |ap_continue  |  in |    1| ap_ctrl_hs |      mem_read      | return value |
 |ap_idle      | out |    1| ap_ctrl_hs |      mem_read      | return value |
 |ap_ready     | out |    1| ap_ctrl_hs |      mem_read      | return value |
-|in_r_TDATA   |  in |   32|    axis    | in_stream_V_data_V |    pointer   |
+|in_r_TDATA   |  in |   64|    axis    | in_stream_V_data_V |    pointer   |
 |in_r_TVALID  |  in |    1|    axis    | in_stream_V_dest_V |    pointer   |
 |in_r_TREADY  | out |    1|    axis    | in_stream_V_dest_V |    pointer   |
 |in_r_TDEST   |  in |    1|    axis    | in_stream_V_dest_V |    pointer   |
-|in_r_TKEEP   |  in |    4|    axis    | in_stream_V_keep_V |    pointer   |
-|in_r_TSTRB   |  in |    4|    axis    | in_stream_V_strb_V |    pointer   |
+|in_r_TKEEP   |  in |    8|    axis    | in_stream_V_keep_V |    pointer   |
+|in_r_TSTRB   |  in |    8|    axis    | in_stream_V_strb_V |    pointer   |
 |in_r_TUSER   |  in |    1|    axis    | in_stream_V_user_V |    pointer   |
 |in_r_TLAST   |  in |    1|    axis    | in_stream_V_last_V |    pointer   |
 |in_r_TID     |  in |    1|    axis    |  in_stream_V_id_V  |    pointer   |
@@ -197,7 +197,7 @@ IsGatedGlobalClock: 0
 * FSM state operations: 
 
  <State 1> : 0.00ns
-ST_1 : Operation 4 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %in_stream_V_data_V, i4* %in_stream_V_keep_V, i4* %in_stream_V_strb_V, i1* %in_stream_V_user_V, i1* %in_stream_V_last_V, i1* %in_stream_V_id_V, i1* %in_stream_V_dest_V, [5 x i8]* @p_str7, i32 1, i32 1, [5 x i8]* @p_str8, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind"
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %in_stream_V_data_V, i8* %in_stream_V_keep_V, i8* %in_stream_V_strb_V, i1* %in_stream_V_user_V, i1* %in_stream_V_last_V, i1* %in_stream_V_id_V, i1* %in_stream_V_dest_V, [5 x i8]* @p_str7, i32 1, i32 1, [5 x i8]* @p_str8, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind"
 ST_1 : Operation 5 [1/1] (0.00ns)   --->   "br label %._crit_edge"
 
  <State 2> : 0.00ns
@@ -205,8 +205,8 @@ ST_2 : Operation 6 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopN
 ST_2 : Operation 7 [1/1] (0.00ns)   --->   "%tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([18 x i8]* @p_str)" [mem.cpp:9]
 ST_2 : Operation 8 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str2) nounwind" [mem.cpp:10]
 ST_2 : Operation 9 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i32 0, i32 0, i32 0, [1 x i8]* @p_str2) nounwind" [mem.cpp:11]
-ST_2 : Operation 10 [1/1] (0.00ns)   --->   "%empty = call { i32, i4, i4, i1, i1, i1, i1 } @_ssdm_op_Read.axis.volatile.i32P.i4P.i4P.i1P.i1P.i1P.i1P(i32* %in_stream_V_data_V, i4* %in_stream_V_keep_V, i4* %in_stream_V_strb_V, i1* %in_stream_V_user_V, i1* %in_stream_V_last_V, i1* %in_stream_V_id_V, i1* %in_stream_V_dest_V)" [mem.cpp:12]   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
-ST_2 : Operation 11 [1/1] (0.00ns)   --->   "%tmp_last_V = extractvalue { i32, i4, i4, i1, i1, i1, i1 } %empty, 4" [mem.cpp:12]
+ST_2 : Operation 10 [1/1] (0.00ns)   --->   "%empty = call { i64, i8, i8, i1, i1, i1, i1 } @_ssdm_op_Read.axis.volatile.i64P.i8P.i8P.i1P.i1P.i1P.i1P(i64* %in_stream_V_data_V, i8* %in_stream_V_keep_V, i8* %in_stream_V_strb_V, i1* %in_stream_V_user_V, i1* %in_stream_V_last_V, i1* %in_stream_V_id_V, i1* %in_stream_V_dest_V)" [mem.cpp:12]   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_2 : Operation 11 [1/1] (0.00ns)   --->   "%tmp_last_V = extractvalue { i64, i8, i8, i1, i1, i1, i1 } %empty, 4" [mem.cpp:12]
 ST_2 : Operation 12 [1/1] (0.00ns)   --->   "%empty_3 = call i32 (...)* @_ssdm_op_SpecRegionEnd([18 x i8]* @p_str, i32 %tmp)" [mem.cpp:14]
 ST_2 : Operation 13 [1/1] (0.00ns)   --->   "br i1 %tmp_last_V, label %0, label %._crit_edge" [mem.cpp:9]
 
@@ -421,7 +421,7 @@ StgValue_14 (ret              ) [ 0000]
 <pin id="37" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_Read.axis.volatile.i32P.i4P.i4P.i1P.i1P.i1P.i1P"/></StgValue>
+<StgValue><ssdm name="_ssdm_op_Read.axis.volatile.i64P.i8P.i8P.i1P.i1P.i1P.i1P"/></StgValue>
 </bind>
 </comp>
 
@@ -436,15 +436,15 @@ StgValue_14 (ret              ) [ 0000]
 
 <comp id="40" class="1004" name="empty_read_fu_40">
 <pin_list>
-<pin id="41" dir="0" index="0" bw="44" slack="0"/>
-<pin id="42" dir="0" index="1" bw="32" slack="0"/>
-<pin id="43" dir="0" index="2" bw="4" slack="0"/>
-<pin id="44" dir="0" index="3" bw="4" slack="0"/>
+<pin id="41" dir="0" index="0" bw="84" slack="0"/>
+<pin id="42" dir="0" index="1" bw="64" slack="0"/>
+<pin id="43" dir="0" index="2" bw="8" slack="0"/>
+<pin id="44" dir="0" index="3" bw="8" slack="0"/>
 <pin id="45" dir="0" index="4" bw="1" slack="0"/>
 <pin id="46" dir="0" index="5" bw="1" slack="0"/>
 <pin id="47" dir="0" index="6" bw="1" slack="0"/>
 <pin id="48" dir="0" index="7" bw="1" slack="0"/>
-<pin id="49" dir="1" index="8" bw="44" slack="0"/>
+<pin id="49" dir="1" index="8" bw="84" slack="0"/>
 </pin_list>
 <bind>
 <opcode="read(1150) " fcode="read"/>
@@ -454,7 +454,7 @@ StgValue_14 (ret              ) [ 0000]
 
 <comp id="58" class="1004" name="tmp_last_V_fu_58">
 <pin_list>
-<pin id="59" dir="0" index="0" bw="44" slack="0"/>
+<pin id="59" dir="0" index="0" bw="84" slack="0"/>
 <pin id="60" dir="1" index="1" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>

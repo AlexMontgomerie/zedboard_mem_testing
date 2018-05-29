@@ -1,12 +1,12 @@
 set C_TypeInfoList {{ 
-"mem_hw" : [[], { "return": [[], "void"]} , [{"ExternC" : 0}], [ {"out": [[], {"reference": "0"}] }, {"in": [[], {"reference": "0"}] }, {"rw": [[], {"scalar": "int"}] }, {"mask": [[], {"scalar": "long unsigned int"}] }, {"test_init_arr": [[], {"array": ["1", [512]]}] }],[],""], 
+"mem_hw" : [[], { "return": [[], "void"]} , [{"ExternC" : 0}], [ {"out": [[], {"reference": "0"}] }, {"in": [[], {"reference": "0"}] }, {"rw": [[], {"scalar": "int"}] }, {"mask": [[], {"scalar": "long unsigned int"}] }, {"test_init_arr": [[], {"array": ["1", [256]]}] }],[],""], 
 "0": [ "AXI_STREAM", {"typedef": [[[],"2"],""]}], 
-"2": [ "stream<ap_axiu<32, 1, 1, 1> >", {"hls_type": {"stream": [[[[],"3"]],"4"]}}], 
-"3": [ "ap_axiu<32, 1, 1, 1>", {"struct": [[],[{"D":[[], {"scalar": { "int": 32}}]},{"U":[[], {"scalar": { "int": 1}}]},{"TI":[[], {"scalar": { "int": 1}}]},{"TD":[[], {"scalar": { "int": 1}}]}],[{ "data": [[], "5"]},{ "keep": [[], "6"]},{ "strb": [[], "6"]},{ "user": [[], "7"]},{ "last": [[], "7"]},{ "id": [[], "7"]},{ "dest": [[], "7"]}],""]}], 
-"7": [ "ap_uint<1>", {"hls_type": {"ap_uint": [[[[], {"scalar": { "int": 1}}]],""]}}], 
+"2": [ "stream<ap_axiu<64, 1, 1, 1> >", {"hls_type": {"stream": [[[[],"3"]],"4"]}}], 
+"3": [ "ap_axiu<64, 1, 1, 1>", {"struct": [[],[{"D":[[], {"scalar": { "int": 64}}]},{"U":[[], {"scalar": { "int": 1}}]},{"TI":[[], {"scalar": { "int": 1}}]},{"TD":[[], {"scalar": { "int": 1}}]}],[{ "data": [[], "5"]},{ "keep": [[], "6"]},{ "strb": [[], "6"]},{ "user": [[], "7"]},{ "last": [[], "7"]},{ "id": [[], "7"]},{ "dest": [[], "7"]}],""]}], 
+"5": [ "ap_uint<64>", {"hls_type": {"ap_uint": [[[[], {"scalar": { "int": 64}}]],""]}}], 
 "1": [ "data_t", {"typedef": [[[],"5"],""]}], 
-"6": [ "ap_uint<4>", {"hls_type": {"ap_uint": [[[[], {"scalar": { "int": 4}}]],""]}}], 
-"5": [ "ap_uint<32>", {"hls_type": {"ap_uint": [[[[], {"scalar": { "int": 32}}]],""]}}],
+"7": [ "ap_uint<1>", {"hls_type": {"ap_uint": [[[[], {"scalar": { "int": 1}}]],""]}}], 
+"6": [ "ap_uint<8>", {"hls_type": {"ap_uint": [[[[], {"scalar": { "int": 8}}]],""]}}],
 "4": ["hls", ""]
 }}
 set moduleName mem_hw
@@ -21,42 +21,42 @@ set StallSigGenFlag 0
 set C_modelName {mem_hw}
 set C_modelType { void 0 }
 set C_modelArgList {
-	{ out_V_data_V int 32 regular {axi_s 1 volatile  { out_r Data } }  }
-	{ out_V_keep_V int 4 regular {axi_s 1 volatile  { out_r Keep } }  }
-	{ out_V_strb_V int 4 regular {axi_s 1 volatile  { out_r Strb } }  }
+	{ out_V_data_V int 64 regular {axi_s 1 volatile  { out_r Data } }  }
+	{ out_V_keep_V int 8 regular {axi_s 1 volatile  { out_r Keep } }  }
+	{ out_V_strb_V int 8 regular {axi_s 1 volatile  { out_r Strb } }  }
 	{ out_V_user_V int 1 regular {axi_s 1 volatile  { out_r User } }  }
 	{ out_V_last_V int 1 regular {axi_s 1 volatile  { out_r Last } }  }
 	{ out_V_id_V int 1 regular {axi_s 1 volatile  { out_r ID } }  }
 	{ out_V_dest_V int 1 regular {axi_s 1 volatile  { out_r Dest } }  }
-	{ in_V_data_V int 32 regular {axi_s 0 volatile  { in_r Data } }  }
-	{ in_V_keep_V int 4 regular {axi_s 0 volatile  { in_r Keep } }  }
-	{ in_V_strb_V int 4 regular {axi_s 0 volatile  { in_r Strb } }  }
+	{ in_V_data_V int 64 regular {axi_s 0 volatile  { in_r Data } }  }
+	{ in_V_keep_V int 8 regular {axi_s 0 volatile  { in_r Keep } }  }
+	{ in_V_strb_V int 8 regular {axi_s 0 volatile  { in_r Strb } }  }
 	{ in_V_user_V int 1 regular {axi_s 0 volatile  { in_r User } }  }
 	{ in_V_last_V int 1 regular {axi_s 0 volatile  { in_r Last } }  }
 	{ in_V_id_V int 1 regular {axi_s 0 volatile  { in_r ID } }  }
 	{ in_V_dest_V int 1 regular {axi_s 0 volatile  { in_r Dest } }  }
 	{ rw int 32 unused {axi_slave 0}  }
 	{ mask int 64 unused {axi_slave 0}  }
-	{ test_init_arr_V int 32 regular {axi_slave 0}  }
+	{ test_init_arr_V int 64 regular {axi_slave 0}  }
 }
 set C_modelArgMapList {[ 
-	{ "Name" : "out_V_data_V", "interface" : "axis", "bitwidth" : 32, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "out.V.data.V","cData": "uint32","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
- 	{ "Name" : "out_V_keep_V", "interface" : "axis", "bitwidth" : 4, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":3,"cElement": [{"cName": "out.V.keep.V","cData": "uint4","bit_use": { "low": 0,"up": 3},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
- 	{ "Name" : "out_V_strb_V", "interface" : "axis", "bitwidth" : 4, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":3,"cElement": [{"cName": "out.V.strb.V","cData": "uint4","bit_use": { "low": 0,"up": 3},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
+	{ "Name" : "out_V_data_V", "interface" : "axis", "bitwidth" : 64, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":63,"cElement": [{"cName": "out.V.data.V","cData": "uint64","bit_use": { "low": 0,"up": 63},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
+ 	{ "Name" : "out_V_keep_V", "interface" : "axis", "bitwidth" : 8, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":7,"cElement": [{"cName": "out.V.keep.V","cData": "uint8","bit_use": { "low": 0,"up": 7},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
+ 	{ "Name" : "out_V_strb_V", "interface" : "axis", "bitwidth" : 8, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":7,"cElement": [{"cName": "out.V.strb.V","cData": "uint8","bit_use": { "low": 0,"up": 7},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
  	{ "Name" : "out_V_user_V", "interface" : "axis", "bitwidth" : 1, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":0,"cElement": [{"cName": "out.V.user.V","cData": "uint1","bit_use": { "low": 0,"up": 0},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
  	{ "Name" : "out_V_last_V", "interface" : "axis", "bitwidth" : 1, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":0,"cElement": [{"cName": "out.V.last.V","cData": "uint1","bit_use": { "low": 0,"up": 0},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
  	{ "Name" : "out_V_id_V", "interface" : "axis", "bitwidth" : 1, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":0,"cElement": [{"cName": "out.V.id.V","cData": "uint1","bit_use": { "low": 0,"up": 0},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
  	{ "Name" : "out_V_dest_V", "interface" : "axis", "bitwidth" : 1, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":0,"cElement": [{"cName": "out.V.dest.V","cData": "uint1","bit_use": { "low": 0,"up": 0},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
- 	{ "Name" : "in_V_data_V", "interface" : "axis", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "in.V.data.V","cData": "uint32","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
- 	{ "Name" : "in_V_keep_V", "interface" : "axis", "bitwidth" : 4, "direction" : "READONLY", "bitSlice":[{"low":0,"up":3,"cElement": [{"cName": "in.V.keep.V","cData": "uint4","bit_use": { "low": 0,"up": 3},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
- 	{ "Name" : "in_V_strb_V", "interface" : "axis", "bitwidth" : 4, "direction" : "READONLY", "bitSlice":[{"low":0,"up":3,"cElement": [{"cName": "in.V.strb.V","cData": "uint4","bit_use": { "low": 0,"up": 3},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
+ 	{ "Name" : "in_V_data_V", "interface" : "axis", "bitwidth" : 64, "direction" : "READONLY", "bitSlice":[{"low":0,"up":63,"cElement": [{"cName": "in.V.data.V","cData": "uint64","bit_use": { "low": 0,"up": 63},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
+ 	{ "Name" : "in_V_keep_V", "interface" : "axis", "bitwidth" : 8, "direction" : "READONLY", "bitSlice":[{"low":0,"up":7,"cElement": [{"cName": "in.V.keep.V","cData": "uint8","bit_use": { "low": 0,"up": 7},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
+ 	{ "Name" : "in_V_strb_V", "interface" : "axis", "bitwidth" : 8, "direction" : "READONLY", "bitSlice":[{"low":0,"up":7,"cElement": [{"cName": "in.V.strb.V","cData": "uint8","bit_use": { "low": 0,"up": 7},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
  	{ "Name" : "in_V_user_V", "interface" : "axis", "bitwidth" : 1, "direction" : "READONLY", "bitSlice":[{"low":0,"up":0,"cElement": [{"cName": "in.V.user.V","cData": "uint1","bit_use": { "low": 0,"up": 0},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
  	{ "Name" : "in_V_last_V", "interface" : "axis", "bitwidth" : 1, "direction" : "READONLY", "bitSlice":[{"low":0,"up":0,"cElement": [{"cName": "in.V.last.V","cData": "uint1","bit_use": { "low": 0,"up": 0},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
  	{ "Name" : "in_V_id_V", "interface" : "axis", "bitwidth" : 1, "direction" : "READONLY", "bitSlice":[{"low":0,"up":0,"cElement": [{"cName": "in.V.id.V","cData": "uint1","bit_use": { "low": 0,"up": 0},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
  	{ "Name" : "in_V_dest_V", "interface" : "axis", "bitwidth" : 1, "direction" : "READONLY", "bitSlice":[{"low":0,"up":0,"cElement": [{"cName": "in.V.dest.V","cData": "uint1","bit_use": { "low": 0,"up": 0},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
  	{ "Name" : "rw", "interface" : "axi_slave", "bundle":"CONTROL_BUS","type":"ap_none","bitwidth" : 32, "direction" : "READONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "rw","cData": "int","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 0,"step" : 0}]}]}], "offset" : {"in":16}, "offset_end" : {"in":23}} , 
  	{ "Name" : "mask", "interface" : "axi_slave", "bundle":"CONTROL_BUS","type":"ap_none","bitwidth" : 64, "direction" : "READONLY", "bitSlice":[{"low":0,"up":63,"cElement": [{"cName": "mask","cData": "long unsigned int","bit_use": { "low": 0,"up": 63},"cArray": [{"low" : 0,"up" : 0,"step" : 0}]}]}], "offset" : {"in":24}, "offset_end" : {"in":35}} , 
- 	{ "Name" : "test_init_arr_V", "interface" : "axi_slave", "bundle":"CONTROL_BUS","type":"ap_memory","bitwidth" : 32, "direction" : "READONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "test_init_arr.V","cData": "uint32","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 511,"step" : 1}]}]}], "offset" : {"in":2048}, "offset_end" : {"in":4095}} ]}
+ 	{ "Name" : "test_init_arr_V", "interface" : "axi_slave", "bundle":"CONTROL_BUS","type":"ap_memory","bitwidth" : 64, "direction" : "READONLY", "bitSlice":[{"low":0,"up":63,"cElement": [{"cName": "test_init_arr.V","cData": "uint64","bit_use": { "low": 0,"up": 63},"cArray": [{"low" : 0,"up" : 255,"step" : 1}]}]}], "offset" : {"in":2048}, "offset_end" : {"in":4095}} ]}
 # RTL Port declarations: 
 set portNum 38
 set portList { 
@@ -80,16 +80,16 @@ set portList {
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst_n sc_in sc_logic 1 reset -1 active_low_sync } 
 	{ interrupt sc_out sc_logic 1 signal -1 } 
-	{ out_r_TDATA sc_out sc_lv 32 signal 0 } 
-	{ out_r_TKEEP sc_out sc_lv 4 signal 1 } 
-	{ out_r_TSTRB sc_out sc_lv 4 signal 2 } 
+	{ out_r_TDATA sc_out sc_lv 64 signal 0 } 
+	{ out_r_TKEEP sc_out sc_lv 8 signal 1 } 
+	{ out_r_TSTRB sc_out sc_lv 8 signal 2 } 
 	{ out_r_TUSER sc_out sc_lv 1 signal 3 } 
 	{ out_r_TLAST sc_out sc_lv 1 signal 4 } 
 	{ out_r_TID sc_out sc_lv 1 signal 5 } 
 	{ out_r_TDEST sc_out sc_lv 1 signal 6 } 
-	{ in_r_TDATA sc_in sc_lv 32 signal 7 } 
-	{ in_r_TKEEP sc_in sc_lv 4 signal 8 } 
-	{ in_r_TSTRB sc_in sc_lv 4 signal 9 } 
+	{ in_r_TDATA sc_in sc_lv 64 signal 7 } 
+	{ in_r_TKEEP sc_in sc_lv 8 signal 8 } 
+	{ in_r_TSTRB sc_in sc_lv 8 signal 9 } 
 	{ in_r_TUSER sc_in sc_lv 1 signal 10 } 
 	{ in_r_TLAST sc_in sc_lv 1 signal 11 } 
 	{ in_r_TID sc_in sc_lv 1 signal 12 } 
@@ -120,16 +120,16 @@ set NewPortList {[
 	{ "name": "interrupt", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "CONTROL_BUS", "role": "interrupt" } }, 
  	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
  	{ "name": "ap_rst_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "reset", "bundle":{"name": "ap_rst_n", "role": "default" }} , 
- 	{ "name": "out_r_TDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "out_V_data_V", "role": "default" }} , 
- 	{ "name": "out_r_TKEEP", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "out_V_keep_V", "role": "default" }} , 
- 	{ "name": "out_r_TSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "out_V_strb_V", "role": "default" }} , 
+ 	{ "name": "out_r_TDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "out_V_data_V", "role": "default" }} , 
+ 	{ "name": "out_r_TKEEP", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "out_V_keep_V", "role": "default" }} , 
+ 	{ "name": "out_r_TSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "out_V_strb_V", "role": "default" }} , 
  	{ "name": "out_r_TUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "out_V_user_V", "role": "default" }} , 
  	{ "name": "out_r_TLAST", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "out_V_last_V", "role": "default" }} , 
  	{ "name": "out_r_TID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "out_V_id_V", "role": "default" }} , 
  	{ "name": "out_r_TDEST", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "out_V_dest_V", "role": "default" }} , 
- 	{ "name": "in_r_TDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "in_V_data_V", "role": "default" }} , 
- 	{ "name": "in_r_TKEEP", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "in_V_keep_V", "role": "default" }} , 
- 	{ "name": "in_r_TSTRB", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "in_V_strb_V", "role": "default" }} , 
+ 	{ "name": "in_r_TDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "in_V_data_V", "role": "default" }} , 
+ 	{ "name": "in_r_TKEEP", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "in_V_keep_V", "role": "default" }} , 
+ 	{ "name": "in_r_TSTRB", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "in_V_strb_V", "role": "default" }} , 
  	{ "name": "in_r_TUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "in_V_user_V", "role": "default" }} , 
  	{ "name": "in_r_TLAST", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "in_V_last_V", "role": "default" }} , 
  	{ "name": "in_r_TID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "in_V_id_V", "role": "default" }} , 
@@ -281,24 +281,24 @@ set ArgLastReadFirstWriteLatency {
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "2096643", "Max" : "2096643"}
-	, {"Name" : "Interval", "Min" : "2096644", "Max" : "2096644"}
+	{"Name" : "Latency", "Min" : "1048323", "Max" : "1048323"}
+	, {"Name" : "Interval", "Min" : "1048324", "Max" : "1048324"}
 ]}
 
 set PipelineEnableSignalInfo {[
 ]}
 
 set Spec2ImplPortList { 
-	out_V_data_V { axis {  { out_r_TDATA out_data 1 32 } } }
-	out_V_keep_V { axis {  { out_r_TKEEP out_data 1 4 } } }
-	out_V_strb_V { axis {  { out_r_TSTRB out_data 1 4 } } }
+	out_V_data_V { axis {  { out_r_TDATA out_data 1 64 } } }
+	out_V_keep_V { axis {  { out_r_TKEEP out_data 1 8 } } }
+	out_V_strb_V { axis {  { out_r_TSTRB out_data 1 8 } } }
 	out_V_user_V { axis {  { out_r_TUSER out_data 1 1 } } }
 	out_V_last_V { axis {  { out_r_TLAST out_data 1 1 } } }
 	out_V_id_V { axis {  { out_r_TID out_data 1 1 } } }
 	out_V_dest_V { axis {  { out_r_TDEST out_data 1 1 }  { out_r_TVALID out_vld 1 1 }  { out_r_TREADY out_acc 0 1 } } }
-	in_V_data_V { axis {  { in_r_TDATA in_data 0 32 } } }
-	in_V_keep_V { axis {  { in_r_TKEEP in_data 0 4 } } }
-	in_V_strb_V { axis {  { in_r_TSTRB in_data 0 4 } } }
+	in_V_data_V { axis {  { in_r_TDATA in_data 0 64 } } }
+	in_V_keep_V { axis {  { in_r_TKEEP in_data 0 8 } } }
+	in_V_strb_V { axis {  { in_r_TSTRB in_data 0 8 } } }
 	in_V_user_V { axis {  { in_r_TUSER in_data 0 1 } } }
 	in_V_last_V { axis {  { in_r_TLAST in_data 0 1 } } }
 	in_V_id_V { axis {  { in_r_TID in_data 0 1 } } }

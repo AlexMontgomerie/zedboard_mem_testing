@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="mem_hw,hls_ip_2017_4,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7z020clg484-1,HLS_INPUT_CLOCK=800.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=8.034187,HLS_SYN_LAT=2096643,HLS_SYN_TPT=2096644,HLS_SYN_MEM=2,HLS_SYN_DSP=0,HLS_SYN_FF=402,HLS_SYN_LUT=1056}" *)
+(* CORE_GENERATION_INFO="mem_hw,hls_ip_2017_4,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7z020clg484-1,HLS_INPUT_CLOCK=800.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=8.001750,HLS_SYN_LAT=1048323,HLS_SYN_TPT=1048324,HLS_SYN_MEM=4,HLS_SYN_DSP=0,HLS_SYN_FF=464,HLS_SYN_LUT=1052}" *)
 
 module mem_hw (
         s_axi_CONTROL_BUS_AWVALID,
@@ -78,16 +78,16 @@ output  [1:0] s_axi_CONTROL_BUS_BRESP;
 input   ap_clk;
 input   ap_rst_n;
 output   interrupt;
-output  [31:0] out_r_TDATA;
-output  [3:0] out_r_TKEEP;
-output  [3:0] out_r_TSTRB;
+output  [63:0] out_r_TDATA;
+output  [7:0] out_r_TKEEP;
+output  [7:0] out_r_TSTRB;
 output  [0:0] out_r_TUSER;
 output  [0:0] out_r_TLAST;
 output  [0:0] out_r_TID;
 output  [0:0] out_r_TDEST;
-input  [31:0] in_r_TDATA;
-input  [3:0] in_r_TKEEP;
-input  [3:0] in_r_TSTRB;
+input  [63:0] in_r_TDATA;
+input  [7:0] in_r_TKEEP;
+input  [7:0] in_r_TSTRB;
 input  [0:0] in_r_TUSER;
 input  [0:0] in_r_TLAST;
 input  [0:0] in_r_TID;
@@ -104,7 +104,7 @@ wire    ap_done;
 wire    ap_idle;
 wire   [31:0] rw;
 wire   [63:0] mask;
-wire   [31:0] test_init_arr_V_q0;
+wire   [63:0] test_init_arr_V_q0;
 wire    mem_read_U0_ap_start;
 wire    mem_read_U0_ap_done;
 wire    mem_read_U0_ap_continue;
@@ -116,15 +116,15 @@ wire    mem_write_U0_ap_done;
 wire    mem_write_U0_ap_continue;
 wire    mem_write_U0_ap_idle;
 wire    mem_write_U0_ap_ready;
-wire   [31:0] mem_write_U0_out_r_TDATA;
+wire   [63:0] mem_write_U0_out_r_TDATA;
 wire    mem_write_U0_out_r_TVALID;
-wire   [3:0] mem_write_U0_out_r_TKEEP;
-wire   [3:0] mem_write_U0_out_r_TSTRB;
+wire   [7:0] mem_write_U0_out_r_TKEEP;
+wire   [7:0] mem_write_U0_out_r_TSTRB;
 wire   [0:0] mem_write_U0_out_r_TUSER;
 wire   [0:0] mem_write_U0_out_r_TLAST;
 wire   [0:0] mem_write_U0_out_r_TID;
 wire   [0:0] mem_write_U0_out_r_TDEST;
-wire   [8:0] mem_write_U0_test_init_arr_V_address0;
+wire   [7:0] mem_write_U0_test_init_arr_V_address0;
 wire    mem_write_U0_test_init_arr_V_ce0;
 wire    ap_sync_continue;
 wire    ap_sync_done;

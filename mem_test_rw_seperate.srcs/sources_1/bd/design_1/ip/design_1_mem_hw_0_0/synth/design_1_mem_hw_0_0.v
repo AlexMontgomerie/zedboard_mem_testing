@@ -48,11 +48,11 @@
 
 
 // IP VLNV: xilinx.com:hls:mem_hw:1.0
-// IP Revision: 1805211644
+// IP Revision: 1805251520
 
 (* X_CORE_INFO = "mem_hw,Vivado 2017.4" *)
 (* CHECK_LICENSE_TYPE = "design_1_mem_hw_0_0,mem_hw,{}" *)
-(* CORE_GENERATION_INFO = "design_1_mem_hw_0_0,mem_hw,{x_ipProduct=Vivado 2017.4,x_ipVendor=xilinx.com,x_ipLibrary=hls,x_ipName=mem_hw,x_ipVersion=1.0,x_ipCoreRevision=1805211644,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S_AXI_CONTROL_BUS_ADDR_WIDTH=12,C_S_AXI_CONTROL_BUS_DATA_WIDTH=32}" *)
+(* CORE_GENERATION_INFO = "design_1_mem_hw_0_0,mem_hw,{x_ipProduct=Vivado 2017.4,x_ipVendor=xilinx.com,x_ipLibrary=hls,x_ipName=mem_hw,x_ipVersion=1.0,x_ipCoreRevision=1805251520,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S_AXI_CONTROL_BUS_ADDR_WIDTH=12,C_S_AXI_CONTROL_BUS_DATA_WIDTH=32}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_mem_hw_0_0 (
   s_axi_CONTROL_BUS_AWADDR,
@@ -144,18 +144,18 @@ output wire out_r_TVALID;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 out_r TREADY" *)
 input wire out_r_TREADY;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 out_r TDATA" *)
-output wire [31 : 0] out_r_TDATA;
+output wire [63 : 0] out_r_TDATA;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 out_r TKEEP" *)
-output wire [3 : 0] out_r_TKEEP;
+output wire [7 : 0] out_r_TKEEP;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 out_r TSTRB" *)
-output wire [3 : 0] out_r_TSTRB;
+output wire [7 : 0] out_r_TSTRB;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 out_r TUSER" *)
 output wire [0 : 0] out_r_TUSER;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 out_r TLAST" *)
 output wire [0 : 0] out_r_TLAST;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 out_r TID" *)
 output wire [0 : 0] out_r_TID;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME out_r, TDATA_NUM_BYTES 4, TDEST_WIDTH 1, TID_WIDTH 1, TUSER_WIDTH 1, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {CLK {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 32 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TUSER_WIDTH 1}, HAS_TREADY 1, HAS_TSTRB 1, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 50000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME out_r, TDATA_NUM_BYTES 8, TDEST_WIDTH 1, TID_WIDTH 1, TUSER_WIDTH 1, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {CLK {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 32 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TUSER_WIDTH 1}, HAS_TREADY 1, HAS_TSTRB 1, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 50000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 out_r TDEST" *)
 output wire [0 : 0] out_r_TDEST;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 in_r TVALID" *)
@@ -163,18 +163,18 @@ input wire in_r_TVALID;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 in_r TREADY" *)
 output wire in_r_TREADY;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 in_r TDATA" *)
-input wire [31 : 0] in_r_TDATA;
+input wire [63 : 0] in_r_TDATA;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 in_r TKEEP" *)
-input wire [3 : 0] in_r_TKEEP;
+input wire [7 : 0] in_r_TKEEP;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 in_r TSTRB" *)
-input wire [3 : 0] in_r_TSTRB;
+input wire [7 : 0] in_r_TSTRB;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 in_r TUSER" *)
 input wire [0 : 0] in_r_TUSER;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 in_r TLAST" *)
 input wire [0 : 0] in_r_TLAST;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 in_r TID" *)
 input wire [0 : 0] in_r_TID;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME in_r, TDATA_NUM_BYTES 4, TDEST_WIDTH 1, TID_WIDTH 1, TUSER_WIDTH 1, LAYERED_METADATA undef, HAS_TREADY 1, HAS_TSTRB 1, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 50000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME in_r, TDATA_NUM_BYTES 8, TDEST_WIDTH 1, TID_WIDTH 1, TUSER_WIDTH 1, LAYERED_METADATA undef, HAS_TREADY 1, HAS_TSTRB 1, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 50000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 in_r TDEST" *)
 input wire [0 : 0] in_r_TDEST;
 

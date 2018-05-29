@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'mem_hw'" level="0">
-<item name = "Date">Mon May 21 16:43:33 2018
+<item name = "Date">Fri May 25 15:18:24 2018
 </item>
 <item name = "Version">2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)</item>
 <item name = "Project">mem_prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">800.00, 8.03, 100.00</column>
+<column name="ap_clk">800.00, 8.00, 100.00</column>
 </table>
 </item>
 </section>
@@ -24,14 +24,14 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">2096643, 2096643, 2096644, 2096644, dataflow</column>
+<column name="">1048323, 1048323, 1048324, 1048324, dataflow</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="mem_write_U0">mem_write, 2096643, 2096643, 2096643, 2096643, none</column>
+<column name="mem_write_U0">mem_write, 1048323, 1048323, 1048323, 1048323, none</column>
 <column name="mem_read_U0">mem_read, 2, 2, 2, 2, none</column>
 </table>
 </item>
@@ -51,21 +51,21 @@
 <column name="DSP">-, -, -, -</column>
 <column name="Expression">-, -, 0, 68</column>
 <column name="FIFO">-, -, -, -</column>
-<column name="Instance">2, -, 396, 952</column>
+<column name="Instance">4, -, 458, 948</column>
 <column name="Memory">-, -, -, -</column>
 <column name="Multiplexer">-, -, -, 36</column>
 <column name="Register">-, -, 6, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
-<specialColumn name="Utilization (%)">~0, 0, ~0, 1</specialColumn>
+<specialColumn name="Utilization (%)">1, 0, ~0, 1</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
-<column name="mem_hw_CONTROL_BUS_s_axi_U">mem_hw_CONTROL_BUS_s_axi, 2, 0, 224, 302</column>
+<column name="mem_hw_CONTROL_BUS_s_axi_U">mem_hw_CONTROL_BUS_s_axi, 4, 0, 224, 302</column>
 <column name="mem_read_U0">mem_read, 0, 0, 14, 125</column>
-<column name="mem_write_U0">mem_write, 0, 0, 158, 525</column>
+<column name="mem_write_U0">mem_write, 0, 0, 220, 521</column>
 </table>
 </item>
 <item name = "DSP48"><table name="" hasTotal="0">
@@ -135,18 +135,18 @@
 <column name="ap_clk">in, 1, ap_ctrl_hs, mem_hw, return value</column>
 <column name="ap_rst_n">in, 1, ap_ctrl_hs, mem_hw, return value</column>
 <column name="interrupt">out, 1, ap_ctrl_hs, mem_hw, return value</column>
-<column name="out_r_TDATA">out, 32, axis, out_V_data_V, pointer</column>
-<column name="out_r_TKEEP">out, 4, axis, out_V_keep_V, pointer</column>
-<column name="out_r_TSTRB">out, 4, axis, out_V_strb_V, pointer</column>
+<column name="out_r_TDATA">out, 64, axis, out_V_data_V, pointer</column>
+<column name="out_r_TKEEP">out, 8, axis, out_V_keep_V, pointer</column>
+<column name="out_r_TSTRB">out, 8, axis, out_V_strb_V, pointer</column>
 <column name="out_r_TUSER">out, 1, axis, out_V_user_V, pointer</column>
 <column name="out_r_TLAST">out, 1, axis, out_V_last_V, pointer</column>
 <column name="out_r_TID">out, 1, axis, out_V_id_V, pointer</column>
 <column name="out_r_TDEST">out, 1, axis, out_V_dest_V, pointer</column>
 <column name="out_r_TVALID">out, 1, axis, out_V_dest_V, pointer</column>
 <column name="out_r_TREADY">in, 1, axis, out_V_dest_V, pointer</column>
-<column name="in_r_TDATA">in, 32, axis, in_V_data_V, pointer</column>
-<column name="in_r_TKEEP">in, 4, axis, in_V_keep_V, pointer</column>
-<column name="in_r_TSTRB">in, 4, axis, in_V_strb_V, pointer</column>
+<column name="in_r_TDATA">in, 64, axis, in_V_data_V, pointer</column>
+<column name="in_r_TKEEP">in, 8, axis, in_V_keep_V, pointer</column>
+<column name="in_r_TSTRB">in, 8, axis, in_V_strb_V, pointer</column>
 <column name="in_r_TUSER">in, 1, axis, in_V_user_V, pointer</column>
 <column name="in_r_TLAST">in, 1, axis, in_V_last_V, pointer</column>
 <column name="in_r_TID">in, 1, axis, in_V_id_V, pointer</column>
