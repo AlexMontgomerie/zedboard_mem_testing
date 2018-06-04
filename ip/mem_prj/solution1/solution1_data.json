@@ -20,7 +20,7 @@
     "ClockPeriod": "800",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "1048323",
+    "Latency": "2",
     "Uncertainty": "100"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 800.000 [get_ports ap_clk]"]},
@@ -36,12 +36,14 @@
   "Files": {
     "CSource": ["..\/..\/mem.cpp"],
     "Vhdl": [
+      "impl\/vhdl\/Block_proc.vhd",
       "impl\/vhdl\/mem_hw_CONTROL_BUS_s_axi.vhd",
       "impl\/vhdl\/mem_read.vhd",
       "impl\/vhdl\/mem_write.vhd",
       "impl\/vhdl\/mem_hw.vhd"
     ],
     "Verilog": [
+      "impl\/verilog\/Block_proc.v",
       "impl\/verilog\/mem_hw_CONTROL_BUS_s_axi.v",
       "impl\/verilog\/mem_read.v",
       "impl\/verilog\/mem_write.v",
@@ -694,16 +696,20 @@
   "ModuleInfo": {
     "Hierarchy": {
       "ModuleName": "mem_hw",
-      "Instances": [
-        {
-          "ModuleName": "mem_write",
-          "InstanceName": "mem_write_U0"
-        },
-        {
-          "ModuleName": "mem_read",
-          "InstanceName": "mem_read_U0"
-        }
-      ]
+      "Instances": [{
+          "ModuleName": "Block_proc",
+          "InstanceName": "Block_proc_U0",
+          "Instances": [
+            {
+              "ModuleName": "mem_write",
+              "InstanceName": "grp_mem_write_fu_76"
+            },
+            {
+              "ModuleName": "mem_read",
+              "InstanceName": "grp_mem_read_fu_97"
+            }
+          ]
+        }]
     },
     "Metrics": {
       "mem_read": {
@@ -728,8 +734,8 @@
             "PipelineDepth": "1"
           }],
         "Area": {
-          "FF": "14",
-          "LUT": "125",
+          "FF": "3",
+          "LUT": "30",
           "BRAM_18K": "0",
           "DSP48E": "0"
         }
@@ -756,18 +762,43 @@
             "PipelineDepth": "3"
           }],
         "Area": {
-          "FF": "220",
-          "LUT": "521",
+          "FF": "283",
+          "LUT": "575",
+          "BRAM_18K": "0",
+          "DSP48E": "0"
+        }
+      },
+      "Block_proc": {
+        "Latency": {
+          "LatencyBest": "2",
+          "LatencyAvg": "524164",
+          "LatencyWorst": "1048325",
+          "PipelineIIMin": "2",
+          "PipelineIIMax": "1048325",
+          "PipelineII": "2 ~ 1048325",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "800.00",
+          "Uncertainty": "100.00",
+          "Estimate": "8.00"
+        },
+        "Area": {
+          "FF": "718",
+          "LUT": "1353",
           "BRAM_18K": "0",
           "DSP48E": "0"
         }
       },
       "mem_hw": {
         "Latency": {
-          "LatencyBest": "1048323",
-          "LatencyAvg": "1048323",
-          "LatencyWorst": "1048323",
-          "PipelineII": "1048324",
+          "LatencyBest": "2",
+          "LatencyAvg": "524164",
+          "LatencyWorst": "1048325",
+          "PipelineIIMin": "3",
+          "PipelineIIMax": "1048326",
+          "PipelineII": "3 ~ 1048326",
           "PipelineDepth": "",
           "PipelineType": "dataflow"
         },
@@ -778,8 +809,8 @@
         },
         "Area": {
           "BRAM_18K": "4",
-          "FF": "464",
-          "LUT": "1052",
+          "FF": "942",
+          "LUT": "1655",
           "DSP48E": "0"
         }
       }
@@ -787,7 +818,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2018-05-25 15:18:25 BST",
+    "Time": "2018-06-04 11:41:30 BST",
     "ToolName": "vivado_hls",
     "ToolVersion": "2017.4"
   }

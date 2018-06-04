@@ -11,8 +11,7 @@
 #include "systemc.h"
 #include "AESL_pkg.h"
 
-#include "mem_read.h"
-#include "mem_write.h"
+#include "Block_proc.h"
 #include "mem_hw_CONTROL_BUS_s_axi.h"
 
 namespace ap_rtl {
@@ -73,8 +72,7 @@ struct mem_hw : public sc_module {
     ofstream mHdltvinHandle;
     ofstream mHdltvoutHandle;
     mem_hw_CONTROL_BUS_s_axi<C_S_AXI_CONTROL_BUS_ADDR_WIDTH,C_S_AXI_CONTROL_BUS_DATA_WIDTH>* mem_hw_CONTROL_BUS_s_axi_U;
-    mem_read* mem_read_U0;
-    mem_write* mem_write_U0;
+    Block_proc* Block_proc_U0;
     sc_signal< sc_logic > ap_rst_n_inv;
     sc_signal< sc_logic > ap_start;
     sc_signal< sc_logic > ap_ready;
@@ -83,40 +81,27 @@ struct mem_hw : public sc_module {
     sc_signal< sc_lv<32> > rw;
     sc_signal< sc_lv<64> > mask;
     sc_signal< sc_lv<64> > test_init_arr_V_q0;
-    sc_signal< sc_logic > mem_read_U0_ap_start;
-    sc_signal< sc_logic > mem_read_U0_ap_done;
-    sc_signal< sc_logic > mem_read_U0_ap_continue;
-    sc_signal< sc_logic > mem_read_U0_ap_idle;
-    sc_signal< sc_logic > mem_read_U0_ap_ready;
-    sc_signal< sc_logic > mem_read_U0_in_r_TREADY;
-    sc_signal< sc_logic > mem_write_U0_ap_start;
-    sc_signal< sc_logic > mem_write_U0_ap_done;
-    sc_signal< sc_logic > mem_write_U0_ap_continue;
-    sc_signal< sc_logic > mem_write_U0_ap_idle;
-    sc_signal< sc_logic > mem_write_U0_ap_ready;
-    sc_signal< sc_lv<64> > mem_write_U0_out_r_TDATA;
-    sc_signal< sc_logic > mem_write_U0_out_r_TVALID;
-    sc_signal< sc_lv<8> > mem_write_U0_out_r_TKEEP;
-    sc_signal< sc_lv<8> > mem_write_U0_out_r_TSTRB;
-    sc_signal< sc_lv<1> > mem_write_U0_out_r_TUSER;
-    sc_signal< sc_lv<1> > mem_write_U0_out_r_TLAST;
-    sc_signal< sc_lv<1> > mem_write_U0_out_r_TID;
-    sc_signal< sc_lv<1> > mem_write_U0_out_r_TDEST;
-    sc_signal< sc_lv<8> > mem_write_U0_test_init_arr_V_address0;
-    sc_signal< sc_logic > mem_write_U0_test_init_arr_V_ce0;
+    sc_signal< sc_logic > Block_proc_U0_ap_start;
+    sc_signal< sc_logic > Block_proc_U0_ap_done;
+    sc_signal< sc_logic > Block_proc_U0_ap_continue;
+    sc_signal< sc_logic > Block_proc_U0_ap_idle;
+    sc_signal< sc_logic > Block_proc_U0_ap_ready;
+    sc_signal< sc_logic > Block_proc_U0_in_r_TREADY;
+    sc_signal< sc_lv<64> > Block_proc_U0_out_r_TDATA;
+    sc_signal< sc_logic > Block_proc_U0_out_r_TVALID;
+    sc_signal< sc_lv<8> > Block_proc_U0_out_r_TKEEP;
+    sc_signal< sc_lv<8> > Block_proc_U0_out_r_TSTRB;
+    sc_signal< sc_lv<1> > Block_proc_U0_out_r_TUSER;
+    sc_signal< sc_lv<1> > Block_proc_U0_out_r_TLAST;
+    sc_signal< sc_lv<1> > Block_proc_U0_out_r_TID;
+    sc_signal< sc_lv<1> > Block_proc_U0_out_r_TDEST;
+    sc_signal< sc_lv<8> > Block_proc_U0_test_init_arr_V_address0;
+    sc_signal< sc_logic > Block_proc_U0_test_init_arr_V_ce0;
     sc_signal< sc_logic > ap_sync_continue;
     sc_signal< sc_logic > ap_sync_done;
     sc_signal< sc_logic > ap_sync_ready;
-    sc_signal< sc_logic > ap_sync_reg_mem_read_U0_ap_ready;
-    sc_signal< sc_logic > ap_sync_mem_read_U0_ap_ready;
-    sc_signal< sc_lv<2> > mem_read_U0_ap_ready_count;
-    sc_signal< sc_logic > ap_sync_reg_mem_write_U0_ap_ready;
-    sc_signal< sc_logic > ap_sync_mem_write_U0_ap_ready;
-    sc_signal< sc_lv<2> > mem_write_U0_ap_ready_count;
-    sc_signal< sc_logic > mem_read_U0_start_full_n;
-    sc_signal< sc_logic > mem_read_U0_start_write;
-    sc_signal< sc_logic > mem_write_U0_start_full_n;
-    sc_signal< sc_logic > mem_write_U0_start_write;
+    sc_signal< sc_logic > Block_proc_U0_start_full_n;
+    sc_signal< sc_logic > Block_proc_U0_start_write;
     static const int C_S_AXI_DATA_WIDTH;
     static const int C_S_AXI_WSTRB_WIDTH;
     static const int C_S_AXI_ADDR_WIDTH;
@@ -125,30 +110,20 @@ struct mem_hw : public sc_module {
     static const sc_lv<8> ap_const_lv8_0;
     static const sc_lv<1> ap_const_lv1_0;
     static const sc_logic ap_const_logic_0;
-    static const sc_lv<2> ap_const_lv2_0;
-    static const sc_lv<2> ap_const_lv2_1;
-    static const bool ap_const_boolean_1;
     // Thread declarations
     void thread_ap_var_for_const0();
-    void thread_ap_clk_no_reset_();
+    void thread_Block_proc_U0_ap_continue();
+    void thread_Block_proc_U0_ap_start();
+    void thread_Block_proc_U0_start_full_n();
+    void thread_Block_proc_U0_start_write();
     void thread_ap_done();
     void thread_ap_idle();
     void thread_ap_ready();
     void thread_ap_rst_n_inv();
     void thread_ap_sync_continue();
     void thread_ap_sync_done();
-    void thread_ap_sync_mem_read_U0_ap_ready();
-    void thread_ap_sync_mem_write_U0_ap_ready();
     void thread_ap_sync_ready();
     void thread_in_r_TREADY();
-    void thread_mem_read_U0_ap_continue();
-    void thread_mem_read_U0_ap_start();
-    void thread_mem_read_U0_start_full_n();
-    void thread_mem_read_U0_start_write();
-    void thread_mem_write_U0_ap_continue();
-    void thread_mem_write_U0_ap_start();
-    void thread_mem_write_U0_start_full_n();
-    void thread_mem_write_U0_start_write();
     void thread_out_r_TDATA();
     void thread_out_r_TDEST();
     void thread_out_r_TID();

@@ -40,7 +40,7 @@ void mem_write(AXI_STREAM& out_stream, int mask, data_t test_init_arr[TEST_ARR_S
 				axi.last = 0;
 			}
 
-			axi.data = (data_t) test_init_arr[j];
+			axi.data = ((data_t) test_init_arr[j])&mask;
 			axi.keep = -1;
 			out_stream << axi;
 		}
@@ -49,8 +49,6 @@ void mem_write(AXI_STREAM& out_stream, int mask, data_t test_init_arr[TEST_ARR_S
 
 void mem_hw(AXI_STREAM& out, AXI_STREAM& in, int rw, unsigned long mask, data_t test_init_arr[TEST_ARR_SIZE])
 {
-//#pragma HLS DEPENDENCE variable=out inter RAW false
-//#pragma HLS DEPENDENCE variable=in  inter WAR false
 	#pragma HLS DATAFLOW
 	#pragma HLS INTERFACE s_axilite port=return bundle=CONTROL_BUS
 	#pragma HLS INTERFACE s_axilite port=mask bundle=CONTROL_BUS
@@ -59,15 +57,15 @@ void mem_hw(AXI_STREAM& out, AXI_STREAM& in, int rw, unsigned long mask, data_t 
 	#pragma HLS INTERFACE axis port=out
 	#pragma HLS INTERFACE axis port=in
 
-	/*
-	if(ctrl&RUN)
+	if(rw&(READ|WRITE))
 	{
-		if(rw&READ)
-			mem_read(in);
-		if(rw&WRITE)
-			mem_write(out,mask,tmp);
+#pragma HLS DATAFLOW
+		mem_read(in);
+		mem_write(out,mask,test_init_arr);
 	}
-	*/
-	mem_read(in);
-	mem_write(out,mask,test_init_arr);
+	else if(rw&READ)
+		mem_read(in);
+	else if(rw&WRITE)
+		mem_write(out,mask,test_init_arr);
+
 }

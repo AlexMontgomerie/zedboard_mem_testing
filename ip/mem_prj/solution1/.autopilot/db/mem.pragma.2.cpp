@@ -47972,7 +47972,7 @@ _ssdm_op_SpecPipeline(1, 1, 1, 0, "");
     axi.last = 0;
    }
 
-   axi.data = (data_t) test_init_arr[j];
+   axi.data = ((data_t) test_init_arr[j])&mask;
    axi.keep = -1;
    out_stream << axi;
   }
@@ -47981,8 +47981,6 @@ _ssdm_op_SpecPipeline(1, 1, 1, 0, "");
 
 void mem_hw(AXI_STREAM& out, AXI_STREAM& in, int rw, unsigned long mask, data_t test_init_arr[256])
 {_ssdm_SpecArrayDimSize(test_init_arr,256);
-
-
 _ssdm_op_SpecDataflowPipeline(-1, "");
 _ssdm_op_SpecInterface(0, "s_axilite", 0, 0, "", 0, 0, "CONTROL_BUS", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(mask, "s_axilite", 0, 0, "", 0, 0, "CONTROL_BUS", "", "", 0, 0, 0, 0, "", "");
@@ -47990,9 +47988,18 @@ _ssdm_op_SpecInterface(rw, "s_axilite", 0, 0, "", 0, 0, "CONTROL_BUS", "", "", 0
 _ssdm_op_SpecInterface(test_init_arr, "s_axilite", 0, 0, "", 0, 0, "CONTROL_BUS", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(&out, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(&in, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
-# 71 "mem.cpp"
+
+ if(rw&(1|2))
+ {
+_ssdm_op_SpecDataflowPipeline(-1, "");
  mem_read(in);
- mem_write(out,mask,test_init_arr);
+  mem_write(out,mask,test_init_arr);
+ }
+ else if(rw&1)
+  mem_read(in);
+ else if(rw&2)
+  mem_write(out,mask,test_init_arr);
+
 }
 
 class ssdm_global_array_mempp0cppaplinecpp {

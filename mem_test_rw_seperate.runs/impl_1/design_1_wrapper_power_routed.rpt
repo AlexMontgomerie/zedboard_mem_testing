@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-| Date             : Tue May 29 16:08:29 2018
+| Date             : Mon Jun  4 11:58:48 2018
 | Host             : alex-HP-Compaq-Elite-8300-CMT running 64-bit Ubuntu 16.04.4 LTS
 | Command          : report_power -file design_1_wrapper_power_routed.rpt -pb design_1_wrapper_power_summary_routed.pb -rpx design_1_wrapper_power_routed.rpx
 | Design           : design_1_wrapper
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.826        |
+| Total On-Chip Power (W)  | 1.827        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.676        |
+| Dynamic (W)              | 1.677        |
 | Device Static (W)        | 0.150        |
 | Effective TJA (C/W)      | 11.5         |
 | Max Ambient (C)          | 63.9         |
@@ -52,20 +52,20 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.046 |        4 |       --- |             --- |
-| Slice Logic              |     0.008 |    60327 |       --- |             --- |
-|   LUT as Logic           |     0.006 |    18242 |     53200 |           34.29 |
-|   Register               |    <0.001 |    29660 |    106400 |           27.88 |
+| Clocks                   |     0.047 |        4 |       --- |             --- |
+| Slice Logic              |     0.008 |    61507 |       --- |             --- |
+|   LUT as Logic           |     0.006 |    18457 |     53200 |           34.69 |
+|   Register               |    <0.001 |    30520 |    106400 |           28.68 |
 |   CARRY4                 |    <0.001 |      798 |     13300 |            6.00 |
 |   LUT as Shift Register  |    <0.001 |     1984 |     17400 |           11.40 |
 |   LUT as Distributed RAM |    <0.001 |      448 |     17400 |            2.57 |
 |   F7/F8 Muxes            |    <0.001 |      647 |     53200 |            1.22 |
-|   Others                 |     0.000 |     3057 |       --- |             --- |
-| Signals                  |     0.014 |    43934 |       --- |             --- |
+|   Others                 |     0.000 |     3061 |       --- |             --- |
+| Signals                  |     0.014 |    45024 |       --- |             --- |
 | Block RAM                |     0.036 |       58 |       140 |           41.43 |
 | PS7                      |     1.572 |        1 |       --- |             --- |
 | Static Power             |     0.150 |          |           |                 |
-| Total                    |     1.826 |          |           |                 |
+| Total                    |     1.827 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -152,12 +152,12 @@ Table of Contents
 +------------------------------------------------------------------------------------+-----------+
 | Name                                                                               | Power (W) |
 +------------------------------------------------------------------------------------+-----------+
-| design_1_wrapper                                                                   |     1.676 |
+| design_1_wrapper                                                                   |     1.677 |
 |   dbg_hub                                                                          |     0.002 |
 |     inst                                                                           |     0.002 |
 |       BSCANID.u_xsdbm_id                                                           |     0.002 |
 |         CORE_XSDB.UUT_MASTER                                                       |     0.001 |
-|           U_ICON_INTERFACE                                                         |    <0.001 |
+|           U_ICON_INTERFACE                                                         |     0.001 |
 |             U_CMD1                                                                 |    <0.001 |
 |             U_CMD2                                                                 |    <0.001 |
 |             U_CMD3                                                                 |    <0.001 |
@@ -234,7 +234,7 @@ Table of Contents
 |           U_SYNC                                                                   |    <0.001 |
 |         SWITCH_N_EXT_BSCAN.bscan_inst                                              |    <0.001 |
 |         SWITCH_N_EXT_BSCAN.bscan_switch                                            |    <0.001 |
-|   design_1_i                                                                       |     1.674 |
+|   design_1_i                                                                       |     1.675 |
 |     axi_dma_0                                                                      |     0.005 |
 |       U0                                                                           |     0.005 |
 |         INCLUDE_MM2S_SOF_EOF_GENERATOR.I_MM2S_DMA_MNGR                             |    <0.001 |
@@ -955,7 +955,7 @@ Table of Contents
 |               wrouter_aw_fifo                                                      |    <0.001 |
 |                 gen_srls[0].gen_rep[0].srl_nx1                                     |    <0.001 |
 |             splitter_aw_mi                                                         |    <0.001 |
-|     axi_interconnect_1                                                             |     0.003 |
+|     axi_interconnect_1                                                             |     0.002 |
 |       s00_couplers                                                                 |     0.002 |
 |         auto_pc                                                                    |     0.002 |
 |           inst                                                                     |     0.002 |
@@ -1589,30 +1589,34 @@ Table of Contents
 |               wrouter_aw_fifo                                                      |    <0.001 |
 |                 gen_srls[0].gen_rep[0].srl_nx1                                     |    <0.001 |
 |             splitter_aw_mi                                                         |    <0.001 |
-|     mem_hw_0                                                                       |     0.006 |
-|       inst                                                                         |     0.006 |
+|     mem_hw_0                                                                       |     0.007 |
+|       inst                                                                         |     0.007 |
+|         Block_proc_U0                                                              |     0.001 |
+|           grp_mem_read_fu_97                                                       |    <0.001 |
+|           grp_mem_write_fu_76                                                      |    <0.001 |
 |         mem_hw_CONTROL_BUS_s_axi_U                                                 |     0.005 |
 |           int_test_init_arr_V                                                      |     0.005 |
-|         mem_read_U0                                                                |    <0.001 |
-|         mem_write_U0                                                               |    <0.001 |
-|     mem_hw_1                                                                       |     0.006 |
-|       inst                                                                         |     0.006 |
+|     mem_hw_1                                                                       |     0.007 |
+|       inst                                                                         |     0.007 |
+|         Block_proc_U0                                                              |     0.001 |
+|           grp_mem_read_fu_97                                                       |    <0.001 |
+|           grp_mem_write_fu_76                                                      |     0.001 |
 |         mem_hw_CONTROL_BUS_s_axi_U                                                 |     0.005 |
 |           int_test_init_arr_V                                                      |     0.005 |
-|         mem_read_U0                                                                |    <0.001 |
-|         mem_write_U0                                                               |    <0.001 |
-|     mem_hw_2                                                                       |     0.006 |
-|       inst                                                                         |     0.006 |
+|     mem_hw_2                                                                       |     0.007 |
+|       inst                                                                         |     0.007 |
+|         Block_proc_U0                                                              |     0.001 |
+|           grp_mem_read_fu_97                                                       |    <0.001 |
+|           grp_mem_write_fu_76                                                      |     0.001 |
 |         mem_hw_CONTROL_BUS_s_axi_U                                                 |     0.005 |
 |           int_test_init_arr_V                                                      |     0.005 |
-|         mem_read_U0                                                                |    <0.001 |
-|         mem_write_U0                                                               |    <0.001 |
-|     mem_hw_3                                                                       |     0.006 |
-|       inst                                                                         |     0.006 |
+|     mem_hw_3                                                                       |     0.007 |
+|       inst                                                                         |     0.007 |
+|         Block_proc_U0                                                              |     0.001 |
+|           grp_mem_read_fu_97                                                       |    <0.001 |
+|           grp_mem_write_fu_76                                                      |    <0.001 |
 |         mem_hw_CONTROL_BUS_s_axi_U                                                 |     0.005 |
 |           int_test_init_arr_V                                                      |     0.005 |
-|         mem_read_U0                                                                |    <0.001 |
-|         mem_write_U0                                                               |    <0.001 |
 |     processing_system7_0                                                           |     1.575 |
 |       inst                                                                         |     1.575 |
 |     rst_ps7_0_100M                                                                 |    <0.001 |

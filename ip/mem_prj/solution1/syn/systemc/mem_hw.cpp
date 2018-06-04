@@ -20,9 +20,6 @@ const sc_lv<64> mem_hw::ap_const_lv64_0 = "0000000000000000000000000000000000000
 const sc_lv<8> mem_hw::ap_const_lv8_0 = "00000000";
 const sc_lv<1> mem_hw::ap_const_lv1_0 = "0";
 const sc_logic mem_hw::ap_const_logic_0 = sc_dt::Log_0;
-const sc_lv<2> mem_hw::ap_const_lv2_0 = "00";
-const sc_lv<2> mem_hw::ap_const_lv2_1 = "1";
-const bool mem_hw::ap_const_boolean_1 = true;
 
 mem_hw::mem_hw(sc_module_name name) : sc_module(name), mVcdFile(0) {
     mem_hw_CONTROL_BUS_s_axi_U = new mem_hw_CONTROL_BUS_s_axi<C_S_AXI_CONTROL_BUS_ADDR_WIDTH,C_S_AXI_CONTROL_BUS_DATA_WIDTH>("mem_hw_CONTROL_BUS_s_axi_U");
@@ -53,60 +50,58 @@ mem_hw::mem_hw(sc_module_name name) : sc_module(name), mVcdFile(0) {
     mem_hw_CONTROL_BUS_s_axi_U->ap_idle(ap_idle);
     mem_hw_CONTROL_BUS_s_axi_U->rw(rw);
     mem_hw_CONTROL_BUS_s_axi_U->mask(mask);
-    mem_hw_CONTROL_BUS_s_axi_U->test_init_arr_V_address0(mem_write_U0_test_init_arr_V_address0);
-    mem_hw_CONTROL_BUS_s_axi_U->test_init_arr_V_ce0(mem_write_U0_test_init_arr_V_ce0);
+    mem_hw_CONTROL_BUS_s_axi_U->test_init_arr_V_address0(Block_proc_U0_test_init_arr_V_address0);
+    mem_hw_CONTROL_BUS_s_axi_U->test_init_arr_V_ce0(Block_proc_U0_test_init_arr_V_ce0);
     mem_hw_CONTROL_BUS_s_axi_U->test_init_arr_V_q0(test_init_arr_V_q0);
-    mem_read_U0 = new mem_read("mem_read_U0");
-    mem_read_U0->ap_clk(ap_clk);
-    mem_read_U0->ap_rst(ap_rst_n_inv);
-    mem_read_U0->ap_start(mem_read_U0_ap_start);
-    mem_read_U0->ap_done(mem_read_U0_ap_done);
-    mem_read_U0->ap_continue(mem_read_U0_ap_continue);
-    mem_read_U0->ap_idle(mem_read_U0_ap_idle);
-    mem_read_U0->ap_ready(mem_read_U0_ap_ready);
-    mem_read_U0->in_r_TDATA(in_r_TDATA);
-    mem_read_U0->in_r_TVALID(in_r_TVALID);
-    mem_read_U0->in_r_TREADY(mem_read_U0_in_r_TREADY);
-    mem_read_U0->in_r_TKEEP(in_r_TKEEP);
-    mem_read_U0->in_r_TSTRB(in_r_TSTRB);
-    mem_read_U0->in_r_TUSER(in_r_TUSER);
-    mem_read_U0->in_r_TLAST(in_r_TLAST);
-    mem_read_U0->in_r_TID(in_r_TID);
-    mem_read_U0->in_r_TDEST(in_r_TDEST);
-    mem_write_U0 = new mem_write("mem_write_U0");
-    mem_write_U0->ap_clk(ap_clk);
-    mem_write_U0->ap_rst(ap_rst_n_inv);
-    mem_write_U0->ap_start(mem_write_U0_ap_start);
-    mem_write_U0->ap_done(mem_write_U0_ap_done);
-    mem_write_U0->ap_continue(mem_write_U0_ap_continue);
-    mem_write_U0->ap_idle(mem_write_U0_ap_idle);
-    mem_write_U0->ap_ready(mem_write_U0_ap_ready);
-    mem_write_U0->out_r_TDATA(mem_write_U0_out_r_TDATA);
-    mem_write_U0->out_r_TVALID(mem_write_U0_out_r_TVALID);
-    mem_write_U0->out_r_TREADY(out_r_TREADY);
-    mem_write_U0->out_r_TKEEP(mem_write_U0_out_r_TKEEP);
-    mem_write_U0->out_r_TSTRB(mem_write_U0_out_r_TSTRB);
-    mem_write_U0->out_r_TUSER(mem_write_U0_out_r_TUSER);
-    mem_write_U0->out_r_TLAST(mem_write_U0_out_r_TLAST);
-    mem_write_U0->out_r_TID(mem_write_U0_out_r_TID);
-    mem_write_U0->out_r_TDEST(mem_write_U0_out_r_TDEST);
-    mem_write_U0->test_init_arr_V_address0(mem_write_U0_test_init_arr_V_address0);
-    mem_write_U0->test_init_arr_V_ce0(mem_write_U0_test_init_arr_V_ce0);
-    mem_write_U0->test_init_arr_V_q0(test_init_arr_V_q0);
+    Block_proc_U0 = new Block_proc("Block_proc_U0");
+    Block_proc_U0->ap_clk(ap_clk);
+    Block_proc_U0->ap_rst(ap_rst_n_inv);
+    Block_proc_U0->ap_start(Block_proc_U0_ap_start);
+    Block_proc_U0->ap_done(Block_proc_U0_ap_done);
+    Block_proc_U0->ap_continue(Block_proc_U0_ap_continue);
+    Block_proc_U0->ap_idle(Block_proc_U0_ap_idle);
+    Block_proc_U0->ap_ready(Block_proc_U0_ap_ready);
+    Block_proc_U0->rw(rw);
+    Block_proc_U0->in_r_TDATA(in_r_TDATA);
+    Block_proc_U0->in_r_TVALID(in_r_TVALID);
+    Block_proc_U0->in_r_TREADY(Block_proc_U0_in_r_TREADY);
+    Block_proc_U0->in_r_TKEEP(in_r_TKEEP);
+    Block_proc_U0->in_r_TSTRB(in_r_TSTRB);
+    Block_proc_U0->in_r_TUSER(in_r_TUSER);
+    Block_proc_U0->in_r_TLAST(in_r_TLAST);
+    Block_proc_U0->in_r_TID(in_r_TID);
+    Block_proc_U0->in_r_TDEST(in_r_TDEST);
+    Block_proc_U0->mask(mask);
+    Block_proc_U0->out_r_TDATA(Block_proc_U0_out_r_TDATA);
+    Block_proc_U0->out_r_TVALID(Block_proc_U0_out_r_TVALID);
+    Block_proc_U0->out_r_TREADY(out_r_TREADY);
+    Block_proc_U0->out_r_TKEEP(Block_proc_U0_out_r_TKEEP);
+    Block_proc_U0->out_r_TSTRB(Block_proc_U0_out_r_TSTRB);
+    Block_proc_U0->out_r_TUSER(Block_proc_U0_out_r_TUSER);
+    Block_proc_U0->out_r_TLAST(Block_proc_U0_out_r_TLAST);
+    Block_proc_U0->out_r_TID(Block_proc_U0_out_r_TID);
+    Block_proc_U0->out_r_TDEST(Block_proc_U0_out_r_TDEST);
+    Block_proc_U0->test_init_arr_V_address0(Block_proc_U0_test_init_arr_V_address0);
+    Block_proc_U0->test_init_arr_V_ce0(Block_proc_U0_test_init_arr_V_ce0);
+    Block_proc_U0->test_init_arr_V_q0(test_init_arr_V_q0);
 
-    SC_METHOD(thread_ap_clk_no_reset_);
-    dont_initialize();
-    sensitive << ( ap_clk.pos() );
+    SC_METHOD(thread_Block_proc_U0_ap_continue);
+
+    SC_METHOD(thread_Block_proc_U0_ap_start);
+    sensitive << ( ap_start );
+
+    SC_METHOD(thread_Block_proc_U0_start_full_n);
+
+    SC_METHOD(thread_Block_proc_U0_start_write);
 
     SC_METHOD(thread_ap_done);
-    sensitive << ( mem_write_U0_ap_done );
+    sensitive << ( Block_proc_U0_ap_done );
 
     SC_METHOD(thread_ap_idle);
-    sensitive << ( mem_read_U0_ap_idle );
-    sensitive << ( mem_write_U0_ap_idle );
+    sensitive << ( Block_proc_U0_ap_idle );
 
     SC_METHOD(thread_ap_ready);
-    sensitive << ( ap_sync_ready );
+    sensitive << ( Block_proc_U0_ap_ready );
 
     SC_METHOD(thread_ap_rst_n_inv);
     sensitive << ( ap_rst_n );
@@ -114,76 +109,43 @@ mem_hw::mem_hw(sc_module_name name) : sc_module(name), mVcdFile(0) {
     SC_METHOD(thread_ap_sync_continue);
 
     SC_METHOD(thread_ap_sync_done);
-    sensitive << ( mem_write_U0_ap_done );
-
-    SC_METHOD(thread_ap_sync_mem_read_U0_ap_ready);
-    sensitive << ( mem_read_U0_ap_ready );
-    sensitive << ( ap_sync_reg_mem_read_U0_ap_ready );
-
-    SC_METHOD(thread_ap_sync_mem_write_U0_ap_ready);
-    sensitive << ( mem_write_U0_ap_ready );
-    sensitive << ( ap_sync_reg_mem_write_U0_ap_ready );
+    sensitive << ( Block_proc_U0_ap_done );
 
     SC_METHOD(thread_ap_sync_ready);
-    sensitive << ( ap_sync_mem_read_U0_ap_ready );
-    sensitive << ( ap_sync_mem_write_U0_ap_ready );
+    sensitive << ( Block_proc_U0_ap_ready );
 
     SC_METHOD(thread_in_r_TREADY);
-    sensitive << ( mem_read_U0_in_r_TREADY );
-
-    SC_METHOD(thread_mem_read_U0_ap_continue);
-
-    SC_METHOD(thread_mem_read_U0_ap_start);
-    sensitive << ( ap_start );
-    sensitive << ( ap_sync_reg_mem_read_U0_ap_ready );
-
-    SC_METHOD(thread_mem_read_U0_start_full_n);
-
-    SC_METHOD(thread_mem_read_U0_start_write);
-
-    SC_METHOD(thread_mem_write_U0_ap_continue);
-
-    SC_METHOD(thread_mem_write_U0_ap_start);
-    sensitive << ( ap_start );
-    sensitive << ( ap_sync_reg_mem_write_U0_ap_ready );
-
-    SC_METHOD(thread_mem_write_U0_start_full_n);
-
-    SC_METHOD(thread_mem_write_U0_start_write);
+    sensitive << ( Block_proc_U0_in_r_TREADY );
 
     SC_METHOD(thread_out_r_TDATA);
-    sensitive << ( mem_write_U0_out_r_TDATA );
+    sensitive << ( Block_proc_U0_out_r_TDATA );
 
     SC_METHOD(thread_out_r_TDEST);
-    sensitive << ( mem_write_U0_out_r_TDEST );
+    sensitive << ( Block_proc_U0_out_r_TDEST );
 
     SC_METHOD(thread_out_r_TID);
-    sensitive << ( mem_write_U0_out_r_TID );
+    sensitive << ( Block_proc_U0_out_r_TID );
 
     SC_METHOD(thread_out_r_TKEEP);
-    sensitive << ( mem_write_U0_out_r_TKEEP );
+    sensitive << ( Block_proc_U0_out_r_TKEEP );
 
     SC_METHOD(thread_out_r_TLAST);
-    sensitive << ( mem_write_U0_out_r_TLAST );
+    sensitive << ( Block_proc_U0_out_r_TLAST );
 
     SC_METHOD(thread_out_r_TSTRB);
-    sensitive << ( mem_write_U0_out_r_TSTRB );
+    sensitive << ( Block_proc_U0_out_r_TSTRB );
 
     SC_METHOD(thread_out_r_TUSER);
-    sensitive << ( mem_write_U0_out_r_TUSER );
+    sensitive << ( Block_proc_U0_out_r_TUSER );
 
     SC_METHOD(thread_out_r_TVALID);
-    sensitive << ( mem_write_U0_out_r_TVALID );
+    sensitive << ( Block_proc_U0_out_r_TVALID );
 
     SC_THREAD(thread_hdltv_gen);
     sensitive << ( ap_clk.pos() );
 
     SC_THREAD(thread_ap_var_for_const0);
 
-    ap_sync_reg_mem_read_U0_ap_ready = SC_LOGIC_0;
-    mem_read_U0_ap_ready_count = "00";
-    ap_sync_reg_mem_write_U0_ap_ready = SC_LOGIC_0;
-    mem_write_U0_ap_ready_count = "00";
     static int apTFileNum = 0;
     stringstream apTFilenSS;
     apTFilenSS << "mem_hw_sc_trace_" << apTFileNum ++;
@@ -240,40 +202,27 @@ mem_hw::mem_hw(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sc_trace(mVcdFile, rw, "rw");
     sc_trace(mVcdFile, mask, "mask");
     sc_trace(mVcdFile, test_init_arr_V_q0, "test_init_arr_V_q0");
-    sc_trace(mVcdFile, mem_read_U0_ap_start, "mem_read_U0_ap_start");
-    sc_trace(mVcdFile, mem_read_U0_ap_done, "mem_read_U0_ap_done");
-    sc_trace(mVcdFile, mem_read_U0_ap_continue, "mem_read_U0_ap_continue");
-    sc_trace(mVcdFile, mem_read_U0_ap_idle, "mem_read_U0_ap_idle");
-    sc_trace(mVcdFile, mem_read_U0_ap_ready, "mem_read_U0_ap_ready");
-    sc_trace(mVcdFile, mem_read_U0_in_r_TREADY, "mem_read_U0_in_r_TREADY");
-    sc_trace(mVcdFile, mem_write_U0_ap_start, "mem_write_U0_ap_start");
-    sc_trace(mVcdFile, mem_write_U0_ap_done, "mem_write_U0_ap_done");
-    sc_trace(mVcdFile, mem_write_U0_ap_continue, "mem_write_U0_ap_continue");
-    sc_trace(mVcdFile, mem_write_U0_ap_idle, "mem_write_U0_ap_idle");
-    sc_trace(mVcdFile, mem_write_U0_ap_ready, "mem_write_U0_ap_ready");
-    sc_trace(mVcdFile, mem_write_U0_out_r_TDATA, "mem_write_U0_out_r_TDATA");
-    sc_trace(mVcdFile, mem_write_U0_out_r_TVALID, "mem_write_U0_out_r_TVALID");
-    sc_trace(mVcdFile, mem_write_U0_out_r_TKEEP, "mem_write_U0_out_r_TKEEP");
-    sc_trace(mVcdFile, mem_write_U0_out_r_TSTRB, "mem_write_U0_out_r_TSTRB");
-    sc_trace(mVcdFile, mem_write_U0_out_r_TUSER, "mem_write_U0_out_r_TUSER");
-    sc_trace(mVcdFile, mem_write_U0_out_r_TLAST, "mem_write_U0_out_r_TLAST");
-    sc_trace(mVcdFile, mem_write_U0_out_r_TID, "mem_write_U0_out_r_TID");
-    sc_trace(mVcdFile, mem_write_U0_out_r_TDEST, "mem_write_U0_out_r_TDEST");
-    sc_trace(mVcdFile, mem_write_U0_test_init_arr_V_address0, "mem_write_U0_test_init_arr_V_address0");
-    sc_trace(mVcdFile, mem_write_U0_test_init_arr_V_ce0, "mem_write_U0_test_init_arr_V_ce0");
+    sc_trace(mVcdFile, Block_proc_U0_ap_start, "Block_proc_U0_ap_start");
+    sc_trace(mVcdFile, Block_proc_U0_ap_done, "Block_proc_U0_ap_done");
+    sc_trace(mVcdFile, Block_proc_U0_ap_continue, "Block_proc_U0_ap_continue");
+    sc_trace(mVcdFile, Block_proc_U0_ap_idle, "Block_proc_U0_ap_idle");
+    sc_trace(mVcdFile, Block_proc_U0_ap_ready, "Block_proc_U0_ap_ready");
+    sc_trace(mVcdFile, Block_proc_U0_in_r_TREADY, "Block_proc_U0_in_r_TREADY");
+    sc_trace(mVcdFile, Block_proc_U0_out_r_TDATA, "Block_proc_U0_out_r_TDATA");
+    sc_trace(mVcdFile, Block_proc_U0_out_r_TVALID, "Block_proc_U0_out_r_TVALID");
+    sc_trace(mVcdFile, Block_proc_U0_out_r_TKEEP, "Block_proc_U0_out_r_TKEEP");
+    sc_trace(mVcdFile, Block_proc_U0_out_r_TSTRB, "Block_proc_U0_out_r_TSTRB");
+    sc_trace(mVcdFile, Block_proc_U0_out_r_TUSER, "Block_proc_U0_out_r_TUSER");
+    sc_trace(mVcdFile, Block_proc_U0_out_r_TLAST, "Block_proc_U0_out_r_TLAST");
+    sc_trace(mVcdFile, Block_proc_U0_out_r_TID, "Block_proc_U0_out_r_TID");
+    sc_trace(mVcdFile, Block_proc_U0_out_r_TDEST, "Block_proc_U0_out_r_TDEST");
+    sc_trace(mVcdFile, Block_proc_U0_test_init_arr_V_address0, "Block_proc_U0_test_init_arr_V_address0");
+    sc_trace(mVcdFile, Block_proc_U0_test_init_arr_V_ce0, "Block_proc_U0_test_init_arr_V_ce0");
     sc_trace(mVcdFile, ap_sync_continue, "ap_sync_continue");
     sc_trace(mVcdFile, ap_sync_done, "ap_sync_done");
     sc_trace(mVcdFile, ap_sync_ready, "ap_sync_ready");
-    sc_trace(mVcdFile, ap_sync_reg_mem_read_U0_ap_ready, "ap_sync_reg_mem_read_U0_ap_ready");
-    sc_trace(mVcdFile, ap_sync_mem_read_U0_ap_ready, "ap_sync_mem_read_U0_ap_ready");
-    sc_trace(mVcdFile, mem_read_U0_ap_ready_count, "mem_read_U0_ap_ready_count");
-    sc_trace(mVcdFile, ap_sync_reg_mem_write_U0_ap_ready, "ap_sync_reg_mem_write_U0_ap_ready");
-    sc_trace(mVcdFile, ap_sync_mem_write_U0_ap_ready, "ap_sync_mem_write_U0_ap_ready");
-    sc_trace(mVcdFile, mem_write_U0_ap_ready_count, "mem_write_U0_ap_ready_count");
-    sc_trace(mVcdFile, mem_read_U0_start_full_n, "mem_read_U0_start_full_n");
-    sc_trace(mVcdFile, mem_read_U0_start_write, "mem_read_U0_start_write");
-    sc_trace(mVcdFile, mem_write_U0_start_full_n, "mem_write_U0_start_full_n");
-    sc_trace(mVcdFile, mem_write_U0_start_write, "mem_write_U0_start_write");
+    sc_trace(mVcdFile, Block_proc_U0_start_full_n, "Block_proc_U0_start_full_n");
+    sc_trace(mVcdFile, Block_proc_U0_start_write, "Block_proc_U0_start_write");
 #endif
 
     }
@@ -290,61 +239,39 @@ mem_hw::~mem_hw() {
     mHdltvinHandle.close();
     mHdltvoutHandle.close();
     delete mem_hw_CONTROL_BUS_s_axi_U;
-    delete mem_read_U0;
-    delete mem_write_U0;
+    delete Block_proc_U0;
 }
 
 void mem_hw::thread_ap_var_for_const0() {
     ap_var_for_const0 = ap_const_logic_1;
 }
 
-void mem_hw::thread_ap_clk_no_reset_() {
-    if ( ap_rst_n_inv.read() == ap_const_logic_1) {
-        ap_sync_reg_mem_read_U0_ap_ready = ap_const_logic_0;
-    } else {
-        if (esl_seteq<1,1,1>(ap_const_logic_1, (ap_start.read() & 
-             ap_sync_ready.read()))) {
-            ap_sync_reg_mem_read_U0_ap_ready = ap_const_logic_0;
-        } else {
-            ap_sync_reg_mem_read_U0_ap_ready = ap_sync_mem_read_U0_ap_ready.read();
-        }
-    }
-    if ( ap_rst_n_inv.read() == ap_const_logic_1) {
-        ap_sync_reg_mem_write_U0_ap_ready = ap_const_logic_0;
-    } else {
-        if (esl_seteq<1,1,1>(ap_const_logic_1, (ap_start.read() & 
-             ap_sync_ready.read()))) {
-            ap_sync_reg_mem_write_U0_ap_ready = ap_const_logic_0;
-        } else {
-            ap_sync_reg_mem_write_U0_ap_ready = ap_sync_mem_write_U0_ap_ready.read();
-        }
-    }
-    if ((esl_seteq<1,1,1>(mem_read_U0_ap_ready.read(), ap_const_logic_0) && 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_sync_ready.read()))) {
-        mem_read_U0_ap_ready_count = (!mem_read_U0_ap_ready_count.read().is_01() || !ap_const_lv2_1.is_01())? sc_lv<2>(): (sc_biguint<2>(mem_read_U0_ap_ready_count.read()) - sc_biguint<2>(ap_const_lv2_1));
-    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, mem_read_U0_ap_ready.read()) && 
-                esl_seteq<1,1,1>(ap_sync_ready.read(), ap_const_logic_0))) {
-        mem_read_U0_ap_ready_count = (!mem_read_U0_ap_ready_count.read().is_01() || !ap_const_lv2_1.is_01())? sc_lv<2>(): (sc_biguint<2>(mem_read_U0_ap_ready_count.read()) + sc_biguint<2>(ap_const_lv2_1));
-    }
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sync_ready.read()) && 
-         esl_seteq<1,1,1>(mem_write_U0_ap_ready.read(), ap_const_logic_0))) {
-        mem_write_U0_ap_ready_count = (!mem_write_U0_ap_ready_count.read().is_01() || !ap_const_lv2_1.is_01())? sc_lv<2>(): (sc_biguint<2>(mem_write_U0_ap_ready_count.read()) - sc_biguint<2>(ap_const_lv2_1));
-    } else if ((esl_seteq<1,1,1>(ap_sync_ready.read(), ap_const_logic_0) && 
-                esl_seteq<1,1,1>(ap_const_logic_1, mem_write_U0_ap_ready.read()))) {
-        mem_write_U0_ap_ready_count = (!mem_write_U0_ap_ready_count.read().is_01() || !ap_const_lv2_1.is_01())? sc_lv<2>(): (sc_biguint<2>(mem_write_U0_ap_ready_count.read()) + sc_biguint<2>(ap_const_lv2_1));
-    }
+void mem_hw::thread_Block_proc_U0_ap_continue() {
+    Block_proc_U0_ap_continue = ap_const_logic_1;
+}
+
+void mem_hw::thread_Block_proc_U0_ap_start() {
+    Block_proc_U0_ap_start = ap_start.read();
+}
+
+void mem_hw::thread_Block_proc_U0_start_full_n() {
+    Block_proc_U0_start_full_n = ap_const_logic_1;
+}
+
+void mem_hw::thread_Block_proc_U0_start_write() {
+    Block_proc_U0_start_write = ap_const_logic_0;
 }
 
 void mem_hw::thread_ap_done() {
-    ap_done = mem_write_U0_ap_done.read();
+    ap_done = Block_proc_U0_ap_done.read();
 }
 
 void mem_hw::thread_ap_idle() {
-    ap_idle = (mem_read_U0_ap_idle.read() & mem_write_U0_ap_idle.read());
+    ap_idle = Block_proc_U0_ap_idle.read();
 }
 
 void mem_hw::thread_ap_ready() {
-    ap_ready = ap_sync_ready.read();
+    ap_ready = Block_proc_U0_ap_ready.read();
 }
 
 void mem_hw::thread_ap_rst_n_inv() {
@@ -356,89 +283,47 @@ void mem_hw::thread_ap_sync_continue() {
 }
 
 void mem_hw::thread_ap_sync_done() {
-    ap_sync_done = mem_write_U0_ap_done.read();
-}
-
-void mem_hw::thread_ap_sync_mem_read_U0_ap_ready() {
-    ap_sync_mem_read_U0_ap_ready = (mem_read_U0_ap_ready.read() | ap_sync_reg_mem_read_U0_ap_ready.read());
-}
-
-void mem_hw::thread_ap_sync_mem_write_U0_ap_ready() {
-    ap_sync_mem_write_U0_ap_ready = (mem_write_U0_ap_ready.read() | ap_sync_reg_mem_write_U0_ap_ready.read());
+    ap_sync_done = Block_proc_U0_ap_done.read();
 }
 
 void mem_hw::thread_ap_sync_ready() {
-    ap_sync_ready = (ap_sync_mem_read_U0_ap_ready.read() & ap_sync_mem_write_U0_ap_ready.read());
+    ap_sync_ready = Block_proc_U0_ap_ready.read();
 }
 
 void mem_hw::thread_in_r_TREADY() {
-    in_r_TREADY = mem_read_U0_in_r_TREADY.read();
-}
-
-void mem_hw::thread_mem_read_U0_ap_continue() {
-    mem_read_U0_ap_continue = ap_const_logic_1;
-}
-
-void mem_hw::thread_mem_read_U0_ap_start() {
-    mem_read_U0_ap_start = (ap_start.read() & (ap_sync_reg_mem_read_U0_ap_ready.read() ^ 
-  ap_const_logic_1));
-}
-
-void mem_hw::thread_mem_read_U0_start_full_n() {
-    mem_read_U0_start_full_n = ap_const_logic_1;
-}
-
-void mem_hw::thread_mem_read_U0_start_write() {
-    mem_read_U0_start_write = ap_const_logic_0;
-}
-
-void mem_hw::thread_mem_write_U0_ap_continue() {
-    mem_write_U0_ap_continue = ap_const_logic_1;
-}
-
-void mem_hw::thread_mem_write_U0_ap_start() {
-    mem_write_U0_ap_start = (ap_start.read() & (ap_sync_reg_mem_write_U0_ap_ready.read() ^ 
-  ap_const_logic_1));
-}
-
-void mem_hw::thread_mem_write_U0_start_full_n() {
-    mem_write_U0_start_full_n = ap_const_logic_1;
-}
-
-void mem_hw::thread_mem_write_U0_start_write() {
-    mem_write_U0_start_write = ap_const_logic_0;
+    in_r_TREADY = Block_proc_U0_in_r_TREADY.read();
 }
 
 void mem_hw::thread_out_r_TDATA() {
-    out_r_TDATA = mem_write_U0_out_r_TDATA.read();
+    out_r_TDATA = Block_proc_U0_out_r_TDATA.read();
 }
 
 void mem_hw::thread_out_r_TDEST() {
-    out_r_TDEST = mem_write_U0_out_r_TDEST.read();
+    out_r_TDEST = Block_proc_U0_out_r_TDEST.read();
 }
 
 void mem_hw::thread_out_r_TID() {
-    out_r_TID = mem_write_U0_out_r_TID.read();
+    out_r_TID = Block_proc_U0_out_r_TID.read();
 }
 
 void mem_hw::thread_out_r_TKEEP() {
-    out_r_TKEEP = mem_write_U0_out_r_TKEEP.read();
+    out_r_TKEEP = Block_proc_U0_out_r_TKEEP.read();
 }
 
 void mem_hw::thread_out_r_TLAST() {
-    out_r_TLAST = mem_write_U0_out_r_TLAST.read();
+    out_r_TLAST = Block_proc_U0_out_r_TLAST.read();
 }
 
 void mem_hw::thread_out_r_TSTRB() {
-    out_r_TSTRB = mem_write_U0_out_r_TSTRB.read();
+    out_r_TSTRB = Block_proc_U0_out_r_TSTRB.read();
 }
 
 void mem_hw::thread_out_r_TUSER() {
-    out_r_TUSER = mem_write_U0_out_r_TUSER.read();
+    out_r_TUSER = Block_proc_U0_out_r_TUSER.read();
 }
 
 void mem_hw::thread_out_r_TVALID() {
-    out_r_TVALID = mem_write_U0_out_r_TVALID.read();
+    out_r_TVALID = Block_proc_U0_out_r_TVALID.read();
 }
 
 void mem_hw::thread_hdltv_gen() {

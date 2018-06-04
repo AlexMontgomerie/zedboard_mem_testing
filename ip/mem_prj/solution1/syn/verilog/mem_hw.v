@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="mem_hw,hls_ip_2017_4,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7z020clg484-1,HLS_INPUT_CLOCK=800.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=8.001750,HLS_SYN_LAT=1048323,HLS_SYN_TPT=1048324,HLS_SYN_MEM=4,HLS_SYN_DSP=0,HLS_SYN_FF=464,HLS_SYN_LUT=1052}" *)
+(* CORE_GENERATION_INFO="mem_hw,hls_ip_2017_4,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7z020clg484-1,HLS_INPUT_CLOCK=800.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=8.001750,HLS_SYN_LAT=524164,HLS_SYN_TPT=524165,HLS_SYN_MEM=4,HLS_SYN_DSP=0,HLS_SYN_FF=942,HLS_SYN_LUT=1655}" *)
 
 module mem_hw (
         s_axi_CONTROL_BUS_AWVALID,
@@ -105,48 +105,27 @@ wire    ap_idle;
 wire   [31:0] rw;
 wire   [63:0] mask;
 wire   [63:0] test_init_arr_V_q0;
-wire    mem_read_U0_ap_start;
-wire    mem_read_U0_ap_done;
-wire    mem_read_U0_ap_continue;
-wire    mem_read_U0_ap_idle;
-wire    mem_read_U0_ap_ready;
-wire    mem_read_U0_in_r_TREADY;
-wire    mem_write_U0_ap_start;
-wire    mem_write_U0_ap_done;
-wire    mem_write_U0_ap_continue;
-wire    mem_write_U0_ap_idle;
-wire    mem_write_U0_ap_ready;
-wire   [63:0] mem_write_U0_out_r_TDATA;
-wire    mem_write_U0_out_r_TVALID;
-wire   [7:0] mem_write_U0_out_r_TKEEP;
-wire   [7:0] mem_write_U0_out_r_TSTRB;
-wire   [0:0] mem_write_U0_out_r_TUSER;
-wire   [0:0] mem_write_U0_out_r_TLAST;
-wire   [0:0] mem_write_U0_out_r_TID;
-wire   [0:0] mem_write_U0_out_r_TDEST;
-wire   [7:0] mem_write_U0_test_init_arr_V_address0;
-wire    mem_write_U0_test_init_arr_V_ce0;
+wire    Block_proc_U0_ap_start;
+wire    Block_proc_U0_ap_done;
+wire    Block_proc_U0_ap_continue;
+wire    Block_proc_U0_ap_idle;
+wire    Block_proc_U0_ap_ready;
+wire    Block_proc_U0_in_r_TREADY;
+wire   [63:0] Block_proc_U0_out_r_TDATA;
+wire    Block_proc_U0_out_r_TVALID;
+wire   [7:0] Block_proc_U0_out_r_TKEEP;
+wire   [7:0] Block_proc_U0_out_r_TSTRB;
+wire   [0:0] Block_proc_U0_out_r_TUSER;
+wire   [0:0] Block_proc_U0_out_r_TLAST;
+wire   [0:0] Block_proc_U0_out_r_TID;
+wire   [0:0] Block_proc_U0_out_r_TDEST;
+wire   [7:0] Block_proc_U0_test_init_arr_V_address0;
+wire    Block_proc_U0_test_init_arr_V_ce0;
 wire    ap_sync_continue;
 wire    ap_sync_done;
 wire    ap_sync_ready;
-reg    ap_sync_reg_mem_read_U0_ap_ready;
-wire    ap_sync_mem_read_U0_ap_ready;
-reg   [1:0] mem_read_U0_ap_ready_count;
-reg    ap_sync_reg_mem_write_U0_ap_ready;
-wire    ap_sync_mem_write_U0_ap_ready;
-reg   [1:0] mem_write_U0_ap_ready_count;
-wire    mem_read_U0_start_full_n;
-wire    mem_read_U0_start_write;
-wire    mem_write_U0_start_full_n;
-wire    mem_write_U0_start_write;
-
-// power-on initialization
-initial begin
-#0 ap_sync_reg_mem_read_U0_ap_ready = 1'b0;
-#0 mem_read_U0_ap_ready_count = 2'd0;
-#0 ap_sync_reg_mem_write_U0_ap_ready = 1'b0;
-#0 mem_write_U0_ap_ready_count = 2'd0;
-end
+wire    Block_proc_U0_start_full_n;
+wire    Block_proc_U0_start_write;
 
 mem_hw_CONTROL_BUS_s_axi #(
     .C_S_AXI_ADDR_WIDTH( C_S_AXI_CONTROL_BUS_ADDR_WIDTH ),
@@ -179,97 +158,57 @@ mem_hw_CONTROL_BUS_s_axi_U(
     .ap_idle(ap_idle),
     .rw(rw),
     .mask(mask),
-    .test_init_arr_V_address0(mem_write_U0_test_init_arr_V_address0),
-    .test_init_arr_V_ce0(mem_write_U0_test_init_arr_V_ce0),
+    .test_init_arr_V_address0(Block_proc_U0_test_init_arr_V_address0),
+    .test_init_arr_V_ce0(Block_proc_U0_test_init_arr_V_ce0),
     .test_init_arr_V_q0(test_init_arr_V_q0)
 );
 
-mem_read mem_read_U0(
+Block_proc Block_proc_U0(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
-    .ap_start(mem_read_U0_ap_start),
-    .ap_done(mem_read_U0_ap_done),
-    .ap_continue(mem_read_U0_ap_continue),
-    .ap_idle(mem_read_U0_ap_idle),
-    .ap_ready(mem_read_U0_ap_ready),
+    .ap_start(Block_proc_U0_ap_start),
+    .ap_done(Block_proc_U0_ap_done),
+    .ap_continue(Block_proc_U0_ap_continue),
+    .ap_idle(Block_proc_U0_ap_idle),
+    .ap_ready(Block_proc_U0_ap_ready),
+    .rw(rw),
     .in_r_TDATA(in_r_TDATA),
     .in_r_TVALID(in_r_TVALID),
-    .in_r_TREADY(mem_read_U0_in_r_TREADY),
+    .in_r_TREADY(Block_proc_U0_in_r_TREADY),
     .in_r_TKEEP(in_r_TKEEP),
     .in_r_TSTRB(in_r_TSTRB),
     .in_r_TUSER(in_r_TUSER),
     .in_r_TLAST(in_r_TLAST),
     .in_r_TID(in_r_TID),
-    .in_r_TDEST(in_r_TDEST)
-);
-
-mem_write mem_write_U0(
-    .ap_clk(ap_clk),
-    .ap_rst(ap_rst_n_inv),
-    .ap_start(mem_write_U0_ap_start),
-    .ap_done(mem_write_U0_ap_done),
-    .ap_continue(mem_write_U0_ap_continue),
-    .ap_idle(mem_write_U0_ap_idle),
-    .ap_ready(mem_write_U0_ap_ready),
-    .out_r_TDATA(mem_write_U0_out_r_TDATA),
-    .out_r_TVALID(mem_write_U0_out_r_TVALID),
+    .in_r_TDEST(in_r_TDEST),
+    .mask(mask),
+    .out_r_TDATA(Block_proc_U0_out_r_TDATA),
+    .out_r_TVALID(Block_proc_U0_out_r_TVALID),
     .out_r_TREADY(out_r_TREADY),
-    .out_r_TKEEP(mem_write_U0_out_r_TKEEP),
-    .out_r_TSTRB(mem_write_U0_out_r_TSTRB),
-    .out_r_TUSER(mem_write_U0_out_r_TUSER),
-    .out_r_TLAST(mem_write_U0_out_r_TLAST),
-    .out_r_TID(mem_write_U0_out_r_TID),
-    .out_r_TDEST(mem_write_U0_out_r_TDEST),
-    .test_init_arr_V_address0(mem_write_U0_test_init_arr_V_address0),
-    .test_init_arr_V_ce0(mem_write_U0_test_init_arr_V_ce0),
+    .out_r_TKEEP(Block_proc_U0_out_r_TKEEP),
+    .out_r_TSTRB(Block_proc_U0_out_r_TSTRB),
+    .out_r_TUSER(Block_proc_U0_out_r_TUSER),
+    .out_r_TLAST(Block_proc_U0_out_r_TLAST),
+    .out_r_TID(Block_proc_U0_out_r_TID),
+    .out_r_TDEST(Block_proc_U0_out_r_TDEST),
+    .test_init_arr_V_address0(Block_proc_U0_test_init_arr_V_address0),
+    .test_init_arr_V_ce0(Block_proc_U0_test_init_arr_V_ce0),
     .test_init_arr_V_q0(test_init_arr_V_q0)
 );
 
-always @ (posedge ap_clk) begin
-    if (ap_rst_n_inv == 1'b1) begin
-        ap_sync_reg_mem_read_U0_ap_ready <= 1'b0;
-    end else begin
-        if (((ap_sync_ready & ap_start) == 1'b1)) begin
-            ap_sync_reg_mem_read_U0_ap_ready <= 1'b0;
-        end else begin
-            ap_sync_reg_mem_read_U0_ap_ready <= ap_sync_mem_read_U0_ap_ready;
-        end
-    end
-end
+assign Block_proc_U0_ap_continue = 1'b1;
 
-always @ (posedge ap_clk) begin
-    if (ap_rst_n_inv == 1'b1) begin
-        ap_sync_reg_mem_write_U0_ap_ready <= 1'b0;
-    end else begin
-        if (((ap_sync_ready & ap_start) == 1'b1)) begin
-            ap_sync_reg_mem_write_U0_ap_ready <= 1'b0;
-        end else begin
-            ap_sync_reg_mem_write_U0_ap_ready <= ap_sync_mem_write_U0_ap_ready;
-        end
-    end
-end
+assign Block_proc_U0_ap_start = ap_start;
 
-always @ (posedge ap_clk) begin
-    if (((mem_read_U0_ap_ready == 1'b0) & (ap_sync_ready == 1'b1))) begin
-        mem_read_U0_ap_ready_count <= (mem_read_U0_ap_ready_count - 2'd1);
-    end else if (((mem_read_U0_ap_ready == 1'b1) & (ap_sync_ready == 1'b0))) begin
-        mem_read_U0_ap_ready_count <= (mem_read_U0_ap_ready_count + 2'd1);
-    end
-end
+assign Block_proc_U0_start_full_n = 1'b1;
 
-always @ (posedge ap_clk) begin
-    if (((mem_write_U0_ap_ready == 1'b0) & (ap_sync_ready == 1'b1))) begin
-        mem_write_U0_ap_ready_count <= (mem_write_U0_ap_ready_count - 2'd1);
-    end else if (((mem_write_U0_ap_ready == 1'b1) & (ap_sync_ready == 1'b0))) begin
-        mem_write_U0_ap_ready_count <= (mem_write_U0_ap_ready_count + 2'd1);
-    end
-end
+assign Block_proc_U0_start_write = 1'b0;
 
-assign ap_done = mem_write_U0_ap_done;
+assign ap_done = Block_proc_U0_ap_done;
 
-assign ap_idle = (mem_write_U0_ap_idle & mem_read_U0_ap_idle);
+assign ap_idle = Block_proc_U0_ap_idle;
 
-assign ap_ready = ap_sync_ready;
+assign ap_ready = Block_proc_U0_ap_ready;
 
 always @ (*) begin
     ap_rst_n_inv = ~ap_rst_n;
@@ -277,46 +216,26 @@ end
 
 assign ap_sync_continue = 1'b1;
 
-assign ap_sync_done = mem_write_U0_ap_done;
+assign ap_sync_done = Block_proc_U0_ap_done;
 
-assign ap_sync_mem_read_U0_ap_ready = (mem_read_U0_ap_ready | ap_sync_reg_mem_read_U0_ap_ready);
+assign ap_sync_ready = Block_proc_U0_ap_ready;
 
-assign ap_sync_mem_write_U0_ap_ready = (mem_write_U0_ap_ready | ap_sync_reg_mem_write_U0_ap_ready);
+assign in_r_TREADY = Block_proc_U0_in_r_TREADY;
 
-assign ap_sync_ready = (ap_sync_mem_write_U0_ap_ready & ap_sync_mem_read_U0_ap_ready);
+assign out_r_TDATA = Block_proc_U0_out_r_TDATA;
 
-assign in_r_TREADY = mem_read_U0_in_r_TREADY;
+assign out_r_TDEST = Block_proc_U0_out_r_TDEST;
 
-assign mem_read_U0_ap_continue = 1'b1;
+assign out_r_TID = Block_proc_U0_out_r_TID;
 
-assign mem_read_U0_ap_start = ((ap_sync_reg_mem_read_U0_ap_ready ^ 1'b1) & ap_start);
+assign out_r_TKEEP = Block_proc_U0_out_r_TKEEP;
 
-assign mem_read_U0_start_full_n = 1'b1;
+assign out_r_TLAST = Block_proc_U0_out_r_TLAST;
 
-assign mem_read_U0_start_write = 1'b0;
+assign out_r_TSTRB = Block_proc_U0_out_r_TSTRB;
 
-assign mem_write_U0_ap_continue = 1'b1;
+assign out_r_TUSER = Block_proc_U0_out_r_TUSER;
 
-assign mem_write_U0_ap_start = ((ap_sync_reg_mem_write_U0_ap_ready ^ 1'b1) & ap_start);
-
-assign mem_write_U0_start_full_n = 1'b1;
-
-assign mem_write_U0_start_write = 1'b0;
-
-assign out_r_TDATA = mem_write_U0_out_r_TDATA;
-
-assign out_r_TDEST = mem_write_U0_out_r_TDEST;
-
-assign out_r_TID = mem_write_U0_out_r_TID;
-
-assign out_r_TKEEP = mem_write_U0_out_r_TKEEP;
-
-assign out_r_TLAST = mem_write_U0_out_r_TLAST;
-
-assign out_r_TSTRB = mem_write_U0_out_r_TSTRB;
-
-assign out_r_TUSER = mem_write_U0_out_r_TUSER;
-
-assign out_r_TVALID = mem_write_U0_out_r_TVALID;
+assign out_r_TVALID = Block_proc_U0_out_r_TVALID;
 
 endmodule //mem_hw

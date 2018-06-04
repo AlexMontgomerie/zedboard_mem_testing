@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'mem_hw'
 ================================================================
-* Date:           Fri May 25 15:18:24 2018
+* Date:           Mon Jun  4 11:41:29 2018
 
 * Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
 * Project:        mem_prj
@@ -25,22 +25,21 @@
 
 + Latency (clock cycles): 
     * Summary: 
-    +---------+---------+---------+---------+----------+
-    |      Latency      |      Interval     | Pipeline |
-    |   min   |   max   |   min   |   max   |   Type   |
-    +---------+---------+---------+---------+----------+
-    |  1048323|  1048323|  1048324|  1048324| dataflow |
-    +---------+---------+---------+---------+----------+
+    +-----+---------+-----+---------+----------+
+    |    Latency    |    Interval   | Pipeline |
+    | min |   max   | min |   max   |   Type   |
+    +-----+---------+-----+---------+----------+
+    |    2|  1048325|    3|  1048326| dataflow |
+    +-----+---------+-----+---------+----------+
 
     + Detail: 
         * Instance: 
-        +---------------------+-----------+---------+---------+---------+---------+---------+
-        |                     |           |      Latency      |      Interval     | Pipeline|
-        |       Instance      |   Module  |   min   |   max   |   min   |   max   |   Type  |
-        +---------------------+-----------+---------+---------+---------+---------+---------+
-        |grp_mem_write_fu_70  |mem_write  |  1048323|  1048323|  1048323|  1048323|   none  |
-        |grp_mem_read_fu_90   |mem_read   |        2|        2|        2|        2|   none  |
-        +---------------------+-----------+---------+---------+---------+---------+---------+
+        +----------------------+------------+-----+---------+-----+---------+---------+
+        |                      |            |    Latency    |    Interval   | Pipeline|
+        |       Instance       |   Module   | min |   max   | min |   max   |   Type  |
+        +----------------------+------------+-----+---------+-----+---------+---------+
+        |grp_Block_proc_fu_84  |Block_proc  |    2|  1048325|    2|  1048325|   none  |
+        +----------------------+------------+-----+---------+-----+---------+---------+
 
         * Loop: 
         N/A
@@ -89,42 +88,43 @@ IsGatedGlobalClock: 0
 
  <State 1> : 0.00ns
 
- <State 2> : 0.00ns
-ST_2 : Operation 5 [2/2] (0.00ns)   --->   "call fastcc void @mem_read(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_user_V, i1* %in_V_last_V, i1* %in_V_id_V, i1* %in_V_dest_V)" [mem.cpp:71]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 6 [2/2] (0.00ns)   --->   "call fastcc void @mem_write(i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_user_V, i1* %out_V_last_V, i1* %out_V_id_V, i1* %out_V_dest_V, [256 x i64]* %test_init_arr_V)" [mem.cpp:72]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ <State 2> : 1.96ns
+ST_2 : Operation 5 [1/1] (1.00ns)   --->   "%mask_read = call i64 @_ssdm_op_Read.s_axilite.i64(i64 %mask)"   --->   Core 10 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_2 : Operation 6 [1/1] (1.00ns)   --->   "%rw_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %rw)"   --->   Core 10 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_2 : Operation 7 [2/2] (0.95ns)   --->   "call fastcc void @Block__proc(i32 %rw_read, i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_user_V, i1* %in_V_last_V, i1* %in_V_id_V, i1* %in_V_dest_V, i64 %mask_read, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_user_V, i1* %out_V_last_V, i1* %out_V_id_V, i1* %out_V_dest_V, [256 x i64]* %test_init_arr_V)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
  <State 3> : 0.00ns
-ST_3 : Operation 7 [1/2] (0.00ns)   --->   "call fastcc void @mem_read(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_user_V, i1* %in_V_last_V, i1* %in_V_id_V, i1* %in_V_dest_V)" [mem.cpp:71]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 8 [1/2] (0.00ns)   --->   "call fastcc void @mem_write(i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_user_V, i1* %out_V_last_V, i1* %out_V_id_V, i1* %out_V_dest_V, [256 x i64]* %test_init_arr_V)" [mem.cpp:72]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 8 [1/2] (0.00ns)   --->   "call fastcc void @Block__proc(i32 %rw_read, i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_user_V, i1* %in_V_last_V, i1* %in_V_id_V, i1* %in_V_dest_V, i64 %mask_read, i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_user_V, i1* %out_V_last_V, i1* %out_V_id_V, i1* %out_V_dest_V, [256 x i64]* %test_init_arr_V)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
  <State 4> : 0.00ns
-ST_4 : Operation 9 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecDataflowPipeline(i32 -1, [1 x i8]* @p_str2) nounwind" [mem.cpp:54]
-ST_4 : Operation 10 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %out_V_data_V), !map !54"
-ST_4 : Operation 11 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %out_V_keep_V), !map !58"
-ST_4 : Operation 12 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %out_V_strb_V), !map !62"
-ST_4 : Operation 13 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %out_V_user_V), !map !66"
-ST_4 : Operation 14 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %out_V_last_V), !map !70"
-ST_4 : Operation 15 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %out_V_id_V), !map !74"
-ST_4 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %out_V_dest_V), !map !78"
-ST_4 : Operation 17 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %in_V_data_V), !map !82"
-ST_4 : Operation 18 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %in_V_keep_V), !map !86"
-ST_4 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %in_V_strb_V), !map !90"
-ST_4 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %in_V_user_V), !map !94"
-ST_4 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %in_V_last_V), !map !98"
-ST_4 : Operation 22 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %in_V_id_V), !map !102"
-ST_4 : Operation 23 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %in_V_dest_V), !map !106"
-ST_4 : Operation 24 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %rw), !map !110"
-ST_4 : Operation 25 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64 %mask), !map !116"
-ST_4 : Operation 26 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([256 x i64]* %test_init_arr_V), !map !120"
+ST_4 : Operation 9 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecDataflowPipeline(i32 -1, [1 x i8]* @p_str2) nounwind" [mem.cpp:62]
+ST_4 : Operation 10 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %out_V_data_V), !map !71"
+ST_4 : Operation 11 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %out_V_keep_V), !map !75"
+ST_4 : Operation 12 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %out_V_strb_V), !map !79"
+ST_4 : Operation 13 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %out_V_user_V), !map !83"
+ST_4 : Operation 14 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %out_V_last_V), !map !87"
+ST_4 : Operation 15 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %out_V_id_V), !map !91"
+ST_4 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %out_V_dest_V), !map !95"
+ST_4 : Operation 17 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %in_V_data_V), !map !99"
+ST_4 : Operation 18 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %in_V_keep_V), !map !103"
+ST_4 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %in_V_strb_V), !map !107"
+ST_4 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %in_V_user_V), !map !111"
+ST_4 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %in_V_last_V), !map !115"
+ST_4 : Operation 22 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %in_V_id_V), !map !119"
+ST_4 : Operation 23 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %in_V_dest_V), !map !123"
+ST_4 : Operation 24 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %rw), !map !127"
+ST_4 : Operation 25 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64 %mask), !map !133"
+ST_4 : Operation 26 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([256 x i64]* %test_init_arr_V), !map !137"
 ST_4 : Operation 27 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([7 x i8]* @mem_hw_str) nounwind"
-ST_4 : Operation 28 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str2, i32 0, i32 0, [12 x i8]* @p_str6, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind" [mem.cpp:55]
-ST_4 : Operation 29 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64 %mask, [10 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str2, i32 0, i32 0, [12 x i8]* @p_str6, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind" [mem.cpp:56]
-ST_4 : Operation 30 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 %rw, [10 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str2, i32 0, i32 0, [12 x i8]* @p_str6, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind" [mem.cpp:57]
-ST_4 : Operation 31 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecMemCore([256 x i64]* %test_init_arr_V, [1 x i8]* @p_str3, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str3, i32 -1, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3)"
-ST_4 : Operation 32 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface([256 x i64]* %test_init_arr_V, [10 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str2, i32 0, i32 0, [12 x i8]* @p_str6, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind"
-ST_4 : Operation 33 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_user_V, i1* %out_V_last_V, i1* %out_V_id_V, i1* %out_V_dest_V, [5 x i8]* @p_str7, i32 1, i32 1, [5 x i8]* @p_str8, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind" [mem.cpp:59]
-ST_4 : Operation 34 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_user_V, i1* %in_V_last_V, i1* %in_V_id_V, i1* %in_V_dest_V, [5 x i8]* @p_str7, i32 1, i32 1, [5 x i8]* @p_str8, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind" [mem.cpp:60]
-ST_4 : Operation 35 [1/1] (0.00ns)   --->   "ret void" [mem.cpp:73]
+ST_4 : Operation 28 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecDataflowPipeline(i32 -1, [1 x i8]* @p_str2) nounwind" [mem.cpp:52]
+ST_4 : Operation 29 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str2, i32 0, i32 0, [12 x i8]* @p_str6, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind" [mem.cpp:53]
+ST_4 : Operation 30 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64 %mask, [10 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str2, i32 0, i32 0, [12 x i8]* @p_str6, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind" [mem.cpp:54]
+ST_4 : Operation 31 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 %rw, [10 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str2, i32 0, i32 0, [12 x i8]* @p_str6, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind" [mem.cpp:55]
+ST_4 : Operation 32 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecMemCore([256 x i64]* %test_init_arr_V, [1 x i8]* @p_str3, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str3, i32 -1, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3)"
+ST_4 : Operation 33 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface([256 x i64]* %test_init_arr_V, [10 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str2, i32 0, i32 0, [12 x i8]* @p_str6, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind"
+ST_4 : Operation 34 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %out_V_data_V, i8* %out_V_keep_V, i8* %out_V_strb_V, i1* %out_V_user_V, i1* %out_V_last_V, i1* %out_V_id_V, i1* %out_V_dest_V, [5 x i8]* @p_str7, i32 1, i32 1, [5 x i8]* @p_str8, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind" [mem.cpp:57]
+ST_4 : Operation 35 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %in_V_data_V, i8* %in_V_keep_V, i8* %in_V_strb_V, i1* %in_V_user_V, i1* %in_V_last_V, i1* %in_V_id_V, i1* %in_V_dest_V, [5 x i8]* @p_str7, i32 1, i32 1, [5 x i8]* @p_str8, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind" [mem.cpp:58]
+ST_4 : Operation 36 [1/1] (0.00ns)   --->   "ret void" [mem.cpp:71]
 
 
 ============================================================
@@ -152,8 +152,8 @@ Port [ in_V_user_V]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0
 Port [ in_V_last_V]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=axis:ce=0
 Port [ in_V_id_V]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=axis:ce=0
 Port [ in_V_dest_V]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=axis:ce=0
-Port [ rw]:  wired=1; compound=0; hidden=0; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
-Port [ mask]:  wired=1; compound=0; hidden=0; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ rw]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ mask]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
 Port [ test_init_arr_V]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
 ---------------- STG Properties END ------------------
 
@@ -161,7 +161,8 @@ Port [ test_init_arr_V]:  wired=1; compound=1; hidden=0; nouse=0; global=0; stat
 
 <LifeTime>
 <method=bitvector/>
-StgValue_7  (call                ) [ 00000]
+mask_read   (read                ) [ 00010]
+rw_read     (read                ) [ 00010]
 StgValue_8  (call                ) [ 00000]
 StgValue_9  (specdataflowpipeline) [ 00000]
 StgValue_10 (specbitsmap         ) [ 00000]
@@ -182,14 +183,15 @@ StgValue_24 (specbitsmap         ) [ 00000]
 StgValue_25 (specbitsmap         ) [ 00000]
 StgValue_26 (specbitsmap         ) [ 00000]
 StgValue_27 (spectopmodule       ) [ 00000]
-StgValue_28 (specinterface       ) [ 00000]
+StgValue_28 (specdataflowpipeline) [ 00000]
 StgValue_29 (specinterface       ) [ 00000]
 StgValue_30 (specinterface       ) [ 00000]
+StgValue_31 (specinterface       ) [ 00000]
 empty       (specmemcore         ) [ 00000]
-StgValue_32 (specinterface       ) [ 00000]
 StgValue_33 (specinterface       ) [ 00000]
 StgValue_34 (specinterface       ) [ 00000]
-StgValue_35 (ret                 ) [ 00000]
+StgValue_35 (specinterface       ) [ 00000]
+StgValue_36 (ret                 ) [ 00000]
 </LifeTime>
 
 <model>
@@ -323,7 +325,7 @@ StgValue_35 (ret                 ) [ 00000]
 
 <comp id="28" class="1000" name="rw">
 <pin_list>
-<pin id="29" dir="1" index="0" bw="1" slack="2147483647"/>
+<pin id="29" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
 <StgValue><ssdm name="rw"/></StgValue>
@@ -332,7 +334,7 @@ StgValue_35 (ret                 ) [ 00000]
 
 <comp id="30" class="1000" name="mask">
 <pin_list>
-<pin id="31" dir="1" index="0" bw="1" slack="2147483647"/>
+<pin id="31" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
 <StgValue><ssdm name="mask"/></StgValue>
@@ -354,7 +356,7 @@ StgValue_35 (ret                 ) [ 00000]
 <pin id="35" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="mem_read"/></StgValue>
+<StgValue><ssdm name="_ssdm_op_Read.s_axilite.i64"/></StgValue>
 </bind>
 </comp>
 
@@ -363,16 +365,16 @@ StgValue_35 (ret                 ) [ 00000]
 <pin id="37" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="mem_write"/></StgValue>
+<StgValue><ssdm name="_ssdm_op_Read.s_axilite.i32"/></StgValue>
 </bind>
 </comp>
 
 <comp id="38" class="1001" name="const_38">
 <pin_list>
-<pin id="39" dir="1" index="0" bw="1" slack="2147483647"/>
+<pin id="39" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_SpecDataflowPipeline"/></StgValue>
+<StgValue><ssdm name="Block__proc"/></StgValue>
 </bind>
 </comp>
 
@@ -381,7 +383,7 @@ StgValue_35 (ret                 ) [ 00000]
 <pin id="41" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="_ssdm_op_SpecDataflowPipeline"/></StgValue>
 </bind>
 </comp>
 
@@ -390,7 +392,7 @@ StgValue_35 (ret                 ) [ 00000]
 <pin id="43" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str2"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </bind>
 </comp>
 
@@ -399,7 +401,7 @@ StgValue_35 (ret                 ) [ 00000]
 <pin id="45" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_SpecBitsMap"/></StgValue>
+<StgValue><ssdm name="p_str2"/></StgValue>
 </bind>
 </comp>
 
@@ -408,7 +410,7 @@ StgValue_35 (ret                 ) [ 00000]
 <pin id="47" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_SpecTopModule"/></StgValue>
+<StgValue><ssdm name="_ssdm_op_SpecBitsMap"/></StgValue>
 </bind>
 </comp>
 
@@ -417,7 +419,7 @@ StgValue_35 (ret                 ) [ 00000]
 <pin id="49" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="mem_hw_str"/></StgValue>
+<StgValue><ssdm name="_ssdm_op_SpecTopModule"/></StgValue>
 </bind>
 </comp>
 
@@ -426,7 +428,7 @@ StgValue_35 (ret                 ) [ 00000]
 <pin id="51" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_SpecInterface"/></StgValue>
+<StgValue><ssdm name="mem_hw_str"/></StgValue>
 </bind>
 </comp>
 
@@ -435,7 +437,7 @@ StgValue_35 (ret                 ) [ 00000]
 <pin id="53" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="_ssdm_op_SpecInterface"/></StgValue>
 </bind>
 </comp>
 
@@ -444,7 +446,7 @@ StgValue_35 (ret                 ) [ 00000]
 <pin id="55" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str5"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </bind>
 </comp>
 
@@ -453,7 +455,7 @@ StgValue_35 (ret                 ) [ 00000]
 <pin id="57" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str6"/></StgValue>
+<StgValue><ssdm name="p_str5"/></StgValue>
 </bind>
 </comp>
 
@@ -462,7 +464,7 @@ StgValue_35 (ret                 ) [ 00000]
 <pin id="59" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_SpecMemCore"/></StgValue>
+<StgValue><ssdm name="p_str6"/></StgValue>
 </bind>
 </comp>
 
@@ -471,7 +473,7 @@ StgValue_35 (ret                 ) [ 00000]
 <pin id="61" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str3"/></StgValue>
+<StgValue><ssdm name="_ssdm_op_SpecMemCore"/></StgValue>
 </bind>
 </comp>
 
@@ -480,7 +482,7 @@ StgValue_35 (ret                 ) [ 00000]
 <pin id="63" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="RAM_1P_str"/></StgValue>
+<StgValue><ssdm name="p_str3"/></StgValue>
 </bind>
 </comp>
 
@@ -489,7 +491,7 @@ StgValue_35 (ret                 ) [ 00000]
 <pin id="65" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str7"/></StgValue>
+<StgValue><ssdm name="RAM_1P_str"/></StgValue>
 </bind>
 </comp>
 
@@ -498,7 +500,7 @@ StgValue_35 (ret                 ) [ 00000]
 <pin id="67" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="p_str7"/></StgValue>
 </bind>
 </comp>
 
@@ -507,83 +509,145 @@ StgValue_35 (ret                 ) [ 00000]
 <pin id="69" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="70" class="1001" name="const_70">
+<pin_list>
+<pin id="71" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
 <StgValue><ssdm name="p_str8"/></StgValue>
 </bind>
 </comp>
 
-<comp id="70" class="1004" name="grp_mem_write_fu_70">
+<comp id="72" class="1004" name="mask_read_read_fu_72">
 <pin_list>
-<pin id="71" dir="0" index="0" bw="0" slack="0"/>
-<pin id="72" dir="0" index="1" bw="64" slack="0"/>
-<pin id="73" dir="0" index="2" bw="8" slack="0"/>
-<pin id="74" dir="0" index="3" bw="8" slack="0"/>
-<pin id="75" dir="0" index="4" bw="1" slack="0"/>
-<pin id="76" dir="0" index="5" bw="1" slack="0"/>
-<pin id="77" dir="0" index="6" bw="1" slack="0"/>
-<pin id="78" dir="0" index="7" bw="1" slack="0"/>
-<pin id="79" dir="0" index="8" bw="64" slack="0"/>
-<pin id="80" dir="1" index="9" bw="0" slack="2147483647"/>
+<pin id="73" dir="0" index="0" bw="64" slack="0"/>
+<pin id="74" dir="0" index="1" bw="64" slack="0"/>
+<pin id="75" dir="1" index="2" bw="64" slack="0"/>
 </pin_list>
 <bind>
-<opcode="call(48) " fcode="call"/>
-<opset="StgValue_6/2 "/>
+<opcode="read(1150) " fcode="read"/>
+<opset="mask_read/2 "/>
 </bind>
 </comp>
 
-<comp id="90" class="1004" name="grp_mem_read_fu_90">
+<comp id="78" class="1004" name="rw_read_read_fu_78">
 <pin_list>
-<pin id="91" dir="0" index="0" bw="0" slack="0"/>
-<pin id="92" dir="0" index="1" bw="64" slack="0"/>
-<pin id="93" dir="0" index="2" bw="8" slack="0"/>
-<pin id="94" dir="0" index="3" bw="8" slack="0"/>
-<pin id="95" dir="0" index="4" bw="1" slack="0"/>
-<pin id="96" dir="0" index="5" bw="1" slack="0"/>
-<pin id="97" dir="0" index="6" bw="1" slack="0"/>
-<pin id="98" dir="0" index="7" bw="1" slack="0"/>
-<pin id="99" dir="1" index="8" bw="0" slack="2147483647"/>
+<pin id="79" dir="0" index="0" bw="32" slack="0"/>
+<pin id="80" dir="0" index="1" bw="32" slack="0"/>
+<pin id="81" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="rw_read/2 "/>
+</bind>
+</comp>
+
+<comp id="84" class="1004" name="grp_Block_proc_fu_84">
+<pin_list>
+<pin id="85" dir="0" index="0" bw="0" slack="0"/>
+<pin id="86" dir="0" index="1" bw="32" slack="0"/>
+<pin id="87" dir="0" index="2" bw="64" slack="0"/>
+<pin id="88" dir="0" index="3" bw="8" slack="0"/>
+<pin id="89" dir="0" index="4" bw="8" slack="0"/>
+<pin id="90" dir="0" index="5" bw="1" slack="0"/>
+<pin id="91" dir="0" index="6" bw="1" slack="0"/>
+<pin id="92" dir="0" index="7" bw="1" slack="0"/>
+<pin id="93" dir="0" index="8" bw="1" slack="0"/>
+<pin id="94" dir="0" index="9" bw="64" slack="0"/>
+<pin id="95" dir="0" index="10" bw="64" slack="0"/>
+<pin id="96" dir="0" index="11" bw="8" slack="0"/>
+<pin id="97" dir="0" index="12" bw="8" slack="0"/>
+<pin id="98" dir="0" index="13" bw="1" slack="0"/>
+<pin id="99" dir="0" index="14" bw="1" slack="0"/>
+<pin id="100" dir="0" index="15" bw="1" slack="0"/>
+<pin id="101" dir="0" index="16" bw="1" slack="0"/>
+<pin id="102" dir="0" index="17" bw="64" slack="0"/>
+<pin id="103" dir="1" index="18" bw="0" slack="2147483647"/>
 </pin_list>
 <bind>
 <opcode="call(48) " fcode="call"/>
-<opset="StgValue_5/2 "/>
+<opset="StgValue_7/2 "/>
+</bind>
+</comp>
+
+<comp id="122" class="1005" name="mask_read_reg_122">
+<pin_list>
+<pin id="123" dir="0" index="0" bw="64" slack="1"/>
+<pin id="124" dir="1" index="1" bw="64" slack="1"/>
+</pin_list>
+<bind>
+<opset="mask_read "/>
+</bind>
+</comp>
+
+<comp id="127" class="1005" name="rw_read_reg_127">
+<pin_list>
+<pin id="128" dir="0" index="0" bw="32" slack="1"/>
+<pin id="129" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="rw_read "/>
 </bind>
 </comp>
 
 </comp_list>
 
 <net_list>
-<net id="81"><net_src comp="36" pin="0"/><net_sink comp="70" pin=0"/></net>
+<net id="76"><net_src comp="34" pin="0"/><net_sink comp="72" pin=0"/></net>
 
-<net id="82"><net_src comp="0" pin="0"/><net_sink comp="70" pin=1"/></net>
+<net id="77"><net_src comp="30" pin="0"/><net_sink comp="72" pin=1"/></net>
 
-<net id="83"><net_src comp="2" pin="0"/><net_sink comp="70" pin=2"/></net>
+<net id="82"><net_src comp="36" pin="0"/><net_sink comp="78" pin=0"/></net>
 
-<net id="84"><net_src comp="4" pin="0"/><net_sink comp="70" pin=3"/></net>
+<net id="83"><net_src comp="28" pin="0"/><net_sink comp="78" pin=1"/></net>
 
-<net id="85"><net_src comp="6" pin="0"/><net_sink comp="70" pin=4"/></net>
+<net id="104"><net_src comp="38" pin="0"/><net_sink comp="84" pin=0"/></net>
 
-<net id="86"><net_src comp="8" pin="0"/><net_sink comp="70" pin=5"/></net>
+<net id="105"><net_src comp="78" pin="2"/><net_sink comp="84" pin=1"/></net>
 
-<net id="87"><net_src comp="10" pin="0"/><net_sink comp="70" pin=6"/></net>
+<net id="106"><net_src comp="14" pin="0"/><net_sink comp="84" pin=2"/></net>
 
-<net id="88"><net_src comp="12" pin="0"/><net_sink comp="70" pin=7"/></net>
+<net id="107"><net_src comp="16" pin="0"/><net_sink comp="84" pin=3"/></net>
 
-<net id="89"><net_src comp="32" pin="0"/><net_sink comp="70" pin=8"/></net>
+<net id="108"><net_src comp="18" pin="0"/><net_sink comp="84" pin=4"/></net>
 
-<net id="100"><net_src comp="34" pin="0"/><net_sink comp="90" pin=0"/></net>
+<net id="109"><net_src comp="20" pin="0"/><net_sink comp="84" pin=5"/></net>
 
-<net id="101"><net_src comp="14" pin="0"/><net_sink comp="90" pin=1"/></net>
+<net id="110"><net_src comp="22" pin="0"/><net_sink comp="84" pin=6"/></net>
 
-<net id="102"><net_src comp="16" pin="0"/><net_sink comp="90" pin=2"/></net>
+<net id="111"><net_src comp="24" pin="0"/><net_sink comp="84" pin=7"/></net>
 
-<net id="103"><net_src comp="18" pin="0"/><net_sink comp="90" pin=3"/></net>
+<net id="112"><net_src comp="26" pin="0"/><net_sink comp="84" pin=8"/></net>
 
-<net id="104"><net_src comp="20" pin="0"/><net_sink comp="90" pin=4"/></net>
+<net id="113"><net_src comp="72" pin="2"/><net_sink comp="84" pin=9"/></net>
 
-<net id="105"><net_src comp="22" pin="0"/><net_sink comp="90" pin=5"/></net>
+<net id="114"><net_src comp="0" pin="0"/><net_sink comp="84" pin=10"/></net>
 
-<net id="106"><net_src comp="24" pin="0"/><net_sink comp="90" pin=6"/></net>
+<net id="115"><net_src comp="2" pin="0"/><net_sink comp="84" pin=11"/></net>
 
-<net id="107"><net_src comp="26" pin="0"/><net_sink comp="90" pin=7"/></net>
+<net id="116"><net_src comp="4" pin="0"/><net_sink comp="84" pin=12"/></net>
+
+<net id="117"><net_src comp="6" pin="0"/><net_sink comp="84" pin=13"/></net>
+
+<net id="118"><net_src comp="8" pin="0"/><net_sink comp="84" pin=14"/></net>
+
+<net id="119"><net_src comp="10" pin="0"/><net_sink comp="84" pin=15"/></net>
+
+<net id="120"><net_src comp="12" pin="0"/><net_sink comp="84" pin=16"/></net>
+
+<net id="121"><net_src comp="32" pin="0"/><net_sink comp="84" pin=17"/></net>
+
+<net id="125"><net_src comp="72" pin="2"/><net_sink comp="122" pin=0"/></net>
+
+<net id="126"><net_src comp="122" pin="1"/><net_sink comp="84" pin=9"/></net>
+
+<net id="130"><net_src comp="78" pin="2"/><net_sink comp="127" pin=0"/></net>
+
+<net id="131"><net_src comp="127" pin="1"/><net_sink comp="84" pin=1"/></net>
 
 </net_list>
 
@@ -607,6 +671,8 @@ StgValue_35 (ret                 ) [ 00000]
 	Port: mem_hw : in_V_last_V | {2 3 }
 	Port: mem_hw : in_V_id_V | {2 3 }
 	Port: mem_hw : in_V_dest_V | {2 3 }
+	Port: mem_hw : rw | {2 }
+	Port: mem_hw : mask | {2 }
 	Port: mem_hw : test_init_arr_V | {2 3 }
   - Chain level:
 	State 1
@@ -620,27 +686,39 @@ StgValue_35 (ret                 ) [ 00000]
 ============================================================
 
 * Functional unit list:
-|----------|---------------------|---------|---------|---------|
-| Operation|   Functional Unit   |  Delay  |    FF   |   LUT   |
-|----------|---------------------|---------|---------|---------|
-|   call   | grp_mem_write_fu_70 | 5.35275 |   157   |   186   |
-|          |  grp_mem_read_fu_90 |    0    |    0    |    0    |
-|----------|---------------------|---------|---------|---------|
-|   Total  |                     | 5.35275 |   157   |   186   |
-|----------|---------------------|---------|---------|---------|
+|----------|----------------------|---------|---------|---------|
+| Operation|    Functional Unit   |  Delay  |    FF   |   LUT   |
+|----------|----------------------|---------|---------|---------|
+|   call   | grp_Block_proc_fu_84 | 7.12175 |   254   |   274   |
+|----------|----------------------|---------|---------|---------|
+|   read   | mask_read_read_fu_72 |    0    |    0    |    0    |
+|          |  rw_read_read_fu_78  |    0    |    0    |    0    |
+|----------|----------------------|---------|---------|---------|
+|   Total  |                      | 7.12175 |   254   |   274   |
+|----------|----------------------|---------|---------|---------|
 
 Memories:
 N/A
 
 * Register list:
-N/A
++-----------------+--------+
+|                 |   FF   |
++-----------------+--------+
+|mask_read_reg_122|   64   |
+| rw_read_reg_127 |   32   |
++-----------------+--------+
+|      Total      |   96   |
++-----------------+--------+
 
 * Multiplexer (MUX) list: 
-|--------|------|------|------|--------|
-|  Comp  |  Pin | Size |  BW  | S x BW |
-|--------|------|------|------|--------|
-|  Total |      |      |      |    0   |
-|--------|------|------|------|--------|
+|----------------------|------|------|------|--------||---------||---------|
+|         Comp         |  Pin | Size |  BW  | S x BW ||  Delay  ||   LUT   |
+|----------------------|------|------|------|--------||---------||---------|
+| grp_Block_proc_fu_84 |  p1  |   2  |  32  |   64   ||    9    |
+| grp_Block_proc_fu_84 |  p9  |   2  |  64  |   128  ||    9    |
+|----------------------|------|------|------|--------||---------||---------|
+|         Total        |      |      |      |   192  ||  3.538  ||    18   |
+|----------------------|------|------|------|--------||---------||---------|
 
 
 
@@ -648,10 +726,10 @@ N/A
 +-----------+--------+--------+--------+
 |           |  Delay |   FF   |   LUT  |
 +-----------+--------+--------+--------+
-|  Function |    5   |   157  |   186  |
+|  Function |    7   |   254  |   274  |
 |   Memory  |    -   |    -   |    -   |
-|Multiplexer|    -   |    -   |    -   |
-|  Register |    -   |    -   |    -   |
+|Multiplexer|    3   |    -   |   18   |
+|  Register |    -   |   96   |    -   |
 +-----------+--------+--------+--------+
-|   Total   |    5   |   157  |   186  |
+|   Total   |   10   |   350  |   292  |
 +-----------+--------+--------+--------+

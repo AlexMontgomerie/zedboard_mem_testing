@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import math
 
 size = [0xFFFFFFFFFFFFFFFF,
 0x0FFFFFFFFFFFFFFF,
@@ -200,5 +201,23 @@ Vcc2V5    = [21.6,
 8.8
 ]
 
-plt.scatter(size,Vcc1V5_PS)
+size = [math.log((x+1),2.0) for x in size]
+
+plt.plot(size,VccInt,label='VccInt')
+plt.plot(size,VccPInt,label='VccPInt')
+plt.plot(size,VccAux,label='VccAux')
+plt.plot(size,VccPAux,label='VccPAux')
+plt.plot(size,Vadj,label='Vadj')
+plt.plot(size,Vcc1V5_PS,label='Vcc1V5_PS')
+plt.plot(size,VccMIO_PS,label='VccMIO_PS')
+plt.plot(size,VccBRAM,label='VccBRAM')
+plt.plot(size,Vcc3V3,label='Vcc3V3')
+plt.plot(size,Vcc2V5,label='Vcc2V5')
+plt.xlabel('bit mask (bits)')
+plt.ylabel('power (mW)')
+plt.title('Power Consumption against data bit mask size')
+plt.legend(bbox_to_anchor=(1.04,1),loc=2,borderaxespad=0)
+
+plt.subplots_adjust(right=0.7)
+
 plt.show()

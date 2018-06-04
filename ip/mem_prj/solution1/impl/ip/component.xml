@@ -832,7 +832,7 @@ resolve_type immediate dependency {} format string minimum {} maximum {}} value 
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>b987ef8d</spirit:value>
+            <spirit:value>b97e45b6</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -848,7 +848,7 @@ resolve_type immediate dependency {} format string minimum {} maximum {}} value 
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>53f64569</spirit:value>
+            <spirit:value>9040ba17</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -864,7 +864,7 @@ resolve_type immediate dependency {} format string minimum {} maximum {}} value 
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>7ca4ec51</spirit:value>
+            <spirit:value>1fad6b1b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -880,7 +880,7 @@ resolve_type immediate dependency {} format string minimum {} maximum {}} value 
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>076d6422</spirit:value>
+            <spirit:value>a1603c12</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1581,6 +1581,10 @@ resolve_type immediate dependency {} format string minimum {} maximum {}} value 
         <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>hdl/verilog/Block_proc.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>hdl/verilog/mem_hw_CONTROL_BUS_s_axi.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -1599,6 +1603,11 @@ resolve_type immediate dependency {} format string minimum {} maximum {}} value 
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_verilogbehavioralsimulation_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>hdl/verilog/Block_proc.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
       <spirit:file>
         <spirit:name>hdl/verilog/mem_hw_CONTROL_BUS_s_axi.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
@@ -1640,6 +1649,10 @@ resolve_type immediate dependency {} format string minimum {} maximum {}} value 
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>hdl/vhdl/Block_proc.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>hdl/vhdl/mem_hw_CONTROL_BUS_s_axi.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>CHECKSUM_263b7cd5</spirit:userFileType>
@@ -1659,6 +1672,11 @@ resolve_type immediate dependency {} format string minimum {} maximum {}} value 
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/vhdl/mem_read.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/vhdl/Block_proc.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -1762,7 +1780,7 @@ resolve_type immediate dependency {} format string minimum {} maximum {}} value 
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>latency</spirit:name>
-      <spirit:value spirit:id="PARAM_VALUE.latency" spirit:order="5">1048323</spirit:value>
+      <spirit:value spirit:id="PARAM_VALUE.latency" spirit:order="5">2</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>II</spirit:name>
@@ -1779,17 +1797,17 @@ resolve_type immediate dependency {} format string minimum {} maximum {}} value 
       </xilinx:taxonomies>
       <xilinx:displayName>Mem_hw</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>1805251520</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2018-05-25T14:20:35Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>1806041144</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2018-06-04T10:44:55Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2017.4</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="7a1c5d15"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="92879554"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="bc7421bd"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="c5bf8d20"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="af0dbcd9"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="24fef55c"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="f9b7bb29"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="2360e892"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

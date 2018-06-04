@@ -6,7 +6,7 @@
 <Project Version="7" Minor="35" Path="/home/juju/mem_test_rw_seperate/ip/mem_prj/solution1/impl/vhdl/project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="88f6345171424ebbbf606e6b931934a0"/>
+    <Option Name="Id" Val="e7344664e9784451855e5225a9236eb7"/>
     <Option Name="Part" Val="xc7z020clg484-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -68,6 +68,12 @@
         </FileInfo>
       </File>
       <File Path="$PPRDIR/mem_read.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/Block_proc.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>

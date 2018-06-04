@@ -58,7 +58,7 @@ end;
 architecture behav of mem_hw is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "mem_hw,hls_ip_2017_4,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7z020clg484-1,HLS_INPUT_CLOCK=800.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=8.001750,HLS_SYN_LAT=1048323,HLS_SYN_TPT=1048324,HLS_SYN_MEM=4,HLS_SYN_DSP=0,HLS_SYN_FF=464,HLS_SYN_LUT=1052}";
+    "mem_hw,hls_ip_2017_4,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7z020clg484-1,HLS_INPUT_CLOCK=800.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=8.001750,HLS_SYN_LAT=524164,HLS_SYN_TPT=524165,HLS_SYN_MEM=4,HLS_SYN_DSP=0,HLS_SYN_FF=942,HLS_SYN_LUT=1655}";
     constant C_S_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
     constant C_S_AXI_WSTRB_WIDTH : INTEGER range 63 downto 0 := 4;
     constant C_S_AXI_ADDR_WIDTH : INTEGER range 63 downto 0 := 20;
@@ -67,9 +67,6 @@ architecture behav of mem_hw is
     constant ap_const_lv8_0 : STD_LOGIC_VECTOR (7 downto 0) := "00000000";
     constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
     constant ap_const_logic_0 : STD_LOGIC := '0';
-    constant ap_const_lv2_0 : STD_LOGIC_VECTOR (1 downto 0) := "00";
-    constant ap_const_lv2_1 : STD_LOGIC_VECTOR (1 downto 0) := "01";
-    constant ap_const_boolean_1 : BOOLEAN := true;
 
     signal ap_rst_n_inv : STD_LOGIC;
     signal ap_start : STD_LOGIC;
@@ -79,42 +76,29 @@ architecture behav of mem_hw is
     signal rw : STD_LOGIC_VECTOR (31 downto 0);
     signal mask : STD_LOGIC_VECTOR (63 downto 0);
     signal test_init_arr_V_q0 : STD_LOGIC_VECTOR (63 downto 0);
-    signal mem_read_U0_ap_start : STD_LOGIC;
-    signal mem_read_U0_ap_done : STD_LOGIC;
-    signal mem_read_U0_ap_continue : STD_LOGIC;
-    signal mem_read_U0_ap_idle : STD_LOGIC;
-    signal mem_read_U0_ap_ready : STD_LOGIC;
-    signal mem_read_U0_in_r_TREADY : STD_LOGIC;
-    signal mem_write_U0_ap_start : STD_LOGIC;
-    signal mem_write_U0_ap_done : STD_LOGIC;
-    signal mem_write_U0_ap_continue : STD_LOGIC;
-    signal mem_write_U0_ap_idle : STD_LOGIC;
-    signal mem_write_U0_ap_ready : STD_LOGIC;
-    signal mem_write_U0_out_r_TDATA : STD_LOGIC_VECTOR (63 downto 0);
-    signal mem_write_U0_out_r_TVALID : STD_LOGIC;
-    signal mem_write_U0_out_r_TKEEP : STD_LOGIC_VECTOR (7 downto 0);
-    signal mem_write_U0_out_r_TSTRB : STD_LOGIC_VECTOR (7 downto 0);
-    signal mem_write_U0_out_r_TUSER : STD_LOGIC_VECTOR (0 downto 0);
-    signal mem_write_U0_out_r_TLAST : STD_LOGIC_VECTOR (0 downto 0);
-    signal mem_write_U0_out_r_TID : STD_LOGIC_VECTOR (0 downto 0);
-    signal mem_write_U0_out_r_TDEST : STD_LOGIC_VECTOR (0 downto 0);
-    signal mem_write_U0_test_init_arr_V_address0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal mem_write_U0_test_init_arr_V_ce0 : STD_LOGIC;
+    signal Block_proc_U0_ap_start : STD_LOGIC;
+    signal Block_proc_U0_ap_done : STD_LOGIC;
+    signal Block_proc_U0_ap_continue : STD_LOGIC;
+    signal Block_proc_U0_ap_idle : STD_LOGIC;
+    signal Block_proc_U0_ap_ready : STD_LOGIC;
+    signal Block_proc_U0_in_r_TREADY : STD_LOGIC;
+    signal Block_proc_U0_out_r_TDATA : STD_LOGIC_VECTOR (63 downto 0);
+    signal Block_proc_U0_out_r_TVALID : STD_LOGIC;
+    signal Block_proc_U0_out_r_TKEEP : STD_LOGIC_VECTOR (7 downto 0);
+    signal Block_proc_U0_out_r_TSTRB : STD_LOGIC_VECTOR (7 downto 0);
+    signal Block_proc_U0_out_r_TUSER : STD_LOGIC_VECTOR (0 downto 0);
+    signal Block_proc_U0_out_r_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal Block_proc_U0_out_r_TID : STD_LOGIC_VECTOR (0 downto 0);
+    signal Block_proc_U0_out_r_TDEST : STD_LOGIC_VECTOR (0 downto 0);
+    signal Block_proc_U0_test_init_arr_V_address0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal Block_proc_U0_test_init_arr_V_ce0 : STD_LOGIC;
     signal ap_sync_continue : STD_LOGIC;
     signal ap_sync_done : STD_LOGIC;
     signal ap_sync_ready : STD_LOGIC;
-    signal ap_sync_reg_mem_read_U0_ap_ready : STD_LOGIC := '0';
-    signal ap_sync_mem_read_U0_ap_ready : STD_LOGIC;
-    signal mem_read_U0_ap_ready_count : STD_LOGIC_VECTOR (1 downto 0) := "00";
-    signal ap_sync_reg_mem_write_U0_ap_ready : STD_LOGIC := '0';
-    signal ap_sync_mem_write_U0_ap_ready : STD_LOGIC;
-    signal mem_write_U0_ap_ready_count : STD_LOGIC_VECTOR (1 downto 0) := "00";
-    signal mem_read_U0_start_full_n : STD_LOGIC;
-    signal mem_read_U0_start_write : STD_LOGIC;
-    signal mem_write_U0_start_full_n : STD_LOGIC;
-    signal mem_write_U0_start_write : STD_LOGIC;
+    signal Block_proc_U0_start_full_n : STD_LOGIC;
+    signal Block_proc_U0_start_write : STD_LOGIC;
 
-    component mem_read IS
+    component Block_proc IS
     port (
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
@@ -123,6 +107,7 @@ architecture behav of mem_hw is
         ap_continue : IN STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
+        rw : IN STD_LOGIC_VECTOR (31 downto 0);
         in_r_TDATA : IN STD_LOGIC_VECTOR (63 downto 0);
         in_r_TVALID : IN STD_LOGIC;
         in_r_TREADY : OUT STD_LOGIC;
@@ -131,19 +116,8 @@ architecture behav of mem_hw is
         in_r_TUSER : IN STD_LOGIC_VECTOR (0 downto 0);
         in_r_TLAST : IN STD_LOGIC_VECTOR (0 downto 0);
         in_r_TID : IN STD_LOGIC_VECTOR (0 downto 0);
-        in_r_TDEST : IN STD_LOGIC_VECTOR (0 downto 0) );
-    end component;
-
-
-    component mem_write IS
-    port (
-        ap_clk : IN STD_LOGIC;
-        ap_rst : IN STD_LOGIC;
-        ap_start : IN STD_LOGIC;
-        ap_done : OUT STD_LOGIC;
-        ap_continue : IN STD_LOGIC;
-        ap_idle : OUT STD_LOGIC;
-        ap_ready : OUT STD_LOGIC;
+        in_r_TDEST : IN STD_LOGIC_VECTOR (0 downto 0);
+        mask : IN STD_LOGIC_VECTOR (63 downto 0);
         out_r_TDATA : OUT STD_LOGIC_VECTOR (63 downto 0);
         out_r_TVALID : OUT STD_LOGIC;
         out_r_TREADY : IN STD_LOGIC;
@@ -231,111 +205,53 @@ begin
         ap_idle => ap_idle,
         rw => rw,
         mask => mask,
-        test_init_arr_V_address0 => mem_write_U0_test_init_arr_V_address0,
-        test_init_arr_V_ce0 => mem_write_U0_test_init_arr_V_ce0,
+        test_init_arr_V_address0 => Block_proc_U0_test_init_arr_V_address0,
+        test_init_arr_V_ce0 => Block_proc_U0_test_init_arr_V_ce0,
         test_init_arr_V_q0 => test_init_arr_V_q0);
 
-    mem_read_U0 : component mem_read
+    Block_proc_U0 : component Block_proc
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        ap_start => mem_read_U0_ap_start,
-        ap_done => mem_read_U0_ap_done,
-        ap_continue => mem_read_U0_ap_continue,
-        ap_idle => mem_read_U0_ap_idle,
-        ap_ready => mem_read_U0_ap_ready,
+        ap_start => Block_proc_U0_ap_start,
+        ap_done => Block_proc_U0_ap_done,
+        ap_continue => Block_proc_U0_ap_continue,
+        ap_idle => Block_proc_U0_ap_idle,
+        ap_ready => Block_proc_U0_ap_ready,
+        rw => rw,
         in_r_TDATA => in_r_TDATA,
         in_r_TVALID => in_r_TVALID,
-        in_r_TREADY => mem_read_U0_in_r_TREADY,
+        in_r_TREADY => Block_proc_U0_in_r_TREADY,
         in_r_TKEEP => in_r_TKEEP,
         in_r_TSTRB => in_r_TSTRB,
         in_r_TUSER => in_r_TUSER,
         in_r_TLAST => in_r_TLAST,
         in_r_TID => in_r_TID,
-        in_r_TDEST => in_r_TDEST);
-
-    mem_write_U0 : component mem_write
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => mem_write_U0_ap_start,
-        ap_done => mem_write_U0_ap_done,
-        ap_continue => mem_write_U0_ap_continue,
-        ap_idle => mem_write_U0_ap_idle,
-        ap_ready => mem_write_U0_ap_ready,
-        out_r_TDATA => mem_write_U0_out_r_TDATA,
-        out_r_TVALID => mem_write_U0_out_r_TVALID,
+        in_r_TDEST => in_r_TDEST,
+        mask => mask,
+        out_r_TDATA => Block_proc_U0_out_r_TDATA,
+        out_r_TVALID => Block_proc_U0_out_r_TVALID,
         out_r_TREADY => out_r_TREADY,
-        out_r_TKEEP => mem_write_U0_out_r_TKEEP,
-        out_r_TSTRB => mem_write_U0_out_r_TSTRB,
-        out_r_TUSER => mem_write_U0_out_r_TUSER,
-        out_r_TLAST => mem_write_U0_out_r_TLAST,
-        out_r_TID => mem_write_U0_out_r_TID,
-        out_r_TDEST => mem_write_U0_out_r_TDEST,
-        test_init_arr_V_address0 => mem_write_U0_test_init_arr_V_address0,
-        test_init_arr_V_ce0 => mem_write_U0_test_init_arr_V_ce0,
+        out_r_TKEEP => Block_proc_U0_out_r_TKEEP,
+        out_r_TSTRB => Block_proc_U0_out_r_TSTRB,
+        out_r_TUSER => Block_proc_U0_out_r_TUSER,
+        out_r_TLAST => Block_proc_U0_out_r_TLAST,
+        out_r_TID => Block_proc_U0_out_r_TID,
+        out_r_TDEST => Block_proc_U0_out_r_TDEST,
+        test_init_arr_V_address0 => Block_proc_U0_test_init_arr_V_address0,
+        test_init_arr_V_ce0 => Block_proc_U0_test_init_arr_V_ce0,
         test_init_arr_V_q0 => test_init_arr_V_q0);
 
 
 
 
-
-    ap_sync_reg_mem_read_U0_ap_ready_assign_proc : process(ap_clk)
-    begin
-        if (ap_clk'event and ap_clk =  '1') then
-            if (ap_rst_n_inv = '1') then
-                ap_sync_reg_mem_read_U0_ap_ready <= ap_const_logic_0;
-            else
-                if (((ap_sync_ready and ap_start) = ap_const_logic_1)) then 
-                    ap_sync_reg_mem_read_U0_ap_ready <= ap_const_logic_0;
-                else 
-                    ap_sync_reg_mem_read_U0_ap_ready <= ap_sync_mem_read_U0_ap_ready;
-                end if; 
-            end if;
-        end if;
-    end process;
-
-
-    ap_sync_reg_mem_write_U0_ap_ready_assign_proc : process(ap_clk)
-    begin
-        if (ap_clk'event and ap_clk =  '1') then
-            if (ap_rst_n_inv = '1') then
-                ap_sync_reg_mem_write_U0_ap_ready <= ap_const_logic_0;
-            else
-                if (((ap_sync_ready and ap_start) = ap_const_logic_1)) then 
-                    ap_sync_reg_mem_write_U0_ap_ready <= ap_const_logic_0;
-                else 
-                    ap_sync_reg_mem_write_U0_ap_ready <= ap_sync_mem_write_U0_ap_ready;
-                end if; 
-            end if;
-        end if;
-    end process;
-
-
-    mem_read_U0_ap_ready_count_assign_proc : process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((mem_read_U0_ap_ready = ap_const_logic_0) and (ap_sync_ready = ap_const_logic_1))) then 
-                mem_read_U0_ap_ready_count <= std_logic_vector(unsigned(mem_read_U0_ap_ready_count) - unsigned(ap_const_lv2_1));
-            elsif (((mem_read_U0_ap_ready = ap_const_logic_1) and (ap_sync_ready = ap_const_logic_0))) then 
-                mem_read_U0_ap_ready_count <= std_logic_vector(unsigned(mem_read_U0_ap_ready_count) + unsigned(ap_const_lv2_1));
-            end if; 
-        end if;
-    end process;
-
-    mem_write_U0_ap_ready_count_assign_proc : process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((mem_write_U0_ap_ready = ap_const_logic_0) and (ap_sync_ready = ap_const_logic_1))) then 
-                mem_write_U0_ap_ready_count <= std_logic_vector(unsigned(mem_write_U0_ap_ready_count) - unsigned(ap_const_lv2_1));
-            elsif (((mem_write_U0_ap_ready = ap_const_logic_1) and (ap_sync_ready = ap_const_logic_0))) then 
-                mem_write_U0_ap_ready_count <= std_logic_vector(unsigned(mem_write_U0_ap_ready_count) + unsigned(ap_const_lv2_1));
-            end if; 
-        end if;
-    end process;
-    ap_done <= mem_write_U0_ap_done;
-    ap_idle <= (mem_write_U0_ap_idle and mem_read_U0_ap_idle);
-    ap_ready <= ap_sync_ready;
+    Block_proc_U0_ap_continue <= ap_const_logic_1;
+    Block_proc_U0_ap_start <= ap_start;
+    Block_proc_U0_start_full_n <= ap_const_logic_1;
+    Block_proc_U0_start_write <= ap_const_logic_0;
+    ap_done <= Block_proc_U0_ap_done;
+    ap_idle <= Block_proc_U0_ap_idle;
+    ap_ready <= Block_proc_U0_ap_ready;
 
     ap_rst_n_inv_assign_proc : process(ap_rst_n)
     begin
@@ -343,25 +259,15 @@ begin
     end process;
 
     ap_sync_continue <= ap_const_logic_1;
-    ap_sync_done <= mem_write_U0_ap_done;
-    ap_sync_mem_read_U0_ap_ready <= (mem_read_U0_ap_ready or ap_sync_reg_mem_read_U0_ap_ready);
-    ap_sync_mem_write_U0_ap_ready <= (mem_write_U0_ap_ready or ap_sync_reg_mem_write_U0_ap_ready);
-    ap_sync_ready <= (ap_sync_mem_write_U0_ap_ready and ap_sync_mem_read_U0_ap_ready);
-    in_r_TREADY <= mem_read_U0_in_r_TREADY;
-    mem_read_U0_ap_continue <= ap_const_logic_1;
-    mem_read_U0_ap_start <= ((ap_sync_reg_mem_read_U0_ap_ready xor ap_const_logic_1) and ap_start);
-    mem_read_U0_start_full_n <= ap_const_logic_1;
-    mem_read_U0_start_write <= ap_const_logic_0;
-    mem_write_U0_ap_continue <= ap_const_logic_1;
-    mem_write_U0_ap_start <= ((ap_sync_reg_mem_write_U0_ap_ready xor ap_const_logic_1) and ap_start);
-    mem_write_U0_start_full_n <= ap_const_logic_1;
-    mem_write_U0_start_write <= ap_const_logic_0;
-    out_r_TDATA <= mem_write_U0_out_r_TDATA;
-    out_r_TDEST <= mem_write_U0_out_r_TDEST;
-    out_r_TID <= mem_write_U0_out_r_TID;
-    out_r_TKEEP <= mem_write_U0_out_r_TKEEP;
-    out_r_TLAST <= mem_write_U0_out_r_TLAST;
-    out_r_TSTRB <= mem_write_U0_out_r_TSTRB;
-    out_r_TUSER <= mem_write_U0_out_r_TUSER;
-    out_r_TVALID <= mem_write_U0_out_r_TVALID;
+    ap_sync_done <= Block_proc_U0_ap_done;
+    ap_sync_ready <= Block_proc_U0_ap_ready;
+    in_r_TREADY <= Block_proc_U0_in_r_TREADY;
+    out_r_TDATA <= Block_proc_U0_out_r_TDATA;
+    out_r_TDEST <= Block_proc_U0_out_r_TDEST;
+    out_r_TID <= Block_proc_U0_out_r_TID;
+    out_r_TKEEP <= Block_proc_U0_out_r_TKEEP;
+    out_r_TLAST <= Block_proc_U0_out_r_TLAST;
+    out_r_TSTRB <= Block_proc_U0_out_r_TSTRB;
+    out_r_TUSER <= Block_proc_U0_out_r_TUSER;
+    out_r_TVALID <= Block_proc_U0_out_r_TVALID;
 end behav;

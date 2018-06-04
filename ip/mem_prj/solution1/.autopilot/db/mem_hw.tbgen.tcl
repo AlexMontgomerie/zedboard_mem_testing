@@ -35,8 +35,8 @@ set C_modelArgList {
 	{ in_V_last_V int 1 regular {axi_s 0 volatile  { in_r Last } }  }
 	{ in_V_id_V int 1 regular {axi_s 0 volatile  { in_r ID } }  }
 	{ in_V_dest_V int 1 regular {axi_s 0 volatile  { in_r Dest } }  }
-	{ rw int 32 unused {axi_slave 0}  }
-	{ mask int 64 unused {axi_slave 0}  }
+	{ rw int 32 regular {axi_slave 0}  }
+	{ mask int 64 regular {axi_slave 0}  }
 	{ test_init_arr_V int 64 regular {axi_slave 0}  }
 }
 set C_modelArgMapList {[ 
@@ -140,7 +140,7 @@ set NewPortList {[
  	{ "name": "out_r_TREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "outacc", "bundle":{"name": "out_V_dest_V", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2"],
 		"CDFG" : "mem_hw",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"FunctionPipeline" : "Dataflow", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "1",
@@ -149,80 +149,121 @@ set RtlHierarchyInfo {[
 		"ClockEnable" : "0",
 		"VariableLatency" : "1",
 		"InputProcess" : [
-			{"ID" : "2", "Name" : "mem_read_U0", "ReadyCount" : "mem_read_U0_ap_ready_count"},
-			{"ID" : "3", "Name" : "mem_write_U0", "ReadyCount" : "mem_write_U0_ap_ready_count"}],
+			{"ID" : "2", "Name" : "Block_proc_U0"}],
 		"OutputProcess" : [
-			{"ID" : "3", "Name" : "mem_write_U0"}],
+			{"ID" : "2", "Name" : "Block_proc_U0"}],
 		"Port" : [
 			{"Name" : "out_V_data_V", "Type" : "Axis", "Direction" : "O",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "mem_write_U0", "Port" : "out_stream_V_data_V"}]},
+					{"ID" : "2", "SubInstance" : "Block_proc_U0", "Port" : "out_V_data_V"}]},
 			{"Name" : "out_V_keep_V", "Type" : "Axis", "Direction" : "O",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "mem_write_U0", "Port" : "out_stream_V_keep_V"}]},
+					{"ID" : "2", "SubInstance" : "Block_proc_U0", "Port" : "out_V_keep_V"}]},
 			{"Name" : "out_V_strb_V", "Type" : "Axis", "Direction" : "O",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "mem_write_U0", "Port" : "out_stream_V_strb_V"}]},
+					{"ID" : "2", "SubInstance" : "Block_proc_U0", "Port" : "out_V_strb_V"}]},
 			{"Name" : "out_V_user_V", "Type" : "Axis", "Direction" : "O",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "mem_write_U0", "Port" : "out_stream_V_user_V"}]},
+					{"ID" : "2", "SubInstance" : "Block_proc_U0", "Port" : "out_V_user_V"}]},
 			{"Name" : "out_V_last_V", "Type" : "Axis", "Direction" : "O",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "mem_write_U0", "Port" : "out_stream_V_last_V"}]},
+					{"ID" : "2", "SubInstance" : "Block_proc_U0", "Port" : "out_V_last_V"}]},
 			{"Name" : "out_V_id_V", "Type" : "Axis", "Direction" : "O",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "mem_write_U0", "Port" : "out_stream_V_id_V"}]},
+					{"ID" : "2", "SubInstance" : "Block_proc_U0", "Port" : "out_V_id_V"}]},
 			{"Name" : "out_V_dest_V", "Type" : "Axis", "Direction" : "O",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "mem_write_U0", "Port" : "out_stream_V_dest_V"}]},
+					{"ID" : "2", "SubInstance" : "Block_proc_U0", "Port" : "out_V_dest_V"}]},
 			{"Name" : "in_V_data_V", "Type" : "Axis", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "2", "SubInstance" : "mem_read_U0", "Port" : "in_stream_V_data_V"}]},
+					{"ID" : "2", "SubInstance" : "Block_proc_U0", "Port" : "in_V_data_V"}]},
 			{"Name" : "in_V_keep_V", "Type" : "Axis", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "2", "SubInstance" : "mem_read_U0", "Port" : "in_stream_V_keep_V"}]},
+					{"ID" : "2", "SubInstance" : "Block_proc_U0", "Port" : "in_V_keep_V"}]},
 			{"Name" : "in_V_strb_V", "Type" : "Axis", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "2", "SubInstance" : "mem_read_U0", "Port" : "in_stream_V_strb_V"}]},
+					{"ID" : "2", "SubInstance" : "Block_proc_U0", "Port" : "in_V_strb_V"}]},
 			{"Name" : "in_V_user_V", "Type" : "Axis", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "2", "SubInstance" : "mem_read_U0", "Port" : "in_stream_V_user_V"}]},
+					{"ID" : "2", "SubInstance" : "Block_proc_U0", "Port" : "in_V_user_V"}]},
 			{"Name" : "in_V_last_V", "Type" : "Axis", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "2", "SubInstance" : "mem_read_U0", "Port" : "in_stream_V_last_V"}]},
+					{"ID" : "2", "SubInstance" : "Block_proc_U0", "Port" : "in_V_last_V"}]},
 			{"Name" : "in_V_id_V", "Type" : "Axis", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "2", "SubInstance" : "mem_read_U0", "Port" : "in_stream_V_id_V"}]},
+					{"ID" : "2", "SubInstance" : "Block_proc_U0", "Port" : "in_V_id_V"}]},
 			{"Name" : "in_V_dest_V", "Type" : "Axis", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "2", "SubInstance" : "mem_read_U0", "Port" : "in_stream_V_dest_V"}]},
+					{"ID" : "2", "SubInstance" : "Block_proc_U0", "Port" : "in_V_dest_V"}]},
 			{"Name" : "rw", "Type" : "None", "Direction" : "I"},
 			{"Name" : "mask", "Type" : "None", "Direction" : "I"},
 			{"Name" : "test_init_arr_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "mem_write_U0", "Port" : "test_init_arr_V"}]}]},
+					{"ID" : "2", "SubInstance" : "Block_proc_U0", "Port" : "test_init_arr_V"}]}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mem_hw_CONTROL_BUS_s_axi_U", "Parent" : "0"},
-	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mem_read_U0", "Parent" : "0",
-		"CDFG" : "mem_read",
+	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Block_proc_U0", "Parent" : "0", "Child" : ["3", "4"],
+		"CDFG" : "Block_proc",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1",
 		"FunctionPipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
 		"VariableLatency" : "1",
+		"WaitState" : [
+			{"State" : "ap_ST_fsm_state2", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_mem_write_fu_76"},
+			{"State" : "ap_ST_fsm_state2", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_mem_read_fu_97"},
+			{"State" : "ap_ST_fsm_state3", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_mem_read_fu_97"}],
 		"Port" : [
-			{"Name" : "in_stream_V_data_V", "Type" : "Axis", "Direction" : "I",
-				"BlockSignal" : [
-					{"Name" : "in_r_TDATA_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "in_stream_V_keep_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "in_stream_V_strb_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "in_stream_V_user_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "in_stream_V_last_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "in_stream_V_id_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "in_stream_V_dest_V", "Type" : "Axis", "Direction" : "I"}]},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mem_write_U0", "Parent" : "0",
+			{"Name" : "rw", "Type" : "None", "Direction" : "I"},
+			{"Name" : "in_V_data_V", "Type" : "Axis", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "4", "SubInstance" : "grp_mem_read_fu_97", "Port" : "in_stream_V_data_V"}]},
+			{"Name" : "in_V_keep_V", "Type" : "Axis", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "4", "SubInstance" : "grp_mem_read_fu_97", "Port" : "in_stream_V_keep_V"}]},
+			{"Name" : "in_V_strb_V", "Type" : "Axis", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "4", "SubInstance" : "grp_mem_read_fu_97", "Port" : "in_stream_V_strb_V"}]},
+			{"Name" : "in_V_user_V", "Type" : "Axis", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "4", "SubInstance" : "grp_mem_read_fu_97", "Port" : "in_stream_V_user_V"}]},
+			{"Name" : "in_V_last_V", "Type" : "Axis", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "4", "SubInstance" : "grp_mem_read_fu_97", "Port" : "in_stream_V_last_V"}]},
+			{"Name" : "in_V_id_V", "Type" : "Axis", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "4", "SubInstance" : "grp_mem_read_fu_97", "Port" : "in_stream_V_id_V"}]},
+			{"Name" : "in_V_dest_V", "Type" : "Axis", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "4", "SubInstance" : "grp_mem_read_fu_97", "Port" : "in_stream_V_dest_V"}]},
+			{"Name" : "mask", "Type" : "None", "Direction" : "I"},
+			{"Name" : "out_V_data_V", "Type" : "Axis", "Direction" : "O",
+				"SubConnect" : [
+					{"ID" : "3", "SubInstance" : "grp_mem_write_fu_76", "Port" : "out_stream_V_data_V"}]},
+			{"Name" : "out_V_keep_V", "Type" : "Axis", "Direction" : "O",
+				"SubConnect" : [
+					{"ID" : "3", "SubInstance" : "grp_mem_write_fu_76", "Port" : "out_stream_V_keep_V"}]},
+			{"Name" : "out_V_strb_V", "Type" : "Axis", "Direction" : "O",
+				"SubConnect" : [
+					{"ID" : "3", "SubInstance" : "grp_mem_write_fu_76", "Port" : "out_stream_V_strb_V"}]},
+			{"Name" : "out_V_user_V", "Type" : "Axis", "Direction" : "O",
+				"SubConnect" : [
+					{"ID" : "3", "SubInstance" : "grp_mem_write_fu_76", "Port" : "out_stream_V_user_V"}]},
+			{"Name" : "out_V_last_V", "Type" : "Axis", "Direction" : "O",
+				"SubConnect" : [
+					{"ID" : "3", "SubInstance" : "grp_mem_write_fu_76", "Port" : "out_stream_V_last_V"}]},
+			{"Name" : "out_V_id_V", "Type" : "Axis", "Direction" : "O",
+				"SubConnect" : [
+					{"ID" : "3", "SubInstance" : "grp_mem_write_fu_76", "Port" : "out_stream_V_id_V"}]},
+			{"Name" : "out_V_dest_V", "Type" : "Axis", "Direction" : "O",
+				"SubConnect" : [
+					{"ID" : "3", "SubInstance" : "grp_mem_write_fu_76", "Port" : "out_stream_V_dest_V"}]},
+			{"Name" : "test_init_arr_V", "Type" : "Memory", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "3", "SubInstance" : "grp_mem_write_fu_76", "Port" : "test_init_arr_V"}]}]},
+	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.Block_proc_U0.grp_mem_write_fu_76", "Parent" : "2",
 		"CDFG" : "mem_write",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"FunctionPipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"Combinational" : "0",
 		"Datapath" : "0",
@@ -238,7 +279,26 @@ set RtlHierarchyInfo {[
 			{"Name" : "out_stream_V_last_V", "Type" : "Axis", "Direction" : "O"},
 			{"Name" : "out_stream_V_id_V", "Type" : "Axis", "Direction" : "O"},
 			{"Name" : "out_stream_V_dest_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "test_init_arr_V", "Type" : "Memory", "Direction" : "I"}]}]}
+			{"Name" : "mask", "Type" : "None", "Direction" : "I"},
+			{"Name" : "test_init_arr_V", "Type" : "Memory", "Direction" : "I"}]},
+	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.Block_proc_U0.grp_mem_read_fu_97", "Parent" : "2",
+		"CDFG" : "mem_read",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
+		"FunctionPipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"VariableLatency" : "1",
+		"Port" : [
+			{"Name" : "in_stream_V_data_V", "Type" : "Axis", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "in_r_TDATA_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "in_stream_V_keep_V", "Type" : "Axis", "Direction" : "I"},
+			{"Name" : "in_stream_V_strb_V", "Type" : "Axis", "Direction" : "I"},
+			{"Name" : "in_stream_V_user_V", "Type" : "Axis", "Direction" : "I"},
+			{"Name" : "in_stream_V_last_V", "Type" : "Axis", "Direction" : "I"},
+			{"Name" : "in_stream_V_id_V", "Type" : "Axis", "Direction" : "I"},
+			{"Name" : "in_stream_V_dest_V", "Type" : "Axis", "Direction" : "I"}]}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -257,17 +317,27 @@ set ArgLastReadFirstWriteLatency {
 		in_V_last_V {Type I LastRead 1 FirstWrite -1}
 		in_V_id_V {Type I LastRead 1 FirstWrite -1}
 		in_V_dest_V {Type I LastRead 1 FirstWrite -1}
-		rw {Type I LastRead -1 FirstWrite -1}
-		mask {Type I LastRead -1 FirstWrite -1}
+		rw {Type I LastRead 1 FirstWrite -1}
+		mask {Type I LastRead 1 FirstWrite -1}
 		test_init_arr_V {Type I LastRead 1 FirstWrite -1}}
-	mem_read {
-		in_stream_V_data_V {Type I LastRead 1 FirstWrite -1}
-		in_stream_V_keep_V {Type I LastRead 1 FirstWrite -1}
-		in_stream_V_strb_V {Type I LastRead 1 FirstWrite -1}
-		in_stream_V_user_V {Type I LastRead 1 FirstWrite -1}
-		in_stream_V_last_V {Type I LastRead 1 FirstWrite -1}
-		in_stream_V_id_V {Type I LastRead 1 FirstWrite -1}
-		in_stream_V_dest_V {Type I LastRead 1 FirstWrite -1}}
+	Block_proc {
+		rw {Type I LastRead 0 FirstWrite -1}
+		in_V_data_V {Type I LastRead 1 FirstWrite -1}
+		in_V_keep_V {Type I LastRead 1 FirstWrite -1}
+		in_V_strb_V {Type I LastRead 1 FirstWrite -1}
+		in_V_user_V {Type I LastRead 1 FirstWrite -1}
+		in_V_last_V {Type I LastRead 1 FirstWrite -1}
+		in_V_id_V {Type I LastRead 1 FirstWrite -1}
+		in_V_dest_V {Type I LastRead 1 FirstWrite -1}
+		mask {Type I LastRead 0 FirstWrite -1}
+		out_V_data_V {Type O LastRead -1 FirstWrite 2}
+		out_V_keep_V {Type O LastRead -1 FirstWrite 2}
+		out_V_strb_V {Type O LastRead -1 FirstWrite 2}
+		out_V_user_V {Type O LastRead -1 FirstWrite 2}
+		out_V_last_V {Type O LastRead -1 FirstWrite 2}
+		out_V_id_V {Type O LastRead -1 FirstWrite 2}
+		out_V_dest_V {Type O LastRead -1 FirstWrite 2}
+		test_init_arr_V {Type I LastRead 1 FirstWrite -1}}
 	mem_write {
 		out_stream_V_data_V {Type O LastRead -1 FirstWrite 2}
 		out_stream_V_keep_V {Type O LastRead -1 FirstWrite 2}
@@ -276,13 +346,22 @@ set ArgLastReadFirstWriteLatency {
 		out_stream_V_last_V {Type O LastRead -1 FirstWrite 2}
 		out_stream_V_id_V {Type O LastRead -1 FirstWrite 2}
 		out_stream_V_dest_V {Type O LastRead -1 FirstWrite 2}
-		test_init_arr_V {Type I LastRead 1 FirstWrite -1}}}
+		mask {Type I LastRead 0 FirstWrite -1}
+		test_init_arr_V {Type I LastRead 1 FirstWrite -1}}
+	mem_read {
+		in_stream_V_data_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_keep_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_strb_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_user_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_last_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_id_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_dest_V {Type I LastRead 1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "1048323", "Max" : "1048323"}
-	, {"Name" : "Interval", "Min" : "1048324", "Max" : "1048324"}
+	{"Name" : "Latency", "Min" : "2", "Max" : "1048325"}
+	, {"Name" : "Interval", "Min" : "3", "Max" : "1048326"}
 ]}
 
 set PipelineEnableSignalInfo {[

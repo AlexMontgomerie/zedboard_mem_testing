@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'mem_hw'" level="0">
-<item name = "Date">Fri May 25 15:18:24 2018
+<item name = "Date">Mon Jun  4 11:41:30 2018
 </item>
 <item name = "Version">2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)</item>
 <item name = "Project">mem_prj</item>
@@ -22,15 +22,14 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">1048323, 1048323, 1048324, 1048324, dataflow</column>
+<column name="">2, 1048325, 3, 1048326, dataflow</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="mem_write_U0">mem_write, 1048323, 1048323, 1048323, 1048323, none</column>
-<column name="mem_read_U0">mem_read, 2, 2, 2, 2, none</column>
+<column name="Block_proc_U0">Block_proc, 2, 1048325, 2, 1048325, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -47,23 +46,22 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
 <column name="DSP">-, -, -, -</column>
-<column name="Expression">-, -, 0, 68</column>
+<column name="Expression">-, -, -, -</column>
 <column name="FIFO">-, -, -, -</column>
-<column name="Instance">4, -, 458, 948</column>
+<column name="Instance">4, -, 942, 1655</column>
 <column name="Memory">-, -, -, -</column>
-<column name="Multiplexer">-, -, -, 36</column>
-<column name="Register">-, -, 6, -</column>
+<column name="Multiplexer">-, -, -, -</column>
+<column name="Register">-, -, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
-<specialColumn name="Utilization (%)">1, 0, ~0, 1</specialColumn>
+<specialColumn name="Utilization (%)">1, 0, ~0, 3</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="Block_proc_U0">Block_proc, 0, 0, 718, 1353</column>
 <column name="mem_hw_CONTROL_BUS_s_axi_U">mem_hw_CONTROL_BUS_s_axi, 4, 0, 224, 302</column>
-<column name="mem_read_U0">mem_read, 0, 0, 14, 125</column>
-<column name="mem_write_U0">mem_write, 0, 0, 220, 521</column>
 </table>
 </item>
 <item name = "DSP48"><table name="" hasTotal="0">
@@ -80,30 +78,14 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="mem_read_U0_ap_ready_count">+, 0, 0, 10, 2, 1</column>
-<column name="mem_write_U0_ap_ready_count">+, 0, 0, 10, 2, 1</column>
-<column name="ap_idle">and, 0, 0, 8, 1, 1</column>
-<column name="ap_sync_ready">and, 0, 0, 8, 1, 1</column>
-<column name="mem_read_U0_ap_start">and, 0, 0, 8, 1, 1</column>
-<column name="mem_write_U0_ap_start">and, 0, 0, 8, 1, 1</column>
-<column name="ap_sync_mem_read_U0_ap_ready">or, 0, 0, 8, 1, 1</column>
-<column name="ap_sync_mem_write_U0_ap_ready">or, 0, 0, 8, 1, 1</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_sync_reg_mem_read_U0_ap_ready">9, 2, 1, 2</column>
-<column name="ap_sync_reg_mem_write_U0_ap_ready">9, 2, 1, 2</column>
-<column name="mem_read_U0_ap_ready_count">9, 2, 2, 4</column>
-<column name="mem_write_U0_ap_ready_count">9, 2, 2, 4</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="ap_sync_reg_mem_read_U0_ap_ready">1, 0, 1, 0</column>
-<column name="ap_sync_reg_mem_write_U0_ap_ready">1, 0, 1, 0</column>
-<column name="mem_read_U0_ap_ready_count">2, 0, 2, 0</column>
-<column name="mem_write_U0_ap_ready_count">2, 0, 2, 0</column>
 </table>
 </item>
 </section>
@@ -156,9 +138,11 @@
 </section>
 
 <section name = "Critical Path" level="0">
-<item name = "Max Delay">0.00</item>
+<item name = "Max Delay">1.96</item>
 <item name = "Critical Path Table"><table name="Critical Path Table" hasTotal="0">
 <keys size="15">Name, Operator, Delay, Accumulated Delay, Store Source, Resource, Core, Interface, Type, Port, Array, Scope, Pointer, Callee, Phi Node</keys>
+<column name="'mask'">read, 1.00, 1.00, -, -, -, s_axi, read, &apos;mask&apos;, -, -, -, -, -</column>
+<column name="">call, 0.96, 1.96, -, -, -, -, -, -, -, -, -, Block__proc, -</column>
 </table>
 </item>
 </section>
