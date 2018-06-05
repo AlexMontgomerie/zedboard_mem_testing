@@ -9,13 +9,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="333578fs"></ZoomStartTime>
-      <ZoomEndTime time="1175706fs"></ZoomEndTime>
-      <Cursor1Time time="630000fs"></Cursor1Time>
+      <ZoomStartTime time="599167fs"></ZoomStartTime>
+      <ZoomEndTime time="693968fs"></ZoomEndTime>
+      <Cursor1Time time="635000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="250"></NameColumnWidth>
-      <ValueColumnWidth column_width="78"></ValueColumnWidth>
+      <NameColumnWidth column_width="336"></NameColumnWidth>
+      <ValueColumnWidth column_width="408"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="4" />
    <wave_markers>
@@ -30,17 +30,7 @@
       <obj_property name="UseCustomSignalColor">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject type="group" fp_name="group176">
-         <obj_property name="label">slot_0 : axi_interconnect_0_M00_AXI : Write Transactions 2</obj_property>
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="Detail_Data">slot_0___axi_interconnect_0_M00_AXI___Write_Transactions_2_tooltip</obj_property>
-         <obj_property name="Render_Data">slot_0___axi_interconnect_0_M00_AXI___Write_Transactions_2</obj_property>
-         <obj_property name="EnumTransactionColorTable">0000=blank</obj_property>
-         <obj_property name="CustomSignalColor">Red</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
-      </wvobject>
-      <wvobject type="group" fp_name="group175">
+      <wvobject type="group" fp_name="group352">
          <obj_property name="label">slot_0 : axi_interconnect_0_M00_AXI : Write Transactions 1</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Detail_Data">slot_0___axi_interconnect_0_M00_AXI___Write_Transactions_1_tooltip</obj_property>
@@ -49,8 +39,9 @@
          <obj_property name="CustomSignalColor">LightSeaGreen</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
          <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+         <obj_property name="isExpanded"></obj_property>
       </wvobject>
-      <wvobject type="group" fp_name="group174">
+      <wvobject type="group" fp_name="group351">
          <obj_property name="label">slot_0 : axi_interconnect_0_M00_AXI : Write Transactions 0</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Detail_Data">slot_0___axi_interconnect_0_M00_AXI___Write_Transactions_0_tooltip</obj_property>
@@ -60,7 +51,7 @@
          <obj_property name="UseCustomSignalColor">true</obj_property>
          <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
       </wvobject>
-      <wvobject type="group" fp_name="group173">
+      <wvobject type="group" fp_name="group350">
          <obj_property name="label">slot_0 : axi_interconnect_0_M00_AXI : Read Transactions 0</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Detail_Data">slot_0___axi_interconnect_0_M00_AXI___Read_Transactions_0_tooltip</obj_property>
@@ -79,6 +70,7 @@
          <obj_property name="CustomSignalColor">Yellow</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
          <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+         <obj_property name="isExpanded"></obj_property>
          <wvobject type="logic" fp_name="design_1_i/system_ila_0/inst/net_slot_0_axi_arvalid">
             <obj_property name="DisplayName">label</obj_property>
             <obj_property name="ElementShortName">design_1_i/system_ila_0/inst/net_slot_0_axi_arvalid</obj_property>
@@ -412,7 +404,7 @@
       <obj_property name="UseCustomSignalColor">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject type="group" fp_name="group179">
+      <wvobject type="group" fp_name="group355">
          <obj_property name="label">slot_1 : axi_interconnect_3_M00_AXI : Write Transactions 1</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Detail_Data">slot_1___axi_interconnect_3_M00_AXI___Write_Transactions_1_tooltip</obj_property>
@@ -422,7 +414,7 @@
          <obj_property name="UseCustomSignalColor">true</obj_property>
          <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
       </wvobject>
-      <wvobject type="group" fp_name="group178">
+      <wvobject type="group" fp_name="group354">
          <obj_property name="label">slot_1 : axi_interconnect_3_M00_AXI : Write Transactions 0</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Detail_Data">slot_1___axi_interconnect_3_M00_AXI___Write_Transactions_0_tooltip</obj_property>
@@ -432,7 +424,7 @@
          <obj_property name="UseCustomSignalColor">true</obj_property>
          <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
       </wvobject>
-      <wvobject type="group" fp_name="group177">
+      <wvobject type="group" fp_name="group353">
          <obj_property name="label">slot_1 : axi_interconnect_3_M00_AXI : Read Transactions 0</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Detail_Data">slot_1___axi_interconnect_3_M00_AXI___Read_Transactions_0_tooltip</obj_property>
@@ -784,7 +776,7 @@
       <obj_property name="UseCustomSignalColor">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject type="group" fp_name="group182">
+      <wvobject type="group" fp_name="group358">
          <obj_property name="label">slot_2 : axi_interconnect_2_M00_AXI : Write Transactions 1</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Detail_Data">slot_2___axi_interconnect_2_M00_AXI___Write_Transactions_1_tooltip</obj_property>
@@ -794,7 +786,7 @@
          <obj_property name="UseCustomSignalColor">true</obj_property>
          <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
       </wvobject>
-      <wvobject type="group" fp_name="group181">
+      <wvobject type="group" fp_name="group357">
          <obj_property name="label">slot_2 : axi_interconnect_2_M00_AXI : Write Transactions 0</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Detail_Data">slot_2___axi_interconnect_2_M00_AXI___Write_Transactions_0_tooltip</obj_property>
@@ -804,7 +796,7 @@
          <obj_property name="UseCustomSignalColor">true</obj_property>
          <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
       </wvobject>
-      <wvobject type="group" fp_name="group180">
+      <wvobject type="group" fp_name="group356">
          <obj_property name="label">slot_2 : axi_interconnect_2_M00_AXI : Read Transactions 0</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Detail_Data">slot_2___axi_interconnect_2_M00_AXI___Read_Transactions_0_tooltip</obj_property>
@@ -1156,7 +1148,7 @@
       <obj_property name="UseCustomSignalColor">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject type="group" fp_name="group185">
+      <wvobject type="group" fp_name="group361">
          <obj_property name="label">slot_3 : axi_interconnect_4_M00_AXI : Write Transactions 1</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Detail_Data">slot_3___axi_interconnect_4_M00_AXI___Write_Transactions_1_tooltip</obj_property>
@@ -1166,7 +1158,7 @@
          <obj_property name="UseCustomSignalColor">true</obj_property>
          <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
       </wvobject>
-      <wvobject type="group" fp_name="group184">
+      <wvobject type="group" fp_name="group360">
          <obj_property name="label">slot_3 : axi_interconnect_4_M00_AXI : Write Transactions 0</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Detail_Data">slot_3___axi_interconnect_4_M00_AXI___Write_Transactions_0_tooltip</obj_property>
@@ -1176,7 +1168,7 @@
          <obj_property name="UseCustomSignalColor">true</obj_property>
          <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
       </wvobject>
-      <wvobject type="group" fp_name="group183">
+      <wvobject type="group" fp_name="group359">
          <obj_property name="label">slot_3 : axi_interconnect_4_M00_AXI : Read Transactions 0</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Detail_Data">slot_3___axi_interconnect_4_M00_AXI___Read_Transactions_0_tooltip</obj_property>

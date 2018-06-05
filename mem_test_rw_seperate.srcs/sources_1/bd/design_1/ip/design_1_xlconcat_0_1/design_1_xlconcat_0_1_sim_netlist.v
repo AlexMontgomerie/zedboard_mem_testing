@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Fri May 25 15:25:39 2018
+// Date        : Tue Jun  5 16:09:10 2018
 // Host        : alex-HP-Compaq-Elite-8300-CMT running 64-bit Ubuntu 16.04.4 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_xlconcat_0_1/design_1_xlconcat_0_1_sim_netlist.v
@@ -27,6 +27,7 @@ module design_1_xlconcat_0_1
     In9,
     In10,
     In11,
+    In12,
     dout);
   input [0:0]In0;
   input [0:0]In1;
@@ -40,12 +41,14 @@ module design_1_xlconcat_0_1
   input [0:0]In9;
   input [0:0]In10;
   input [0:0]In11;
-  output [11:0]dout;
+  input [0:0]In12;
+  output [12:0]dout;
 
   wire [0:0]In0;
   wire [0:0]In1;
   wire [0:0]In10;
   wire [0:0]In11;
+  wire [0:0]In12;
   wire [0:0]In2;
   wire [0:0]In3;
   wire [0:0]In4;
@@ -55,6 +58,7 @@ module design_1_xlconcat_0_1
   wire [0:0]In8;
   wire [0:0]In9;
 
+  assign dout[12] = In12;
   assign dout[11] = In11;
   assign dout[10] = In10;
   assign dout[9] = In9;

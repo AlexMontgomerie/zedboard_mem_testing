@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Mon Jun  4 11:50:18 2018
+-- Date        : Mon Jun  4 11:50:17 2018
 -- Host        : alex-HP-Compaq-Elite-8300-CMT running 64-bit Ubuntu 16.04.4 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_mem_hw_0_1_1/design_1_mem_hw_0_1_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top design_1_mem_hw_0_1 -prefix
+--               design_1_mem_hw_0_1_ design_1_mem_hw_0_1_sim_netlist.vhdl
 -- Design      : design_1_mem_hw_0_1
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -173,8 +173,6 @@ entity design_1_mem_hw_0_1_mem_hw_CONTROL_BUS_s_axi_ram is
     int_test_init_arr_V_write_reg : in STD_LOGIC;
     s_axi_CONTROL_BUS_WSTRB : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_mem_hw_0_1_mem_hw_CONTROL_BUS_s_axi_ram : entity is "mem_hw_CONTROL_BUS_s_axi_ram";
 end design_1_mem_hw_0_1_mem_hw_CONTROL_BUS_s_axi_ram;
 
 architecture STRUCTURE of design_1_mem_hw_0_1_mem_hw_CONTROL_BUS_s_axi_ram is
@@ -1793,8 +1791,6 @@ entity design_1_mem_hw_0_1_mem_read is
     ap_rst_n_inv : in STD_LOGIC;
     ap_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_mem_hw_0_1_mem_read : entity is "mem_read";
 end design_1_mem_hw_0_1_mem_read;
 
 architecture STRUCTURE of design_1_mem_hw_0_1_mem_read is
@@ -2074,8 +2070,6 @@ entity design_1_mem_hw_0_1_mem_write is
     \tmp_2_reg_137_reg[31]\ : in STD_LOGIC_VECTOR ( 31 downto 0 );
     test_init_arr_V_q0 : in STD_LOGIC_VECTOR ( 32 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_mem_hw_0_1_mem_write : entity is "mem_write";
 end design_1_mem_hw_0_1_mem_write;
 
 architecture STRUCTURE of design_1_mem_hw_0_1_mem_write is
@@ -7133,8 +7127,6 @@ entity design_1_mem_hw_0_1_Block_proc is
     \int_mask_reg[31]\ : in STD_LOGIC_VECTOR ( 31 downto 0 );
     test_init_arr_V_q0 : in STD_LOGIC_VECTOR ( 32 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_mem_hw_0_1_Block_proc : entity is "Block_proc";
 end design_1_mem_hw_0_1_Block_proc;
 
 architecture STRUCTURE of design_1_mem_hw_0_1_Block_proc is
@@ -10046,8 +10038,6 @@ entity design_1_mem_hw_0_1_mem_hw_CONTROL_BUS_s_axi is
     \out_stream_V_dest_V_1_state_reg[1]\ : in STD_LOGIC;
     ap_reg_grp_mem_write_fu_76_ap_start : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_mem_hw_0_1_mem_hw_CONTROL_BUS_s_axi : entity is "mem_hw_CONTROL_BUS_s_axi";
 end design_1_mem_hw_0_1_mem_hw_CONTROL_BUS_s_axi;
 
 architecture STRUCTURE of design_1_mem_hw_0_1_mem_hw_CONTROL_BUS_s_axi is
@@ -14041,8 +14031,6 @@ entity design_1_mem_hw_0_1_mem_hw is
   attribute C_S_AXI_DATA_WIDTH of design_1_mem_hw_0_1_mem_hw : entity is 32;
   attribute C_S_AXI_WSTRB_WIDTH : integer;
   attribute C_S_AXI_WSTRB_WIDTH of design_1_mem_hw_0_1_mem_hw : entity is 4;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_mem_hw_0_1_mem_hw : entity is "mem_hw";
   attribute hls_module : string;
   attribute hls_module of design_1_mem_hw_0_1_mem_hw : entity is "yes";
 end design_1_mem_hw_0_1_mem_hw;

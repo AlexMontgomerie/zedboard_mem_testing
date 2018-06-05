@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="" key="design_1_wrapper_hw_platform_1-bmmFile"/>
+	<item value="Auto Detect" key="design_1_wrapper_hw_platform_1-device"/>
+	<item value="Local" key="design_1_wrapper_hw_platform_1-target"/>
+	<item value="design_1_wrapper_hw_platform_1" key="programfpga.hwplatform"/>
+	<item value="/home/juju/mem_test_rw_seperate/bitstreams/f_PL_200_f_DDR_200.bit" key="design_1_wrapper_hw_platform_1-bitFile"/>
+	<item value="false" key="design_1_wrapper_hw_platform_1-partial_bit"/>
+</section>

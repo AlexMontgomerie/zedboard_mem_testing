@@ -1,7 +1,7 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Fri May 25 15:25:39 2018
+-- Date        : Tue Jun  5 16:09:10 2018
 -- Host        : alex-HP-Compaq-Elite-8300-CMT running 64-bit Ubuntu 16.04.4 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_xlconcat_0_1/design_1_xlconcat_0_1_sim_netlist.vhdl
@@ -28,7 +28,8 @@ entity design_1_xlconcat_0_1 is
     In9 : in STD_LOGIC_VECTOR ( 0 to 0 );
     In10 : in STD_LOGIC_VECTOR ( 0 to 0 );
     In11 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    dout : out STD_LOGIC_VECTOR ( 11 downto 0 )
+    In12 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    dout : out STD_LOGIC_VECTOR ( 12 downto 0 )
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of design_1_xlconcat_0_1 : entity is true;
@@ -45,6 +46,7 @@ architecture STRUCTURE of design_1_xlconcat_0_1 is
   signal \^in1\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \^in10\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \^in11\ : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal \^in12\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \^in2\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \^in3\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \^in4\ : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -58,6 +60,7 @@ begin
   \^in1\(0) <= In1(0);
   \^in10\(0) <= In10(0);
   \^in11\(0) <= In11(0);
+  \^in12\(0) <= In12(0);
   \^in2\(0) <= In2(0);
   \^in3\(0) <= In3(0);
   \^in4\(0) <= In4(0);
@@ -66,6 +69,7 @@ begin
   \^in7\(0) <= In7(0);
   \^in8\(0) <= In8(0);
   \^in9\(0) <= In9(0);
+  dout(12) <= \^in12\(0);
   dout(11) <= \^in11\(0);
   dout(10) <= \^in10\(0);
   dout(9) <= \^in9\(0);

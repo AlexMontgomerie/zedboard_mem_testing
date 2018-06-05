@@ -1,0 +1,59 @@
+16:32:20 **** Auto Build of configuration Debug for project power ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/timer.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/timer.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../power_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/timer.d" -MT"src/timer.o" -o "src/timer.o" "../src/timer.c"
+../src/timer.c:11:1: error: unknown type name 'XTmrCtr'
+ XTmrCtr timer;
+ ^~~~~~~
+../src/timer.c: In function 'setup_timer':
+../src/timer.c:14:15: warning: implicit declaration of function 'XTmrCtr_Initialize' [-Wimplicit-function-declaration]
+  int status = XTmrCtr_Initialize(&timer, XPAR_AXI_TIMER_DEVICE_ID);
+               ^~~~~~~~~~~~~~~~~~
+../src/timer.c:14:42: error: 'XPAR_AXI_TIMER_DEVICE_ID' undeclared (first use in this function)
+  int status = XTmrCtr_Initialize(&timer, XPAR_AXI_TIMER_DEVICE_ID);
+                                          ^~~~~~~~~~~~~~~~~~~~~~~~
+../src/timer.c:14:42: note: each undeclared identifier is reported only once for each function it appears in
+../src/timer.c:15:15: error: 'XST_SUCCESS' undeclared (first use in this function)
+  if(status != XST_SUCCESS)
+               ^~~~~~~~~~~
+../src/timer.c:17:3: warning: implicit declaration of function 'print' [-Wimplicit-function-declaration]
+   print("\rError: timer setup failed\n");
+   ^~~~~
+../src/timer.c:18:10: error: 'XST_FAILURE' undeclared (first use in this function)
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/timer.c:20:2: warning: implicit declaration of function 'XTmrCtr_SetOptions' [-Wimplicit-function-declaration]
+  XTmrCtr_SetOptions(&timer, XPAR_AXI_TIMER_DEVICE_ID, XTC_ENABLE_ALL_OPTION);
+  ^~~~~~~~~~~~~~~~~~
+../src/timer.c:20:55: error: 'XTC_ENABLE_ALL_OPTION' undeclared (first use in this function)
+  XTmrCtr_SetOptions(&timer, XPAR_AXI_TIMER_DEVICE_ID, XTC_ENABLE_ALL_OPTION);
+                                                       ^~~~~~~~~~~~~~~~~~~~~
+../src/timer.c:22:2: warning: implicit declaration of function 'XTmrCtr_Reset' [-Wimplicit-function-declaration]
+  XTmrCtr_Reset(&timer_dev, XPAR_AXI_TIMER_DEVICE_ID);
+  ^~~~~~~~~~~~~
+../src/timer.c:22:17: error: 'timer_dev' undeclared (first use in this function)
+  XTmrCtr_Reset(&timer_dev, XPAR_AXI_TIMER_DEVICE_ID);
+                 ^~~~~~~~~
+../src/timer.c:23:2: error: 'init_time' undeclared (first use in this function)
+  init_time = XTmrCtr_GetValue(&timer_dev, XPAR_AXI_TIMER_DEVICE_ID);
+  ^~~~~~~~~
+../src/timer.c:23:14: warning: implicit declaration of function 'XTmrCtr_GetValue' [-Wimplicit-function-declaration]
+  init_time = XTmrCtr_GetValue(&timer_dev, XPAR_AXI_TIMER_DEVICE_ID);
+              ^~~~~~~~~~~~~~~~
+../src/timer.c:24:2: error: 'curr_time' undeclared (first use in this function)
+  curr_time = XTmrCtr_GetValue(&timer_dev, XPAR_AXI_TIMER_DEVICE_ID);
+  ^~~~~~~~~
+../src/timer.c:25:2: error: 'calibration' undeclared (first use in this function)
+  calibration = curr_time - init_time;
+  ^~~~~~~~~~~
+../src/timer.c:26:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [src/timer.o] Error 1
+src/subdir.mk:36: recipe for target 'src/timer.o' failed
+
+16:32:34 Build Finished (took 14s.584ms)
+

@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Fri May 25 15:28:01 2018
+-- Date        : Fri May 25 15:27:58 2018
 -- Host        : alex-HP-Compaq-Elite-8300-CMT running 64-bit Ubuntu 16.04.4 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/juju/mem_test_rw_seperate/mem_test_rw_seperate.srcs/sources_1/bd/design_1/ip/design_1_axi_dma_0_0/design_1_axi_dma_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top design_1_axi_dma_0_0 -prefix
+--               design_1_axi_dma_0_0_ design_1_axi_dma_0_0_sim_netlist.vhdl
 -- Design      : design_1_axi_dma_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -32,8 +32,6 @@ entity design_1_axi_dma_0_0_axi_datamover_fifo is
     sig_psm_halt : in STD_LOGIC;
     \GEN_CMD_BTT_EQL_23.cmnd_data_reg[63]\ : in STD_LOGIC_VECTOR ( 56 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover_fifo : entity is "axi_datamover_fifo";
 end design_1_axi_dma_0_0_axi_datamover_fifo;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover_fifo is
@@ -2572,8 +2570,6 @@ entity design_1_axi_dma_0_0_axi_datamover_ibttcc is
     D : in STD_LOGIC_VECTOR ( 2 downto 0 );
     \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][7]_0\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover_ibttcc : entity is "axi_datamover_ibttcc";
 end design_1_axi_dma_0_0_axi_datamover_ibttcc;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover_ibttcc is
@@ -8188,8 +8184,6 @@ entity design_1_axi_dma_0_0_axi_datamover_mm2s_dre is
     \gen_wr_a.gen_word_narrow.mem_reg_0_4\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     \gen_wr_a.gen_word_narrow.mem_reg_0_5\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover_mm2s_dre : entity is "axi_datamover_mm2s_dre";
 end design_1_axi_dma_0_0_axi_datamover_mm2s_dre;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover_mm2s_dre is
@@ -14598,8 +14592,6 @@ entity design_1_axi_dma_0_0_axi_datamover_mssai_skid_buf is
     \GEN_MUXFARM_64.sig_shift_case_reg_reg[1]_0\ : in STD_LOGIC;
     \sig_data_reg_out_reg[63]_1\ : in STD_LOGIC_VECTOR ( 63 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover_mssai_skid_buf : entity is "axi_datamover_mssai_skid_buf";
 end design_1_axi_dma_0_0_axi_datamover_mssai_skid_buf;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover_mssai_skid_buf is
@@ -17785,8 +17777,6 @@ entity design_1_axi_dma_0_0_axi_datamover_pcc is
     sig_init_done : in STD_LOGIC;
     sig_wr_fifo_1 : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover_pcc : entity is "axi_datamover_pcc";
 end design_1_axi_dma_0_0_axi_datamover_pcc;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover_pcc is
@@ -23247,8 +23237,6 @@ entity design_1_axi_dma_0_0_axi_datamover_rd_status_cntl is
     sig_cmd_stat_rst_user_reg_n_cdc_from_reg : in STD_LOGIC;
     sig_data2rsc_decerr : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover_rd_status_cntl : entity is "axi_datamover_rd_status_cntl";
 end design_1_axi_dma_0_0_axi_datamover_rd_status_cntl;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover_rd_status_cntl is
@@ -23357,8 +23345,6 @@ entity design_1_axi_dma_0_0_axi_datamover_reset is
     \sig_addr_posted_cntr_reg[0]_0\ : in STD_LOGIC;
     sig_addr_reg_empty : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover_reset : entity is "axi_datamover_reset";
 end design_1_axi_dma_0_0_axi_datamover_reset;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover_reset is
@@ -23664,8 +23650,6 @@ entity design_1_axi_dma_0_0_axi_datamover_s2mm_dre is
     sig_flush_db2_reg_9 : in STD_LOGIC_VECTOR ( 0 to 0 );
     sig_flush_db2_reg_10 : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover_s2mm_dre : entity is "axi_datamover_s2mm_dre";
 end design_1_axi_dma_0_0_axi_datamover_s2mm_dre;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover_s2mm_dre is
@@ -29877,8 +29861,6 @@ entity design_1_axi_dma_0_0_axi_datamover_skid2mm_buf is
     \sig_next_strt_strb_reg_reg[7]_0\ : in STD_LOGIC_VECTOR ( 7 downto 0 );
     \sig_next_strt_strb_reg_reg[7]_1\ : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover_skid2mm_buf : entity is "axi_datamover_skid2mm_buf";
 end design_1_axi_dma_0_0_axi_datamover_skid2mm_buf;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover_skid2mm_buf is
@@ -32275,8 +32257,6 @@ entity design_1_axi_dma_0_0_axi_datamover_skid_buf is
     s_axis_s2mm_tkeep : in STD_LOGIC_VECTOR ( 7 downto 0 );
     s_axis_s2mm_tdata : in STD_LOGIC_VECTOR ( 63 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover_skid_buf : entity is "axi_datamover_skid_buf";
 end design_1_axi_dma_0_0_axi_datamover_skid_buf;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover_skid_buf is
@@ -40353,8 +40333,6 @@ entity design_1_axi_dma_0_0_axi_datamover_slice is
     sig_fifo_mssai : in STD_LOGIC_VECTOR ( 2 downto 0 );
     sig_stream_rst : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover_slice : entity is "axi_datamover_slice";
 end design_1_axi_dma_0_0_axi_datamover_slice;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover_slice is
@@ -41017,8 +40995,6 @@ entity design_1_axi_dma_0_0_axi_datamover_strb_gen2 is
     D : out STD_LOGIC_VECTOR ( 1 downto 0 );
     \out\ : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover_strb_gen2 : entity is "axi_datamover_strb_gen2";
 end design_1_axi_dma_0_0_axi_datamover_strb_gen2;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover_strb_gen2 is
@@ -41116,8 +41092,6 @@ entity design_1_axi_dma_0_0_axi_dma_lite_if is
     s_axi_lite_rready : in STD_LOGIC;
     s_axi_lite_araddr : in STD_LOGIC_VECTOR ( 9 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_dma_lite_if : entity is "axi_dma_lite_if";
 end design_1_axi_dma_0_0_axi_dma_lite_if;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_dma_lite_if is
@@ -43451,8 +43425,6 @@ entity design_1_axi_dma_0_0_axi_dma_mm2s_cmdsts_if is
     dma_slverr_reg_0 : in STD_LOGIC;
     dma_interr_reg_0 : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_dma_mm2s_cmdsts_if : entity is "axi_dma_mm2s_cmdsts_if";
 end design_1_axi_dma_0_0_axi_dma_mm2s_cmdsts_if;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_dma_mm2s_cmdsts_if is
@@ -43612,8 +43584,6 @@ entity design_1_axi_dma_0_0_axi_dma_mm2s_sts_mngr is
     mm2s_stop_i : in STD_LOGIC;
     p_9_out : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_dma_mm2s_sts_mngr : entity is "axi_dma_mm2s_sts_mngr";
 end design_1_axi_dma_0_0_axi_dma_mm2s_sts_mngr;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_dma_mm2s_sts_mngr is
@@ -43738,8 +43708,6 @@ entity design_1_axi_dma_0_0_axi_dma_register is
     axi_dma_tstvec : in STD_LOGIC_VECTOR ( 0 to 0 );
     E : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_dma_register : entity is "axi_dma_register";
 end design_1_axi_dma_0_0_axi_dma_register;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_dma_register is
@@ -45001,8 +44969,6 @@ entity design_1_axi_dma_0_0_axi_dma_register_s2mm is
     \INDETERMINATE_BTT_MODE.s2mm_done_reg\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     D : in STD_LOGIC_VECTOR ( 22 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_dma_register_s2mm : entity is "axi_dma_register_s2mm";
 end design_1_axi_dma_0_0_axi_dma_register_s2mm;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_dma_register_s2mm is
@@ -46203,8 +46169,6 @@ entity design_1_axi_dma_0_0_axi_dma_reset is
     \GNE_SYNC_RESET.scndry_resetn_reg_0\ : in STD_LOGIC;
     sig_rst2all_stop_request : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_dma_reset : entity is "axi_dma_reset";
 end design_1_axi_dma_0_0_axi_dma_reset;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_dma_reset is
@@ -46951,8 +46915,6 @@ entity design_1_axi_dma_0_0_axi_dma_s2mm_cmdsts_if is
     dma_slverr_reg_0 : in STD_LOGIC;
     sts_received_i_reg_1 : in STD_LOGIC_VECTOR ( 22 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_dma_s2mm_cmdsts_if : entity is "axi_dma_s2mm_cmdsts_if";
 end design_1_axi_dma_0_0_axi_dma_s2mm_cmdsts_if;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_dma_s2mm_cmdsts_if is
@@ -47582,8 +47544,6 @@ entity design_1_axi_dma_0_0_axi_dma_s2mm_sts_mngr is
     s2mm_stop_i : in STD_LOGIC;
     p_12_out : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_dma_s2mm_sts_mngr : entity is "axi_dma_s2mm_sts_mngr";
 end design_1_axi_dma_0_0_axi_dma_s2mm_sts_mngr;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_dma_s2mm_sts_mngr is
@@ -47679,8 +47639,6 @@ entity design_1_axi_dma_0_0_axi_dma_smple_sm is
     \dmacr_i_reg[3]\ : in STD_LOGIC;
     \GEN_REG_FOR_SMPL.buffer_length_i_reg[22]\ : in STD_LOGIC_VECTOR ( 22 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_dma_smple_sm : entity is "axi_dma_smple_sm";
 end design_1_axi_dma_0_0_axi_dma_smple_sm;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_dma_smple_sm is
@@ -49034,8 +48992,6 @@ entity design_1_axi_dma_0_0_axi_dma_sofeof_gen is
     m_axis_mm2s_tlast : in STD_LOGIC;
     \out\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_dma_sofeof_gen : entity is "axi_dma_sofeof_gen";
 end design_1_axi_dma_0_0_axi_dma_sofeof_gen;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_dma_sofeof_gen is
@@ -49370,8 +49326,6 @@ entity design_1_axi_dma_0_0_cdc_sync is
     axi_resetn : in STD_LOGIC;
     s_axi_lite_aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_cdc_sync : entity is "cdc_sync";
 end design_1_axi_dma_0_0_cdc_sync;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_cdc_sync is
@@ -49563,8 +49517,6 @@ entity design_1_axi_dma_0_0_cntr_incr_decr_addn_f is
     sig_stream_rst : in STD_LOGIC;
     m_axi_s2mm_aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_cntr_incr_decr_addn_f : entity is "cntr_incr_decr_addn_f";
 end design_1_axi_dma_0_0_cntr_incr_decr_addn_f;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_cntr_incr_decr_addn_f is
@@ -51370,8 +51322,6 @@ entity design_1_axi_dma_0_0_dynshreg_f is
     Q : in STD_LOGIC_VECTOR ( 1 downto 0 );
     m_axi_s2mm_aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_dynshreg_f : entity is "dynshreg_f";
 end design_1_axi_dma_0_0_dynshreg_f;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_dynshreg_f is
@@ -60153,8 +60103,6 @@ entity design_1_axi_dma_0_0_xpm_fifo_reg_bit is
     \gen_rst_cc.fifo_wr_rst_i_reg\ : in STD_LOGIC;
     wr_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_xpm_fifo_reg_bit : entity is "xpm_fifo_reg_bit";
 end design_1_axi_dma_0_0_xpm_fifo_reg_bit;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_xpm_fifo_reg_bit is
@@ -60263,8 +60211,6 @@ entity design_1_axi_dma_0_0_xpm_fifo_rst is
     rst_d1 : in STD_LOGIC;
     rd_en : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_xpm_fifo_rst : entity is "xpm_fifo_rst";
 end design_1_axi_dma_0_0_xpm_fifo_rst;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_xpm_fifo_rst is
@@ -60946,8 +60892,6 @@ entity design_1_axi_dma_0_0_xpm_memory_base is
   attribute MESSAGE_CONTROL of design_1_axi_dma_0_0_xpm_memory_base : entity is 0;
   attribute NUM_CHAR_LOC : integer;
   attribute NUM_CHAR_LOC of design_1_axi_dma_0_0_xpm_memory_base : entity is 0;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_xpm_memory_base : entity is "xpm_memory_base";
   attribute P_ECC_MODE : string;
   attribute P_ECC_MODE of design_1_axi_dma_0_0_xpm_memory_base : entity is "no_ecc";
   attribute P_ENABLE_BYTE_WRITE_A : integer;
@@ -62683,8 +62627,6 @@ entity design_1_axi_dma_0_0_axi_datamover_cmd_status is
     D : in STD_LOGIC_VECTOR ( 56 downto 0 );
     sig_rsc2stat_status : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover_cmd_status : entity is "axi_datamover_cmd_status";
 end design_1_axi_dma_0_0_axi_datamover_cmd_status;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover_cmd_status is
@@ -62858,8 +62800,6 @@ entity design_1_axi_dma_0_0_axi_dma_mm2s_mngr is
     \dmacr_i_reg[3]\ : in STD_LOGIC;
     \GEN_REG_FOR_SMPL.buffer_length_i_reg[22]\ : in STD_LOGIC_VECTOR ( 22 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_dma_mm2s_mngr : entity is "axi_dma_mm2s_mngr";
 end design_1_axi_dma_0_0_axi_dma_mm2s_mngr;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_dma_mm2s_mngr is
@@ -63023,8 +62963,6 @@ entity design_1_axi_dma_0_0_axi_dma_reg_module is
     E : in STD_LOGIC_VECTOR ( 0 to 0 );
     D : in STD_LOGIC_VECTOR ( 22 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_dma_reg_module : entity is "axi_dma_reg_module";
 end design_1_axi_dma_0_0_axi_dma_reg_module;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_dma_reg_module is
@@ -63408,8 +63346,6 @@ entity design_1_axi_dma_0_0_axi_dma_rst_module is
     sig_rst2all_stop_request_0 : in STD_LOGIC;
     axi_resetn : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_dma_rst_module : entity is "axi_dma_rst_module";
 end design_1_axi_dma_0_0_axi_dma_rst_module;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_dma_rst_module is
@@ -63607,8 +63543,6 @@ entity design_1_axi_dma_0_0_axi_dma_s2mm_mngr is
     \dmacr_i_reg[3]\ : in STD_LOGIC;
     \GEN_REG_FOR_SMPL.buffer_length_i_reg[22]\ : in STD_LOGIC_VECTOR ( 22 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_dma_s2mm_mngr : entity is "axi_dma_s2mm_mngr";
 end design_1_axi_dma_0_0_axi_dma_s2mm_mngr;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_dma_s2mm_mngr is
@@ -63718,8 +63652,6 @@ entity design_1_axi_dma_0_0_srl_fifo_rbu_f is
     sig_inhibit_rdy_n_reg : in STD_LOGIC;
     \in\ : in STD_LOGIC_VECTOR ( 38 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_srl_fifo_rbu_f : entity is "srl_fifo_rbu_f";
 end design_1_axi_dma_0_0_srl_fifo_rbu_f;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_srl_fifo_rbu_f is
@@ -64750,8 +64682,6 @@ entity design_1_axi_dma_0_0_xpm_fifo_base is
   attribute FULL_RESET_VALUE of design_1_axi_dma_0_0_xpm_fifo_base : entity is 0;
   attribute FULL_RST_VAL : string;
   attribute FULL_RST_VAL of design_1_axi_dma_0_0_xpm_fifo_base : entity is "1'b0";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_xpm_fifo_base : entity is "xpm_fifo_base";
   attribute PE_THRESH_ADJ : integer;
   attribute PE_THRESH_ADJ of design_1_axi_dma_0_0_xpm_fifo_base : entity is 8;
   attribute PE_THRESH_MAX : integer;
@@ -68024,8 +67954,6 @@ entity design_1_axi_dma_0_0_srl_fifo_f is
     sig_inhibit_rdy_n_reg : in STD_LOGIC;
     \in\ : in STD_LOGIC_VECTOR ( 38 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_srl_fifo_f : entity is "srl_fifo_f";
 end design_1_axi_dma_0_0_srl_fifo_f;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_srl_fifo_f is
@@ -68627,8 +68555,6 @@ entity design_1_axi_dma_0_0_xpm_fifo_sync is
     Q : in STD_LOGIC_VECTOR ( 3 downto 0 );
     \sig_token_cntr_reg[0]\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_xpm_fifo_sync : entity is "xpm_fifo_sync";
 end design_1_axi_dma_0_0_xpm_fifo_sync;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_xpm_fifo_sync is
@@ -71244,8 +71170,6 @@ entity design_1_axi_dma_0_0_sync_fifo_fg is
     Q : in STD_LOGIC_VECTOR ( 3 downto 0 );
     \sig_token_cntr_reg[0]\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_sync_fifo_fg : entity is "sync_fifo_fg";
 end design_1_axi_dma_0_0_sync_fifo_fg;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_sync_fifo_fg is
@@ -71454,8 +71378,6 @@ entity design_1_axi_dma_0_0_axi_datamover_addr_cntl is
     sig_halt_reg_dly3 : in STD_LOGIC;
     \in\ : in STD_LOGIC_VECTOR ( 37 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover_addr_cntl : entity is "axi_datamover_addr_cntl";
 end design_1_axi_dma_0_0_axi_datamover_addr_cntl;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover_addr_cntl is
@@ -72659,8 +72581,6 @@ entity design_1_axi_dma_0_0_axi_datamover_rddata_cntl is
     \in\ : in STD_LOGIC_VECTOR ( 23 downto 0 );
     sig_posted_to_axi_reg : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover_rddata_cntl : entity is "axi_datamover_rddata_cntl";
 end design_1_axi_dma_0_0_axi_datamover_rddata_cntl;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover_rddata_cntl is
@@ -73732,8 +73652,6 @@ entity design_1_axi_dma_0_0_axi_datamover_s2mm_scatter is
     \sig_next_strt_offset_reg[0]_0\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     \sig_data_reg_out_reg[63]_0\ : in STD_LOGIC_VECTOR ( 63 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover_s2mm_scatter : entity is "axi_datamover_s2mm_scatter";
 end design_1_axi_dma_0_0_axi_datamover_s2mm_scatter;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover_s2mm_scatter is
@@ -75895,8 +75813,6 @@ entity design_1_axi_dma_0_0_axi_datamover_sfifo_autord is
     Q : in STD_LOGIC_VECTOR ( 3 downto 0 );
     \sig_token_cntr_reg[0]\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover_sfifo_autord : entity is "axi_datamover_sfifo_autord";
 end design_1_axi_dma_0_0_axi_datamover_sfifo_autord;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover_sfifo_autord is
@@ -76115,8 +76031,6 @@ entity design_1_axi_dma_0_0_axi_datamover_wr_status_cntl is
     m_axi_s2mm_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
     \in\ : in STD_LOGIC_VECTOR ( 25 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover_wr_status_cntl : entity is "axi_datamover_wr_status_cntl";
 end design_1_axi_dma_0_0_axi_datamover_wr_status_cntl;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover_wr_status_cntl is
@@ -76790,8 +76704,6 @@ entity design_1_axi_dma_0_0_axi_datamover_wrdata_cntl is
     SR : in STD_LOGIC_VECTOR ( 0 to 0 );
     D : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover_wrdata_cntl : entity is "axi_datamover_wrdata_cntl";
 end design_1_axi_dma_0_0_axi_datamover_wrdata_cntl;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover_wrdata_cntl is
@@ -78393,8 +78305,6 @@ entity design_1_axi_dma_0_0_axi_datamover_indet_btt is
     \GEN_OUTPUT_REG[2].sig_output_data_reg_reg[2][8]\ : in STD_LOGIC;
     \GEN_OUTPUT_REG[3].sig_output_data_reg_reg[3][8]_0\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover_indet_btt : entity is "axi_datamover_indet_btt";
 end design_1_axi_dma_0_0_axi_datamover_indet_btt;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover_indet_btt is
@@ -78815,8 +78725,6 @@ entity design_1_axi_dma_0_0_axi_datamover_rd_sf is
     sig_dre_tvalid_i_reg : in STD_LOGIC;
     \in\ : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover_rd_sf : entity is "axi_datamover_rd_sf";
 end design_1_axi_dma_0_0_axi_datamover_rd_sf;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover_rd_sf is
@@ -79170,8 +79078,6 @@ entity design_1_axi_dma_0_0_axi_datamover_s2mm_realign is
     \in\ : in STD_LOGIC_VECTOR ( 28 downto 0 );
     \sig_data_reg_out_reg[63]_0\ : in STD_LOGIC_VECTOR ( 63 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover_s2mm_realign : entity is "axi_datamover_s2mm_realign";
 end design_1_axi_dma_0_0_axi_datamover_s2mm_realign;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover_s2mm_realign is
@@ -79683,8 +79589,6 @@ entity design_1_axi_dma_0_0_axi_datamover_mm2s_full_wrap is
     m_axi_mm2s_rvalid : in STD_LOGIC;
     m_axi_mm2s_rresp : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover_mm2s_full_wrap : entity is "axi_datamover_mm2s_full_wrap";
 end design_1_axi_dma_0_0_axi_datamover_mm2s_full_wrap;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover_mm2s_full_wrap is
@@ -80262,8 +80166,6 @@ entity design_1_axi_dma_0_0_axi_datamover_s2mm_full_wrap is
     s_axis_s2mm_tlast : in STD_LOGIC;
     s_axis_s2mm_tkeep : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover_s2mm_full_wrap : entity is "axi_datamover_s2mm_full_wrap";
 end design_1_axi_dma_0_0_axi_datamover_s2mm_full_wrap;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover_s2mm_full_wrap is
@@ -80974,8 +80876,6 @@ entity design_1_axi_dma_0_0_axi_datamover is
     s_axis_s2mm_tlast : in STD_LOGIC;
     s_axis_s2mm_tkeep : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_datamover : entity is "axi_datamover";
 end design_1_axi_dma_0_0_axi_datamover;
 
 architecture STRUCTURE of design_1_axi_dma_0_0_axi_datamover is
@@ -82000,8 +81900,6 @@ entity design_1_axi_dma_0_0_axi_dma is
   attribute C_S_AXI_LITE_ADDR_WIDTH of design_1_axi_dma_0_0_axi_dma : entity is 10;
   attribute C_S_AXI_LITE_DATA_WIDTH : integer;
   attribute C_S_AXI_LITE_DATA_WIDTH of design_1_axi_dma_0_0_axi_dma : entity is 32;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_dma_0_0_axi_dma : entity is "axi_dma";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of design_1_axi_dma_0_0_axi_dma : entity is "yes";
 end design_1_axi_dma_0_0_axi_dma;
